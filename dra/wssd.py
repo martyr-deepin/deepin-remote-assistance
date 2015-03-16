@@ -9,18 +9,15 @@ import multiprocessing
 
 import websockets
 
+from dra.command import handle_cmd_event
 from dra.x11mouse import handle_mouse_event
-
+from dra.x11keyboard import handle_keyboard_event
 
 # Minimum port to be bound
 PORT_MIN = 10000
 
 # Maximum port to be bound
 PORT_MAX = 10050
-
-# Do nothing
-def noop(*args, **kwrg):
-    return []
 
 def default_handler(ws, msg):
     print('TODO:', msg)
@@ -38,9 +35,9 @@ class WSSD(multiprocessing.Process):
     handlers = {
         '/': default_handler,
         '/mouse': handle_mouse_event,
-        '/keyboard': default_handler,
+        '/keyboard': handle_keyboard_event,
         '/clipboard': default_handler,
-        '/cmd':  default_handler,
+        '/cmd':  handle_cmd_event,
         '/handshake': handshake,
     }
 
