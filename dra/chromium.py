@@ -3,11 +3,6 @@ import subprocess
 
 from dra import util
 
-def launch_app_in_background(args):
-    popen = subprocess.Popen(args)
-    # TODO: handle GUI/XWindow
-    return popen
-
 class Chromium:
 
     def __init__(self, app_path='/usr/bin/chromium-browser',
@@ -20,7 +15,7 @@ class Chromium:
 
     def start(self):
         self.stop()
-        self.popen = launch_app_in_background([self.app_path,
+        self.popen = util.launch_app_in_background([self.app_path,
                 '--app=%s' % self.app,
                 '--enable-usermedia-screen-capturing',
                 '--allow-http-screen-capture',
