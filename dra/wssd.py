@@ -5,77 +5,79 @@ Host websocket service, running in client and server side
 
 import asyncio
 import json
+import multiprocessing
 
 import websockets
 
-PORT_MIN = 30000
-PORT_MAX = 30050
+from dra.x11mouse import handle_mouse_event
 
-class EventTypes(object):
-    KEYBOARD = 0
-    MOUSE = 1
-    CLIPBOARD = 2
-    CMD = 3
-    HANDSHAKE = 4
+
+# Minimum port to be bound
+PORT_MIN = 10000
+
+# Maximum port to be bound
+PORT_MAX = 10050
 
 # Do nothing
-noop = lambda *args, **kwgs: pass
+def noop(*args, **kwrg):
+    return []
 
-def handshake(message):
+def default_handler(ws, msg):
+    print('TODO:', msg)
+    return ws.send(msg)
+
+def handshake(ws, msg):
     '''Send message back to wss client'''
-    pass
+    return ws.send(msg)
 
 # TODO: WSSD heritated from QObject
-class WSSD:
+# TODO: WSSD -> threading.Thread
+# TODO: move this class to a new process
+class WSSD(multiprocessing.Process):
 
     handlers = {
-        noop,
-        noop,
-        noop,
-        noop,
-        handshake,
-    )
+        '/': default_handler,
+        '/mouse': handle_mouse_event,
+        '/keyboard': default_handler,
+        '/clipboard': default_handler,
+        '/cmd':  default_handler,
+        '/handshake': handshake,
+    }
 
-    def __init__(self):
-        pass
+    def __init__(self, host='localhost'):
+        super().__init__()
+        self.host = host
+        self.port = 0
 
-    def start(self):
+    def __str__(self):
+        return 'WSSD<%s:%s>' % (self.host, self.port)
+
+    def __repr__(self):
+        return self.__str__()
+    
+    def run(self):
+        self._start_server()
+
+    def _start_server(self):
         for port in range(PORT_MIN, PORT_MAX):
             try:
-                start_server = websockets.serve(self.handler,
-                        'localhost', port)
-            except 
+                server = websockets.serve(self._handler, self.host, port)
+                asyncio.get_event_loop().run_until_complete(server)
+                self.port = port
+                print('selected port:', port, self.port)
+                break
+            except OSError as e:
+                print(e)
 
-        asyncio.get_event_loop().run_until_complete(start_server)
-        #asyncio.get_event_loop().run_forever()
-        # self.exec()
-
-    def stop(self):
-        pass
-
-    def handle_event(self, event):
-        '''Event handler router'''
-
-        try:
-            self.handlers[event['eventType']](event)
-        except IndexError as e:
-            print(e)
-
-    def consumer(self, message):
-        #print('consumer():', message)
-        try:
-            event = json.loads(message)
-            handle_event(event)
-        except ValueError as e:
-            print('No appropriate event handler:', e)
-
-        return []
+        print(self)
+        asyncio.get_event_loop().run_forever()
 
     @asyncio.coroutine
-    def handler(self, websocket, path):
-    # TODO: use `path` argument
+    def _handler(self, ws, path):
         while True:
-            message = yield from websocket.recv()
-            if message is None:
+            msg = yield from ws.recv()
+            if msg is None:
                 break
-            yield from consumer(message)
+            # TODO: catch KeyError exception
+            handler = self.handlers[path]
+            yield from handler(ws, msg)
