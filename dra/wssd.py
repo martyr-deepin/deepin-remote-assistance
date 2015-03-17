@@ -11,9 +11,10 @@ import threading
 from PyQt5.QtCore import QObject
 from PyQt5.QtCore import QThread
 from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtWidgets import qApp
 import websockets
 
-from dra.command import handle_cmd_event
+#from dra.command import handle_cmd_event
 from dra.handshake import handle_handshake_event
 from dra.x11mouse import handle_mouse_event
 from dra.x11keyboard import handle_keyboard_event
@@ -48,10 +49,13 @@ class WSSDWorker(QObject):
 
     def start_server(self):
         self.event_loop = asyncio.new_event_loop()
+        asyncio.events.set_event_loop(self.event_loop)
         for port in range(PORT_MIN, PORT_MAX):
             try:
                 server = websockets.serve(self._handler, self.host, port)
+                print('server:', server)
                 self.event_loop.run_until_complete(server)
+                print('loop:', self.event_loop)
                 self.port = port
                 print('selected port:', port, self.port)
                 break
@@ -66,17 +70,20 @@ class WSSDWorker(QObject):
             msg = yield from ws.recv()
             if msg is None:
                 break
-            # TODO: catch KeyError exception
-            handler = self.handlers[path]
+            handler = self.handlers.get(path, None)
+            if not handler:
+                print('TODO: handle this event')
+                continue
             yield from handler(ws, msg)
 
     def stop_server(self):
-        # FIXME:
-        #del self
-        pass
+        print('worker stop')
+        self.event_loop.close()
 
     def handle_cmd_event(self, ws, msg):
+        '''Handle browser command event in UI thread'''
         self.browserCmd.emit(msg)
+        return []
 
     def __str__(self):
         return 'WSSDWorker<%s:%s>' % (self.host, self.port)
@@ -84,89 +91,41 @@ class WSSDWorker(QObject):
     def __repr__(self):
         return self.__str__()
 
-class WSSDWorkerThread(QThread):
-    
-    def __init__(self):
-        super().__init__()
-
-    def run(self):
-        asyncio.get_event_loop().run_forever()
-
 
 class WSSDController(QObject):
     '''Controller of WSS Daemon'''
 
     started = pyqtSignal()
-    stopped = pyqtSignal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.worker = WSSDWorker(self)
-        #self.workerThread = QThread()
-        self.workerThread = WSSDWorkerThread()
+        self.workerThread = QThread()
+        self.worker = WSSDWorker()
         # The object cannot be moved if it has a parent.
         # See http://doc.qt.io/qt-5/qobject.html#moveToThread
-        #self.worker.moveToThread(self.workerThread)
+        self.worker.moveToThread(self.workerThread)
         self.started.connect(self.worker.start_server)
-        self.stopped.connect(self.worker.stop_server)
 
-        #self.workerThread.start()
+        # Start background thread
+        self.workerThread.start()
+
+        # To mark worker running status
+        self.worker_started = False
+
+        # Stop worker thread when app is killed
+        qApp.aboutToQuit.connect(self.stop)
         
     def start(self):
+        if self.worker_started:
+            return
+        self.worker_started = True
         self.started.emit()
 
     def stop(self):
-        self.stopped.emit()
-
-# TODO: WSSD heritated from QObject
-# TODO: WSSD -> threading.Thread
-# TODO: move this class to a new process
-class WSSD():
-
-    handlers = {
-        '/': default_handler,
-        '/mouse': handle_mouse_event,
-        '/keyboard': handle_keyboard_event,
-        '/clipboard': default_handler,
-        '/cmd':  handle_cmd_event,
-        '/handshake': handle_handshake_event,
-    }
-
-    def __init__(self, host='localhost'):
-        super().__init__()
-        self.host = host
-        self.port = 0
-
-    def __str__(self):
-        return 'WSSD<%s:%s>' % (self.host, self.port)
-
-    def __repr__(self):
-        return self.__str__()
-    
-    def run(self):
-        self._start_server()
-
-    def _start_server(self):
-        for port in range(PORT_MIN, PORT_MAX):
-            try:
-                server = websockets.serve(self._handler, self.host, port)
-                asyncio.get_event_loop().run_until_complete(server)
-                self.port = port
-                print('selected port:', port, self.port)
-                break
-            except OSError as e:
-                print(e)
-
-        print(self)
-        asyncio.get_event_loop().run_forever()
-
-    @asyncio.coroutine
-    def _handler(self, ws, path):
-        while True:
-            msg = yield from ws.recv()
-            if msg is None:
-                break
-            # TODO: catch KeyError exception
-            handler = self.handlers[path]
-            yield from handler(ws, msg)
+        print('controller stop')
+        if self.worker_started:
+            self.worker.stop_server()
+        # FIXME: segmantation fault
+        if not self.workerThread.isFinished():
+            self.workerThread.exit()

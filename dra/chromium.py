@@ -7,7 +7,7 @@ class Chromium:
 
     def __init__(self, app_path='/usr/bin/chromium-browser',
                  app='http://shangwoa.org:9000/screen#server',
-                 user_data_dir='/tmp/deepin_remote_assitance'):
+                 user_data_dir='/tmp/deepin_remote_assitance/chromium'):
         self.app_path = app_path
         self.app = app
         self.user_data_dir = user_data_dir
