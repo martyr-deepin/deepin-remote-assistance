@@ -1,17 +1,25 @@
 
 import subprocess
 
+from PyQt5.QtCore import QObject
+from PyQt5.QtWidgets import qApp
+
 from dra import util
 
-class Chromium:
+class Chromium(QObject):
 
-    def __init__(self, app_path='/usr/bin/chromium-browser',
-                 app='http://shangwoa.org:9000/screen#server',
+    def __init__(self, parent=None, app_path='/usr/bin/chromium-browser',
+                 app='http://peer.org:9000/screen#server',
                  user_data_dir='/tmp/deepin_remote_assitance/chromium'):
+        super().__init__(parent)
+
         self.app_path = app_path
         self.app = app
         self.user_data_dir = user_data_dir
         self.popen = None
+
+        # Kill chromium when UI window is closed
+        qApp.aboutToQuit.connect(self.stop)
 
     def start(self):
         self.stop()
