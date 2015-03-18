@@ -47,7 +47,7 @@ class Server(QObject):
     def stop_wssd(self):
         '''Stop websocket service'''
         if self.wssd:
-            self.wssd.terminate()
+            self.wssd.stop()
 
     def start_chromium(self):
         '''Launch chromium in background'''

@@ -62,7 +62,11 @@ class WSSDWorker(QObject):
             except OSError as e:
                 print(e)
 
-        self.event_loop.run_forever()
+        # FIXME: AttributeError
+        try:
+            self.event_loop.run_forever()
+        except AttributeError as e:
+            print(e)
 
     @asyncio.coroutine
     def _handler(self, ws, path):
