@@ -2,12 +2,13 @@
 
 import sys
 sys.path.append('..')
-import time
 
+from PyQt5 import QtCore
 from dra.chromium import Chromium
+
+app = QtCore.QCoreApplication(sys.argv)
 
 cr = Chromium()
 cr.start()
 
-time.sleep(10)
-cr.stop()
+app.exec()

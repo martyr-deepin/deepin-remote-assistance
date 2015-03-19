@@ -1,4 +1,5 @@
 
+import os
 import subprocess
 
 from PyQt5.QtCore import QObject
@@ -8,14 +9,15 @@ from dra import util
 
 class Chromium(QObject):
 
-    def __init__(self, parent=None, app_path='/usr/bin/chromium-browser',
-                 app='http://peer.org:9000/screen#server',
-                 user_data_dir='/tmp/deepin_remote_assitance/chromium'):
+    def __init__(self, parent=None,
+            app_path='/usr/lib/dra/chromium/chrome',
+            app='http://peer.org:9000/screen#server',
+            user_data_dir='~/.config/dra/chromium'):
         super().__init__(parent)
 
         self.app_path = app_path
         self.app = app
-        self.user_data_dir = user_data_dir
+        self.user_data_dir = os.path.expanduser(user_data_dir)
         self.popen = None
 
         # Kill chromium when UI window is closed
