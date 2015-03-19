@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import QHBoxLayout
 from PyQt5.QtWidgets import QLineEdit
 from PyQt5.QtWidgets import QPushButton
 
-from dra import wssd
+from dra_server import wssd
 
 def print_cmd(msg):
     print('print cmd:', msg)

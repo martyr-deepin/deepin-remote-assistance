@@ -1,8 +1,9 @@
 
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtCore import QObject
-from dra.chromium import Chromium
-from dra.wssd import WSSDController
+
+from .chromium import Chromium
+from .wssd import WSSDController
 
 '''
 Controller for service side.

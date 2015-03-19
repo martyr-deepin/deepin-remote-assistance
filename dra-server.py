@@ -12,7 +12,7 @@ from PyQt5.QtWidgets import QHBoxLayout
 from PyQt5.QtWidgets import QLineEdit
 from PyQt5.QtWidgets import QPushButton
 
-from dra.server import Server
+from dra_server.server import Server
 
 class Form(QDialog):
 

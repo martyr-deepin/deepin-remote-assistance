@@ -5,7 +5,7 @@ import subprocess
 from PyQt5.QtCore import QObject
 from PyQt5.QtWidgets import qApp
 
-from dra import util
+from . import utils
 
 class Chromium(QObject):
 
@@ -25,7 +25,7 @@ class Chromium(QObject):
 
     def start(self):
         self.stop()
-        self.popen = util.launch_app_in_background([self.app_path,
+        self.popen = utils.launch_app_in_background([self.app_path,
                 '--app=%s' % self.app,
                 '--enable-usermedia-screen-capturing',
                 '--allow-http-screen-capture',

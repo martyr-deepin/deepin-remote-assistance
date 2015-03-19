@@ -14,10 +14,10 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import qApp
 import websockets
 
-#from dra.command import handle_cmd_event
-from dra.handshake import handle_handshake_event
-from dra.x11mouse import handle_mouse_event
-from dra.x11keyboard import handle_keyboard_event
+#from .command import handle_cmd_event
+from .handshake import handle_handshake_event
+from .x11mouse import handle_mouse_event
+from .x11keyboard import handle_keyboard_event
 
 # Minimum port to be bound
 PORT_MIN = 10000
