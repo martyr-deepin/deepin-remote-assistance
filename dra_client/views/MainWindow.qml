@@ -1,44 +1,67 @@
 
-import QtQuick 2.2
-import QtQuick.Controls 1.2
-import QtQuick.Window 2.2
-import QtQuick.Dialogs 1.2
+import QtQuick 2.0
+import QtQuick.Window 2.0
+import QtQuick.Controls 1.1
+import com.canonical.Oxide 1.0
 
-ApplicationWindow {
-    title: qsTr("Hello World")
+Window{
+    id: root
     width: 640
     height: 480
-    visible: true
 
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("&File")
-            MenuItem {
-                text: qsTr("&Open")
-                onTriggered: messageDialog.show(qsTr("Open action triggered"));
+    // Emit this signal when fullscreen button clicked
+    signal fullscreenToggled()
+
+    //property var starturl: Qt.resolvedUrl("http://peer.org:9000/screen#client")
+    property var starturl: Qt.resolvedUrl("http://music.163.com")
+
+    Column {
+        anchors.fill: parent
+        Row {
+            id: navRow
+            width: parent.width
+            height: 24
+
+            Button  {
+                id: reloadButton
+                height: parent.height
+                text: "Reload"
+
+                onClicked: {
+                    webView.reload()
+                }
             }
-            MenuItem {
-                text: qsTr("E&xit")
-                onTriggered: Qt.quit();
+
+            Button {
+                id: fullscreenButton
+                height: parent.height
+                text: 'Fullscreen'
+
+                onClicked: {
+                    root.fullscreenToggled()
+                }
             }
         }
-    }
 
-//    MainForm {
-//        anchors.fill: parent
-//        button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
-//        button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
-//        button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
-//    }
+        WebView {
+            id: webView
+            width: parent.width
+            height: parent.height - navRow.height
+            url: starturl
+            focus: true
 
-    MessageDialog {
-        id: messageDialog
-        title: qsTr("May I have your attention, please?")
-
-        function show(caption) {
-            messageDialog.text = caption;
-            messageDialog.open();
+            // Enable remote debug
+            property bool developerExtrasEnabled: true
         }
+
+        /*
+        Label {
+            id: statusLabel
+            text: webView.loading ?
+                    "Loading" + " (%1%)".arg(webView.loadProgress) :
+                    "Page loaded"
+            width: parent.width
+        }
+        */
     }
 }
-
