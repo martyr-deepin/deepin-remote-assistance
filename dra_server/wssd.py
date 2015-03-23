@@ -5,7 +5,6 @@ Host websocket service, running in client and server side
 
 import asyncio
 import json
-import multiprocessing
 import threading
 
 from PyQt5.QtCore import QObject
