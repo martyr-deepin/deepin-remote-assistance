@@ -4,7 +4,7 @@ import QtQuick.Window 2.0
 import QtQuick.Controls 1.1
 import com.canonical.Oxide 1.0
 
-Window{
+Window {
     id: root
     width: 640
     height: 480
@@ -12,8 +12,7 @@ Window{
     // Emit this signal when fullscreen button clicked
     signal fullscreenToggled()
 
-    //property var starturl: Qt.resolvedUrl("http://peer.org:9000/screen#client")
-    property var starturl: Qt.resolvedUrl("http://music.163.com")
+    property var starturl: Qt.resolvedUrl("http://peer.org:9000/screen#client")
 
     Column {
         anchors.fill: parent

@@ -20,7 +20,6 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
 
         # To mark fullscreen state
         self.window.fullscreen = False
-        print(dir(self.window))
 
     def toggleFullscreen(self):
         if self.window.fullscreen:

@@ -2,15 +2,19 @@
 
 import sys
 
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtCore import QUrl
+from PyQt5.QtGui import QGuiApplication
+from PyQt5.QtQml import QQmlApplicationEngine
 
-from dra_client.mainwindow import MainWindow
+from dra_client.mainwindowengine import MainWindowEngine
 
 
 def main():
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    window.show()
+    app = QGuiApplication(sys.argv)
+
+    engine = MainWindowEngine()
+    engine.show()
+
     app.exec()
 
 if __name__ == '__main__':
