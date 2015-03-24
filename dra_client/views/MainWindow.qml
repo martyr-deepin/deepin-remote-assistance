@@ -1,6 +1,6 @@
 
-import QtQuick 2.0
-import QtQuick.Window 2.0
+import QtQuick 2.2
+import QtQuick.Window 2.2
 import QtQuick.Controls 1.1
 import com.canonical.Oxide 1.0
 
@@ -63,4 +63,9 @@ Window {
         }
         */
     }
+
+// This signal is handled in Python
+//    onActiveChanged: {
+//        console.log(active);
+//    }
 }

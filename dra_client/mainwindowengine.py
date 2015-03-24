@@ -5,6 +5,7 @@ from PyQt5 import QtQml
 from PyQt5 import QtQuick
 
 from . import views
+from .service.client import Client
 
 
 class MainWindowEngine(QtQml.QQmlApplicationEngine):
@@ -21,6 +22,9 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
         # To mark fullscreen state
         self.window.fullscreen = False
 
+        #self.host_client = Client(self)
+        self.host_client = Client()
+
     def toggleFullscreen(self):
         if self.window.fullscreen:
             self.window.showNormal()
@@ -28,7 +32,16 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
             self.window.showFullScreen()
         self.window.fullscreen = not self.window.fullscreen
 
+    def onMainWindowFocusChanged(self):
+        if not self.window.isActive():
+            print('is not active')
+            #self.host_client.uncapture()
+        #else:
+            #self.host_client.capture()
+
     def show(self):
         self.window.fullscreenToggled.connect(self.toggleFullscreen)
+        self.window.activeChanged.connect(self.onMainWindowFocusChanged)
         self.window.show()
 
+        self.host_client.start()

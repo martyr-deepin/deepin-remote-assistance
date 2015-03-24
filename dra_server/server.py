@@ -6,7 +6,7 @@ from .chromium import Chromium
 from .wssd import WSSDController
 
 '''
-Controller for service side.
+Controller for server side.
 
 Start:
     * start websocket
@@ -22,8 +22,8 @@ class Server(QObject):
 
     browserCmd = pyqtSignal(str)
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
         self.wssd = None
         self.chromium = None
 

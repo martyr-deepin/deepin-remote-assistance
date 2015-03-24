@@ -19,6 +19,7 @@ class Form(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
+        #self.server = Server(self)
         self.server = Server()
 
         startButton = QPushButton('&Start')

@@ -129,6 +129,6 @@ class WSSDController(QObject):
         print('controller stop')
         if self.worker_started:
             self.worker.stop_server()
-        # FIXME: segmantation fault
         if not self.workerThread.isFinished():
-            self.workerThread.exit()
+            self.workerThread.quit()
+            self.workerThread.wait(1)
