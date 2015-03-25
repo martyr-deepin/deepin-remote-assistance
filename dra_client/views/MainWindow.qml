@@ -12,7 +12,7 @@ Window {
     // Emit this signal when fullscreen button clicked
     signal fullscreenToggled()
 
-    property var starturl: Qt.resolvedUrl("http://peer.org:9000/screen#client")
+    property var starturl: Qt.resolvedUrl("http://peer.org:9000/remoting#client")
 
     Column {
         anchors.fill: parent
