@@ -13,8 +13,7 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import qApp
 import websockets
 
-#from .handshake import handle_handshake_event
-from .keyboard import bind_keyboard_conn
+from . import keyboard
 
 # Minimum port to be bound
 PORT_MIN = 20000
@@ -22,8 +21,8 @@ PORT_MIN = 20000
 # Maximum port to be bound
 PORT_MAX = 20050
 
-def default_handler(ws, msg):
-    return ws.send(msg)
+def default_handler(*args):
+    return []
 
 class WSSDWorker(QObject):
 
@@ -37,7 +36,7 @@ class WSSDWorker(QObject):
         self.handlers = {
             '/': default_handler,
             '/mouse': default_handler,
-            '/keyboard': bind_keyboard_conn,
+            '/keyboard': keyboard.handler,
             '/clipboard': default_handler,
             '/cmd':  default_handler,
             '/handshake': default_handler,
@@ -63,15 +62,17 @@ class WSSDWorker(QObject):
 
     @asyncio.coroutine
     def _handler(self, ws, path):
+        handler = self.handlers.get(path, None)
+        if not handler:
+            print('TODO: handle this event')
+            return
+
         while True:
-            msg = yield from ws.recv()
+            msg = handler()
             if msg is None:
-                break
-            handler = self.handlers.get(path, None)
-            if not handler:
-                print('TODO: handle this event')
+                yield from asyncio.sleep(1)
                 continue
-            yield from handler(ws, msg)
+            yield from ws.send(msg)
 
     def stop_server(self):
         print('worker stop')

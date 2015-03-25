@@ -14,11 +14,17 @@ from PyQt5 import QtWidgets
 
 from pykeyboard import PyKeyboardEvent
 
+from . import keyboard
 
-class Capture(PyKeyboardEvent):
+
+class Capture(PyKeyboardEvent, QtCore.QObject):
+
+    tapped =QtCore.pyqtSignal(str)
 
     def __init__(self):
-        super().__init__()
+        #super().__init__()
+        PyKeyboardEvent.__init__(self)
+        QtCore.QObject.__init__(self)
         self.capture = True
 
     def escape(self, event):
@@ -36,9 +42,14 @@ class Capture(PyKeyboardEvent):
         @press, True if event is KeyPressEvent, False if is KeyReleaseEvent
         '''
         print('tap:', keycode, character, press)
+        # TODO: send this message to wssd
+        #self.tapped.emit('hello')
+        keyboard.send_event('hello')
 
 
 class CaptureWorker(QtCore.QObject):
+
+    tapped =QtCore.pyqtSignal(str)
 
     def __init__(self):
         super().__init__()
@@ -48,6 +59,7 @@ class CaptureWorker(QtCore.QObject):
         if not self._capture:
             self._capture = Capture()
             self._capture.run()
+            self._capture.tapped.connect(lambda msg: self.tapped.emit(msg))
 
     def uncapture(self):
         if self._capture:
@@ -71,6 +83,7 @@ class CaptureController(QtCore.QObject):
         QtWidgets.qApp.aboutToQuit.connect(self.stop)
 
         self.captureThread.start()
+
 
     def capture(self):
         print('capturecontroller.capture')

@@ -16,6 +16,7 @@ from PyQt5.QtCore import QObject
 
 from .keyboardcapture import CaptureController
 from .wssd import WSSDController
+from . import keyboard
 
 class Client(QObject):
 
@@ -50,6 +51,11 @@ class Client(QObject):
         if self.keyboard_capture:
             self.keyboard_capture.stop()
             self.keyboard_capture = None
+
+    def try_capture(self):
+        print('try capture')
+        if keyboard.keyboard_conn:
+            self.capture()
 
     def capture(self):
         print('client.capture()')
