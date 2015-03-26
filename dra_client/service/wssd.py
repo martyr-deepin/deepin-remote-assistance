@@ -67,9 +67,14 @@ class WSSDWorker(QObject):
             print('TODO: handle this event')
             return
 
+        # TODO: move this to another module
+        if path == '/keyboard':
+            keyboard.reset()
+
         while True:
             msg = handler()
-            if msg is None:
+            print('msg:', msg)
+            if not msg:
                 yield from asyncio.sleep(1)
                 continue
             yield from ws.send(msg)
