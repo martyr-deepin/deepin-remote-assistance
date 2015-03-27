@@ -1,23 +1,25 @@
 
 import queue
 
-def send_event(event):
-    '''Send a new keyboard event to event queue'''
-    events.put(event)
+def send_msg(msg):
+    '''Send a new keyboard msg to msg queue'''
+    print('keyboard.send_msg:', msg)
+    messages.put(msg)
 
-def handler():
-    '''Rend a new message from event queue'''
-    event = events.get()
-    return event
+def handle():
+    '''Rend a new message from msg queue'''
+    msg = messages.get()
+    print('keyboard.handle:', msg)
+    return msg
 
 def reset():
-    '''Remove all events in queue.
+    '''Remove all messages in queue.
 
     Call this when browser connects to host service'''
     while True:
         try:
-            events.get_nowait()
+            messages.get_nowait()
         except queue.Empty:
             break
 
-events = queue.Queue()
+messages = queue.Queue()

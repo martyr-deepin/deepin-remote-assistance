@@ -33,11 +33,11 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
         self.window.fullscreen = not self.window.fullscreen
 
     def onMainWindowFocusChanged(self):
-        if not self.window.isActive():
-            print('is not active')
-            #self.host_client.uncapture()
-        #else:
-            #self.host_client.capture()
+        print('window is active:', self.window.isActive())
+        if self.window.isActive():
+            self.host_client.try_capture()
+        else:
+            self.host_client.uncapture()
 
     def show(self):
         self.window.fullscreenToggled.connect(self.toggleFullscreen)

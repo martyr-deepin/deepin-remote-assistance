@@ -16,7 +16,7 @@ client.start()
 
 i = 0
 while True:
-    keyboard.send_event(str(i))
+    keyboard.send_msg(str(i))
     i = i + 1
     time.sleep(1)
 

@@ -9,6 +9,8 @@ Note:
 * The Capture object is used to capture global keyboard event
 '''
 
+import json
+
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
@@ -25,6 +27,7 @@ class Capture(PyKeyboardEvent, QtCore.QObject):
         #super().__init__()
         PyKeyboardEvent.__init__(self)
         QtCore.QObject.__init__(self)
+
         self.capture = True
 
     def escape(self, event):
@@ -41,10 +44,14 @@ class Capture(PyKeyboardEvent, QtCore.QObject):
         @character, keyboard char, if available
         @press, True if event is KeyPressEvent, False if is KeyReleaseEvent
         '''
-        print('tap:', keycode, character, press)
-        # TODO: send this message to wssd
-        #self.tapped.emit('hello')
-        keyboard.send_event('hello')
+        #print('tap:', keycode, character, press)
+        msg = {
+            'keycode': keycode,
+            'character': character,
+            'press': press,
+        }
+        #self.tapped.emit(json.dumps(msg))
+        keyboard.send_msg(json.dumps(msg))
 
 
 class CaptureWorker(QtCore.QObject):
@@ -58,8 +65,8 @@ class CaptureWorker(QtCore.QObject):
     def capture(self):
         if not self._capture:
             self._capture = Capture()
-            self._capture.run()
             self._capture.tapped.connect(lambda msg: self.tapped.emit(msg))
+            self._capture.run()
 
     def uncapture(self):
         if self._capture:

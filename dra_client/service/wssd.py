@@ -36,7 +36,7 @@ class WSSDWorker(QObject):
         self.handlers = {
             '/': default_handler,
             '/mouse': default_handler,
-            '/keyboard': keyboard.handler,
+            '/keyboard': keyboard.handle,
             '/clipboard': default_handler,
             '/cmd':  default_handler,
             '/handshake': default_handler,

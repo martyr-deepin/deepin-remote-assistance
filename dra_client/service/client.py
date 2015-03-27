@@ -54,8 +54,7 @@ class Client(QObject):
 
     def try_capture(self):
         print('try capture')
-        if keyboard.keyboard_conn:
-            self.capture()
+        self.capture()
 
     def capture(self):
         print('client.capture()')
