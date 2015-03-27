@@ -22,47 +22,22 @@ def filter_event_to_local(event):
     event['button'] += 1
     return event
 
-def parse(obj):
-    event = MouseEvent()
-    event.x = obj['x']
-    event.y = obj['y']
-    event.timeStamp = obj['timeStamp']
-    event.button = obj['button'] + 1
-    return event
-
-def stringify(event):
-    obj = {
-        'x': event.x,
-        'y': event.y,
-        'button': event.button,
-        'timeStamp': event.timeStamp,
-    }
-    return json.dumps(obj)
-
-class MouseEvent(object):
-
-    x = 0
-    y = 0
-    button = 0
-    timeStamp = 0
-
-
 mouse = PyMouse()
 def move(event):
-    mouse.move(event['x'], event['y'])
+    mouse.move(event['clientX'], event['clientY'])
 
 def button_press(event):
-    mouse.press(event['x'], event['y'], event['button'])
+    mouse.press(event['clientX'], event['clientY'], event['button'])
 
 def button_release(event):
-    mouse.release(event['x'], event['y'], event['button'])
+    mouse.release(event['clientX'], event['clientY'], event['button'])
 
 def click(event):
     '''Emulate mouse click event.'''
     button_press(event)
     button_release(event)
 
-def handle_mouse_event(ws, msg):
+def handle(ws, msg):
     '''Handle mouse event'''
     print('handle mouse event:', msg)
 

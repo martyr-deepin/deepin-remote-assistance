@@ -14,9 +14,9 @@ from PyQt5.QtWidgets import qApp
 import websockets
 
 #from .command import handle_cmd_event
-from .handshake import handle_handshake_event
-from .x11mouse import handle_mouse_event
-from .x11keyboard import handle_keyboard_event
+from . import handshake
+from . import mouse
+from . import keyboard
 
 # Minimum port to be bound
 PORT_MIN = 10000
@@ -39,11 +39,11 @@ class WSSDWorker(QObject):
 
         self.handlers = {
             '/': default_handler,
-            '/mouse': handle_mouse_event,
-            '/keyboard': handle_keyboard_event,
+            '/mouse': mouse.handle,
+            '/keyboard': keyboard.handle,
             '/clipboard': default_handler,
             '/cmd':  self.handle_cmd_event,
-            '/handshake': handle_handshake_event,
+            '/handshake': handshake.handle,
         }
 
     def start_server(self):

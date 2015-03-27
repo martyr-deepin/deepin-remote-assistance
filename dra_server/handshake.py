@@ -1,3 +1,4 @@
 
-def handle_handshake_event(ws, msg):
+def handle(ws, msg):
+    # TODO: check msg
     return ws.send(msg)
