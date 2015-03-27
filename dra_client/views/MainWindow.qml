@@ -51,6 +51,11 @@ Window {
 
             // Enable remote debug
             property bool developerExtrasEnabled: true
+
+            context: WebContext {
+                devtoolsEnabled: true
+                devtoolsPort: 9999
+            }
         }
 
         /*
