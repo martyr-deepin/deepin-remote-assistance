@@ -13,6 +13,7 @@ from PyQt5.QtWidgets import QLineEdit
 from PyQt5.QtWidgets import QPushButton
 
 from dra_server.server import Server
+from dra_server import constants
 
 class Form(QDialog):
 
@@ -25,7 +26,7 @@ class Form(QDialog):
         startButton = QPushButton('&Start')
         stopButton = QPushButton('Sto&p')
         startButton.clicked.connect(self.server.start)
-        self.server.browserCmd.connect(self.handle_cmd_event)
+        self.server.peerIdUpdated.connect(self.updatePeerId)
         stopButton.clicked.connect(self.server.stop)
         self.id_edit = QLineEdit()
         self.id_edit.setReadOnly(True)
@@ -36,12 +37,8 @@ class Form(QDialog):
         layout.addWidget(self.id_edit)
         self.setLayout(layout)
 
-    def handle_cmd_event(self, msg):
-        print('handle cmd event:', msg)
-        # TODO: catch exception
-        event = json.loads(msg)
-        # TODO: check msg type
-        self.id_edit.setText(event['id'])
+    def updatePeerId(self, peerId):
+        self.id_edit.setText(peerId)
 
 app = QApplication(sys.argv)
 

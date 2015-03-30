@@ -13,7 +13,7 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import qApp
 import websockets
 
-#from .command import handle_cmd_event
+#from . import cmd
 from . import handshake
 from . import mouse
 from . import keyboard
@@ -85,6 +85,7 @@ class WSSDWorker(QObject):
 
     def handle_cmd_event(self, ws, msg):
         '''Handle browser command event in UI thread'''
+        print('handle cmd event:', msg)
         self.browserCmd.emit(msg)
         return []
 

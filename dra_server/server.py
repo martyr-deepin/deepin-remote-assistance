@@ -3,6 +3,7 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtCore import QObject
 
 from .chromium import Chromium
+from . import constants
 from .wssd import WSSDController
 
 '''
@@ -20,7 +21,7 @@ Stop:
 
 class Server(QObject):
 
-    browserCmd = pyqtSignal(str)
+    peerIdUpdated = pyqtSignal(str)
 
     def __init__(self, parent=None):
         super().__init__(parent=parent)
@@ -42,8 +43,7 @@ class Server(QObject):
         self.stop_wssd()
         self.wssd = WSSDController(self)
         self.wssd.start()
-        self.wssd.worker.browserCmd.connect(
-                lambda msg: self.browserCmd.emit(msg))
+        self.wssd.worker.browserCmd.connect(self.handleBrowserCmd)
 
     def stop_wssd(self):
         '''Stop websocket service'''
@@ -60,3 +60,11 @@ class Server(QObject):
         '''Kill chromium'''
         if self.chromium:
             self.chromium.stop()
+
+    def handleBrowserCmd(self, msg):
+        '''Handle command message sent from browser side.
+
+        Some of these messages will be converted to Qt mssage'''
+        event = json.loads(msg)
+        if event['Type'] == constants.SERVER_MSG_ECHO:
+            self.peerIdUpdated.emit(event['Pyaload'])
