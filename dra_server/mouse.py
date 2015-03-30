@@ -19,8 +19,9 @@ def filter_event_to_local(event):
       4 -> middle up
       5 -> middle down
     '''
-    event['button'] += 1
-    return event
+    if 'button' in event:
+        event['button'] += 1
+        return event
 
 mouse = PyMouse()
 def move(event):
@@ -37,6 +38,10 @@ def click(event):
     button_press(event)
     button_release(event)
 
+def scroll(event):
+    # TODO: convert scroll event to middle-up/middle-down event
+    mouse.scroll(vertical=event['deltaY'], horizontal=event['deltaX'])
+
 def handle(ws, msg):
     '''Handle mouse event'''
     print('handle mouse event:', msg)
@@ -51,6 +56,7 @@ def handle(ws, msg):
         'mousemove': move,
         'mousedown': button_press,
         'mouseup': button_release,
+        'wheel': scroll,
     }
     try:
         handler = handlers[event['type']]
