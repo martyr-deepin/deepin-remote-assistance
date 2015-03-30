@@ -17,6 +17,7 @@ def handle(ws, msg):
     '''Message is a KeyboardEvent, including keycode, character, press'''
     print('handle:', msg)
 
+    # TODO: catch json exception
     event = json.loads(msg)
     if event['press']:
         keyboard.press_key(event['character'])

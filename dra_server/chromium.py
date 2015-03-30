@@ -30,6 +30,7 @@ class Chromium(QObject):
                 '--enable-usermedia-screen-capturing',
                 '--allow-http-screen-capture',
                 '--user-data-dir=%s' % self.user_data_dir,
+                #'--incognito',  # Open in incognito mode.
                 ])
 
     def stop(self):

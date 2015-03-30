@@ -13,7 +13,9 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import qApp
 import websockets
 
+from . import cmd
 from . import keyboard
+from . import mouse
 
 # Minimum port to be bound
 PORT_MIN = 20000
@@ -35,10 +37,10 @@ class WSSDWorker(QObject):
 
         self.handlers = {
             '/': default_handler,
-            '/mouse': default_handler,
+            '/mouse': mouse.handle,
             '/keyboard': keyboard.handle,
             '/clipboard': default_handler,
-            '/cmd':  default_handler,
+            '/cmd':  cmd.handle,
             '/handshake': default_handler,
         }
 
@@ -68,8 +70,8 @@ class WSSDWorker(QObject):
             return
 
         # TODO: move this to another module
-        if path == '/keyboard':
-            keyboard.reset()
+        #if path == '/keyboard':
+            #keyboard.reset()
 
         while True:
             msg = handler()
