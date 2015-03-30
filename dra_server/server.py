@@ -1,4 +1,6 @@
 
+import json
+
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtCore import QObject
 
@@ -67,4 +69,4 @@ class Server(QObject):
         Some of these messages will be converted to Qt mssage'''
         event = json.loads(msg)
         if event['Type'] == constants.SERVER_MSG_ECHO:
-            self.peerIdUpdated.emit(event['Pyaload'])
+            self.peerIdUpdated.emit(event['Payload'])
