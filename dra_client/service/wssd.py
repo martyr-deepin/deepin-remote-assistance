@@ -79,7 +79,10 @@ class WSSDWorker(QObject):
             if not msg:
                 yield from asyncio.sleep(1)
                 continue
-            yield from ws.send(msg)
+            try:
+                yield from ws.send(msg)
+            except websockets.exceptions.InvalidState as e:
+                print(e)
 
     def stop_server(self):
         print('worker stop')
