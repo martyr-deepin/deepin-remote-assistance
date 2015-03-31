@@ -21,7 +21,6 @@ def filter_event_to_local(event):
     '''
     if 'button' in event:
         event['button'] += 1
-        return event
 
 mouse = PyMouse()
 def move(event):
@@ -50,7 +49,7 @@ def handle(ws, msg):
     event = json.loads(msg)
 
     # event filter
-    event = filter_event_to_local(event)
+    filter_event_to_local(event)
 
     handlers = {
         'mousemove': move,
