@@ -22,5 +22,5 @@ def _init_logger(log_level, namespace, maxBytes=5*1024*1024, backupCount=5):
     logger.setLevel(log_level)
     return logger
 
-server_log = _init_logger(logging.INFO, 'server')
-client_log = _init_logger(logging.INFO, 'client')
+server_log = _init_logger(logging.DEBUG, 'server')
+client_log = _init_logger(logging.DEBUG, 'client')
