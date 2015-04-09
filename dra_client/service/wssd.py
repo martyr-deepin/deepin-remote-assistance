@@ -13,15 +13,10 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import qApp
 import websockets
 
+from . import constants
 from . import cmd
 from . import keyboard
 from . import mouse
-
-# Minimum port to be bound
-PORT_MIN = 20000
-
-# Maximum port to be bound
-PORT_MAX = 20050
 
 def default_handler(*args):
     return []
@@ -33,7 +28,7 @@ class WSSDWorker(QObject):
     def __init__(self, parent=None, host='localhost'):
         super().__init__(parent)
         self.host = host
-        self.port = PORT_MIN
+        self.port = constants.PORT_MIN
 
         self.handlers = {
             '/': default_handler,
@@ -47,7 +42,7 @@ class WSSDWorker(QObject):
     def start_server(self):
         self.event_loop = asyncio.new_event_loop()
         asyncio.events.set_event_loop(self.event_loop)
-        for port in range(PORT_MIN, PORT_MAX):
+        for port in range(constants.PORT_MIN, constants.PORT_MAX):
             try:
                 server = websockets.serve(self._handler, self.host, port)
                 self.event_loop.run_until_complete(server)
@@ -65,6 +60,7 @@ class WSSDWorker(QObject):
     @asyncio.coroutine
     def _handler(self, ws, path):
         handler = self.handlers.get(path, None)
+        print('message handler:', handler, ws, path)
         if not handler:
             print('TODO: handle this event')
             return
@@ -73,10 +69,12 @@ class WSSDWorker(QObject):
         #if path == '/keyboard':
             #keyboard.reset()
 
+        # FIXME: unblock this handler
         while True:
             msg = handler()
             print('msg:', msg)
             if not msg:
+                print('will sleep 1')
                 yield from asyncio.sleep(1)
                 continue
             try:
@@ -90,6 +88,7 @@ class WSSDWorker(QObject):
 
     def handle_cmd_event(self, ws, msg):
         '''Handle browser command event in UI thread'''
+        print('wssd.handle_cmd_event:', ws, msg)
         self.browserCmd.emit(msg)
         return []
 

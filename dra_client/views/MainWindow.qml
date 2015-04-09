@@ -53,24 +53,13 @@ Window {
             property bool developerExtrasEnabled: true
 
             context: WebContext {
+                cachePath: "file:///tmp/"
+                dataPath: "file:///tmp/"
                 devtoolsEnabled: true
                 devtoolsPort: 9999
             }
         }
 
-        /*
-        Label {
-            id: statusLabel
-            text: webView.loading ?
-                    "Loading" + " (%1%)".arg(webView.loadProgress) :
-                    "Page loaded"
-            width: parent.width
-        }
-        */
     }
 
-// This signal is handled in Python
-//    onActiveChanged: {
-//        console.log(active);
-//    }
 }

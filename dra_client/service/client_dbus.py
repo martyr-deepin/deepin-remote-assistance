@@ -10,6 +10,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 
 from . import constants
 from . import client 
+from . import cmd
 from dra_client.mainwindowengine import MainWindowEngine
 from dra_utils.log import client_log
 
@@ -30,7 +31,6 @@ class ClientDBus(dbus.service.Object):
                 constants.DBUS_ROOT_IFACE: self._get_root_iface_properties(),
         }
 
-        self.client = client.Client()
         #self.engine = MainWindowEngine()
         self.engine = None
         print('client dbus inited')
@@ -90,9 +90,7 @@ class ClientDBus(dbus.service.Object):
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Start(self):
         '''Start client side'''
-        print('start client')
         client_log.debug('start client')
-        self.client.start()
 
         if not self.engine:
             self.engine = MainWindowEngine()
@@ -103,7 +101,14 @@ class ClientDBus(dbus.service.Object):
         '''Stop client side'''
         print('stop client')
         client_log.debug('stop client')
-        self.client.stop()
         if self.engine:
+            print('TODO: destroy engine')
             #self.engine.destroy()
-            pass
+
+    @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='s',
+                         out_signature='')
+    def Connect(self, remote_peer_id):
+        '''Connect to remote peer'''
+        # Send remote peer id to browser side
+        print('will call cmd.init_remoting:', remote_peer_id)
+        cmd.init_remoting(remote_peer_id)
