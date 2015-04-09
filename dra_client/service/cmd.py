@@ -6,7 +6,6 @@ import queue
 
 from . import constants
 
-
 messages = queue.Queue()
 
 def send_msg(msg):
@@ -28,9 +27,9 @@ def reset():
 # Send sepcific cmd messages to browser side
 def init_remoting(remote_peer_id):
     '''Setup a new remoting connection'''
+    print('cmd.init_remoting:', remote_peer_id)
     msg = json.dumps({
         'Type': constants.CLIENT_MSG_INIT,
-        'Pyaload': remote_peer_id,
+        'Payload': remote_peer_id,
     })
     send_msg(msg)
-
