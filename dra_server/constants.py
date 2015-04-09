@@ -5,6 +5,6 @@
 SERVER_MSG_ECHO = 1
 
 # DBus name
-DBUS_NAME = 'com.deepin.daemon.remoting.server'
-DBUS_SERVER_PATH = '/com/deepin/daemon/remoting/server'
-DBUS_ROOT_IFACE = 'com.deepin.daemon.remoting.server'
+DBUS_NAME = 'com.deepin.daemon.Remoting.Server'
+DBUS_SERVER_PATH = '/com/deepin/daemon/Remoting/Server'
+DBUS_ROOT_IFACE = 'com.deepin.daemon.Remoting.Server'

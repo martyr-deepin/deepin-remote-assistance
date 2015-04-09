@@ -16,6 +16,8 @@ from dra_utils.log import server_log
 class ServerDBus(dbus.service.Object):
 
     def __init__(self):
+        self.peer_id = ''
+
         # Init dbus main loop
         #loop = DBusQtMainLoop(set_as_default=True)
         loop = DBusGMainLoop(set_as_default=True)
@@ -30,12 +32,14 @@ class ServerDBus(dbus.service.Object):
         }
 
         self.server = server.Server()
+        self.server.peerIdUpdated.connect(self.update_peer_id)
         print('server dbus inited')
 
     def _get_root_iface_properties(self):
         print('get all properties')
         return {
             'Status': (self._get_status, None),
+            'PeerId': (self._get_peer_id, None),
         }
 
     # interface properties
@@ -52,6 +56,9 @@ class ServerDBus(dbus.service.Object):
     def _get_status(self):
         print('get status:')
         return 'server status'
+
+    def _get_peer_id(self):
+        return self.peer_id
 
     @dbus.service.method(dbus.PROPERTIES_IFACE, in_signature='s',
                          out_signature='a{sv}')
@@ -97,3 +104,11 @@ class ServerDBus(dbus.service.Object):
         print('stop server')
         server_log.debug('stop server')
         self.server.stop()
+
+    def update_peer_id(self, peer_id):
+        '''Update peer id'''
+        print('update peer id:', peer_id)
+        # TODO: check peer id existence
+        self.peer_id = peer_id
+        self.PropertiesChanged(constants.DBUS_ROOT_IFACE,
+                               {'PeerId': peer_id}, [])
