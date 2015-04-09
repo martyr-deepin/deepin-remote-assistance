@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.deepin.daemon.Remoting.client
+Exec=/usr/lib/dra/client
+
