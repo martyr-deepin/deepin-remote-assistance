@@ -7,6 +7,7 @@ dbus.mainloop.glib.threads_init()
 # FIXME: QtMainLoop does not work
 #from dbus.mainloop.pyqt5 import DBusQtMainLoop
 from dbus.mainloop.glib import DBusGMainLoop
+from PyQt5.QtWidgets import qApp
 
 from . import constants
 from . import client 
@@ -101,9 +102,7 @@ class ClientDBus(dbus.service.Object):
         '''Stop client side'''
         print('stop client')
         client_log.debug('stop client')
-        if self.engine:
-            print('TODO: destroy engine')
-            #self.engine.destroy()
+        qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='s',
                          out_signature='')

@@ -7,6 +7,7 @@ dbus.mainloop.glib.threads_init()
 # FIXME: QtMainLoop does not work
 #from dbus.mainloop.pyqt5 import DBusQtMainLoop
 from dbus.mainloop.glib import DBusGMainLoop
+from PyQt5.QtWidgets import qApp
 
 from . import constants
 from . import server
@@ -104,6 +105,9 @@ class ServerDBus(dbus.service.Object):
         print('stop server')
         server_log.debug('stop server')
         self.server.stop()
+
+        # Kill dbus service
+        qApp.quit()
 
     def update_peer_id(self, peer_id):
         '''Update peer id'''
