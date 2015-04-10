@@ -1,4 +1,4 @@
 [D-BUS Service]
-Name=com.deepin.daemon.Remoting.server
+Name=com.deepin.daemon.Remoting.Server
 Exec=/usr/lib/dra/server
 
