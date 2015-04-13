@@ -1,10 +1,8 @@
 
-from PyQt5 import QtCore
 from PyQt5 import QtQml
-from PyQt5 import QtQuick
 
 from . import views
-#from .service.client import Client
+from .service.client import Client
 
 
 class MainWindowEngine(QtQml.QQmlApplicationEngine):
@@ -24,9 +22,10 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
         self.window.fullscreen = False
 
         #self.host_client = Client(self)
-        #self.host_client = Client()
+        self.host_client = Client()
 
     def toggleFullscreen(self):
+        return
         if self.window.fullscreen:
             self.window.showNormal()
         else:
@@ -47,13 +46,5 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
     def show(self):
         self.window.fullscreenToggled.connect(self.toggleFullscreen)
         self.window.activeChanged.connect(self.onMainWindowFocusChanged)
-        #self.host_client.start()
+        self.host_client.start()
         self.window.show()
-
-class MainWindowView(QtQuick.QQuickView):
-
-    def __init__(self):
-        super().__init__()
-        self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
-        self.setSource(QtCore.QUrl.fromLocalFile(views.MAIN_WINDOW))
-
