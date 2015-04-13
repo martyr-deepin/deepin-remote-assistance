@@ -8,7 +8,6 @@ from PyQt5.QtQml import QQmlApplicationEngine
 
 from dra_client.mainwindowengine import MainWindowEngine
 
-
 def main():
     app = QGuiApplication(sys.argv)
 

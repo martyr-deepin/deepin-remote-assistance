@@ -15,11 +15,9 @@ import websockets
 
 from . import constants
 from . import cmd
+from . import default_handler
 from . import keyboard
-from . import mouse
-
-def default_handler(*args):
-    return []
+from dra_utils.log import client_log
 
 class WSSDWorker(QObject):
 
@@ -32,10 +30,10 @@ class WSSDWorker(QObject):
 
         self.handlers = {
             '/': default_handler,
-            '/mouse': mouse.handle,
-            '/keyboard': keyboard.handle,
+            '/mouse': default_handler,
+            '/keyboard': keyboard,
             '/clipboard': default_handler,
-            '/cmd':  cmd.handle,
+            '/cmd':  cmd,
             '/handshake': default_handler,
         }
 
@@ -60,7 +58,7 @@ class WSSDWorker(QObject):
     @asyncio.coroutine
     def _handler(self, ws, path):
         handler = self.handlers.get(path, None)
-        print('message handler:', handler, ws, path)
+        print('message handler:', ws, path)
         if not handler:
             print('TODO: handle this event')
             return
@@ -71,16 +69,27 @@ class WSSDWorker(QObject):
 
         # FIXME: unblock this handler
         while True:
-            msg = handler()
-            print('msg:', msg)
+            # Receive cmd messages from browser
+            # cmd connection is bidirectional
+            msg = yield from ws.recv()
+            if msg is not None:
+                yield from handler.consumer(msg)
+
+            # Send message to browser
+            if not ws.open:
+                client_log.info('websocket of %s is closed' % path)
+                break
+            msg = yield from handler.producer()
+            print('producer.msg:', msg)
             if not msg:
-                print('will sleep 1')
                 yield from asyncio.sleep(1)
                 continue
+            client_log.debug('will send message: %s' % msg)
             try:
                 yield from ws.send(msg)
             except websockets.exceptions.InvalidState as e:
-                print(e)
+                client_log.warn('Error: ws.send(msg): %s' % e)
+                break
 
     def stop_server(self):
         print('worker stop')

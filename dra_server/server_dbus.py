@@ -109,10 +109,15 @@ class ServerDBus(dbus.service.Object):
         # Kill dbus service
         qApp.quit()
 
+    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='sa{sv}as')
+    def StatusChanged(self, interface, changed_properties,
+                          invalidated_properties):
+        pass
+
     def update_peer_id(self, peer_id):
         '''Update peer id'''
         print('update peer id:', peer_id)
         # TODO: check peer id existence
         self.peer_id = peer_id
-        self.PropertiesChanged(constants.DBUS_ROOT_IFACE,
+        self.StatusChanged(constants.DBUS_ROOT_IFACE,
                                {'PeerId': peer_id}, [])

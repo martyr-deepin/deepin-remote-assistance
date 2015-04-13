@@ -34,7 +34,9 @@ class ClientDBus(dbus.service.Object):
 
         #self.engine = MainWindowEngine()
         self.engine = None
-        print('client dbus inited')
+
+        # To mark status of client side
+        self._status = constants.CLIENT_STATUS_UNINITIALIZED
 
     def _get_root_iface_properties(self):
         print('get all properties')
@@ -55,7 +57,7 @@ class ClientDBus(dbus.service.Object):
 
     def _get_status(self):
         print('get status:')
-        return 'client status'
+        return self._status
 
     @dbus.service.method(dbus.PROPERTIES_IFACE, in_signature='s',
                          out_signature='a{sv}')
@@ -87,6 +89,20 @@ class ClientDBus(dbus.service.Object):
         client_log.debug('dbus properties changed: %s:%s:%s' %
                 (interface, changed_properties, invalidated_properties))
 
+    # root iface signals
+    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='sa{sv}as')
+    def StatusChanged(self, interface, changed_properties,
+                          invalidated_properties):
+        client_log.debug('dbus properties changed: %s:%s:%s' %
+                (interface, changed_properties, invalidated_properties))
+
+    def change_client_status(self, status):
+        '''Update client status and emit a dbus signal'''
+        client_log.info('change client status: %s' % status)
+        self._status = status
+        self.StatusChanged(constants.DBUS_ROOT_IFACE,
+                           {'Status': self._status}, [])
+
     # root iface methods
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Start(self):
@@ -96,12 +112,13 @@ class ClientDBus(dbus.service.Object):
         if not self.engine:
             self.engine = MainWindowEngine()
         self.engine.show()
+        self.change_client_status(constants.CLIENT_STATUS_STARTED)
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop client side'''
-        print('stop client')
         client_log.debug('stop client')
+        self.change_client_status(constants.CLIENT_STATUS_STOPPED)
         qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='s',
@@ -109,5 +126,7 @@ class ClientDBus(dbus.service.Object):
     def Connect(self, remote_peer_id):
         '''Connect to remote peer'''
         # Send remote peer id to browser side
-        print('will call cmd.init_remoting:', remote_peer_id)
+        client_log.info('call cmd.init_remoting: %s' % remote_peer_id)
+        self.change_client_status(constants.CLIENT_STATUS_CONNECTING)
         cmd.init_remoting(remote_peer_id)
+

@@ -7,11 +7,15 @@ def send_msg(msg):
     print('mouse.send_msg:', msg)
     messages.put(msg)
 
-def handle():
+def producer():
     '''Rend a new message from msg queue'''
     msg = messages.get()
     print('mouse.handle:', msg)
     return msg
+
+def consumer(msg):
+    print('mouse.consumer:', msg)
+    return []
 
 def reset():
     '''Remove all messages in queue.

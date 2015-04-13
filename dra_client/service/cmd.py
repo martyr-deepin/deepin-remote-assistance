@@ -1,6 +1,7 @@
 
 '''Send cmd messages'''
 
+import asyncio
 import json
 import queue
 
@@ -12,11 +13,19 @@ def send_msg(msg):
     print('will send cmd message:', msg)
     messages.put(msg)
 
-def handle():
+@asyncio.coroutine
+def producer():
     msg = messages.get()
-    print('cmd.handle:', msg)
+    print('cmd.producer:', msg)
+    #raise StopIteration(msg)
     return msg
 
+@asyncio.coroutine
+def consumer(msg):
+    print('cmd consumer:', msg)
+    return []
+
+# TODO: remove this method
 def reset():
     while True:
         try:
