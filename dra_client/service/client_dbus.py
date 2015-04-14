@@ -39,7 +39,6 @@ class ClientDBus(dbus.service.Object):
         self._status = constants.CLIENT_STATUS_UNINITIALIZED
 
     def _get_root_iface_properties(self):
-        print('get all properties')
         return {
             'Status': (self._get_status, None),
         }
@@ -49,29 +48,24 @@ class ClientDBus(dbus.service.Object):
                          out_signature='v')
     def Get(self, interface, prop):
         (getter, _) = self.properties[interface][prop]
-        print('DBus Get:', interface, prop)
         if callable(getter):
             return getter()
         else:
             return getter
 
     def _get_status(self):
-        print('get status:')
         return self._status
 
     @dbus.service.method(dbus.PROPERTIES_IFACE, in_signature='s',
                          out_signature='a{sv}')
     def GetAll(self, interface=constants.DBUS_ROOT_IFACE):
         '''Get all properties'''
-        # TODO: remote interface argument
-        print('get all:', interface)
         getters = {}
         for key, (getter, _) in self.properties[interface].items():
             if callable(getter):
                 getters[key] = getter()
             else:
                 getters[key] = getter
-        print('getters:', getters)
         return getters
 
     @dbus.service.method(dbus.PROPERTIES_IFACE, in_signature='ssv',
@@ -86,36 +80,37 @@ class ClientDBus(dbus.service.Object):
     @dbus.service.signal(dbus.PROPERTIES_IFACE, signature='sa{sv}as')
     def PropertiesChanged(self, interface, changed_properties,
                           invalidated_properties):
-        client_log.debug('dbus properties changed: %s:%s:%s' %
+        client_log.debug('[dbus] properties changed: %s:%s:%s' %
                 (interface, changed_properties, invalidated_properties))
 
     # root iface signals
     @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='i')
     def StatusChanged(self, new_status):
-        client_log.debug('client status changed: %s' % new_status)
-
-    def change_client_status(self, status):
-        '''Update client status and emit a dbus signal'''
-        client_log.info('change client status: %s' % status)
-        self._status = status
-        self.StatusChanged(self._status)
+        '''Client status has been changed'''
+        client_log.info('[dbus] client status changed: %s' % new_status)
+        self._status = new_status
 
     # root iface methods
+    @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
+                         out_signature='i')
+    def GetStatus(self):
+        return self._status
+
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Start(self):
         '''Start client side'''
-        client_log.debug('start client')
+        client_log.debug('[dbus] start client')
 
         if not self.engine:
             self.engine = MainWindowEngine(self)
         self.engine.show()
-        self.change_client_status(constants.CLIENT_STATUS_STARTED)
+        self.StatusChanged(constants.CLIENT_STATUS_STARTED)
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop client side'''
-        client_log.debug('stop client')
-        self.change_client_status(constants.CLIENT_STATUS_STOPPED)
+        client_log.debug('[dbus] stop client')
+        self.StatusChanged(constants.CLIENT_STATUS_STOPPED)
         qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='s',
@@ -123,6 +118,6 @@ class ClientDBus(dbus.service.Object):
     def Connect(self, remote_peer_id):
         '''Connect to remote peer'''
         # Send remote peer id to browser side
-        client_log.debug('call messaging.init_remoting: %s' % remote_peer_id)
-        self.change_client_status(constants.CLIENT_STATUS_CONNECTING)
+        client_log.debug('[dbus] Connect: %s' % remote_peer_id)
+        self.StatusChanged(constants.CLIENT_STATUS_CONNECTING)
         messaging.init_remoting(remote_peer_id)

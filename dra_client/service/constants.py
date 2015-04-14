@@ -37,8 +37,8 @@ CLIENT_STATUS_CONNECT_OK = 4
 # Failed to connect to remote peer
 CLIENT_STATUS_CONNECT_FAILED = 5
 
-# To mark cmd messages in oxide
+# To mark cmd messages used in oxide
 CMD_MSG = 'CMD'
 
-# To mark keyboard messages in oxide
+# To mark keyboard messages used in oxide
 KEYBOARD_MSG = 'KEYBOARD'
