@@ -17,7 +17,11 @@ from dra_utils.log import server_log
 class ServerDBus(dbus.service.Object):
 
     def __init__(self):
-        self.peer_id = ''
+        # Local Peer ID
+        self._peer_id = ''
+
+        # Connection status
+        self._status = constants.SERVER_STATUS_UNINITIALIZED
 
         # Init dbus main loop
         #loop = DBusQtMainLoop(set_as_default=True)
@@ -33,11 +37,9 @@ class ServerDBus(dbus.service.Object):
         }
 
         self.server = server.Server()
-        self.server.peerIdUpdated.connect(self.update_peer_id)
-        print('server dbus inited')
+        self.server.peerIdUpdated.connect(self.PeerIdChanged)
 
     def _get_root_iface_properties(self):
-        print('get all properties')
         return {
             'Status': (self._get_status, None),
             'PeerId': (self._get_peer_id, None),
@@ -48,32 +50,27 @@ class ServerDBus(dbus.service.Object):
                          out_signature='v')
     def Get(self, interface, prop):
         (getter, _) = self.properties[interface][prop]
-        print('DBus Get:', interface, prop)
         if callable(getter):
             return getter()
         else:
             return getter
 
     def _get_status(self):
-        print('get status:')
-        return 'server status'
+        return self._status
 
     def _get_peer_id(self):
-        return self.peer_id
+        return self._peer_id
 
     @dbus.service.method(dbus.PROPERTIES_IFACE, in_signature='s',
                          out_signature='a{sv}')
     def GetAll(self, interface=constants.DBUS_ROOT_IFACE):
         '''Get all properties'''
-        # TODO: remote interface argument
-        print('get all:', interface)
         getters = {}
         for key, (getter, _) in self.properties[interface].items():
             if callable(getter):
                 getters[key] = getter()
             else:
                 getters[key] = getter
-        print('getters:', getters)
         return getters
 
     @dbus.service.method(dbus.PROPERTIES_IFACE, in_signature='ssv',
@@ -95,29 +92,45 @@ class ServerDBus(dbus.service.Object):
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Start(self):
         '''Start server side'''
-        print('start server')
-        server_log.debug('start server')
+        server_log.debug('[dbus] start server')
         self.server.start()
+        self.StatusChanged(constants.SERVER_STATUS_STARTED)
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop server side'''
-        print('stop server')
-        server_log.debug('stop server')
+        server_log.debug('[dbus] stop server')
         self.server.stop()
-
+        self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
         # Kill dbus service
+        # TODO: call this method 1s later
         qApp.quit()
 
-    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='sa{sv}as')
-    def StatusChanged(self, interface, changed_properties,
-                          invalidated_properties):
-        pass
+    @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
+                         out_signature='s')
+    def GetPeerId(self):
+        return self._peer_id
 
-    def update_peer_id(self, peer_id):
-        '''Update peer id'''
-        print('update peer id:', peer_id)
-        # TODO: check peer id existence
-        self.peer_id = peer_id
-        self.StatusChanged(constants.DBUS_ROOT_IFACE,
-                               {'PeerId': peer_id}, [])
+    @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
+                         out_signature='i')
+    def GetStatus(self):
+        '''Get current status of server side'''
+        return self._status
+
+    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='i')
+    def StatusChanged(self, new_status):
+        '''Server status changed'''
+        server_log.info('[dbus] StatusChanged: %s' % new_status)
+        # If current status is SERVER_STATUS_PEERID_FAILED, stop service
+        if self._status == constants.SERVER_STATUS_PEERID_FAILED:
+            self.server.stop()
+        self._status = new_status
+
+    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='s')
+    def PeerIdChanged(self, new_peer_id):
+        '''Peer id of server side changed'''
+        server_log.info('[dbus] PeerIdChanged: %s' % new_peer_id)
+        # TODO: valid peer_id
+        if new_peer_id:
+            self.StatusChanged(constants.SERVER_STATUS_PEERID_OK)
+        self._peer_id = new_peer_id

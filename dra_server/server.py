@@ -67,6 +67,8 @@ class Server(QObject):
         '''Handle command message sent from browser side.
 
         Some of these messages will be converted to Qt mssage'''
+
+        # TODO: move this to messaging module
         event = json.loads(msg)
         if event['Type'] == constants.SERVER_MSG_ECHO:
             self.peerIdUpdated.emit(event['Payload'])
