@@ -37,7 +37,7 @@ class ServerDBus(dbus.service.Object):
         }
 
         self.server = server.Server()
-        self.server.peerIdUpdated.connect(self.PeerIdChanged)
+        self.server.peerIdUpdated.connect(self.peer_id_changed)
 
     def _get_root_iface_properties(self):
         return {
@@ -126,10 +126,9 @@ class ServerDBus(dbus.service.Object):
             self.server.stop()
         self._status = new_status
 
-    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='s')
-    def PeerIdChanged(self, new_peer_id):
+    def peer_id_changed(self, new_peer_id):
         '''Peer id of server side changed'''
-        server_log.info('[dbus] PeerIdChanged: %s' % new_peer_id)
+        server_log.info('[dbus] peer_id_changed: %s' % new_peer_id)
         # TODO: valid peer_id
         if new_peer_id:
             self.StatusChanged(constants.SERVER_STATUS_PEERID_OK)
