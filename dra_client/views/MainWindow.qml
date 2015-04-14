@@ -1,7 +1,7 @@
 
 import QtQuick 2.2
 import QtQuick.Window 2.2
-import QtQuick.Controls 1.1
+import QtQuick.Controls 1.2
 import com.canonical.Oxide 1.0
 
 Window {
@@ -13,16 +13,22 @@ Window {
     signal fullscreenToggled()
 
     // Emit cmd message signal
-    signal cmdMessaged()
+    signal cmdMessaged(string msg)
 
+    //property var starturl: Qt.resolveUrl("http://peer.org:9000/remoting#client")
     property var starturl: Qt.resolvedUrl("http://peer.org:9000/remoting#client")
+    // Msg URI, schema://path/object
     property string remotingContext: 'remoting://'
-    property string cmdMsg: 'cmd'
-    property string keyboardMsg: 'keyboard'
 
+    // To mark cmd message
+    property string cmdMsg: 'CMD'
+
+    // To mark keyboard message
+    property string keyboardMsg: 'KEYBOARD'
 
     Column {
         anchors.fill: parent
+
         Row {
             id: navRow
             width: parent.width
@@ -55,29 +61,23 @@ Window {
             height: parent.height - navRow.height
             url: starturl
             focus: true
-            context: WebContext {
-                cachePath: "file:///tmp/"
-                dataPath: "file:///tmp/"
-                devtoolsEnabled: true
-                devtoolsPort: 9999
-            }
+            context: webContext
 
-            // Enable remote debug
-            //property bool developerExtrasEnabled: true
             function sendMessage(msgId, msg) {
+                console.log('will send message to browser:', msgId, msg);
                 rootFrame.sendMessage(remotingContext, msgId, {'detail': msg});
             }
 
             // Init message handlers
             Component.onCompleted: {
-                rootFrame.addMessageHandler(cmdMsg, handleCmdMsg);
+                rootFrame.addMessageHandler(handleCmdMsg);
             }
         }
-
     }
 
     // Send messages to browser side
     function sendMessage(msgId, msg) {
+        console.log('root.sendMessage:', msgId, msg);
         webView.sendMessage(msgId, msg);
     }
 
@@ -87,7 +87,24 @@ Window {
         msgId: cmdMsg
         contexts: remotingContext
         callback: function (msg){
-            console.log('TODO: emit cmd signal', msg);
+            console.log('TODO: emit cmd signal', msg.args.detail);
+            root.cmdMessaged(msg.args.detail);
         }
+    }
+
+    WebContext {
+        id: webContext
+        cachePath: "file:///tmp/"
+        dataPath: "file:///tmp/"
+        devtoolsEnabled: true
+        devtoolsPort: 9999
+
+        userScripts: [
+            UserScript {
+                context: remotingContext
+                matchAllFrames: true
+                url: Qt.resolvedUrl("oxide-user.js")
+            }
+        ]
     }
 }

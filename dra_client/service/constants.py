@@ -18,6 +18,7 @@ DBUS_NAME = 'com.deepin.daemon.Remoting.Client'
 DBUS_CLIENT_PATH = '/com/deepin/daemon/Remoting/Client'
 DBUS_ROOT_IFACE = 'com.deepin.daemon.Remoting.Client'
 
+# DBus status
 # Client is uninitialized
 CLIENT_STATUS_UNINITIALIZED = 0
 
@@ -35,3 +36,9 @@ CLIENT_STATUS_CONNECT_OK = 4
 
 # Failed to connect to remote peer
 CLIENT_STATUS_CONNECT_FAILED = 5
+
+# To mark cmd messages in oxide
+CMD_MSG = 'CMD'
+
+# To mark keyboard messages in oxide
+KEYBOARD_MSG = 'KEYBOARD'

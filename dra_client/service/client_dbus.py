@@ -9,9 +9,9 @@ dbus.mainloop.glib.threads_init()
 from dbus.mainloop.glib import DBusGMainLoop
 from PyQt5.QtWidgets import qApp
 
-from . import constants
 from . import client 
-from . import cmd
+from . import constants
+from . import messaging
 from dra_client.mainwindowengine import MainWindowEngine
 from dra_utils.log import client_log
 
@@ -93,15 +93,18 @@ class ClientDBus(dbus.service.Object):
     @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='sa{sv}as')
     def StatusChanged(self, interface, changed_properties,
                           invalidated_properties):
-        client_log.debug('dbus properties changed: %s:%s:%s' %
-                (interface, changed_properties, invalidated_properties))
+        pass
+#    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='si')
+#    def StatusChanged(self, interface, new_status):
+#        client_log.debug('client status changed: %s' % new_status)
 
     def change_client_status(self, status):
         '''Update client status and emit a dbus signal'''
         client_log.info('change client status: %s' % status)
         self._status = status
+        #self.StatusChanged(constants.DBUS_ROOT_IFACE, self._status)
         self.StatusChanged(constants.DBUS_ROOT_IFACE,
-                           {'Status': self._status}, [])
+                {'Status': self._status}, [])
 
     # root iface methods
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
@@ -110,7 +113,7 @@ class ClientDBus(dbus.service.Object):
         client_log.debug('start client')
 
         if not self.engine:
-            self.engine = MainWindowEngine()
+            self.engine = MainWindowEngine(self)
         self.engine.show()
         self.change_client_status(constants.CLIENT_STATUS_STARTED)
 
@@ -126,7 +129,6 @@ class ClientDBus(dbus.service.Object):
     def Connect(self, remote_peer_id):
         '''Connect to remote peer'''
         # Send remote peer id to browser side
-        client_log.info('call cmd.init_remoting: %s' % remote_peer_id)
+        client_log.debug('call messaging.init_remoting: %s' % remote_peer_id)
         self.change_client_status(constants.CLIENT_STATUS_CONNECTING)
-        cmd.init_remoting(remote_peer_id)
-
+        messaging.init_remoting(remote_peer_id)
