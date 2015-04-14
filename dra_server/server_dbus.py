@@ -102,8 +102,9 @@ class ServerDBus(dbus.service.Object):
         server_log.debug('[dbus] stop server')
         self.server.stop()
         self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
-        # Kill dbus service
-        # TODO: call this method 1s later
+
+    @dbus.service.method(constants.DBUS_ROOT_IFACE)
+    def Kill(self):
         qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',

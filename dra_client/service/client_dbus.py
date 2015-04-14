@@ -111,6 +111,9 @@ class ClientDBus(dbus.service.Object):
         '''Stop client side'''
         client_log.debug('[dbus] stop client')
         self.StatusChanged(constants.CLIENT_STATUS_STOPPED)
+
+    @dbus.service.method(constants.DBUS_ROOT_IFACE)
+    def Kill(self):
         qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='s',

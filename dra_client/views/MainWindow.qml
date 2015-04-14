@@ -4,10 +4,12 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 1.2
 import com.canonical.Oxide 1.0
 
+
 Window {
     id: root
     width: 640
     height: 480
+    flags: Qt.CustomizeWindowHint
 
     // Emit this signal when fullscreen button clicked
     signal fullscreenToggled()
@@ -51,6 +53,15 @@ Window {
 
                 onClicked: {
                     root.fullscreenToggled()
+                }
+            }
+
+            Button {
+                id: closeWindow
+                height: parent.height
+                text: 'Close'
+                onClicked: {
+                    root.close()
                 }
             }
         }

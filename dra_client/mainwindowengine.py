@@ -1,5 +1,6 @@
 
 from PyQt5 import QtQml
+from PyQt5 import QtWidgets
 
 from . import views
 from .service.client import Client
@@ -12,8 +13,7 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
         super().__init__()
 
         self.load(views.MAIN_WINDOW)
-        #self.quit.connect(QtGui.QGuiApplication.instance().quit)
-        #self.quit.connect(self.onQuit)
+        QtWidgets.qApp.setQuitOnLastWindowClosed(False)
 
         # QtGui.QWindow
         self.window = self.rootObjects()[0]
