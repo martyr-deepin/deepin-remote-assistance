@@ -90,21 +90,15 @@ class ClientDBus(dbus.service.Object):
                 (interface, changed_properties, invalidated_properties))
 
     # root iface signals
-    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='sa{sv}as')
-    def StatusChanged(self, interface, changed_properties,
-                          invalidated_properties):
-        pass
-#    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='si')
-#    def StatusChanged(self, interface, new_status):
-#        client_log.debug('client status changed: %s' % new_status)
+    @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='i')
+    def StatusChanged(self, new_status):
+        client_log.debug('client status changed: %s' % new_status)
 
     def change_client_status(self, status):
         '''Update client status and emit a dbus signal'''
         client_log.info('change client status: %s' % status)
         self._status = status
-        #self.StatusChanged(constants.DBUS_ROOT_IFACE, self._status)
-        self.StatusChanged(constants.DBUS_ROOT_IFACE,
-                {'Status': self._status}, [])
+        self.StatusChanged(self._status)
 
     # root iface methods
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
