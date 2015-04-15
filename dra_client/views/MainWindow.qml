@@ -17,6 +17,9 @@ Window {
     // Emit cmd message signal
     signal cmdMessaged(string msg)
 
+    // Emit window closed signal when close button is clicked
+    signal windowClosed()
+
     //property var starturl: Qt.resolveUrl("http://peer.org:9000/remoting#client")
     property var starturl: Qt.resolvedUrl("http://peer.org:9000/remoting#client")
     // Msg URI, schema://path/object
@@ -61,6 +64,7 @@ Window {
                 height: parent.height
                 text: 'Close'
                 onClicked: {
+                    root.windowClosed()
                     root.close()
                 }
             }

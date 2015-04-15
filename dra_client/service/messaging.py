@@ -39,3 +39,7 @@ def handle_cmd_message(msg):
     if msg['Type'] == constants.CLIENT_MSG_CONNECTED:
         # Change client status to CONNECT_OK
         client_dbus.StatusChanged(constants.CLIENT_STATUS_CONNECT_OK)
+
+def on_main_window_closed():
+    '''Change status to CLIENT_STATUS_STOPPED when main window is closed'''
+    client_dbus.StatusChanged(constants.CLIENT_STATUS_STOPPED)

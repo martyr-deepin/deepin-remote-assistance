@@ -40,9 +40,6 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
         else:
             self.host_client.uncapture()
 
-    def cmdMessageReceived(self, msg):
-        print('TODO: MainEngine. cmdMessage received:', msg)
-
     def onQuit(self):
         print('Main engine quit')
 
@@ -50,5 +47,6 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
         self.window.activeChanged.connect(self.onMainWindowFocusChanged)
         self.window.cmdMessaged.connect(messaging.handle_cmd_message)
         self.window.fullscreenToggled.connect(self.toggleFullscreen)
+        self.window.windowClosed.connect(messaging.on_main_window_closed)
         self.host_client.start()
         self.window.show()
