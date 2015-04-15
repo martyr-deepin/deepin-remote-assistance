@@ -102,7 +102,7 @@ Window {
         msgId: cmdMsg
         contexts: remotingContext
         callback: function (msg){
-            console.log('TODO: emit cmd signal', msg.args.detail);
+            console.log('emit cmd signal', msg.args.detail);
             root.cmdMessaged(msg.args.detail);
         }
     }

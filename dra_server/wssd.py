@@ -15,6 +15,7 @@ import websockets
 from . import handshake
 from . import mouse
 from . import keyboard
+from dra_utils.log import server_log
 
 # Minimum port to be bound
 PORT_MIN = 10000
@@ -23,7 +24,7 @@ PORT_MIN = 10000
 PORT_MAX = 10050
 
 def default_handler(ws, msg):
-    print('TODO:', msg)
+    server_log.debug('[wssd] default handler: TODO, %s' % msg)
     return ws.send(msg)
 
 class WSSDWorker(QObject):
@@ -50,19 +51,18 @@ class WSSDWorker(QObject):
         for port in range(PORT_MIN, PORT_MAX):
             try:
                 server = websockets.serve(self._handler, self.host, port)
-                print('server:', server)
                 self.event_loop.run_until_complete(server)
-                print('loop:', self.event_loop)
                 self.port = port
-                print('selected port:', port, self.port)
                 break
             except OSError as e:
+                server_log.warn('[wssd] %s' % e)
                 print(e)
 
         # FIXME: AttributeError
         try:
             self.event_loop.run_forever()
         except AttributeError as e:
+            server_log.warn('[wssd] %s' % e)
             print(e)
 
     @asyncio.coroutine
@@ -74,16 +74,16 @@ class WSSDWorker(QObject):
             handler = self.handlers.get(path, None)
             if not handler:
                 print('TODO: handle this event')
+                server_log.debug('[wssd] TODO: handle this event: %s' % path)
                 continue
             yield from handler(ws, msg)
 
     def stop_server(self):
-        print('worker stop')
+        server_log.info('[wssd] worker stop')
         self.event_loop.close()
 
     def handle_cmd_event(self, ws, msg):
         '''Handle browser command event in UI thread'''
-        print('handle cmd event:', msg)
         self.browserCmd.emit(msg)
         return []
 
@@ -125,7 +125,7 @@ class WSSDController(QObject):
         self.started.emit()
 
     def stop(self):
-        print('controller stop')
+        server_log.info('[wssd] controller stopped')
         if self.worker_started:
             self.worker.stop_server()
         if not self.workerThread.isFinished():

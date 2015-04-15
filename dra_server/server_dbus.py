@@ -134,12 +134,10 @@ class ServerDBus(dbus.service.Object):
 
     def peer_id_changed(self, new_peer_id):
         '''Peer id of server side changed'''
-        server_log.info('[dbus] peer_id_changed: %s' % new_peer_id)
-
+        server_log.debug('[dbus] peer_id_changed: %s' % new_peer_id)
         # If current peer id is OK, ignore new peer id
         if self._peer_id:
             return
-
         # TODO: valid peer_id
         if new_peer_id:
             self.StatusChanged(constants.SERVER_STATUS_PEERID_OK)

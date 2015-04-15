@@ -7,6 +7,7 @@ from PyQt5.QtCore import QObject
 from .chromium import Chromium
 from . import constants
 from .wssd import WSSDController
+from dra_utils.log import server_log
 
 '''
 Controller for server side.
@@ -68,11 +69,11 @@ class Server(QObject):
         Some of these messages will be converted to Qt mssage'''
 
         # TODO: move this to messaging module
-        print('cmd:', msg)
+        server_log.debug('handleBrowserCmd: %s' % msg)
         event = json.loads(msg)
         if event['Type'] == constants.SERVER_MSG_ECHO:
             self.server_dbus.peer_id_changed(event['Payload'])
         elif event['Type'] == constants.SERVER_MSG_SHARING:
             self.server_dbus.StatusChanged(constants.SERVER_STATUS_SHARING)
         else:
-            print('TODO: Handle this cmd:', msg)
+            server_log.warn('handleBrowserCmd msg invalid: %s' % msg)
