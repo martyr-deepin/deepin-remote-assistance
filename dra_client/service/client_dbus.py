@@ -85,10 +85,10 @@ class ClientDBus(dbus.service.Object):
 
     # root iface signals
     @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='i')
-    def StatusChanged(self, new_status):
+    def StatusChanged(self, status):
         '''Client status has been changed'''
-        client_log.info('[dbus] client status changed: %s' % new_status)
-        self._status = new_status
+        client_log.info('[dbus] client status changed: %s' % status)
+        self._status = status
 
     # root iface methods
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',

@@ -119,13 +119,15 @@ class ServerDBus(dbus.service.Object):
         return self._status
 
     @dbus.service.signal(constants.DBUS_ROOT_IFACE, signature='i')
-    def StatusChanged(self, new_status):
+    def StatusChanged(self, status):
         '''Server status changed'''
-        server_log.info('[dbus] StatusChanged: %s' % new_status)
+        server_log.info('[dbus] StatusChanged: %s' % status)
+        self._status = status
+
         # If current status is SERVER_STATUS_PEERID_FAILED, stop service
+        # TODO: call stop method in UI
         if self._status == constants.SERVER_STATUS_PEERID_FAILED:
             self.server.stop()
-        self._status = new_status
 
     def peer_id_changed(self, new_peer_id):
         '''Peer id of server side changed'''
