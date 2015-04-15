@@ -7,7 +7,8 @@ dbus.mainloop.glib.threads_init()
 # FIXME: QtMainLoop does not work
 #from dbus.mainloop.pyqt5 import DBusQtMainLoop
 from dbus.mainloop.glib import DBusGMainLoop
-from PyQt5.QtWidgets import qApp
+from PyQt5 import QtCore
+from PyQt5 import QtWidgets
 
 from . import constants
 from . import server
@@ -36,8 +37,7 @@ class ServerDBus(dbus.service.Object):
                 constants.DBUS_ROOT_IFACE: self._get_root_iface_properties(),
         }
 
-        self.server = server.Server()
-        self.server.peerIdUpdated.connect(self.peer_id_changed)
+        self.server = server.Server(self)
 
     def _get_root_iface_properties(self):
         return {
@@ -103,9 +103,12 @@ class ServerDBus(dbus.service.Object):
         self.server.stop()
         self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
 
+        # Kill qApp and dbus service after 1s
+        QtCore.QTimer.singleShot(1000, self.Kill)
+
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Kill(self):
-        qApp.quit()
+        QtWidgets.qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
                          out_signature='s')
@@ -132,6 +135,11 @@ class ServerDBus(dbus.service.Object):
     def peer_id_changed(self, new_peer_id):
         '''Peer id of server side changed'''
         server_log.info('[dbus] peer_id_changed: %s' % new_peer_id)
+
+        # If current peer id is OK, ignore new peer id
+        if self._peer_id:
+            return
+
         # TODO: valid peer_id
         if new_peer_id:
             self.StatusChanged(constants.SERVER_STATUS_PEERID_OK)
