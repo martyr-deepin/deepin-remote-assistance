@@ -4,6 +4,9 @@
 # This message is sent to host at a specific interval(default is 3000ms)
 SERVER_MSG_ECHO = 1
 
+# Destop is being shared
+SERVER_MSG_SHARING = 2
+
 # DBus name
 DBUS_NAME = 'com.deepin.daemon.Remoting.Server'
 DBUS_SERVER_PATH = '/com/deepin/daemon/Remoting/Server'

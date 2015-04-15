@@ -23,12 +23,11 @@ Stop:
 
 class Server(QObject):
 
-    peerIdUpdated = pyqtSignal(str)
-
-    def __init__(self, parent=None):
+    def __init__(self, server_dbus, parent=None):
         super().__init__(parent=parent)
         self.wssd = None
         self.chromium = None
+        self.server_dbus = server_dbus
 
     def start(self):
         '''Start desktop sharing service'''
@@ -69,6 +68,11 @@ class Server(QObject):
         Some of these messages will be converted to Qt mssage'''
 
         # TODO: move this to messaging module
+        print('cmd:', msg)
         event = json.loads(msg)
         if event['Type'] == constants.SERVER_MSG_ECHO:
-            self.peerIdUpdated.emit(event['Payload'])
+            self.server_dbus.peer_id_changed(event['Payload'])
+        elif event['Type'] == constants.SERVER_MSG_SHARING:
+            self.server_dbus.StatusChanged(constants.SERVER_STATUS_SHARING)
+        else:
+            print('TODO: Handle this cmd:', msg)
