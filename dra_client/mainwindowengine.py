@@ -25,7 +25,6 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
         self.host_client = Client(self)
 
     def toggleFullscreen(self):
-        return
         if self.window.fullscreen:
             self.window.showNormal()
         else:
