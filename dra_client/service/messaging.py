@@ -7,7 +7,10 @@ from dra_utils.log import client_log
 from . import constants
 
 # Method to send messages to browser
-send_message = lambda *args: print('Unhandled Message: ', args)
+def default_send_message(msgId, msg):
+    client_log.warn('[messaging] default_send_message: %s, %s' % (msgId, msg))
+
+send_message = default_send_message
 
 # Reference to client dbus object
 client_dbus = None

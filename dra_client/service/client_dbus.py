@@ -126,6 +126,17 @@ class ClientDBus(dbus.service.Object):
     def Connect(self, remote_peer_id):
         '''Connect to remote peer'''
         # Send remote peer id to browser side
-        client_log.debug('[dbus] Connect: %s' % remote_peer_id)
+        client_log.info('[dbus] Connect: %s' % remote_peer_id)
         self.StatusChanged(constants.CLIENT_STATUS_CONNECTING)
-        messaging.init_remoting(remote_peer_id)
+
+        def send_peer_id():
+            if self._get_status == constants.CLIENT_STATUS_CONNECT_OK:
+                client_log.debug('[dbus] stop sending peer id: %s' % remote_peer_id)
+                timer.stop()
+                return
+            messaging.init_send_message(remote_peer_id)
+
+        timer = QtCore.QTimer()
+        timer.setInterval(50)
+        timer.timeout.connect(send_peer_id)
+        timer.start()
