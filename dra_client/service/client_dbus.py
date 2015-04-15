@@ -7,7 +7,8 @@ dbus.mainloop.glib.threads_init()
 # FIXME: QtMainLoop does not work
 #from dbus.mainloop.pyqt5 import DBusQtMainLoop
 from dbus.mainloop.glib import DBusGMainLoop
-from PyQt5.QtWidgets import qApp
+from PyQt5 import QtCore
+from PyQt5 import QtWidgets
 
 from . import client 
 from . import constants
@@ -111,10 +112,14 @@ class ClientDBus(dbus.service.Object):
         '''Stop client side'''
         client_log.debug('[dbus] stop client')
         self.StatusChanged(constants.CLIENT_STATUS_STOPPED)
+        self.engine.host_client.stop()
+
+        # Kill qApp and dbus service after 1s
+        QtCore.QTimer.singleShot(1000, self.Kill)
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Kill(self):
-        qApp.quit()
+        QtWidgets.qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='s',
                          out_signature='')
