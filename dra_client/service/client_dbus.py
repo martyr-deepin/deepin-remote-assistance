@@ -115,9 +115,8 @@ class ClientDBus(dbus.service.Object):
         self.engine.host_client.stop()
 
         # Kill qApp and dbus service after 1s
-        QtCore.QTimer.singleShot(1000, self.Kill)
+        QtCore.QTimer.singleShot(1000, self.kill)
 
-    @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Kill(self):
         QtWidgets.qApp.quit()
 

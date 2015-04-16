@@ -104,10 +104,9 @@ class ServerDBus(dbus.service.Object):
         self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
 
         # Kill qApp and dbus service after 1s
-        QtCore.QTimer.singleShot(1000, self.Kill)
+        QtCore.QTimer.singleShot(1000, self.kill)
 
-    @dbus.service.method(constants.DBUS_ROOT_IFACE)
-    def Kill(self):
+    def kill(self):
         QtWidgets.qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
