@@ -37,11 +37,23 @@ def send_keyboard_event(event):
 
 def handle_cmd_message(msg):
     '''Handle cmd messages'''
-    msg = json.loads(msg)
+    try:
+        msg = json.loads(msg)
+    except ValueError as e:
+        client_log.warn('[messaging] Warning: handle this error: %s' % e)
+        return
 
-    if msg['Type'] == constants.CLIENT_MSG_CONNECTED:
-        # Change client status to CONNECT_OK
-        client_dbus.StatusChanged(constants.CLIENT_STATUS_CONNECT_OK)
+    router = {
+        constants.CLIENT_MSG_READY: constants.CLIENT_STATUS_PAGE_READY,
+        constants.CLIENT_MSG_CONNECTED: constants.CLIENT_STATUS_CONNECT_OK,
+        constants.CLIENT_MSG_UNAVAILABLE: constants.CLIENT_STATUS_UNAVAILABLE,
+        constants.CLIENT_MSG_DISCONNECTED: constants.CLIENT_STATUS_DISCONNECTED,
+    }
+
+    if msg['Type'] in router:
+        client_dbus.StatusChanged(router[msg['Type']])
+    else:
+        client_log.warn('[messaging] Warning: handle this message: %s' % msg)
 
 def on_main_window_closed():
     '''Change status to CLIENT_STATUS_STOPPED when main window is closed'''
