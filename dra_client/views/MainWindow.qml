@@ -20,8 +20,8 @@ Window {
     // Emit window closed signal when close button is clicked
     signal windowClosed()
 
-    //property var starturl: Qt.resolveUrl("http://peer.org:9000/remoting#client")
-    property var starturl: Qt.resolvedUrl("http://peer.org:9000/remoting#client")
+    property var starturl: Qt.resolvedUrl("http://10.0.0.42:9000/remoting#client")
+
     // Msg URI, schema://path/object
     property string remotingContext: 'remoting://'
 
@@ -109,8 +109,8 @@ Window {
 
     WebContext {
         id: webContext
-        cachePath: "file:///tmp/"
-        dataPath: "file:///tmp/"
+        cachePath: "file:///tmp/dra"
+        dataPath: "file:///tmp/dra"
         devtoolsEnabled: true
         devtoolsPort: 9999
 
