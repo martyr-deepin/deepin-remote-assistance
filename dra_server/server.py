@@ -67,13 +67,14 @@ class Server(QObject):
         '''Handle command message sent from browser side.
 
         Some of these messages will be converted to Qt mssage'''
-
-        # TODO: move this to messaging module
         server_log.debug('handleBrowserCmd: %s' % msg)
-        event = json.loads(msg)
-        if event['Type'] == constants.SERVER_MSG_ECHO:
-            self.server_dbus.peer_id_changed(event['Payload'])
-        elif event['Type'] == constants.SERVER_MSG_SHARING:
+        msg = json.loads(msg)
+
+        if msg['Type'] == constants.SERVER_MSG_ECHO:
+            self.server_dbus.peer_id_changed(msg['Payload'])
+        elif msg['Type'] == constants.SERVER_MSG_SHARING:
             self.server_dbus.StatusChanged(constants.SERVER_STATUS_SHARING)
+        elif msg['Type'] == constants.SERVER_MSG_DISCONNECT:
+            self.server_dbus.StatusChanged(constants.SERVER_STATUS_DISCONNECTED)
         else:
             server_log.warn('handleBrowserCmd msg invalid: %s' % msg)

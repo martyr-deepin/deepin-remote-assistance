@@ -2,10 +2,16 @@
 
 # Report local peer id to host service.
 # This message is sent to host at a specific interval(default is 3000ms)
+# Browser -> Host
 SERVER_MSG_ECHO = 1
 
 # Destop is being shared
+# Browser -> Host
 SERVER_MSG_SHARING = 2
+
+# Remote peer has gone offline
+# Browser -> Host
+SERVER_MSG_DISCONNECT = 3
 
 # DBus name
 DBUS_NAME = 'com.deepin.daemon.Remoting.Server'
@@ -33,3 +39,6 @@ SERVER_STATUS_SHARING = 4
 
 # Server is stopped
 SERVER_STATUS_STOPPED = 5
+
+# Remote peer has closed media connection
+SERVER_STATUS_DISCONNECTED = 6

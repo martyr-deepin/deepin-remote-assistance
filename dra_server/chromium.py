@@ -11,7 +11,7 @@ class Chromium(QObject):
 
     def __init__(self, parent=None,
             app_path='/usr/lib/dra/chromium/chrome',
-            app='http://peer.org:9000/remoting#server',
+            app='http://10.0.0.42:9000/remoting#server',
             user_data_dir='~/.config/dra/chromium'):
         super().__init__(parent)
 
@@ -33,6 +33,7 @@ class Chromium(QObject):
                 # TODO:remove this
                 '--incognito',  # Open in incognito mode.
                 ])
+        # TODO: emit quit signal when chromium window is closed by user
 
     def stop(self):
         if self.popen:
