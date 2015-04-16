@@ -53,8 +53,4 @@ def handle_cmd_message(msg):
     if msg['Type'] in router:
         client_dbus.StatusChanged(router[msg['Type']])
     else:
-        client_log.warn('[messaging] Warning: handle this message: %s' % msg)
-
-def on_main_window_closed():
-    '''Change status to CLIENT_STATUS_STOPPED when main window is closed'''
-    client_dbus.StatusChanged(constants.CLIENT_STATUS_STOPPED)
+        lient_log.warn('[messaging] Warning: handle this message: %s' % msg)
