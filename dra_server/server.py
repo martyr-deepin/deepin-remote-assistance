@@ -6,6 +6,7 @@ from PyQt5.QtCore import QObject
 
 from .chromium import Chromium
 from . import constants
+from . import keyboard
 from .wssd import WSSDController
 from dra_utils.log import server_log
 
@@ -39,6 +40,7 @@ class Server(QObject):
         '''Stop desktop sharing service'''
         self.stop_chromium()
         self.stop_wssd()
+        keyboard.reset_keyboard()
 
     def start_wssd(self):
         '''Start websocket service'''

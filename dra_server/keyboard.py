@@ -30,3 +30,11 @@ def handle(ws, msg):
     else:
         keyboard.release_key(event['character'])
     return []
+
+def reset_keyboard():
+    '''Reset local keyboard before host service is terminated'''
+    # First press Escape
+    keyboard.press_key('Escape')
+
+    # Then Release Escape
+    keyboard.release_key('Escape')
