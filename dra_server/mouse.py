@@ -2,6 +2,9 @@
 import json
 
 from pymouse import PyMouse
+import Xlib
+import Xlib.display
+
 
 def filter_event_to_local(event):
     '''Properties of MouseEvent in browsers are slitely different from
@@ -22,15 +25,30 @@ def filter_event_to_local(event):
     if 'button' in event:
         event['button'] += 1
 
+    # Remap mouse position
+    # localX / localWidth = remoteOffsetX / remoteVideoWidth
+    event['localX'] = int(event['offsetX'] * screen_width / event['w'])
+    event['localY'] = int(event['offsetY'] * screen_height / event['h'])
+    return event
+
+def get_screen_resolution():
+    '''Get current resolution of default screen'''
+    resolution = Xlib.display.Display().screen().root.get_geometry()
+    return (resolution.width, resolution.height)
+
 mouse = PyMouse()
+screen_width, screen_height = get_screen_resolution()
+
 def move(event):
-    mouse.move(event['clientX'], event['clientY'])
+    mouse.move(event['localX'], event['localY'])
 
 def button_press(event):
-    mouse.press(event['clientX'], event['clientY'], event['button'])
+    print('button press:', event)
+    mouse.press(event['localX'], event['localY'], event['button'])
 
 def button_release(event):
-    mouse.release(event['clientX'], event['clientY'], event['button'])
+    print('button release:', event)
+    mouse.release(event['localX'], event['localX'], event['button'])
 
 def click(event):
     '''Emulate mouse click event.'''
@@ -49,13 +67,14 @@ def handle(ws, msg):
     event = json.loads(msg)
 
     # event filter
-    filter_event_to_local(event)
+    event = filter_event_to_local(event)
 
     handlers = {
         'mousemove': move,
         'mousedown': button_press,
         'mouseup': button_release,
-        'wheel': scroll,
+        # TODO: handle mouse scrolling event
+        #'wheel': scroll,
     }
     try:
         handler = handlers[event['type']]
