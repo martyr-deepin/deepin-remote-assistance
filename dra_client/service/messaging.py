@@ -54,3 +54,14 @@ def handle_cmd_message(msg):
         client_dbus.StatusChanged(router[msg['Type']])
     else:
         lient_log.warn('[messaging] Warning: handle this message: %s' % msg)
+
+    if msg['Type'] == constants.CLIENT_MSG_CONNECTED:
+        try:
+            video_property = json.loads(msg['Payload'])
+        except ValueError as e:
+            client_log.warn('[messaging] Failed to read video info: %s, %s' %
+                    (e, msg['Payload']))
+            return
+
+        client_dbus.engine.window.setVideoAspectRatio(
+            video_property['width'], video_property['height'])

@@ -31,6 +31,11 @@ Window {
     // To mark keyboard message
     property string keyboardMsg: 'KEYBOARD'
 
+    function setVideoAspectRatio(width, height) {
+        console.log('setVideoAspectRatio:', width, height);
+        // TODO: pass
+    }
+
     Column {
         anchors.fill: parent
 
