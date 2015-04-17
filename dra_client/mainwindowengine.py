@@ -12,6 +12,7 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
     def __init__(self, client_dbus):
         super().__init__()
 
+        self.client_dbus = client_dbus
         self.load(views.MAIN_WINDOW)
         QtWidgets.qApp.setQuitOnLastWindowClosed(False)
 
@@ -32,20 +33,19 @@ class MainWindowEngine(QtQml.QQmlApplicationEngine):
         self.window.fullscreen = not self.window.fullscreen
 
     def onMainWindowFocusChanged(self):
-        print('window is active:', self.window.isActive())
-        return
+        # FIXME: oxide message channel throws exceptions
         if self.window.isActive():
             self.host_client.try_capture()
         else:
             self.host_client.uncapture()
 
-    def onQuit(self):
-        print('Main engine quit')
+    def onMainWindowClosed(self):
+        self.client_dbus.Stop()
 
     def show(self):
         self.window.activeChanged.connect(self.onMainWindowFocusChanged)
         self.window.cmdMessaged.connect(messaging.handle_cmd_message)
         self.window.fullscreenToggled.connect(self.toggleFullscreen)
-        self.window.windowClosed.connect(messaging.on_main_window_closed)
+        self.window.windowClosed.connect(self.onMainWindowClosed)
         self.host_client.start()
         self.window.show()

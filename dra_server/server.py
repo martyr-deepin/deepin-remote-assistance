@@ -67,6 +67,7 @@ class Server(QObject):
         '''Handle command message sent from browser side.
 
         Some of these messages will be converted to Qt mssage'''
+        print('handle browser cmd message:', msg)
         server_log.debug('handleBrowserCmd: %s' % msg)
         msg = json.loads(msg)
 

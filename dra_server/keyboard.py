@@ -18,7 +18,13 @@ def handle(ws, msg):
     print('handle:', msg)
 
     # TODO: catch json exception
-    event = json.loads(msg)
+    try:
+        event = json.loads(msg)
+    except ValueError as e:
+        server_log.warn('[keyboard] %s malformed keyboard event: %s' %
+                        (e, msg))
+        return
+
     if event['press']:
         keyboard.press_key(event['character'])
     else:
