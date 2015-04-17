@@ -8,7 +8,6 @@ Note:
 * CaptureWorker contains a Capture object
 * The Capture object is used to capture global keyboard event
 '''
-
 import json
 
 from PyQt5 import QtCore
@@ -19,23 +18,20 @@ from pykeyboard import PyKeyboardEvent
 from . import messaging
 
 
-class Capture(PyKeyboardEvent, QtCore.QObject):
+class Capture(PyKeyboardEvent):
 
-    tapped =QtCore.pyqtSignal(str)
+    def __init__(self, worker):
+        super().__init__()
+        self.worker = worker
 
-    def __init__(self):
-        #super().__init__()
-        PyKeyboardEvent.__init__(self)
-        QtCore.QObject.__init__(self)
+        #self.capture = True
 
-        self.capture = True
-
-    def escape(self, event):
-        '''Override escape() method in PyKeyboardEvent.
-
-        When True is returned, keyboard listener will be stopped.
-        '''
-        return False
+#    def escape(self, event):
+#        '''Override escape() method in PyKeyboardEvent.
+#
+#        When True is returned, keyboard listener will be stopped.
+#        '''
+#        return False
 
     def tap(self, keycode, character, press):
         '''Handle keyboard event here
@@ -44,39 +40,41 @@ class Capture(PyKeyboardEvent, QtCore.QObject):
         @character, keyboard char, if available
         @press, True if event is KeyPressEvent, False if is KeyReleaseEvent
         '''
-        #print('tap:', keycode, character, press)
         msg = {
             'keycode': keycode,
             'character': character,
             'press': press,
         }
-        messaging.send_keyboard_event(msg)
+        self.worker.tapped.emit(json.dumps(msg))
+
+    def stop(self):
+        print('Capture.stop()')
+        PyKeyboardEvent.stop(self)
 
 
 class CaptureWorker(QtCore.QObject):
 
-    tapped =QtCore.pyqtSignal(str)
+    tapped = QtCore.pyqtSignal(str)
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent)
         self._capture = None
 
     def capture(self):
-        if not self._capture:
-            self._capture = Capture()
-            self._capture.tapped.connect(lambda msg: self.tapped.emit(msg))
+        if self._capture is None:
+            self._capture = Capture(self)
             self._capture.run()
 
     def uncapture(self):
         if self._capture:
             self._capture.stop()
+            del self._capture
             self._capture = None
 
 
 class CaptureController(QtCore.QObject):
 
     captured = QtCore.pyqtSignal()
-    uncaptured = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -84,20 +82,17 @@ class CaptureController(QtCore.QObject):
         self.captureThread = QtCore.QThread()
         self.worker = CaptureWorker()
         self.worker.moveToThread(self.captureThread)
+        self.worker.tapped.connect(messaging.send_keyboard_event)
         self.captured.connect(self.worker.capture)
-        self.uncaptured.connect(self.worker.uncapture)
         QtWidgets.qApp.aboutToQuit.connect(self.stop)
 
         self.captureThread.start()
 
     def capture(self):
-        print('capturecontroller.capture')
         self.captured.emit()
 
     def uncapture(self):
-        print('capturecontroller.uncapture')
         self.worker.uncapture()
-        #self.uncaptured.emit()
 
     def stop(self):
         '''Stop capturing and kill background thread'''

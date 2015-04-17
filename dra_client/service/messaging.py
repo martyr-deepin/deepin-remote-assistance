@@ -32,7 +32,7 @@ def init_remoting(remote_peer_id):
 
 def send_keyboard_event(event):
     #client_log.debug('send_keyboard_event: %s' % event)
-    print('send keyboard event:', event)
+    print('send keyboard event:', event, type(event))
     send_message(constants.KEYBOARD_MSG, event)
 
 def handle_cmd_message(msg):

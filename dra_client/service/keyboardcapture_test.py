@@ -27,21 +27,19 @@ class Form(QtWidgets.QDialog):
 
         self.captureController = CaptureController(self)
 
-        startButton.clicked.connect(self.captureController.capture)
-        stopButton.clicked.connect(self.captureController.uncapture)
+        #startButton.clicked.connect(self.captureController.capture)
+        #stopButton.clicked.connect(self.captureController.uncapture)
 
         self.setWindowTitle('Grab Global Keyboard Event')
-        self.setFocusPolicy(QtCore.Qt.StrongFocus)
+        QtWidgets.qApp.focusWindowChanged.connect(self.onAppFocusWindowChanged)
 
-    def focusInEvent(self, event):
-        print('focus in event:', event)
+    def onAppFocusWindowChanged(self, window):
+        if window:
+            self.captureController.capture()
+        else:
+            self.captureController.uncapture()
+            #self.captureController.stop()
 
-    def focusOutEvent(self, event):
-        print('focus out event:', event)
-
-    def event(self, event):
-        print('event:', event)
-        return QtWidgets.QDialog.event(self, event)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
