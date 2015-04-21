@@ -70,6 +70,6 @@ def handle_cmd_message(msg):
     elif msg['Type'] == constants.CLIENT_MSG_DISCONNECTED:
         client_dbus.StatusChanged(constants.CLIENT_STATUS_DISCONNECTED)
         # Kill host service after 1s
-        QtCore.singleShot(1000, client_dbus.Stop)
+        QtCore.QTimer.singleShot(1000, client_dbus.Stop)
     else:
         lient_log.warn('[messaging] Warning: handle this message: %s' % msg)
