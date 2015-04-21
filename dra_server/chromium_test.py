@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 
 import sys
-sys.path.append('..')
+sys.path.insert(0, '..')
 
 from PyQt5 import QtCore
 from dra_server.chromium import Chromium
 
 app = QtCore.QCoreApplication(sys.argv)
+
+print('app:', app)
 
 cr = Chromium()
 cr.start()

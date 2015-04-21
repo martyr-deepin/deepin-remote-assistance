@@ -1,8 +1,7 @@
 
 import json
 
-from PyQt5.QtCore import pyqtSignal
-from PyQt5.QtCore import QObject
+from PyQt5 import QtCore
 
 from .chromium import Chromium
 from . import constants
@@ -23,7 +22,7 @@ Stop:
 '''
 
 
-class Server(QObject):
+class Server(QtCore.QObject):
 
     def __init__(self, server_dbus, parent=None):
         super().__init__(parent=parent)
@@ -79,5 +78,7 @@ class Server(QObject):
             self.server_dbus.StatusChanged(constants.SERVER_STATUS_SHARING)
         elif msg['Type'] == constants.SERVER_MSG_DISCONNECT:
             self.server_dbus.StatusChanged(constants.SERVER_STATUS_DISCONNECTED)
+            # Kill host service after 1s
+            QtCore.QTimer.singleShot(1000, self.server_dbus.Stop)
         else:
             server_log.warn('handleBrowserCmd msg invalid: %s' % msg)

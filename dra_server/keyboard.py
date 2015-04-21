@@ -15,9 +15,8 @@ keyboard = pykeyboard.PyKeyboard()
 
 def handle(ws, msg):
     '''Message is a KeyboardEvent, including keycode, character, press'''
-    print('handle:', msg)
+    print('handle keyboard message:', msg)
 
-    # TODO: catch json exception
     try:
         event = json.loads(msg)
     except ValueError as e:

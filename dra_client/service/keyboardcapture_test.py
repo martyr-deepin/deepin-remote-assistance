@@ -27,19 +27,25 @@ class Form(QtWidgets.QDialog):
 
         self.captureController = CaptureController(self)
 
-        #startButton.clicked.connect(self.captureController.capture)
-        #stopButton.clicked.connect(self.captureController.uncapture)
+        startButton.clicked.connect(self.captureController.capture)
+        stopButton.clicked.connect(self.captureController.uncapture)
 
         self.setWindowTitle('Grab Global Keyboard Event')
+        #QtCore.QTimer.singleShot(
+        #        1200,
+        #        lambda: QtWidgets.qApp.focusWindowChanged.connect(self.onAppFocusWindowChanged))
         QtWidgets.qApp.focusWindowChanged.connect(self.onAppFocusWindowChanged)
+        self.startButton = startButton
+        self.stopButton = stopButton
 
     def onAppFocusWindowChanged(self, window):
-        if window:
-            self.captureController.capture()
+        print('Active ?', window is not None)
+        if window is not None:
+            #self.captureController.capture()
+            self.startButton.click()
         else:
-            self.captureController.uncapture()
-            #self.captureController.stop()
-
+            #self.captureController.uncapture()
+            self.stopButton.click()
 
 def main():
     app = QtWidgets.QApplication(sys.argv)

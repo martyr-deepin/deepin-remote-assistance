@@ -3,6 +3,8 @@
 
 import json
 
+from PyQt5 import QtCore
+
 from dra_utils.log import client_log
 from . import constants
 
@@ -50,12 +52,10 @@ def handle_cmd_message(msg):
         constants.CLIENT_MSG_DISCONNECTED: constants.CLIENT_STATUS_DISCONNECTED,
     }
 
-    if msg['Type'] in router:
-        client_dbus.StatusChanged(router[msg['Type']])
-    else:
-        lient_log.warn('[messaging] Warning: handle this message: %s' % msg)
-
-    if msg['Type'] == constants.CLIENT_MSG_CONNECTED:
+    if msg['Type'] == constants.CLIENT_MSG_READY:
+        client_dbus.StatusChanged(constants.CLIENT_STATUS_PAGE_READY)
+    elif msg['Type'] == constants.CLIENT_MSG_CONNECTED:
+        client_dbus.StatusChanged(constants.CLIENT_STATUS_CONNECT_OK)
         try:
             video_property = json.loads(msg['Payload'])
         except ValueError as e:
@@ -65,3 +65,11 @@ def handle_cmd_message(msg):
 
         client_dbus.engine.window.setVideoAspectRatio(
             video_property['width'], video_property['height'])
+    elif msg['Type'] == constants.CLIENT_MSG_UNAVAILABLE:
+        client_dbus.StatusChanged(constants.CLIENT_STATUS_UNAVAILABLE)
+    elif msg['Type'] == constants.CLIENT_MSG_DISCONNECTED:
+        client_dbus.StatusChanged(constants.CLIENT_STATUS_DISCONNECTED)
+        # Kill host service after 1s
+        QtCore.singleShot(1000, client_dbus.Stop)
+    else:
+        lient_log.warn('[messaging] Warning: handle this message: %s' % msg)

@@ -1,5 +1,6 @@
 
 import os
+import signal
 import subprocess
 
 from PyQt5.QtCore import QObject
@@ -9,10 +10,11 @@ from . import utils
 
 class Chromium(QObject):
 
-    def __init__(self, parent=None,
-            app_path='/usr/lib/dra/chromium/chrome',
-            app='http://peer.org:9000/remoting#server',
-            user_data_dir='~/.config/dra/chromium'):
+    def __init__(self,
+                 parent=None,
+                 app_path='/usr/lib/dra/chromium/chrome',
+                 app='http://peer.org:9000/remoting#server',
+                 user_data_dir='~/.config/dra/chromium'):
         super().__init__(parent)
 
         self.app_path = app_path
@@ -22,6 +24,7 @@ class Chromium(QObject):
 
         # Kill chromium when UI window is closed
         qApp.aboutToQuit.connect(self.stop)
+        #signal.signal(signal.SIGCHLD, self.on_child_terminated)
 
     def start(self):
         self.stop()
@@ -34,6 +37,10 @@ class Chromium(QObject):
                 '--incognito',  # Open in incognito mode.
                 ])
         # TODO: emit quit signal when chromium window is closed by user
+        print('PID:', self.popen.pid)
+
+    def on_child_terminated(self, *args):
+        print('child termnate:', args)
 
     def stop(self):
         if self.popen:
