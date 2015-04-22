@@ -72,9 +72,9 @@ def handle(msg):
     event = filter_event_to_local(event)
 
     handlers = {
-        'mousemove': move,
-        'mousedown': button_press,
-        'mouseup': button_release,
+        'move': move,
+        'press': button_press,
+        'release': button_release,
         # TODO: handle mouse scrolling event
         #'wheel': scroll,
     }
@@ -97,4 +97,3 @@ class MouseWebSocket(tornado.websocket.WebSocketHandler):
     def on_close(self):
         print('[mouse] on close')
         # TODO: release any mouse event')
-        pass
