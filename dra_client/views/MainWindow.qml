@@ -22,11 +22,6 @@ DShadowRect {
     // Emit this signal when fullscreen button clicked
     //signal fullscreenToggled()
 
-    // Send messages to browser side
-    function sendMessage(msgId, msg) {
-        screenVideoRect.webView.sendMessage(msgId, msg);
-    }
-
     // Set width and height property of video
     property alias screenVideoWidth: screenVideoRect.screenVideoWidth
     property alias screenVideoHeight: screenVideoRect.screenVideoHeight

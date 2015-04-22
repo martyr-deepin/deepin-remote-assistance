@@ -12,18 +12,6 @@ Rectangle {
 
     // URL of deepin peer server
     property var startUrl: Qt.resolvedUrl('http://10.0.0.42:9000/remoting#client')
-    // Msg URI, schema://path/object
-    property string remotingContext: 'remoting://'
-
-    // To mark cmd message
-    property string cmdMsg: 'CMD'
-
-    // To mark keyboard message
-    property string keyboardMsg: 'KEYBOARD'
-
-    // To mark mouse message
-    property string mouseMsg: 'MOUSE'
-
     // Default width of video
     property int screenVideoWidth: 800
 
@@ -53,27 +41,6 @@ Rectangle {
         dataPath: 'file:///tmp/dra'
         devtoolsEnabled: true
         devtoolsPort: 9999
-
-        userScripts: [
-            // This script is used to setup message channel between QML and 
-            // web frame
-            UserScript {
-                context: remotingContext
-                matchAllFrames: true
-                url: Qt.resolvedUrl("oxide-user.js")
-            }
-        ]
-    }
-
-    // Handle cmd messages from browser
-    ScriptMessageHandler {
-        id: handleCmdMsg
-        msgId: cmdMsg
-        contexts: remotingContext
-        callback: function (msg){
-            console.log('emit cmd signal', msg.args.detail);
-            root.cmdMessaged(msg.args.detail);
-        }
     }
 
     WebView {
@@ -85,16 +52,6 @@ Rectangle {
         url: startUrl
         focus: true
         context: webContext
-
-        function sendMessage(msgId, msg) {
-            console.log('will send message to browser:', msgId, msg);
-            rootFrame.sendMessage(remotingContext, msgId, {'detail': msg});
-        }
-
-        // Init message handlers
-        Component.onCompleted: {
-            rootFrame.addMessageHandler(handleCmdMsg);
-        }
 
         // This mouse area is used to mark mouse position in web frame
         // Its relative position will be sent to remote peer
