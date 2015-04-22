@@ -11,8 +11,9 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
 from .client import Client 
+from . import cmd
+from . import mouse
 from . import constants
-from . import messaging
 from dra_client.mainwindow import MainWindow
 from dra_utils.log import client_log
 
@@ -38,6 +39,9 @@ class ClientDBus(dbus.service.Object):
 
         # Client object
         self.client_host = None
+
+        # To mark remoting connection has been established
+        self.remoting_connected = False
 
         # To mark status of client side
         self._status = constants.CLIENT_STATUS_UNINITIALIZED
@@ -93,6 +97,8 @@ class ClientDBus(dbus.service.Object):
         '''Client status has been changed'''
         client_log.info('[dbus] client status changed: %s' % status)
         self._status = status
+        if self._status == constants.CLIENT_STATUS_CONNECT_OK:
+            self.remoting_connected = True
 
     # root iface methods
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
@@ -111,13 +117,12 @@ class ClientDBus(dbus.service.Object):
 
         self.main_window = MainWindow()
 
-        # cmd message is handled in messaging module
-        self.main_window.root.cmdMessaged.connect(messaging.handle_cmd_message)
-        messaging.init_send_message(self.main_window.root.sendMessage, self)
-
         # Stop host service when main window is closed
         self.main_window.root.windowClosed.connect(self.Stop)
         self.main_window.show()
+
+        cmd.init(self)
+        mouse.init(self)
 
         self.client_host = Client()
         self.client_host.start()
@@ -145,4 +150,4 @@ class ClientDBus(dbus.service.Object):
         # Send remote peer id to browser side
         client_log.info('[dbus] Connect: %s' % remote_peer_id)
         self.StatusChanged(constants.CLIENT_STATUS_CONNECTING)
-        messaging.init_remoting(remote_peer_id)
+        cmd.init_remoting(remote_peer_id)

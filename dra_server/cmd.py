@@ -1,5 +1,6 @@
 
 import json
+
 from PyQt5 import QtCore
 import tornado.websocket
 

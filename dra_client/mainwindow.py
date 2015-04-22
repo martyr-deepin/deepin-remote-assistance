@@ -6,7 +6,7 @@ from PyQt5 import QtWidgets
 
 from . import views
 from .service.client import Client
-from .service import messaging
+from .service import mouse
 from .utils.event import EventHandler
 from .utils.event import EventRecord
 
@@ -22,7 +22,7 @@ class MainWindow(QtQuick.QQuickView):
         self._event_record.captureEvent.connect(
                 self._event_handler.handle_event)
         # Mouse event 
-        self._event_record.captureEvent.connect(messaging.handle_mouse_event)
+        self._event_record.captureEvent.connect(mouse.handle_mouse_event)
 
         rootContext = self.rootContext()
         rootContext.setContextProperty('windowView', self)
@@ -45,6 +45,7 @@ class MainWindow(QtQuick.QQuickView):
         self.root = self.rootObject()
 
     def toggleFullscreen(self):
+        # TODO: remove this method
         print('toggle fullscreen')
         return
         if self.window.fullscreen:

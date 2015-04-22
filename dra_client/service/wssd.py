@@ -1,8 +1,4 @@
 
-'''
-Host websocket service, running in client and server side
-'''
-
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 import tornado.ioloop
@@ -13,13 +9,13 @@ from .cmd import CmdWebSocket
 from .handshake import HandshakeWebSocket
 from .keyboard import KeyboardWebSocket
 from .mouse import MouseWebSocket
-from dra_utils.log import server_log
+from dra_utils.log import client_log
 
 # Minimum port to be bound
-PORT_MIN = 10000
+PORT_MIN = 20000
 
 # Maximum port to be bound
-PORT_MAX = 10050
+PORT_MAX = 20050
 
 
 class WSSDWorker(QtCore.QObject):
@@ -50,8 +46,7 @@ class WSSDWorker(QtCore.QObject):
             except OSError:
                 pass
         else:
-            server_log.warn('[wssd] failed to start websocket server')
-            # TODO: raise exception
+            client_log.warn('[wssd] failed to start websocket server')
             return
 
         self.port = port
@@ -59,7 +54,7 @@ class WSSDWorker(QtCore.QObject):
         self.loop.start()
 
     def stop_server(self):
-        server_log.info('[wssd] worker stop')
+        client_log.info('[wssd] worker stop')
         if self.loop:
             self.loop.stop()
 
@@ -101,7 +96,7 @@ class WSSDController(QtCore.QObject):
         self.started.emit()
 
     def stop(self):
-        server_log.info('[wssd] controller stopped')
+        client_log.info('[wssd] controller stopped')
         if self.worker_started:
             self.worker.stop_server()
         if not self.workerThread.isFinished():

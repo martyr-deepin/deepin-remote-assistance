@@ -15,7 +15,7 @@ from PyQt5 import QtWidgets
 
 from pykeyboard import PyKeyboardEvent
 
-from . import messaging
+from . import keyboard
 
 
 class Capture(PyKeyboardEvent):
@@ -79,7 +79,7 @@ class CaptureWorker(QtCore.QObject):
             self._capture = None
 
 
-class CaptureController(QtCore.QObject):
+class KeyboardCaptureController(QtCore.QObject):
 
     captured = QtCore.pyqtSignal()
     uncaptured = QtCore.pyqtSignal()
@@ -90,7 +90,7 @@ class CaptureController(QtCore.QObject):
         self.captureThread = QtCore.QThread()
         self.worker = CaptureWorker()
         self.worker.moveToThread(self.captureThread)
-        #self.worker.tapped.connect(messaging.send_keyboard_event)
+        #self.worker.tapped.connect(keyboard.send_message)
         QtWidgets.qApp.aboutToQuit.connect(self.stop)
         self.captured.connect(self.worker.capture)
 
