@@ -10,10 +10,10 @@ from dbus.mainloop.glib import DBusGMainLoop
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from . import client 
+from .client import Client 
 from . import constants
 from . import messaging
-from dra_client.mainwindowengine import MainWindowEngine
+from dra_client.mainwindow import MainWindow
 from dra_utils.log import client_log
 
 
@@ -33,8 +33,11 @@ class ClientDBus(dbus.service.Object):
                 constants.DBUS_ROOT_IFACE: self._get_root_iface_properties(),
         }
 
-        #self.engine = MainWindowEngine()
-        self.engine = None
+        # MainWindow object
+        self.main_window = None
+
+        # Client object
+        self.client_host = None
 
         # To mark status of client side
         self._status = constants.CLIENT_STATUS_UNINITIALIZED
@@ -102,9 +105,23 @@ class ClientDBus(dbus.service.Object):
         '''Start client side'''
         client_log.debug('[dbus] start client')
 
-        if not self.engine:
-            self.engine = MainWindowEngine(self)
-        self.engine.show()
+        if self._status >= constants.CLIENT_STATUS_STARTED:
+            client_log.warn('[dbus] already started: %s' % self._status)
+            return
+
+        self.main_window = MainWindow()
+
+        # cmd message is handled in messaging module
+        self.main_window.root.cmdMessaged.connect(messaging.handle_cmd_message)
+        messaging.init_send_message(self.main_window.root.sendMessage, self)
+
+        # Stop host service when main window is closed
+        self.main_window.root.windowClosed.connect(self.Stop)
+        self.main_window.show()
+
+        self.client_host = Client()
+        self.client_host.start()
+
         self.StatusChanged(constants.CLIENT_STATUS_STARTED)
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
@@ -112,7 +129,8 @@ class ClientDBus(dbus.service.Object):
         '''Stop client side'''
         client_log.debug('[dbus] stop client')
         self.StatusChanged(constants.CLIENT_STATUS_STOPPED)
-        self.engine.host_client.stop()
+        if self.client_host:
+            self.client_host.stop()
 
         # Kill qApp and dbus service after 1s
         QtCore.QTimer.singleShot(1000, self.kill)

@@ -68,3 +68,6 @@ CMD_MSG = 'CMD'
 
 # To mark keyboard messages used in oxide
 KEYBOARD_MSG = 'KEYBOARD'
+
+# To mark mouse message used in oxide
+MOUSE_MSG = 'MOUSE'
