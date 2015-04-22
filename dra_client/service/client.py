@@ -42,10 +42,13 @@ class Client(QObject):
             self.keyboard_capture = None
 
     def start_wssd(self):
+        print('[client] start wssd')
         if not self.wssd:
-            self.wssd = WSSDController()
+            self.wssd = WSSDController(self)
+            self.wssd.start()
 
     def stop_wssd(self):
+        print('[client] stop wssd')
         if self.wssd:
             self.wssd.stop()
 

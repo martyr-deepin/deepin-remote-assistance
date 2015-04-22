@@ -89,7 +89,8 @@ connection = None
 class CmdWebSocket(tornado.websocket.WebSocketHandler):
     '''cmd message handler'''
 
-    def on_open(self):
+    def open(self):
+        print('[cmd] on open')
         global connection
         connection = self
 

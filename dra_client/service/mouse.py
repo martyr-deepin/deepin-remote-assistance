@@ -80,6 +80,6 @@ connection = None
 class MouseWebSocket(tornado.websocket.WebSocketHandler):
     '''mouse message handler'''
 
-    def on_open(self):
+    def open(self):
         global connection
         connection = self

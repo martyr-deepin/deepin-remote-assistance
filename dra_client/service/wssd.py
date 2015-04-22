@@ -90,12 +90,15 @@ class WSSDController(QtCore.QObject):
         QtWidgets.qApp.aboutToQuit.connect(self.stop)
         
     def start(self):
+        print('[wssd] start')
+        client_log.info('[wssd] controller started')
         if self.worker_started:
             return
         self.worker_started = True
         self.started.emit()
 
     def stop(self):
+        print('[wssd] stopped')
         client_log.info('[wssd] controller stopped')
         if self.worker_started:
             self.worker.stop_server()

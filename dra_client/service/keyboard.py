@@ -19,6 +19,6 @@ connection = None
 class KeyboardWebSocket(tornado.websocket.WebSocketHandler):
     '''Keyboard message handler'''
 
-    def on_open(self):
+    def open(self):
         global connection
         connection = self
