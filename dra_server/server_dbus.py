@@ -10,6 +10,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
+from . import cmd
 from . import constants
 from . import server
 from dra_utils.log import server_log
@@ -37,7 +38,7 @@ class ServerDBus(dbus.service.Object):
                 constants.DBUS_ROOT_IFACE: self._get_root_iface_properties(),
         }
 
-        self.server = server.Server(self)
+        self.server = server.Server()
 
     def _get_root_iface_properties(self):
         return {
@@ -96,6 +97,9 @@ class ServerDBus(dbus.service.Object):
         self.server.start()
         self.StatusChanged(constants.SERVER_STATUS_STARTED)
 
+        # Init cmd handler
+        cmd.init(self)
+
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop server side'''
@@ -103,7 +107,6 @@ class ServerDBus(dbus.service.Object):
         self.server.stop()
         self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
 
-        # Kill qApp and dbus service after 1s
         QtCore.QTimer.singleShot(1000, self.kill)
 
     def kill(self):
@@ -127,9 +130,13 @@ class ServerDBus(dbus.service.Object):
         self._status = status
 
         # If current status is SERVER_STATUS_PEERID_FAILED, stop service
-        # TODO: call stop method in UI
-        if self._status == constants.SERVER_STATUS_PEERID_FAILED:
-            self.server.stop()
+        if (self._status == constants.SERVER_STATUS_PEERID_FAILED or
+                self._status == constants.SERVER_STATUS_DISCONNECTED):
+            # Kill host service after 1s
+            self.Stop()
+        elif self._status == constants.SERVER_STATUS_STOPPED:
+            # Kill qApp and dbus service after 1s
+            QtCore.QTimer.singleShot(1000, self.kill)
 
     def peer_id_changed(self, new_peer_id):
         '''Peer id of server side changed'''

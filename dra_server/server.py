@@ -1,6 +1,4 @@
 
-import json
-
 from PyQt5 import QtCore
 
 from .chromium import Chromium
@@ -24,11 +22,10 @@ Stop:
 
 class Server(QtCore.QObject):
 
-    def __init__(self, server_dbus, parent=None):
+    def __init__(self, parent=None):
         super().__init__(parent=parent)
         self.wssd = None
         self.chromium = None
-        self.server_dbus = server_dbus
 
     def start(self):
         '''Start desktop sharing service'''
@@ -46,7 +43,6 @@ class Server(QtCore.QObject):
         self.stop_wssd()
         self.wssd = WSSDController(self)
         self.wssd.start()
-        self.wssd.worker.browserCmd.connect(self.handleBrowserCmd)
 
     def stop_wssd(self):
         '''Stop websocket service'''
@@ -64,21 +60,3 @@ class Server(QtCore.QObject):
         if self.chromium:
             self.chromium.stop()
 
-    def handleBrowserCmd(self, msg):
-        '''Handle command message sent from browser side.
-
-        Some of these messages will be converted to Qt mssage'''
-        print('handle browser cmd message:', msg)
-        server_log.debug('handleBrowserCmd: %s' % msg)
-        msg = json.loads(msg)
-
-        if msg['Type'] == constants.SERVER_MSG_ECHO:
-            self.server_dbus.peer_id_changed(msg['Payload'])
-        elif msg['Type'] == constants.SERVER_MSG_SHARING:
-            self.server_dbus.StatusChanged(constants.SERVER_STATUS_SHARING)
-        elif msg['Type'] == constants.SERVER_MSG_DISCONNECT:
-            self.server_dbus.StatusChanged(constants.SERVER_STATUS_DISCONNECTED)
-            # Kill host service after 1s
-            QtCore.QTimer.singleShot(1000, self.server_dbus.Stop)
-        else:
-            server_log.warn('handleBrowserCmd msg invalid: %s' % msg)

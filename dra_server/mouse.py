@@ -4,7 +4,9 @@ import json
 from pymouse import PyMouse
 import Xlib
 import Xlib.display
+import tornado.websocket
 
+from dra_utils.log import server_log
 
 def filter_event_to_local(event):
     '''Properties of MouseEvent in browsers are slitely different from
@@ -59,7 +61,7 @@ def scroll(event):
     # TODO: convert scroll event to middle-up/middle-down event
     mouse.scroll(vertical=event['deltaY'], horizontal=event['deltaX'])
 
-def handle(ws, msg):
+def handle(msg):
     '''Handle mouse event'''
     print('handle mouse event:', msg)
 
@@ -83,3 +85,16 @@ def handle(ws, msg):
         print(e)
         print('TODO: unknown mouse event type,', event)
     return []
+
+
+class MouseWebSocket(tornado.websocket.WebSocketHandler):
+    '''mouse message handler'''
+
+    def on_message(self, msg):
+        print('[mouse] on message:', msg)
+        handle(msg)
+
+    def on_close(self):
+        print('[mouse] on close')
+        # TODO: release any mouse event')
+        pass

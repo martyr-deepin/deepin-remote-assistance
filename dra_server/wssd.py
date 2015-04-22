@@ -9,12 +9,14 @@ from PyQt5.QtCore import QObject
 from PyQt5.QtCore import QThread
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import qApp
-import websockets
+import tornado.ioloop
+import tornado.web
+import tornado.websocket
 
-#from . import cmd
-from . import handshake
-from . import mouse
-from . import keyboard
+from .cmd import CmdWebSocket
+from .handshake import HandshakeWebSocket
+from .keyboard import KeyboardWebSocket
+from .mouse import MouseWebSocket
 from dra_utils.log import server_log
 
 # Minimum port to be bound
@@ -36,56 +38,36 @@ class WSSDWorker(QObject):
         self.host = host
         self.port = PORT_MIN
 
-        self.handlers = {
-            '/': default_handler,
-            '/mouse': mouse.handle,
-            '/keyboard': keyboard.handle,
-            '/clipboard': default_handler,
-            '/cmd':  self.handle_cmd_event,
-            '/handshake': handshake.handle,
-        }
+        # tornado event loop
+        self.loop = None
+
+        self.application = tornado.web.Application([
+            ('/handshake', HandshakeWebSocket),
+            ('/cmd', CmdWebSocket),
+            ('/mouse', MouseWebSocket),
+            ('/keyboard', KeyboardWebSocket),
+        ])
 
     def start_server(self):
-        self.event_loop = asyncio.new_event_loop()
-        asyncio.events.set_event_loop(self.event_loop)
         for port in range(PORT_MIN, PORT_MAX):
             try:
-                server = websockets.serve(self._handler, self.host, port)
-                self.event_loop.run_until_complete(server)
-                self.port = port
+                self.application.listen(port)
                 break
-            except OSError as e:
-                server_log.warn('[wssd] %s' % e)
-                print(e)
+            # That port is unavailable
+            except OSError:
+                pass
+        else:
+            server_log.warn('[wssd] failed to start websocket server')
+            return
 
-        # FIXME: AttributeError
-        try:
-            self.event_loop.run_forever()
-        except AttributeError as e:
-            server_log.warn('[wssd] %s' % e)
-            print(e)
-
-    @asyncio.coroutine
-    def _handler(self, ws, path):
-        while True:
-            msg = yield from ws.recv()
-            if msg is None:
-                break
-            handler = self.handlers.get(path, None)
-            if not handler:
-                print('TODO: handle this event')
-                server_log.debug('[wssd] TODO: handle this event: %s' % path)
-                continue
-            yield from handler(ws, msg)
+        self.port = port
+        self.loop = tornado.ioloop.IOLoop.instance()
+        self.loop.start()
 
     def stop_server(self):
         server_log.info('[wssd] worker stop')
-        self.event_loop.close()
-
-    def handle_cmd_event(self, ws, msg):
-        '''Handle browser command event in UI thread'''
-        self.browserCmd.emit(msg)
-        return []
+        if self.loop:
+            self.loop.stop()
 
     def __str__(self):
         return 'WSSDWorker<%s:%s>' % (self.host, self.port)

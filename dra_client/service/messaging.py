@@ -96,7 +96,7 @@ def handle_mouse_event(event):
             'w': width,
             'h': height,
         }
-    send_message(constants.KEYBOARD_MSG, json.dumps(msg))
+    send_message(constants.MOUSE_MSG, json.dumps(msg))
 
 def handle_cmd_message(msg):
     '''Handle cmd messages'''
