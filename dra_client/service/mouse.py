@@ -34,8 +34,8 @@ def handle_mouse_event(event):
             return
         offsetX = client_dbus.main_window.root.getCursorX()
         offsetY = client_dbus.main_window.root.getCursorY()
-        width = client_dbus.main_window.root.getVideoWidth()
-        height = client_dbus.main_window.root.getVideoHeight()
+        width = int(client_dbus.main_window.root.getVideoWidth())
+        height = int(client_dbus.main_window.root.getVideoHeight())
     except AttributeError as e:
         print(e)
         return

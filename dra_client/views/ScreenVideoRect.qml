@@ -59,6 +59,9 @@ Rectangle {
             anchors.fill: parent
             hoverEnabled: true
 
+            // Hide cursor
+            cursorShape: Qt.BlankCursor
+
             onEntered: {
                 root.captureCursor = true
             }
