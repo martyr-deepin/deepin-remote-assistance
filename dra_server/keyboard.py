@@ -4,34 +4,26 @@
 import json
 
 import tornado.websocket
-import Xlib.display
-import Xlib.ext.xtest as xtest
-import Xlib.X as X
-import Xlib.XK
 import pykeyboard
 
 from dra_utils.log import server_log
 
-local_display = Xlib.display.Display()
 keyboard = pykeyboard.PyKeyboard()
 
-
 def handle(msg):
-    '''Message is a KeyboardEvent, including keycode, character, press'''
-    print('handle keyboard message:', msg)
+    '''Emulate a KeyboardEvent.
 
+    msg contains keycode, character and press'''
     try:
         event = json.loads(msg)
     except ValueError as e:
-        server_log.warn('[keyboard] %s malformed keyboard event: %s' %
-                        (e, msg))
+        server_log.warn('[keyboard] malformed keyboard event: %s' % msg)
         return
 
     if event['press']:
         keyboard.press_key(event['character'])
     else:
         keyboard.release_key(event['character'])
-    return []
 
 def reset_keyboard():
     '''Reset local keyboard before host service is terminated'''
@@ -53,4 +45,3 @@ class KeyboardWebSocket(tornado.websocket.WebSocketHandler):
     def on_close(self):
         server_log.debug('[keyboard] on close')
         reset_keyboard()
-
