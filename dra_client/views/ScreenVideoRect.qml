@@ -68,10 +68,8 @@ Rectangle {
             }
 
             onPositionChanged: {
-                root.cursorX = mouse.x
-                root.cursorY = mouse.y
-                //webViewRoot.cursorPositionChanged(
-                    //webView.width, webView.height, mouseX, mouseY)
+                root.cursorX = mouse.x - webView.x;
+                root.cursorY = mouse.y - webView.y;
             }
         }
     }

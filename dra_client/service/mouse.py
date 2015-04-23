@@ -8,7 +8,7 @@ from Xlib import X
 from dra_utils.log import client_log
 
 # mouse button orders
-button_ids = (None, 1, 2, 3, 4, 5, 6, 7)
+button_ids = (None, 1, 3, 2, 4, 5, 6, 7)
 
 def init(client_dbus_):
     '''Init client_dbus instance'''
@@ -40,39 +40,19 @@ def handle_mouse_event(event):
         print(e)
         return
 
-    # TODO: simplify this method
-    if event.type == X.ButtonPress:
-        msg = {
-            'type': 'press',
-            'button': button_ids[event.detail],
-            'x': event.root_x,
-            'y': event.root_y,
-            'offsetX': offsetX,
-            'offsetY': offsetY,
-            'w': width,
-            'h': height,
-        }
-    elif event.type == X.ButtonRelease:
-        msg = {
-            'type': 'release',
-            'button': button_ids[event.detail],
-            'x': event.root_x,
-            'y': event.root_y,
-            'offsetX': offsetX,
-            'offsetY': offsetY,
-            'w': width,
-            'h': height,
-        }
-    else:
-        msg = {
-            'type': 'move',
-            'x': event.root_x,
-            'y': event.root_y,
-            'offsetX': offsetX,
-            'offsetY': offsetY,
-            'w': width,
-            'h': height,
-        }
+    msg = {
+        'type': event.type,
+        'x': offsetX,
+        'y': offsetY,
+        'w': width,
+        'h': height,
+    }
+    if event.type == X.ButtonPress or event.type == X.ButtonRelease:
+        msg['button'] = button_ids[event.detail]
+    elif event.type != X.MotionNotify:
+        # Ignore KeyPress/KeyRelease event
+        return
+    print(msg)
     send_message(json.dumps(msg))
 
 connection = None
