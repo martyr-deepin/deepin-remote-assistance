@@ -33,15 +33,6 @@ def button_press(event):
 def button_release(event):
     mouse.release(event['localX'], event['localY'], button=event['button'])
 
-#def click(event):
-#    '''Emulate mouse click event.'''
-#    button_press(event)
-#    button_release(event)
-#
-#def scroll(event):
-#    # TODO: convert scroll event to middle-up/middle-down event
-#    mouse.scroll(vertical=event['deltaY'], horizontal=event['deltaX'])
-
 # Mouse event handlers
 handlers = {
     Xlib.X.MotionNotify: move,
@@ -51,9 +42,11 @@ handlers = {
 
 def handle(msg):
     '''Handle mouse event'''
-
-    # TODO: catch json exception
-    event = json.loads(msg)
+    try:
+        event = json.loads(msg)
+    except ValueError as e:
+        server_log.warn('[mouse] failed to parse mouse event: %s' % msg)
+        return
 
     # event filter
     event = filter_event_to_local(event)
@@ -62,17 +55,15 @@ def handle(msg):
         handler = handlers[event['type']]
         handler(event)
     except (KeyError, ValueError) as e:
-        print(e)
-        print('TODO: unknown mouse event type,', event)
+        server_log.warn('[mouse] unknown mouse event: %s' % event)
 
 
 class MouseWebSocket(tornado.websocket.WebSocketHandler):
     '''mouse message handler'''
 
     def on_message(self, msg):
-        print('[mouse] on message:', msg)
         handle(msg)
 
     def on_close(self):
-        print('[mouse] on close')
-        # TODO: release any mouse event')
+        # TODO: release any mouse event
+        pass
