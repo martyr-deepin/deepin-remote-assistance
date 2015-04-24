@@ -4,11 +4,33 @@
 import json
 
 import tornado.websocket
-import pykeyboard
+from Xlib import X
+from Xlib.display import Display
+from Xlib.ext.xtest import fake_input
 
 from dra_utils.log import server_log
 
-keyboard = pykeyboard.PyKeyboard()
+dp = Display()
+
+# keycode of Escape key
+ESCAPE_CODE = 9
+
+def press_key(code):
+    fake_input(dp, X.KeyPress, code)
+    dp.sync()
+
+def release_key(code):
+    fake_input(dp, X.KeyRelease, code)
+    dp.sync()
+
+def reset_keyboard():
+    '''Reset local keyboard before host service is terminated'''
+    print('[keyboard] reset keyboard')
+    # First press Escape
+    press_key(ESCAPE_CODE)
+
+    # Then Release Escape
+    release_key(ESCAPE_CODE)
 
 def handle(msg):
     '''Emulate a KeyboardEvent.
@@ -21,18 +43,9 @@ def handle(msg):
         return
 
     if event['press']:
-        keyboard.press_key(event['character'])
+        press_key(event['code'])
     else:
-        keyboard.release_key(event['character'])
-
-def reset_keyboard():
-    '''Reset local keyboard before host service is terminated'''
-    print('[keyboard] reset keyboard')
-    # First press Escape
-    keyboard.press_key('Escape')
-
-    # Then Release Escape
-    keyboard.release_key('Escape')
+        release_key(event['code'])
 
 
 class KeyboardWebSocket(tornado.websocket.WebSocketHandler):

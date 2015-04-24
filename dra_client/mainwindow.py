@@ -1,4 +1,6 @@
 
+import json
+
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 from PyQt5 import QtQuick
@@ -6,6 +8,7 @@ from PyQt5 import QtWidgets
 
 from . import views
 from .service.client import Client
+from .service import keyboard
 from .service import mouse
 from .utils.event import EventHandler
 from .utils.event import EventRecord
@@ -41,8 +44,25 @@ class MainWindow(QtQuick.QQuickView):
         self.setFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.Window)
 
         self.setSource(QtCore.QUrl.fromLocalFile(views.MAIN_WINDOW))
-
         self.root = self.rootObject()
+        QtWidgets.qApp.focusWindowChanged.connect(self.onWindowFocusChanged)
+
+    @QtCore.pyqtSlot(QtCore.QVariant)
+    def onWindowFocusChanged(self, window):
+        self.setKeyboardGrabEnabled(window is not None)
+
+    def keyPressEvent(self, event):
+        print(event.nativeScanCode())
+        keyboard.send_message(json.dumps({
+            'press': True,
+            'code': event.nativeScanCode(),
+        }))
+
+    def keyReleaseEvent(self, event):
+        keyboard.send_message(json.dumps({
+            'press': False,
+            'code': event.nativeScanCode(),
+        }))
 
     def toggleFullscreen(self):
         # TODO: remove this method
