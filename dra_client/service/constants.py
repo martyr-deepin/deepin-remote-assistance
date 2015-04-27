@@ -72,7 +72,6 @@ KEYBOARD_MSG = 'KEYBOARD'
 # To mark mouse message used in oxide
 MOUSE_MSG = 'MOUSE'
 
-
 # Text type of clipboard content
 CLIPBOARD_TEXT = 0
 

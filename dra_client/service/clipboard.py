@@ -37,6 +37,16 @@ def handle(msg):
     else:
         client_log.warn('[clipboard] unsupported clipboard data %s.' % msg)
 
+class Emitter(QtCore.QObject):
+    '''Emitter class is used to send msgReceived signal.
+
+    That signal shall be handled in UI thread'''
+
+    msgReceived = QtCore.pyqtSignal(str)
+
+emitter = Emitter()
+emitter.msgReceived.connect(handle)
+
 # This object is used to send message to browser
 # CGeck connection and call connection.write_message(msg)
 connection = None
@@ -51,7 +61,7 @@ class ClipboardWebSocket(tornado.websocket.WebSocketHandler):
 
     def on_message(self, msg):
         print('[clipboard] on message:', msg)
-        handle(msg)
+        emitter.msgReceived.emit(msg)
 
 class ClipboardDaemon(QtCore.QObject):
 
@@ -60,8 +70,9 @@ class ClipboardDaemon(QtCore.QObject):
 
         # Get system clipboard
         self.clipboard = QtWidgets.qApp.clipboard()
-
-        self.clipboard.dataChanged.connect(self.onClipboardDataChanged)
+        # TODO: check self.clipboard is not None
+        if self.clipboard:
+            self.clipboard.dataChanged.connect(self.onClipboardDataChanged)
 
     def onClipboardDataChanged(self):
         # If connection not initialized, ignore current clipboard content
