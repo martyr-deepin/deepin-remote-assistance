@@ -42,3 +42,9 @@ SERVER_STATUS_STOPPED = 5
 
 # Remote peer has closed media connection
 SERVER_STATUS_DISCONNECTED = 6
+
+# Text type of clipboard content
+CLIPBOARD_TEXT = 0
+
+# Pixmap type of clipboard content
+CLIPBOARD_PIXMAP = 1

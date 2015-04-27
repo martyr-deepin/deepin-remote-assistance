@@ -38,7 +38,7 @@ class ServerDBus(dbus.service.Object):
                 constants.DBUS_ROOT_IFACE: self._get_root_iface_properties(),
         }
 
-        self.server = server.Server()
+        self.server = None
 
     def _get_root_iface_properties(self):
         return {
@@ -94,17 +94,16 @@ class ServerDBus(dbus.service.Object):
     def Start(self):
         '''Start server side'''
         server_log.debug('[dbus] start server')
+        self.server = server.Server(self)
         self.server.start()
         self.StatusChanged(constants.SERVER_STATUS_STARTED)
-
-        # Init cmd handler
-        cmd.init(self)
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop server side'''
         server_log.debug('[dbus] stop server')
-        self.server.stop()
+        if self.server:
+            self.server.stop()
         self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
 
         QtCore.QTimer.singleShot(1000, self.kill)

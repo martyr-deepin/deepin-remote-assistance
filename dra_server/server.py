@@ -2,6 +2,8 @@
 from PyQt5 import QtCore
 
 from .chromium import Chromium
+from . import clipboard
+from . import cmd
 from . import constants
 from . import keyboard
 from .wssd import WSSDController
@@ -19,13 +21,16 @@ Stop:
     * stop websocket
 '''
 
-
 class Server(QtCore.QObject):
 
-    def __init__(self, parent=None):
-        super().__init__(parent=parent)
+    def __init__(self, server_dbus):
+        super().__init__()
         self.wssd = None
         self.chromium = None
+
+        # Init event handlers
+        cmd.init(server_dbus)
+        clipboard.init(server_dbus)
 
     def start(self):
         '''Start desktop sharing service'''
