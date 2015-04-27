@@ -10,6 +10,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
+from . import cmd
 from .client import Client 
 from . import constants
 from dra_client.mainwindow import MainWindow
