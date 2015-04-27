@@ -13,12 +13,20 @@ Stop:
 from PyQt5.QtCore import QObject
 
 from .wssd import WSSDController
+from . import clipboard
+from . import cmd
+from . import mouse
 
 class Client(QObject):
 
-    def __init__(self, parent=None):
-        super().__init__(parent=parent)
+    def __init__(self, client_dbus):
+        super().__init__()
         self.wssd = None
+
+        # Init event handlers
+        cmd.init(client_dbus)
+        mouse.init(client_dbus)
+        clipboard.init(client_dbus)
 
     def start(self):
         self.start_wssd()

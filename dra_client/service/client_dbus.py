@@ -11,8 +11,6 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
 from .client import Client 
-from . import cmd
-from . import mouse
 from . import constants
 from dra_client.mainwindow import MainWindow
 from dra_utils.log import client_log
@@ -121,10 +119,7 @@ class ClientDBus(dbus.service.Object):
         self.main_window.root.windowClosed.connect(self.Stop)
         self.main_window.show()
 
-        cmd.init(self)
-        mouse.init(self)
-
-        self.client_host = Client()
+        self.client_host = Client(self)
         self.client_host.start()
 
         self.StatusChanged(constants.CLIENT_STATUS_STARTED)

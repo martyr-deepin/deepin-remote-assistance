@@ -5,6 +5,7 @@ import tornado.ioloop
 import tornado.web
 import tornado.websocket
 
+from .clipboard import ClipboardWebSocket
 from .cmd import CmdWebSocket
 from .handshake import HandshakeWebSocket
 from .keyboard import KeyboardWebSocket
@@ -32,6 +33,7 @@ class WSSDWorker(QtCore.QObject):
 
         self.application = tornado.web.Application([
             ('/handshake', HandshakeWebSocket),
+            ('/clipboard', ClipboardWebSocket),
             ('/cmd', CmdWebSocket),
             ('/mouse', MouseWebSocket),
             ('/keyboard', KeyboardWebSocket),
