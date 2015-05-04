@@ -89,7 +89,7 @@ DShadowRect {
                     windowView.visibility = 3
                 }
             }
-            DTitleMaxUnmaxButtoni {
+            DTitleMaxUnmaxButton {
                 Binding on maximized {
                     value: windowView.visibility === 4
                 }
