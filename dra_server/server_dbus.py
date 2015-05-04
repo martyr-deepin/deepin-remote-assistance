@@ -10,6 +10,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
+from .controlpanel import ControlPanel
 from . import constants
 from . import server
 from dra_utils.log import server_log
@@ -39,6 +40,9 @@ class ServerDBus(dbus.service.Object):
 
         # Server object
         self.server = None
+
+        # Control panel object
+        self.control_panel = None
 
         # Connected to web server or not
         self.connected_to_webserver = False
@@ -113,10 +117,13 @@ class ServerDBus(dbus.service.Object):
             self.server.stop()
         self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
 
-        # Kill qApp and dbus service after 1s
-        QtCore.QTimer.singleShot(1000, self.kill)
+        # If control panel is not shown, terminate within 1s
+        if not self.control_panel:
+            QtCore.QTimer.singleShot(1000, self.kill)
 
+    @QtCore.pyqtSlot()
     def kill(self):
+        '''Quit now'''
         QtWidgets.qApp.quit()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
@@ -139,9 +146,18 @@ class ServerDBus(dbus.service.Object):
         # If failed to connect to web server, stop local service
         if self._status == constants.SERVER_STATUS_PEERID_FAILED:
             self.Stop()
+
         # Get peeer ID successfully
         elif self._status == constants.SERVER_STATUS_PEERID_OK:
             self.connected_to_webserver = True
+
+        # Show disconnection control panel
+        elif self._status == constants.SERVER_STATUS_SHARING:
+            self.control_panel = ControlPanel()
+            self.control_panel.root.disconnected.connect(
+                    self.on_disconnect_button_clicked)
+            self.control_panel.show()
+
         # If remote peer has closed remoting connection, terminate local service
         elif self._status == constants.SERVER_STATUS_DISCONNECTED:
             self.Stop()
@@ -152,7 +168,7 @@ class ServerDBus(dbus.service.Object):
         # If current peer id is OK, ignore new peer id
         if self._peer_id:
             return
-        # TODO: valid peer_id
+        # TODO: validate peer_id
         if new_peer_id:
             self.StatusChanged(constants.SERVER_STATUS_PEERID_OK)
         self._peer_id = new_peer_id
@@ -162,3 +178,8 @@ class ServerDBus(dbus.service.Object):
         '''Handle connection timeout signal'''
         if not self.connected_to_webserver:
             self.StatusChanged(constants.SERVER_STATUS_PEERID_FAILED)
+
+    @QtCore.pyqtSlot()
+    def on_disconnect_button_clicked(self):
+        '''Disconnect button clicked'''
+        self.kill()
