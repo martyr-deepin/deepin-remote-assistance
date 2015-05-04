@@ -1,4 +1,4 @@
-import QtQuick 2.1
+import QtQuick 2.2
 import Deepin.Widgets 1.0
 
 DShadowRect {
@@ -12,9 +12,6 @@ DShadowRect {
     borderWidth: showBlur ? 1 : 0
 
     property var dconstants: DConstants{}
-
-    // Emit cmd message signal
-    signal cmdMessaged(string msg)
 
     // Emit window closed signal when close button is clicked
     signal windowClosed()
@@ -53,13 +50,13 @@ DShadowRect {
         return screenVideoRect.webView.height;
     }
 
-    Rectangle{
+    Rectangle {
         id: titleBar
         width: parent.width
         height: 30
         color: dconstants.bgColor
 
-        DDragableArea{
+        DDragableArea {
             anchors.fill: parent
             window: windowView
             onPressed: {
@@ -87,12 +84,12 @@ DShadowRect {
                     screenVideoRect.webView.fullscreen = !screenVideoRect.webView.fullscreen
                 }
             }
-            DTitleMinimizeButton{
+            DTitleMinimizeButton {
                 onClicked: {
                     windowView.visibility = 3
                 }
             }
-            DTitleMaxUnmaxButton{
+            DTitleMaxUnmaxButtoni {
                 Binding on maximized {
                     value: windowView.visibility === 4
                 }
@@ -105,7 +102,7 @@ DShadowRect {
                     }
                 }
             }
-            DTitleCloseButton{
+            DTitleCloseButton {
                 onClicked: {
                     // Close main window and emit window-close signal
                     windowView.close()
