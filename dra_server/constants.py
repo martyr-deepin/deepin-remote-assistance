@@ -48,3 +48,8 @@ CLIPBOARD_TEXT = 0
 
 # Pixmap type of clipboard content
 CLIPBOARD_PIXMAP = 1
+
+
+# Connection to webserver timeout, in milliseconds
+# It also includes time to launch chrome and host service.
+WEBSERVER_CONNECTION_TIMEOUT = 40000

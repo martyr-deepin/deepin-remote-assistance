@@ -39,6 +39,9 @@ class ClientDBus(dbus.service.Object):
         # Client object
         self.client_host = None
 
+        # Connected to web server or not
+        self.connected_to_webserver = False
+
         # To mark remoting connection has been established
         self.remoting_connected = False
 
@@ -96,7 +99,14 @@ class ClientDBus(dbus.service.Object):
         '''Client status has been changed'''
         client_log.info('[dbus] client status changed: %s' % status)
         self._status = status
-        if self._status == constants.CLIENT_STATUS_CONNECT_OK:
+        # Connect to web server OK
+        if self._status == constants.CLIENT_STATUS_PAGE_READY:
+            self.connected_to_webserver = True
+        # Connect to web server failed
+        elif self._status == constants.CLIENT_STATUS_CONNECT_FAILED:
+            self.Stop()
+        # Connect to remote peer OK
+        elif self._status == constants.CLIENT_STATUS_CONNECT_OK:
             self.remoting_connected = True
 
     # root iface methods
@@ -117,6 +127,9 @@ class ClientDBus(dbus.service.Object):
         self.main_window = MainWindow()
 
         # Stop host service when main window is closed
+        if not self.main_window:
+            client_host.critical('[dbus] Failed to init main window!')
+            self.Stop()
         self.main_window.root.windowClosed.connect(self.Stop)
         self.main_window.show()
 
@@ -124,6 +137,10 @@ class ClientDBus(dbus.service.Object):
         self.client_host.start()
 
         self.StatusChanged(constants.CLIENT_STATUS_STARTED)
+
+        # Init connection-timed-out timer
+        QtCore.QTimer.singleShot(constants.WEBSERVER_CONNECTION_TIMEOUT,
+                                 self.on_connection_timeout)
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
@@ -147,3 +164,9 @@ class ClientDBus(dbus.service.Object):
         client_log.info('[dbus] Connect: %s' % remote_peer_id)
         self.StatusChanged(constants.CLIENT_STATUS_CONNECTING)
         cmd.init_remoting(remote_peer_id)
+
+    @QtCore.pyqtSlot()
+    def on_connection_timeout(self):
+        '''Handle connection timeout signal'''
+        if not self.connected_to_webserver:
+            self.StatusChanged(constants.CLIENT_STATUS_CONNECT_FAILED)

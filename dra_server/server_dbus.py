@@ -37,7 +37,11 @@ class ServerDBus(dbus.service.Object):
                 constants.DBUS_ROOT_IFACE: self._get_root_iface_properties(),
         }
 
+        # Server object
         self.server = None
+
+        # Connected to web server or not
+        self.connected_to_webserver = False
 
     def _get_root_iface_properties(self):
         return {
@@ -97,6 +101,10 @@ class ServerDBus(dbus.service.Object):
         self.server.start()
         self.StatusChanged(constants.SERVER_STATUS_STARTED)
 
+        # Init connection-timed-out timer
+        QtCore.QTimer.singleShot(constants.WEBSERVER_CONNECTION_TIMEOUT,
+                                 self.on_connection_timeout)
+
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop server side'''
@@ -105,6 +113,7 @@ class ServerDBus(dbus.service.Object):
             self.server.stop()
         self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
 
+        # Kill qApp and dbus service after 1s
         QtCore.QTimer.singleShot(1000, self.kill)
 
     def kill(self):
@@ -127,14 +136,15 @@ class ServerDBus(dbus.service.Object):
         server_log.info('[dbus] StatusChanged: %s' % status)
         self._status = status
 
-        # If current status is SERVER_STATUS_PEERID_FAILED, stop service
-        if (self._status == constants.SERVER_STATUS_PEERID_FAILED or
-                self._status == constants.SERVER_STATUS_DISCONNECTED):
-            # Kill host service after 1s
+        # If failed to connect to web server, stop local service
+        if self._status == constants.SERVER_STATUS_PEERID_FAILED:
             self.Stop()
-        elif self._status == constants.SERVER_STATUS_STOPPED:
-            # Kill qApp and dbus service after 1s
-            QtCore.QTimer.singleShot(1000, self.kill)
+        # Get peeer ID successfully
+        elif self._status == constants.SERVER_STATUS_PEERID_OK:
+            self.connected_to_webserver = True
+        # If remote peer has closed remoting connection, terminate local service
+        elif self._status == constants.SERVER_STATUS_DISCONNECTED:
+            self.Stop()
 
     def peer_id_changed(self, new_peer_id):
         '''Peer id of server side changed'''
@@ -146,3 +156,9 @@ class ServerDBus(dbus.service.Object):
         if new_peer_id:
             self.StatusChanged(constants.SERVER_STATUS_PEERID_OK)
         self._peer_id = new_peer_id
+
+    @QtCore.pyqtSlot()
+    def on_connection_timeout(self):
+        '''Handle connection timeout signal'''
+        if not self.connected_to_webserver:
+            self.StatusChanged(constants.SERVER_STATUS_PEERID_FAILED)

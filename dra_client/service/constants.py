@@ -77,3 +77,8 @@ CLIPBOARD_TEXT = 0
 
 # Pixmap type of clipboard content
 CLIPBOARD_PIXMAP = 1
+
+
+# Connection to webserver timeout, in milliseconds
+# It also includes time to launch oxide and host service
+WEBSERVER_CONNECTION_TIMEOUT = 37000
