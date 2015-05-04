@@ -10,7 +10,6 @@ from dbus.mainloop.glib import DBusGMainLoop
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from .controlpanel import ControlPanel
 from . import constants
 from . import server
 from dra_utils.log import server_log
@@ -42,7 +41,7 @@ class ServerDBus(dbus.service.Object):
         self.server = None
 
         # Control panel object
-        self.control_panel = None
+        self.remoting_connected = False
 
         # Connected to web server or not
         self.connected_to_webserver = False
@@ -118,7 +117,7 @@ class ServerDBus(dbus.service.Object):
         self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
 
         # If control panel is not shown, terminate within 1s
-        if not self.control_panel:
+        if not self.remoting_connected:
             QtCore.QTimer.singleShot(1000, self.kill)
 
     @QtCore.pyqtSlot()
@@ -153,10 +152,7 @@ class ServerDBus(dbus.service.Object):
 
         # Show disconnection control panel
         elif self._status == constants.SERVER_STATUS_SHARING:
-            self.control_panel = ControlPanel()
-            self.control_panel.root.disconnected.connect(
-                    self.on_disconnect_button_clicked)
-            self.control_panel.show()
+            self.remoting_connected = True
 
         # If remote peer has closed remoting connection, terminate local service
         elif self._status == constants.SERVER_STATUS_DISCONNECTED:
@@ -178,8 +174,3 @@ class ServerDBus(dbus.service.Object):
         '''Handle connection timeout signal'''
         if not self.connected_to_webserver:
             self.StatusChanged(constants.SERVER_STATUS_PEERID_FAILED)
-
-    @QtCore.pyqtSlot()
-    def on_disconnect_button_clicked(self):
-        '''Disconnect button clicked'''
-        self.kill()
