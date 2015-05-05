@@ -4,6 +4,7 @@ import threading
 import time
 
 from Xlib import display
+import Xlib.error
 
 from . import ewmh
 
@@ -30,14 +31,13 @@ def launch_app_in_background(args, shell=False):
             for client in manager.getClientList():
                 try:
                     client_pid = manager.getWmPid(client)
-                    #print('client_pid:', client_pid)
                     if client_pid == pid:
                         found_client = True
                         print('unmap now:', client, client.id)
                         client.unmap_sub_windows()
                         status = client.unmap()
                         dpy.flush()
-                except TypeError:
+                except (TypeError, Xlib.error.BadWindow):
                     continue
 
             if count >= MAX_TRY and found_client:
