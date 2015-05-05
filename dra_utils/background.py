@@ -5,7 +5,7 @@ import time
 
 from Xlib import display
 
-import ewmh
+from . import ewmh
 
 # 20 milliseconds
 INTERVAL = 20.0 / 1000.0
