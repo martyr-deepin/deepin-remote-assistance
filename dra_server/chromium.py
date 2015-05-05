@@ -6,7 +6,7 @@ import subprocess
 from PyQt5.QtCore import QObject
 from PyQt5.QtWidgets import qApp
 
-from . import utils
+from dra_utils import background
 
 class Chromium(QObject):
 
@@ -28,7 +28,7 @@ class Chromium(QObject):
 
     def start(self):
         self.stop()
-        self.popen = utils.launch_app_in_background([self.app_path,
+        self.popen = background.launch_app_in_background([self.app_path,
                 '--app=%s' % self.app,
                 '--enable-usermedia-screen-capturing',
                 '--allow-http-screen-capture',
@@ -36,11 +36,6 @@ class Chromium(QObject):
                 # TODO:remove this
                 '--incognito',  # Open in incognito mode.
                 ])
-        # TODO: emit quit signal when chromium window is closed by user
-        print('PID:', self.popen.pid)
-
-    def on_child_terminated(self, *args):
-        print('child termnate:', args)
 
     def stop(self):
         if self.popen:

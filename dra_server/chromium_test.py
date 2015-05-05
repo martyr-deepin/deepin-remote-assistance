@@ -8,8 +8,6 @@ from dra_server.chromium import Chromium
 
 app = QtCore.QCoreApplication(sys.argv)
 
-print('app:', app)
-
 cr = Chromium()
 cr.start()
 
