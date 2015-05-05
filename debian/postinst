@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+# Update permissions
+chmod -v a+x /usr/lib/dra/client 
+chmod -v a+x /usr/lib/dra/server
+
+exit 0
