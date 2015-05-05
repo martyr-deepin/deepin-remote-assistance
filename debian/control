@@ -2,7 +2,6 @@ Source: dra
 Section: misc
 Priority: extra
 Maintainer: XuShaohua <xushaohua@deepin.com>
-Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.4
 Build-Depends: debhelper (>= 9),
                dh-python,
