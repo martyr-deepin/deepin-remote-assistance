@@ -52,7 +52,6 @@ def handle_mouse_event(event):
     elif event.type != X.MotionNotify:
         # Ignore KeyPress/KeyRelease event
         return
-    print(msg)
     send_message(json.dumps(msg))
 
 connection = None

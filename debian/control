@@ -14,7 +14,7 @@ Architecture: all
 Depends: ${misc:Depends},
          ${python3:Depends},
          dra-chromium,
-         liboxideqt-qmlplugin
+         liboxideqt-qmlplugin,
          python3-pyqt5,
          python3-pyuserinput,
          python3-tornado,

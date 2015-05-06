@@ -4,6 +4,8 @@ PYLIB = ${DESTDIR}${PREFIX}/lib/python3/dist-packages/
 DRALIB = ${DESTDIR}${PREFIX}/lib/dra
 DBUSLIB = ${DESTDIR}${PREFIX}/share/dbus-1/services/
 
+all:
+	
 install:
 	# Make directories
 	mkdir -p ${PYLIB}
