@@ -21,4 +21,6 @@ install:
 	# Cleanup temporary files
 	find ${DESTDIR}${PREFIX} -type d -iname '__pycache__' | xargs rm -rvf
 	find ${DESTDIR}${PREFIX} -type f -iname '*_test*' | xargs rm -v
-
+	# Update permissions
+	chmod -v a+x ${DESTDIR}${PREFIX}/lib/dra/client 
+	chmod -v a+x ${DESTDIR}${PREFIX}/lib/dra/server

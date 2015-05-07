@@ -1,2 +1,5 @@
 GPUCache/
 __pycache__/
+debian/deepin-remote-assistance/*
+debian/deepin-remote-assistance.substvars
+debian/files

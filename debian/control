@@ -1,4 +1,4 @@
-Source: dra
+Source: deepin-remote-assistance
 Section: misc
 Priority: extra
 Maintainer: XuShaohua <xushaohua@deepin.com>
@@ -8,7 +8,7 @@ Build-Depends: debhelper (>= 9),
                python3-all
 Homepage: http://www.linuxdeepin.com/
 
-Package: dra
+Package: deepin-remote-assistance
 Section: misc
 Architecture: all
 Depends: ${misc:Depends},
@@ -20,4 +20,3 @@ Depends: ${misc:Depends},
          python3-tornado,
          python3-xlib
 Description: Deepin Remote Assistance
-
