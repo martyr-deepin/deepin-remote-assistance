@@ -22,7 +22,6 @@ def launch_app_in_background(args, shell=False):
 
     def hide_window(pid):
         '''Hide window with specific pid'''
-        print('hide window:', pid)
 
         count = 0
         found_client = False
@@ -41,9 +40,7 @@ def launch_app_in_background(args, shell=False):
                     continue
 
             if count >= MAX_TRY and found_client:
-                print('will return now')
                 return
-            print('sleep now')
             time.sleep(INTERVAL)
             count += 1
 

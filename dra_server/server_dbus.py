@@ -12,6 +12,7 @@ from PyQt5 import QtWidgets
 
 from . import constants
 from . import server
+from .views.disconnectwindow import DisconnectWindow
 from dra_utils.log import server_log
 
 
@@ -108,6 +109,10 @@ class ServerDBus(dbus.service.Object):
         QtCore.QTimer.singleShot(constants.WEBSERVER_CONNECTION_TIMEOUT,
                                  self.on_connection_timeout)
 
+        # TODO: remove it
+        self.disconnect_window = DisconnectWindow(self)
+        self.disconnect_window.show()
+
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop server side'''
@@ -142,20 +147,25 @@ class ServerDBus(dbus.service.Object):
         self._status = status
 
         # If failed to connect to web server, stop local service
-        #if self._status == constants.SERVER_STATUS_PEERID_FAILED:
-        #    self.Stop()
+        if self._status == constants.SERVER_STATUS_PEERID_FAILED:
+            # TODO: popup a notification
+            self.Stop()
 
         # Get peeer ID successfully
-        if self._status == constants.SERVER_STATUS_PEERID_OK:
+        elif self._status == constants.SERVER_STATUS_PEERID_OK:
             self.connected_to_webserver = True
 
-        # Show disconnection control panel
-        #elif self._status == constants.SERVER_STATUS_SHARING:
-        #    self.remoting_connected = True
+        # Show disconnection window 
+        elif self._status == constants.SERVER_STATUS_SHARING:
+            self.remoting_connected = True
+            self.disconnect_window = DisconnectWindow()
+            self.disconnect_window.disconnected.connect(self.Quit)
+            self.disconnect_window.show()
 
         # If remote peer has closed remoting connection, terminate local service
-        #elif self._status == constants.SERVER_STATUS_DISCONNECTED:
-        #    self.Stop()
+        elif self._status == constants.SERVER_STATUS_DISCONNECTED:
+            # TODO: popup disconnected notification
+            self.Stop()
 
     def peer_id_changed(self, new_peer_id):
         '''Peer id of server side changed'''
