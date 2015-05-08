@@ -14,6 +14,7 @@ from . import constants
 from . import server
 from .views.disconnectwindow import DisconnectWindow
 from dra_utils.log import server_log
+from dra_utils.notify import notify
 
 
 class ServerDBus(dbus.service.Object):
@@ -148,7 +149,7 @@ class ServerDBus(dbus.service.Object):
 
         # If failed to connect to web server, stop local service
         if self._status == constants.SERVER_STATUS_PEERID_FAILED:
-            # TODO: popup a notification
+            notify('Failed to get peer ID')
             self.Stop()
 
         # Get peeer ID successfully
@@ -164,7 +165,7 @@ class ServerDBus(dbus.service.Object):
 
         # If remote peer has closed remoting connection, terminate local service
         elif self._status == constants.SERVER_STATUS_DISCONNECTED:
-            # TODO: popup disconnected notification
+            notify('Remoting service terminated by remote peer!')
             self.Stop()
 
     def peer_id_changed(self, new_peer_id):
