@@ -110,10 +110,6 @@ class ServerDBus(dbus.service.Object):
         QtCore.QTimer.singleShot(constants.WEBSERVER_CONNECTION_TIMEOUT,
                                  self.on_connection_timeout)
 
-        # TODO: remove it
-        self.disconnect_window = DisconnectWindow(self)
-        self.disconnect_window.show()
-
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop server side'''
