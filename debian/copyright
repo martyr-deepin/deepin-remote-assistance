@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Name: dra-chromium
+Name: deepin-remote-assistance
 Maintainer: XuShaohua <xushaohua@deepin.com>
-Source: https://gitcafe.com/Deepin/deepin-remote-aid
+Source: https://gitcafe.com/Deepin/deepin-remote-assistance
 
 Files: *
 Copyright: 2014-2015 Xushaohua

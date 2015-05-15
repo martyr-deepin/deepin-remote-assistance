@@ -66,7 +66,7 @@ Rectangle {
 
     // TODO: import DConstants object
     //DConstants {id: dconstants}
-    property var dconstants: QtObject{
+    property var dconstants: QtObject {
         property string textNormalColor: '#fafafa'
         property string textHoverColor: '#9a9a9a'
     }
