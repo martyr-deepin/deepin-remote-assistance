@@ -156,7 +156,7 @@ class ServerDBus(dbus.service.Object):
         elif self._status == constants.SERVER_STATUS_SHARING:
             self.remoting_connected = True
             self.disconnect_window = DisconnectWindow()
-            self.disconnect_window.disconnected.connect(self.Quit)
+            self.disconnect_window.disconnected.connect(self.Stop)
             self.disconnect_window.show()
 
         # If remote peer has closed remoting connection, terminate local service
