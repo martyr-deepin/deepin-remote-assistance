@@ -16,6 +16,7 @@ Depends: ${misc:Depends},
          dra-chromium,
          liboxideqt-qmlplugin,
          python3-pyqt5,
+         python3-pyqt5.qtquick,
          python3-pyuserinput,
          python3-tornado,
          python3-xlib

@@ -116,7 +116,7 @@ class ServerDBus(dbus.service.Object):
         server_log.debug('[dbus] stop server')
         if self.server:
             self.server.stop()
-        self.StatusChanged(constants.SERVER_STATUS_STOPPED) 
+        self.StatusChanged(constants.SERVER_STATUS_STOPPED)
 
         # If control panel is not shown, terminate within 1s
         QtCore.QTimer.singleShot(1000, self.kill)
@@ -152,7 +152,7 @@ class ServerDBus(dbus.service.Object):
         elif self._status == constants.SERVER_STATUS_PEERID_OK:
             self.connected_to_webserver = True
 
-        # Show disconnection window 
+        # Show disconnection window
         elif self._status == constants.SERVER_STATUS_SHARING:
             self.remoting_connected = True
             self.disconnect_window = DisconnectWindow()
