@@ -11,8 +11,6 @@ DShadowRect {
     rectRadius: showBlur ? 3 : 0
     borderWidth: showBlur ? 1 : 0
 
-    property var dconstants: DConstants{}
-
     // Emit window closed signal when close button is clicked
     signal windowClosed()
 
@@ -54,7 +52,7 @@ DShadowRect {
         id: titleBar
         width: parent.width
         height: 30
-        color: dconstants.bgColor
+        color: DConstants.bgColor
 
         DDragableArea {
             anchors.fill: parent
