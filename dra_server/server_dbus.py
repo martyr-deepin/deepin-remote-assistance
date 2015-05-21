@@ -101,6 +101,9 @@ class ServerDBus(dbus.service.Object):
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Start(self):
         '''Start server side'''
+        if self.server:
+            server_log.warn('[dbus] server is already running, ignore...')
+            return
         server_log.debug('[dbus] start server')
         self.server = server.Server(self)
         self.server.start()
