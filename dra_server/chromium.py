@@ -7,6 +7,7 @@ from PyQt5.QtCore import QObject
 from PyQt5.QtWidgets import qApp
 
 from dra_utils import background
+from dra_utils import process
 
 class Chromium(QObject):
 
@@ -22,9 +23,8 @@ class Chromium(QObject):
         self.user_data_dir = os.path.expanduser(user_data_dir)
         self.popen = None
 
-        # Kill chromium when UI window is closed
+        # Kill chromium process when UI window is closed
         qApp.aboutToQuit.connect(self.stop)
-        #signal.signal(signal.SIGCHLD, self.on_child_terminated)
 
     def start(self):
         self.stop()
@@ -33,12 +33,15 @@ class Chromium(QObject):
                 '--enable-usermedia-screen-capturing',
                 '--allow-http-screen-capture',
                 '--user-data-dir=%s' % self.user_data_dir,
-                # TODO:remove this
-                '--incognito',  # Open in incognito mode.
+
+                # TODO:remove this option
+                #'--incognito',  # Open in incognito mode.
                 ])
 
     def stop(self):
         if self.popen:
             self.popen.terminate()
             self.popen = None
-        # TODO: call popen.kill()
+            # TODO: call popen.kill()
+
+            process.pkill(self.app_path)

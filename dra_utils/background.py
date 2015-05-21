@@ -32,6 +32,7 @@ def launch_app_in_background(args, shell=False):
                     client_pid = manager.getWmPid(client)
                     if client_pid == pid:
                         found_client = True
+                        # TODO: remove debug info
                         print('unmap now:', client, client.id)
                         client.unmap_sub_windows()
                         status = client.unmap()
