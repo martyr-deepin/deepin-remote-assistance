@@ -36,6 +36,9 @@ def handle(msg):
         server_dbus.StatusChanged(constants.SERVER_STATUS_SHARING)
     elif msg['Type'] == constants.SERVER_MSG_DISCONNECT:
         server_dbus.StatusChanged(constants.SERVER_STATUS_DISCONNECTED)
+    elif msg['Type'] == constants.SERVER_MSG_WEBRTC_FAILED:
+        # TODO: add SERVER_STATUS_WEBRTC_FAILED status
+        server_dbus.StatusChanged(constants.SERVER_STATUS_DISCONNECTED)
     else:
         server_log.warn('handleBrowserCmd msg invalid: %s' % msg)
 

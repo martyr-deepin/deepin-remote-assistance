@@ -164,7 +164,7 @@ class ServerDBus(dbus.service.Object):
 
         # If remote peer has closed remoting connection, terminate local service
         elif self._status == constants.SERVER_STATUS_DISCONNECTED:
-            notify('Remoting service terminated by remote peer!')
+            notify('Remoting service has been terminated!')
             self.Stop()
 
     def peer_id_changed(self, new_peer_id):

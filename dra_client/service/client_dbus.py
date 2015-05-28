@@ -100,18 +100,22 @@ class ClientDBus(dbus.service.Object):
         '''Client status has been changed'''
         client_log.info('[dbus] client status changed: %s' % status)
         self._status = status
+
         # Connect to web server OK
         if self._status == constants.CLIENT_STATUS_PAGE_READY:
             self.connected_to_webserver = True
+
         # Connect to web server failed
         elif self._status == constants.CLIENT_STATUS_CONNECT_FAILED:
             self.Stop()
+
         # Connect to remote peer OK
         elif self._status == constants.CLIENT_STATUS_CONNECT_OK:
             self.remoting_connected = True
+
         # Disconnected, by remote peer or network failed
         elif self._status == constants.CLIENT_STATUS_DISCONNECTED:
-            notify('Remoting service terminated by remote peer!')
+            notify('Remoting service has been terminated!')
             self.Stop()
 
     # root iface methods

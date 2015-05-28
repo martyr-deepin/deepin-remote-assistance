@@ -13,6 +13,10 @@ SERVER_MSG_SHARING = 2
 # Browser -> Host
 SERVER_MSG_DISCONNECT = 3
 
+# Failed to setup webrtc connection
+# Browser -> Host
+SERVER_MSG_WEBRTC_FAILED = 4
+
 # DBus name
 DBUS_NAME = 'com.deepin.daemon.Remoting.Server'
 DBUS_SERVER_PATH = '/com/deepin/daemon/Remoting/Server'
