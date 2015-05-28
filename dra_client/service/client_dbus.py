@@ -15,6 +15,7 @@ from .client import Client
 from . import constants
 from dra_client.views.mainwindow import MainWindow
 from dra_utils.log import client_log
+from dra_utils.notify import notify
 
 
 class ClientDBus(dbus.service.Object):
@@ -108,6 +109,10 @@ class ClientDBus(dbus.service.Object):
         # Connect to remote peer OK
         elif self._status == constants.CLIENT_STATUS_CONNECT_OK:
             self.remoting_connected = True
+        # Disconnected, by remote peer or network failed
+        elif self._status == constants.CLIENT_STATUS_DISCONNECTED:
+            notify('Remoting service terminated by remote peer!')
+            self.Stop()
 
     # root iface methods
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
