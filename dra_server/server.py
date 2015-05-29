@@ -17,8 +17,8 @@ Start:
     * start chromium
 
 Stop:
-    * stop chromium
     * stop websocket
+    * stop chromium
 '''
 
 class Server(QtCore.QObject):
@@ -39,9 +39,9 @@ class Server(QtCore.QObject):
 
     def stop(self):
         '''Stop desktop sharing service'''
-        self.stop_chromium()
-        self.stop_wssd()
         keyboard.reset_keyboard()
+        self.stop_wssd()
+        self.stop_chromium()
 
     def start_wssd(self):
         '''Start websocket service'''

@@ -33,7 +33,7 @@ class DisconnectWindow(QtQuick.QQuickView):
 
         # When `Disconnect` button clicked, show a confirmation dialog
         root = self.rootObject()
-        root.disconnected.connect(self.show_confirm_window)
+        root.disconnected.connect(self.showConfirmWindow)
 
         self.confirm_window = None
 
@@ -43,7 +43,7 @@ class DisconnectWindow(QtQuick.QQuickView):
         return QtGui.QCursor.pos()
 
     @QtCore.pyqtSlot()
-    def show_confirm_window(self):
+    def showConfirmWindow(self):
         '''Show a confirmation dialog now'''
         self.confirm_window = ConfirmWindow()
         self.confirm_window.accepted.connect(self.disconnected)

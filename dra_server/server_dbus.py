@@ -124,6 +124,12 @@ class ServerDBus(dbus.service.Object):
         # If control panel is not shown, terminate within 1s
         QtCore.QTimer.singleShot(1000, self.kill)
 
+    @dbus.service.method(constants.DBUS_ROOT_IFACE)
+    def StopNotify(self):
+        '''Confirm disconnecting remoting service'''
+        if self.remoting_connected:
+            self.disconnect_window.showConfirmWindow()
+
     @QtCore.pyqtSlot()
     def kill(self):
         '''Quit now'''
@@ -148,7 +154,7 @@ class ServerDBus(dbus.service.Object):
 
         # If failed to connect to web server, stop local service
         if self._status == constants.SERVER_STATUS_PEERID_FAILED:
-            notify('Failed to get peer ID')
+            notify('Failed to get peer ID!')
             self.Stop()
 
         # Get peeer ID successfully
@@ -164,7 +170,7 @@ class ServerDBus(dbus.service.Object):
 
         # If remote peer has closed remoting connection, terminate local service
         elif self._status == constants.SERVER_STATUS_DISCONNECTED:
-            notify('Remoting service has been terminated!')
+            notify('Remoting service terminated!')
             self.Stop()
 
     def peer_id_changed(self, new_peer_id):
