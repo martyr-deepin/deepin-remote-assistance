@@ -8,7 +8,7 @@ ICONS = ${DESTDIR}${PREFIX}/share/icons/
 all:
 	
 install:
-	# Make directories
+	# Create directories
 	mkdir -p ${PYLIB}
 	mkdir -p ${DRALIB}
 	mkdir -p ${DBUSLIB}
@@ -18,12 +18,14 @@ install:
 	cp -rvf dra_server ${PYLIB}
 	cp -rvf dra_utils ${PYLIB}
 	cp -v client.py ${DRALIB}/client
+	cp -v manager.py ${DRALIB}/manager
 	cp -v server.py ${DRALIB}/server
 	cp -v services/* ${DBUSLIB}
 	cp -rvf icons/* ${ICONS}
 	# Cleanup temporary files
 	find ${DESTDIR}${PREFIX} -type d -iname '__pycache__' | xargs rm -rvf
 	find ${DESTDIR}${PREFIX} -type f -iname '*_test*' | xargs rm -v
-	# Update permissions
-	chmod -v a+x ${DESTDIR}${PREFIX}/lib/dra/client 
-	chmod -v a+x ${DESTDIR}${PREFIX}/lib/dra/server
+	# Update file permissions
+	chmod -v a+x ${DRALIB}/client
+	chmod -v a+x ${DRALIB}/server
+	chmod -v a+x ${DRALIB}/manager

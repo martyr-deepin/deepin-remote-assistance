@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.deepin.daemon.Remoting.Manager
+Exec=/usr/lib/dra/manager
+

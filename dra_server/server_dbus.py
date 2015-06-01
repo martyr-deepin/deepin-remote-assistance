@@ -15,7 +15,9 @@ from . import server
 from .views.disconnectwindow import DisconnectWindow
 from dra_utils.log import server_log
 from dra_utils.notify import notify
+from dra_utils.dbusutil import dbus_has_owner
 
+is_server_dbus_running = lambda: dbus_has_owner(constants.DBUS_NAME)
 
 class ServerDBus(dbus.service.Object):
 
@@ -126,9 +128,13 @@ class ServerDBus(dbus.service.Object):
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def StopNotify(self):
-        '''Confirm disconnecting remoting service'''
+        '''Confirm disconnecting remoting service.
+
+        If remoting is connected, popup confirm dialog, else, exit silently.'''
         if self.remoting_connected:
             self.disconnect_window.showConfirmWindow()
+        else:
+            self.Stop()
 
     @QtCore.pyqtSlot()
     def kill(self):
