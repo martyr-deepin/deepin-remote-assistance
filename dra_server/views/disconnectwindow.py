@@ -39,6 +39,8 @@ class DisconnectWindow(QtQuick.QQuickView):
 
         self.confirm_window = None
 
+        QtCore.QCoreApplication.instance().aboutToQuit(self.disconnected)
+
     @QtCore.pyqtSlot(result=QtCore.QVariant)
     def getCursorPos(self):
         '''This method is used to get cursor position in DDragArea'''

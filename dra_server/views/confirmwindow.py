@@ -29,4 +29,3 @@ class ConfirmWindow(QtQuick.QQuickView):
                       QtCore.Qt.WindowStaysOnTopHint)
 
         self.setSource(QtCore.QUrl.fromLocalFile(views.CONFIRM_WINDOW))
-
