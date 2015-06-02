@@ -7,16 +7,19 @@ from PyQt5 import QtQuick
 from PyQt5 import QtWidgets
 
 from dra_client import views
-from ..service.client import Client
-from ..service import keyboard
-from ..service import mouse
-from ..utils.event import EventHandler
-from ..utils.event import EventRecord
+from dra_client.service.client import Client
+from dra_client.service import keyboard
+from dra_client.service import mouse
+from dra_client.utils.event import EventHandler
+from dra_client.utils.event import EventRecord
+from dra_utils.constants import ICON_PATH
 
 class MainWindow(QtQuick.QQuickView):
 
     def __init__(self):
         QtQuick.QQuickView.__init__(self)
+
+        self.setIcon(QtGui.QIcon(ICON_PATH))
 
         self._event_handler = EventHandler()
         self._event_handler.cursorPositionChanged.connect(
