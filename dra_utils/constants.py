@@ -1,7 +1,9 @@
 
 APP_NAME = 'Deepin Remote Assistance'
-
 ICON_NAME = 'deepin-remote-assistance'
+# Absolute path to icon file
+# This image file is used as window icon
+ICON_PATH = '/usr/share/icons/hicolor/scalable/apps/%s.svg' % ICON_NAME
 
 NETWORK_UNKNOWN = 0
 NETWORK_CONNECTED = 1

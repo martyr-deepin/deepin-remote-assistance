@@ -17,9 +17,10 @@ DShadowRect {
     // Emit this signal when fullscreen button clicked
     //signal fullscreenToggled()
 
-    // Set width and height property of video
-    property alias screenVideoWidth: screenVideoRect.screenVideoWidth
-    property alias screenVideoHeight: screenVideoRect.screenVideoHeight
+    // Set width and height property of media stream
+    function setVideoAspectRatio(width, height) {
+        screenVideoRect.aspectRatio = width / height
+    }
 
     // Size of web view
     // These properties are read in messaging module
@@ -33,11 +34,13 @@ DShadowRect {
     }
 
     function getCursorX() {
-        return cursorX;
+        // TODO: use parseInt()
+        //return cursorX + parseInt(screenVideoRect.webView.x);
+        return cursorX + screenVideoRect.webView.x;
     }
 
     function getCursorY() {
-        return cursorY;
+        return cursorY + screenVideoRect.webView.y;
     }
 
     function getVideoWidth () {
@@ -116,9 +119,6 @@ DShadowRect {
         anchors.top: titleBar.bottom
         width: parent.width
         height: parent.height - titleBar.height
-        screenVideoWidth: 1366
-        screenVideoHeight: 768
-        //starturl: "http://localhost/screen/"
 
         //onEntered: {
             //print("entered:", x, y)

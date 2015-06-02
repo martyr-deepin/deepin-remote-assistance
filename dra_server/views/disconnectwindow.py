@@ -4,8 +4,8 @@ from PyQt5 import QtGui
 from PyQt5 import QtQuick
 
 from dra_server import views
-
 from dra_server.views.confirmwindow import ConfirmWindow
+from dra_utils.constants import ICON_PATH
 
 class DisconnectWindow(QtQuick.QQuickView):
     '''DisconnectWindow is used to terminate remoting service explicitly.'''
@@ -16,6 +16,8 @@ class DisconnectWindow(QtQuick.QQuickView):
 
     def __init__(self, parent=None):
         super().__init__(parent)
+
+        self.setIcon(QtGui.QIcon(ICON_PATH))
         
         rootContext = self.rootContext()
         rootContext.setContextProperty('windowView', self)

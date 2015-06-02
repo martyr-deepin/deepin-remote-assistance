@@ -8,18 +8,13 @@ import com.canonical.Oxide 1.0
 Rectangle {
     id: webViewRoot
     width: 1000
-    height: 600
+    height: 800
 
     // URL of deepin peer server
     property var startUrl: Qt.resolvedUrl('http://10.0.0.42:9000/remoting#client')
-    // Default width of video
-    property int screenVideoWidth: 800
 
-    // Default height of video
-    property int screenVideoHeight: 600
-
-    // Video aspect ratio
-    property real aspectRatio: screenVideoWidth / screenVideoHeight
+    // Remote media stream aspect ratio
+    property real aspectRatio: 1
 
     property alias webView: webView
 

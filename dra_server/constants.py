@@ -1,5 +1,4 @@
 
-
 # Report local peer id to host service.
 # This message is sent to host at a specific interval(default is 3000ms)
 # Browser -> Host
@@ -55,5 +54,5 @@ CLIPBOARD_PIXMAP = 1
 
 
 # Connection to webserver timeout, in milliseconds
-# It also includes time to launch chrome and host service.
-WEBSERVER_CONNECTION_TIMEOUT = 40000
+# It also includes time to launch chrome instance and host service.
+WEBSERVER_CONNECTION_TIMEOUT = 20000

@@ -60,8 +60,8 @@ def handle(msg):
             return
 
         # Notify qml about video property
-        client_dbus.main_window.root.screenVideoWidth = video['width']
-        client_dbus.main_window.root.screenVideoHeight = video['height']
+        client_dbus.main_window.root.setVideoAspectRatio(video['width'],
+                                                         video['height'])
 
     elif msg['Type'] == constants.CLIENT_MSG_UNAVAILABLE:
         client_dbus.StatusChanged(constants.CLIENT_STATUS_UNAVAILABLE)
