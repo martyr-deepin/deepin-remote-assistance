@@ -39,7 +39,8 @@ class DisconnectWindow(QtQuick.QQuickView):
 
         self.confirm_window = None
 
-        QtCore.QCoreApplication.instance().aboutToQuit(self.disconnected)
+        QtCore.QCoreApplication.instance().aboutToQuit.connect(
+                self.disconnected)
 
     @QtCore.pyqtSlot(result=QtCore.QVariant)
     def getCursorPos(self):

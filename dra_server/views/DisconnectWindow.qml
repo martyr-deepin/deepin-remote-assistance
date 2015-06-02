@@ -64,8 +64,6 @@ Rectangle {
         property int height: displayId.primaryRect[3]
     }
 
-    // TODO: import DConstants object
-    //DConstants {id: dconstants}
     property var dconstants: QtObject {
         property string textNormalColor: '#fafafa'
         property string textHoverColor: '#9a9a9a'

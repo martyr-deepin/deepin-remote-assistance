@@ -50,6 +50,12 @@ class MainWindow(QtQuick.QQuickView):
         self.root = self.rootObject()
         QtWidgets.qApp.focusWindowChanged.connect(self.onWindowFocusChanged)
 
+        self.tray = QtWidgets.QSystemTrayIcon()
+        self.tray.setIcon(QtGui.QIcon(ICON_PATH))
+        self.tray.activated.connect(self.onSystemTrayActivated)
+
+        self.visibilityChanged.connect(self.onVisibilityChanged)
+
     @QtCore.pyqtSlot(QtCore.QVariant)
     def onWindowFocusChanged(self, window):
         self.setKeyboardGrabEnabled(window is not None)
@@ -67,6 +73,7 @@ class MainWindow(QtQuick.QQuickView):
             'code': event.nativeScanCode(),
         }))
 
+    @QtCore.pyqtSlot()
     def toggleFullscreen(self):
         # TODO: remove this method
         print('toggle fullscreen')
@@ -76,6 +83,19 @@ class MainWindow(QtQuick.QQuickView):
         else:
             self.window.showFullScreen()
         self.window.fullscreen = not self.window.fullscreen
+
+    @QtCore.pyqtSlot()
+    def closeToSystemTray(self):
+        '''Close to system tray'''
+        self.setVisible(False)
+
+    @QtCore.pyqtSlot(QtCore.QVariant)
+    def onSystemTrayActivated(self, reason):
+        self.setVisible(not self.isVisible())
+
+    def onVisibilityChanged(self, visibility):
+        if visibility == 3:
+            self.setVisible(False)
 
     @QtCore.pyqtSlot(int, int)
     def _record_cursor_position(self, x, y):
@@ -92,3 +112,4 @@ class MainWindow(QtQuick.QQuickView):
     def show(self):
         self._event_record.start()
         QtQuick.QQuickView.show(self)
+        self.tray.show()

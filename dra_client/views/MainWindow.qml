@@ -87,7 +87,8 @@ DShadowRect {
             }
             DTitleMinimizeButton {
                 onClicked: {
-                    windowView.visibility = 3
+                    //windowView.visibility = 3
+                    windowView.closeToSystemTray()
                 }
             }
             DTitleMaxUnmaxButton {
@@ -105,7 +106,6 @@ DShadowRect {
             }
             DTitleCloseButton {
                 onClicked: {
-                    // Close main window and emit window-close signal
                     windowView.close()
                     root.windowClosed()
                 }

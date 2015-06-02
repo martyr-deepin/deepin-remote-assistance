@@ -102,8 +102,9 @@ class ManagerDBus(dbus.service.Object):
 def main():
     if is_manager_dbus_running():
         return
-    manager_dbus = ManagerDBus()
     app = QtCore.QCoreApplication(sys.argv)
+    app.setApplicationName(constants.APP_NAME)
+    manager_dbus = ManagerDBus()
     app.exec()
 
 if __name__ == '__main__':
