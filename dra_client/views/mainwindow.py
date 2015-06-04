@@ -75,14 +75,12 @@ class MainWindow(QtQuick.QQuickView):
 
     @QtCore.pyqtSlot()
     def toggleFullscreen(self):
-        # TODO: remove this method
-        print('toggle fullscreen')
-        return
-        if self.window.fullscreen:
-            self.window.showNormal()
-        else:
-            self.window.showFullScreen()
-        self.window.fullscreen = not self.window.fullscreen
+        pass
+        #if self.window.fullscreen:
+        #    self.window.showNormal()
+        #else:
+        #    self.window.showFullScreen()
+        #self.window.fullscreen = not self.window.fullscreen
 
     @QtCore.pyqtSlot()
     def closeToSystemTray(self):

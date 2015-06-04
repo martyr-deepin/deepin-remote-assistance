@@ -160,7 +160,7 @@ class ServerDBus(dbus.service.Object):
 
         # If failed to connect to web server, stop local service
         if self._status == constants.SERVER_STATUS_PEERID_FAILED:
-            notify('Failed to get peer ID!')
+            notify('Failed to get access code!')
             self.Stop()
 
         # Get peeer ID successfully

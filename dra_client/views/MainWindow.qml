@@ -22,6 +22,16 @@ DShadowRect {
         screenVideoRect.aspectRatio = width / height
     }
 
+    // Toggle window status between maximized and normal
+    function toggleWindowStatus() {
+        if(windowView.visibility != 4){
+            windowView.visibility = 4
+        }
+        else{
+            windowView.visibility = 2
+        }
+    }
+
     // Size of web view
     // These properties are read in messaging module
     // Cursor position relative to web view
@@ -61,10 +71,11 @@ DShadowRect {
             anchors.fill: parent
             window: windowView
             onPressed: {
-                print("title pressed...")
             }
             onReleased: {
-                print("title released...")
+            }
+            onDoubleClicked: {
+                toggleWindowStatus()
             }
         }
 
@@ -79,12 +90,6 @@ DShadowRect {
             anchors.right: parent.right
             height: parent.height
             
-            DTitleOptionButton{
-                // TODO: remove fullscreen mode
-                onClicked:{
-                    screenVideoRect.webView.fullscreen = !screenVideoRect.webView.fullscreen
-                }
-            }
             DTitleMinimizeButton {
                 onClicked: {
                     //windowView.visibility = 3
@@ -96,12 +101,7 @@ DShadowRect {
                     value: windowView.visibility === 4
                 }
                 onClicked: {
-                    if(windowView.visibility != 4){
-                        windowView.visibility = 4
-                    }
-                    else{
-                        windowView.visibility = 2
-                    }
+                    toggleWindowStatus()
                 }
             }
             DTitleCloseButton {
