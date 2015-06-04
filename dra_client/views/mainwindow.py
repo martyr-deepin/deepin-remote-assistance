@@ -16,6 +16,9 @@ from dra_utils.constants import ICON_PATH
 
 class MainWindow(QtQuick.QQuickView):
 
+    # Emit window closed signal when close button is clicked
+    windowClosed = QtCore.pyqtSignal()
+
     def __init__(self):
         QtQuick.QQuickView.__init__(self)
 
@@ -56,9 +59,8 @@ class MainWindow(QtQuick.QQuickView):
 
         self.visibilityChanged.connect(self.onVisibilityChanged)
 
-    @QtCore.pyqtSlot(QtCore.QVariant)
-    def onWindowFocusChanged(self, window):
-        self.setKeyboardGrabEnabled(window is not None)
+        # Old visiblity of window
+        self.oldVisibility = QtGui.QWindow.Windowed
 
     def keyPressEvent(self, event):
         print(event.nativeScanCode())
@@ -74,13 +76,35 @@ class MainWindow(QtQuick.QQuickView):
         }))
 
     @QtCore.pyqtSlot()
+    def close(self):
+        self.windowClosed.emit()
+        super().close()
+
+    @QtCore.pyqtSlot(QtCore.QVariant)
+    def onWindowFocusChanged(self, window):
+        self.setKeyboardGrabEnabled(window is not None)
+
+    @QtCore.pyqtSlot()
     def toggleFullscreen(self):
-        pass
-        #if self.window.fullscreen:
-        #    self.window.showNormal()
-        #else:
-        #    self.window.showFullScreen()
-        #self.window.fullscreen = not self.window.fullscreen
+        '''Toggle window status between fullscreen and normal'''
+#        if self.visibility() != QtGui.QWindow.FullScreen:
+#            #self.showFullScreen()
+#            self.setVisibility(QtGui.QWindow.FullScreen)
+#        else:
+#            self.setVisibility(QtGui.QWindow.Windowed)
+        if self.visibility() != QtGui.QWindow.FullScreen:
+            self.oldVisibility = self.visibility()
+            self.setVisibility(QtGui.QWindow.FullScreen)
+        else:
+            self.setVisibility(self.oldVisibility)
+
+    @QtCore.pyqtSlot()
+    def toggleMaximized(self):
+        '''Toggle window status between maximized and normal'''
+        if self.visibility() != QtGui.QWindow.Maximized:
+            self.setVisibility(QtGui.QWindow.Maximized)
+        else:
+            self.setVisibility(QtGui.QWindow.Windowed)
 
     @QtCore.pyqtSlot()
     def closeToSystemTray(self):
@@ -111,3 +135,4 @@ class MainWindow(QtQuick.QQuickView):
         self._event_record.start()
         QtQuick.QQuickView.show(self)
         self.tray.show()
+        self.oldVisibility = self.visibility()

@@ -6,30 +6,25 @@ DShadowRect {
     defaultWidth: 998
     defaultHeight: 593
 
+    state: "normalMode"
+
     property bool showBlur: !(windowView.visibility === 4 || windowView.visibility === 5)
     blurWidth: showBlur ? 10 : 0
     rectRadius: showBlur ? 3 : 0
     borderWidth: showBlur ? 1 : 0
 
-    // Emit window closed signal when close button is clicked
-    signal windowClosed()
-
-    // Emit this signal when fullscreen button clicked
-    //signal fullscreenToggled()
+    function toggleFullscreen() {
+        if (state === "normalMode") {
+            state = "fullscreenMode"
+        } else {
+            state = "normalMode"
+        }
+        windowView.toggleFullscreen()
+    }
 
     // Set width and height property of media stream
     function setVideoAspectRatio(width, height) {
         screenVideoRect.aspectRatio = width / height
-    }
-
-    // Toggle window status between maximized and normal
-    function toggleWindowStatus() {
-        if(windowView.visibility != 4){
-            windowView.visibility = 4
-        }
-        else{
-            windowView.visibility = 2
-        }
     }
 
     // Size of web view
@@ -61,74 +56,49 @@ DShadowRect {
         return screenVideoRect.webView.height;
     }
 
-    Rectangle {
-        id: titleBar
-        width: parent.width
-        height: 30
-        color: DConstants.bgColor
+    NormalTitleBar {
+        id: normalTitleBar
+        anchors.top: parent.top
+        visible: root.state === "normalMode"
+        enabled: visible
+        z: 0
+    }
 
-        DDragableArea {
-            anchors.fill: parent
-            window: windowView
-            onPressed: {
-            }
-            onReleased: {
-            }
-            onDoubleClicked: {
-                toggleWindowStatus()
-            }
-        }
-
-        DssH2 {
-            text: "Deepin Remote Assistance"
-            anchors.left: parent.left
-            anchors.leftMargin: 10
-            anchors.verticalCenter: parent.verticalCenter
-        }
-
-        Row {
-            anchors.right: parent.right
-            height: parent.height
-            
-            DTitleMinimizeButton {
-                onClicked: {
-                    //windowView.visibility = 3
-                    windowView.closeToSystemTray()
-                }
-            }
-            DTitleMaxUnmaxButton {
-                Binding on maximized {
-                    value: windowView.visibility === 4
-                }
-                onClicked: {
-                    toggleWindowStatus()
-                }
-            }
-            DTitleCloseButton {
-                onClicked: {
-                    windowView.close()
-                    root.windowClosed()
-                }
-            }
-        }
+    FullscreenTitleBar {
+        id: fullscreenTitleBar
+        //anchors.top: parent.top
+        visible: root.state === "fullscreenMode"
+        enabled: visible
+        z: 1
     }
 
     // web frame
     ScreenVideoRect {
         id: screenVideoRect
-        anchors.top: titleBar.bottom
+        anchors.top: normalTitleBar.bottom
         width: parent.width
-        height: parent.height - titleBar.height
-
-        //onEntered: {
-            //print("entered:", x, y)
-        //}
-        //onExited: {
-            //print("exited:", x, y)
-        //}
-        //onCursorPositionChanged: {
-            //print(x, y)
-        //}
+        height: parent.height - normalTitleBar.height
     }
+
+    states: [
+        State {
+            name: "normalMode"
+            PropertyChanges {
+                target: screenVideoRect
+                anchors.top: normalTitleBar.bottom
+                height: root.height - normalTitleBar.height
+            }
+        },
+
+        State {
+            name: "fullscreenMode"
+            PropertyChanges {
+                target: screenVideoRect
+                //anchors.top: root.top
+                anchors.top: normalTitleBar.top
+                height: root.height
+            }
+        }
+    ]
 }
 

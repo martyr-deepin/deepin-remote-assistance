@@ -141,7 +141,7 @@ class ClientDBus(dbus.service.Object):
         if not self.main_window:
             client_host.critical('[dbus] Failed to init main window!')
             self.Stop()
-        self.main_window.root.windowClosed.connect(self.Stop)
+        self.main_window.windowClosed.connect(self.Stop)
         self.main_window.show()
 
         self.client_host = Client(self)
