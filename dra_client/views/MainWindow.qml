@@ -1,4 +1,6 @@
 import QtQuick 2.2
+
+import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 
 DShadowRect {
@@ -57,6 +59,16 @@ DShadowRect {
 
     function getVideoHeight() {
         return screenVideoRect.webView.height;
+    }
+
+    // Setup locale domain
+    property var dsslocale: DLocale {
+        domain: "deepin-remote-assistance"
+    }
+
+    // Internationalization
+    function dsTr(s){
+        return dsslocale.dsTr(s)
     }
 
     NormalTitleBar {

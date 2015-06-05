@@ -11,6 +11,7 @@ from PyQt5 import QtCore
 
 from dra_utils import constants
 from dra_utils.dbusutil import dbus_has_owner
+from dra_utils.i18n import _
 from dra_utils import network
 from dra_client.service.client_dbus import is_client_dbus_running
 from dra_server.server_dbus import is_server_dbus_running
@@ -20,10 +21,10 @@ DBUS_NAME = 'com.deepin.daemon.Remoting.Manager'
 DBUS_PATH = '/com/deepin/daemon/Remoting/Manager'
 DBUS_ROOT_IFACE = 'com.deepin.daemon.Remoting.Manager'
 
-
 is_manager_dbus_running = lambda: dbus_has_owner(DBUS_NAME)
 
 class ManagerDBus(dbus.service.Object):
+    '''Manager dbus interface'''
 
     def __init__(self):
         loop = DBusGMainLoop(set_as_default=True)
@@ -103,7 +104,7 @@ def main():
     if is_manager_dbus_running():
         return
     app = QtCore.QCoreApplication(sys.argv)
-    app.setApplicationName(constants.APP_NAME)
+    app.setApplicationName(_(constants.APP_NAME))
     manager_dbus = ManagerDBus()
     app.exec()
 

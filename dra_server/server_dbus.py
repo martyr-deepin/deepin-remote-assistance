@@ -13,6 +13,7 @@ from PyQt5 import QtWidgets
 from . import constants
 from . import server
 from .views.disconnectwindow import DisconnectWindow
+from dra_utils.i18n import _
 from dra_utils.log import server_log
 from dra_utils.notify import notify
 from dra_utils.dbusutil import dbus_has_owner
@@ -160,7 +161,7 @@ class ServerDBus(dbus.service.Object):
 
         # If failed to connect to web server, stop local service
         if self._status == constants.SERVER_STATUS_PEERID_FAILED:
-            notify('Failed to get access code!')
+            notify(_('Failed to get access code!'))
             self.Stop()
 
         # Get peeer ID successfully
@@ -176,7 +177,7 @@ class ServerDBus(dbus.service.Object):
 
         # If remote peer has closed remoting connection, terminate local service
         elif self._status == constants.SERVER_STATUS_DISCONNECTED:
-            notify('Remoting service terminated!')
+            notify(_('Remoting service terminated!'))
             self.Stop()
 
     def peer_id_changed(self, new_peer_id):

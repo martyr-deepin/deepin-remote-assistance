@@ -28,7 +28,7 @@ Rectangle {
     }
 
     DssH2 {
-        text: "Deepin Remote Assistance (Fullscreen Mode)"
+        text: dsTr("Deepin Remote Assistance")
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.verticalCenter: parent.verticalCenter
@@ -36,7 +36,7 @@ Rectangle {
 
     DTextButton {
         id: preferencesButton
-        text: "Preferences \u25be"
+        text: dsTr("Preferences") + " \u25be"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {

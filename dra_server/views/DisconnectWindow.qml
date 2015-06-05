@@ -26,6 +26,7 @@ import QtQuick.Window 2.2
 import QtGraphicalEffects 1.0
 
 import DBus.Com.Deepin.Daemon.Display 1.0
+import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 
 Rectangle {
@@ -42,6 +43,16 @@ Rectangle {
 
     // Disconnect button clicked
     signal disconnected()
+
+    // Setup locale domain
+    property var dsslocale: DLocale {
+        domain: "deepin-remote-assistance"
+    }
+
+    // Internationalization
+    function dsTr(s){
+        return dsslocale.dsTr(s)
+    }
 
     property int shadowWidth: 0
 
@@ -127,7 +138,7 @@ Rectangle {
             }
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            text: "Disconnect"
+            text: dsTr("Disconnect")
             color: dconstants.textNormalColor
 
             MouseArea {

@@ -8,6 +8,7 @@ from dra_client.service.client_dbus import is_client_dbus_running
 from dra_client.service.client_dbus import ClientDBus
 from dra_server.server_dbus import is_server_dbus_running
 from dra_utils.constants import APP_NAME
+from dra_utils.i18n import _
 from dra_utils.log import client_log
 
 def main():
@@ -18,7 +19,7 @@ def main():
         client_log.warn('[client] server side is running')
         return
     app = QtWidgets.QApplication(sys.argv)
-    app.setApplicationName(APP_NAME)
+    app.setApplicationName(_(APP_NAME))
 
     client_dbus = ClientDBus()
     # FIXME: log service failed to dump log

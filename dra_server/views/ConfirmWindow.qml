@@ -24,8 +24,9 @@
 import QtQuick 2.2
 import QtQuick.Window 2.2
 
-import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import Deepin.Locale 1.0
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: root
@@ -40,21 +41,18 @@ Rectangle {
     width: 300
     height: 120
 
+    // Setup locale domain
+    property var dsslocale: DLocale {
+        domain: "deepin-remote-assistance"
+    }
+
+    // Internationalization
+    function dsTr(s){
+        return dsslocale.dsTr(s)
+    }
+
     // Width of box shadow
     property int shadowWidth: 15
-
-    /*
-    function showDialog() {
-        windowView.show()
-        windowView.raise()
-        cancelButton.forceActiveFocus()
-    }
-
-    function hideDialog() {
-        windowView.hide()
-    }
-    */
-
 
     property var displayId: Display {}
     property var screenSize: QtObject {
@@ -69,13 +67,6 @@ Rectangle {
         anchors.fill: parent
         radius: 5
 
-        /*
-        DDragableArea{
-            anchors.fill: parent
-            window: windowView
-        }
-        */
-
         DssH2 {
             id: title
             width: parent.width
@@ -87,7 +78,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 20
             wrapMode: Text.WordWrap
-            text: "Are you sure to close remote desktop connection?"
+            text: dsTr("Are you sure to close remote desktop connection?")
         }
 
         Row {
@@ -100,13 +91,12 @@ Rectangle {
 
             DTransparentButton {
                 id: cancelButton
-                text: "Cancel"
+                text: dsTr("Cancel")
                 activeFocusOnTab: true
                 Keys.onReturnPressed: activate()
                 onClicked: active()
 
                 function active(){
-                    print('rejected')
                     windowView.rejected()
                     windowView.close()
                 }
@@ -114,13 +104,12 @@ Rectangle {
 
             DTransparentButton {
                 id: confirmButton
-                text: "OK"
+                text: dsTr("OK")
                 activeFocusOnTab: true
                 Keys.onReturnPressed: activate()
                 onClicked: active()
 
                 function active(){
-                    print('accepted')
                     windowView.accepted()
                     windowView.close()
                 }

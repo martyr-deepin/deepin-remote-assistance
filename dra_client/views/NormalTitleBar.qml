@@ -19,18 +19,19 @@ Rectangle {
     }
 
     DssH2 {
-        text: "Deepin Remote Assistance"
+        text: dsTr("Deepin Remote Assistance")
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.verticalCenter: parent.verticalCenter
     }
 
+    // TODO: replace with preferences button
     DTextButton {
-        text: "Fullscreen"
+        id: preferencesButton
+        text: dsTr("Preferences") + " \u25be"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
-            toggleFullscreen()
         }
     }
 
