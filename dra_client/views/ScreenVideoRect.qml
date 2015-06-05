@@ -66,6 +66,7 @@ Rectangle {
             }
 
             onPositionChanged: {
+                root.cursorMoved()
                 root.cursorX = mouse.x - webView.x;
                 root.cursorY = mouse.y - webView.y;
             }

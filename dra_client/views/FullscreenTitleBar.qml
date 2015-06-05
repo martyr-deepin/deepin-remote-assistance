@@ -4,13 +4,15 @@ import Deepin.Widgets 1.0
 Rectangle {
     id: titlebar
     width: parent.width
-    height: 30
     y: 0
     color: DConstants.bgColor
 
+    readonly property int defaultHeight: 30
+    height: defaultHeight
+
     readonly property string popdown: "popdown"
     readonly property string pullup: "pullup"
-    state: popdown
+    state: pullup
 
     function showPreferencesMenu() {
         preferencesMenu.visible = true
@@ -19,16 +21,6 @@ Rectangle {
     DDragableArea {
         anchors.fill: parent
         window: windowView
-        hoverEnabled: true
-        onEntered: {
-            // Popdown titlebar
-            titlebar.state = popdown
-            pullupTimer.stop()
-        }
-        onExited: {
-            // Pullup titlebar
-            pullupTimer.restart()
-        }
         onDoubleClicked: {
             //windowView.toggleMaximized()
             toggleFullscreen()
@@ -105,19 +97,10 @@ Rectangle {
             name: pullup
             PropertyChanges {
                 target: titlebar
-                y: -28
+                y: 0 - defaultHeight
             }
         }
     ]
-
-    Timer {
-        id: pullupTimer
-        interval: 2000
-        running: titlebar.visible
-        onTriggered: {
-            titlebar.state = pullup
-        }
-    }
 
     transitions: [
         Transition {
@@ -127,7 +110,7 @@ Rectangle {
             NumberAnimation {
                 target: titlebar
                 property: "y"
-                duration: 300
+                duration: 200
             }
         },
 
@@ -138,8 +121,33 @@ Rectangle {
             NumberAnimation {
                 target: titlebar
                 property: "y"
-                duration: 80
+                duration: 200
             }
         }
     ]
+
+    Connections {
+        target: eventHandler
+        onCursorPositionChanged: {
+            if (visible) {
+                if (root.cursorY <= defaultHeight) {
+                    pullupTimer.restart()
+                    state = popdown
+                } else {
+                    pullupTimer.stop()
+                    state = pullup
+                }
+            }
+        }
+    }
+
+    Timer {
+        id: pullupTimer
+        interval: 1000
+        running: titlebar.visible
+        onTriggered: {
+            titlebar.state = pullup
+        }
+    }
+
 }

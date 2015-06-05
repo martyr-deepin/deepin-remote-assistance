@@ -13,6 +13,9 @@ DShadowRect {
     rectRadius: showBlur ? 3 : 0
     borderWidth: showBlur ? 1 : 0
 
+    // Cursor position changed
+    signal cursorMoved
+
     function toggleFullscreen() {
         if (state === "normalMode") {
             state = "fullscreenMode"
