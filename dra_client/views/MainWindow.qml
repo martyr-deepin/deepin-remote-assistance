@@ -39,6 +39,8 @@ DShadowRect {
     property int cursorY: 0
     property bool captureCursor: false
 
+    property var preferencesMenu: PreferencesMenu { }
+
     function getCaptureCursor() {
         return captureCursor;
     }

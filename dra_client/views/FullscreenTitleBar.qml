@@ -14,10 +14,6 @@ Rectangle {
     readonly property string pullup: "pullup"
     state: pullup
 
-    function showPreferencesMenu() {
-        preferencesMenu.visible = true
-    }
-
     DDragableArea {
         anchors.fill: parent
         window: windowView
@@ -40,24 +36,9 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
-            //showPreferencesMenu()
+            preferencesMenu.__popup(x, y + height + 2, 0)
         }
     }
-
-    /*
-    DMenu {
-        id: preferencesMenu
-        posX: preferencesButton.x
-        posY: preferencesButton.y + 20
-
-        DMenuSeparator {
-        }
-
-        DToggleMenuItem {
-            label: "FullScreen"
-        }
-    }
-    */
 
     Row {
         anchors.right: parent.right

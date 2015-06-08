@@ -25,13 +25,14 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
     }
 
-    // TODO: replace with preferences button
     DTextButton {
         id: preferencesButton
         text: dsTr("Preferences") + " \u25be"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
+            preferencesMenu.__popup(preferencesButton.x,
+                preferencesButton.y + preferencesButton.height + 2, 0)
         }
     }
 
