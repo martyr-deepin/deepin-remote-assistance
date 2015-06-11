@@ -73,8 +73,8 @@ Menu {
         }
     }
 
-    MenuItem { action: preferSpeed }
     MenuItem { action: preferQuality }
+    MenuItem { action: preferSpeed }
     MenuItem { action: balanced }
 
     MenuSeparator {}
@@ -93,11 +93,20 @@ Menu {
         id: videoQualityGroup
 
         Action {
+            id: preferQuality
+            text: "Optimize Quality"
+            checkable: true
+            onTriggered: {
+                screenLevelChanged(screenLevelQuality)
+            }
+        }
+
+        Action {
             id: preferSpeed
             text: "Optimize Speed"
             checkable: true
             onTriggered: {
-                print('speed')
+                screenLevelChanged(screenLevelSpeed)
             }
         }
 
@@ -105,17 +114,10 @@ Menu {
             id: balanced
             text: "Balance"
             checkable: true
+            // Default is `Balanced`
+            checked: true
             onTriggered: {
-                print('balanced')
-            }
-        }
-
-        Action {
-            id: preferQuality
-            text: "Optimize Quality"
-            checkable: true
-            onTriggered: {
-                print('quality')
+                screenLevelChanged(screenLevelBalanced)
             }
         }
     }

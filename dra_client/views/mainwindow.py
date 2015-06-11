@@ -8,6 +8,7 @@ from PyQt5 import QtWidgets
 
 from dra_client import views
 from dra_client.service.client import Client
+from dra_client.service import cmd
 from dra_client.service import keyboard
 from dra_client.service import mouse
 from dra_client.utils.event import EventHandler
@@ -52,6 +53,7 @@ class MainWindow(QtQuick.QQuickView):
         self.setSource(QtCore.QUrl.fromLocalFile(views.MAIN_WINDOW))
         self.root = self.rootObject()
         QtWidgets.qApp.focusWindowChanged.connect(self.onWindowFocusChanged)
+        self.root.screenLevelChanged.connect(self.onScreenLevelChanged)
 
         self.tray = QtWidgets.QSystemTrayIcon()
         self.tray.setIcon(QtGui.QIcon(ICON_PATH))
@@ -82,6 +84,10 @@ class MainWindow(QtQuick.QQuickView):
     @QtCore.pyqtSlot(QtCore.QVariant)
     def onWindowFocusChanged(self, window):
         self.setKeyboardGrabEnabled(window is not None)
+
+    @QtCore.pyqtSlot(int)
+    def onScreenLevelChanged(self, level):
+        cmd.reset_screen_level(level)
 
     @QtCore.pyqtSlot()
     def toggleFullscreen(self):

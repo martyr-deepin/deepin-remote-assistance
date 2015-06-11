@@ -27,6 +27,14 @@ CLIENT_MSG_DISCONNECTED = 4
 # Browser -> Host
 CLIENT_MSG_READY = 5
 
+# Failed to setup webrtc connection
+# Browser -> Host
+CLIENT_MSG_WEBRTC_FAILED = 6
+
+# Reset screen video resolution
+# Host -> Browser
+CLIENT_MSG_RESET_SCREEN = 7
+
 # DBus name
 DBUS_NAME = 'com.deepin.daemon.Remoting.Client'
 DBUS_CLIENT_PATH = '/com/deepin/daemon/Remoting/Client'

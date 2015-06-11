@@ -29,6 +29,14 @@ def init_remoting(remote_peer_id):
         'Payload': remote_peer_id,
     }))
 
+@QtCore.pyqtSlot(int)
+def reset_screen_level(level):
+    if client_dbus and client_dbus.remoting_connected:
+        send_message(json.dumps({
+            'Type': constants.CLIENT_MSG_RESET_SCREEN,
+            'Payload': level,
+        }))
+
 @QtCore.pyqtSlot(str)
 def handle(msg):
     '''Handle cmd messages'''

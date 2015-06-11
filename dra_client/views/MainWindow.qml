@@ -27,6 +27,13 @@ DShadowRect {
         }
     }
 
+    // Changle screen quality
+    signal screenLevelChanged(int level)
+
+    readonly property int screenLevelSpeed: 0
+    readonly property int screenLevelBalanced: 1
+    readonly property int screenLevelQuality: 2
+
     // Set width and height property of media stream
     function setVideoAspectRatio(width, height) {
         screenVideoRect.aspectRatio = width / height
