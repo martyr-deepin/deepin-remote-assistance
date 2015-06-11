@@ -14,7 +14,7 @@ Rectangle {
         onReleased: {
         }
         onDoubleClicked: {
-            windowView.toggleMaximized()
+            //windowView.toggleMaximized()
         }
     }
 
@@ -31,8 +31,13 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
-            preferencesMenu.__popup(preferencesButton.x,
-                preferencesButton.y + preferencesButton.height + 2, 0)
+            preferencesMenu.__popup(0, height, 0)
+        }
+
+        Binding {
+            target: preferencesMenu
+            property: "__visualItem"
+            value: preferencesButton
         }
     }
 

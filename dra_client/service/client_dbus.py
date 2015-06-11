@@ -119,7 +119,6 @@ class ClientDBus(dbus.service.Object):
         # Disconnected, by remote peer or network failed
         elif self._status == constants.CLIENT_STATUS_DISCONNECTED:
             notify(_('Remoting service terminated!'))
-            notify(REMOTING_SERVICE_TERMINATED)
             self.Stop()
 
     # root iface methods

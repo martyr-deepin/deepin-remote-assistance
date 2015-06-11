@@ -63,7 +63,6 @@ class MainWindow(QtQuick.QQuickView):
         self.oldVisibility = QtGui.QWindow.Windowed
 
     def keyPressEvent(self, event):
-        print(event.nativeScanCode())
         keyboard.send_message(json.dumps({
             'press': True,
             'code': event.nativeScanCode(),
@@ -97,6 +96,11 @@ class MainWindow(QtQuick.QQuickView):
             self.setVisibility(QtGui.QWindow.FullScreen)
         else:
             self.setVisibility(self.oldVisibility)
+
+    @QtCore.pyqtSlot(result=bool)
+    def isFullscreen(self):
+        '''Check window is in fullscreen mode or not'''
+        return self.visibility() == QtGui.QWindow.FullScreen
 
     @QtCore.pyqtSlot()
     def toggleMaximized(self):

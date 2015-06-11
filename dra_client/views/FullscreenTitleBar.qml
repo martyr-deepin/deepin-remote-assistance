@@ -1,4 +1,6 @@
 import QtQuick 2.2
+import QtQml 2.2
+
 import Deepin.Widgets 1.0
 
 Rectangle {
@@ -8,6 +10,10 @@ Rectangle {
     color: DConstants.bgColor
 
     readonly property int defaultHeight: 30
+
+    // When cursor move to top of screen, push down title bar
+    readonly property int grabCursorY: 1
+
     height: defaultHeight
 
     readonly property string popdown: "popdown"
@@ -18,8 +24,7 @@ Rectangle {
         anchors.fill: parent
         window: windowView
         onDoubleClicked: {
-            //windowView.toggleMaximized()
-            toggleFullscreen()
+            //toggleFullscreen()
         }
     }
 
@@ -36,7 +41,13 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
-            preferencesMenu.__popup(x, y + height + 2, 0)
+            preferencesMenu.__popup(0, height, 0)
+        }
+
+        Binding {
+            target: preferencesMenu
+            property: "__visualItem"
+            value: preferencesButton
         }
     }
 
@@ -44,20 +55,21 @@ Rectangle {
         anchors.right: parent.right
         height: parent.height
         
-        //DTitleMinimizeButton {
-        //    onClicked: {
-        //            windowView.closeToSystemTray()
-        //    }
-        //}
-
-        DTitleMaxUnmaxButton {
-            // TODO: change image of button to unfullscreen
-            maximized: true
-            onClicked: {
-                toggleFullscreen()
-            }
-        }
-
+//        DTitleMinimizeButton {
+//            onClicked: {
+//                    toggleFullscreen()
+//                    windowView.closeToSystemTray()
+//            }
+//        }
+//
+//        DTitleMaxUnmaxButton {
+//            // TODO: change image of button to unfullscreen
+//            //maximized: true
+//            onClicked: {
+//                toggleFullscreen()
+//            }
+//        }
+//
         DTitleCloseButton {
             onClicked: {
                 windowView.close()
@@ -111,20 +123,24 @@ Rectangle {
         target: eventHandler
         onCursorPositionChanged: {
             if (visible) {
-                if (root.cursorY <= defaultHeight) {
+                if (root.cursorY <= grabCursorY) {
+                    if (state != popdown) {
+                        state = popdown
+                    }
                     pullupTimer.restart()
-                    state = popdown
-                } else {
-                    pullupTimer.stop()
-                    state = pullup
+                } else if (root.cursorY <= defaultHeight && state === popdown) {
+                    pullupTimer.restart()
+                } else if (preferencesMenu.visible) {
+                    pullupTimer.restart()
                 }
+                // FIXME: do not pullup titlebar when preferencesMenu is visible
             }
         }
     }
 
     Timer {
         id: pullupTimer
-        interval: 1000
+        interval: 1500
         running: titlebar.visible
         onTriggered: {
             titlebar.state = pullup

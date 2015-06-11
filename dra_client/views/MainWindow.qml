@@ -19,12 +19,12 @@ DShadowRect {
     signal cursorMoved
 
     function toggleFullscreen() {
-        if (state === "normalMode") {
+        windowView.toggleFullscreen()
+        if (windowView.isFullscreen()) {
             state = "fullscreenMode"
         } else {
             state = "normalMode"
         }
-        windowView.toggleFullscreen()
     }
 
     // Set width and height property of media stream

@@ -83,8 +83,9 @@ Menu {
         id: fullscreenItem
         text: "Fullscreen"
         checkable: true
+        checked: root.state === "fullscreenMode"
         onToggled: {
-            print("Toggle fullscreen")
+            toggleFullscreen()
         }
     }
 
@@ -93,7 +94,7 @@ Menu {
 
         Action {
             id: preferSpeed
-            text: "Perform Speed"
+            text: "Optimize Speed"
             checkable: true
             onTriggered: {
                 print('speed')
@@ -102,7 +103,7 @@ Menu {
 
         Action {
             id: balanced
-            text: "Balanced"
+            text: "Balance"
             checkable: true
             onTriggered: {
                 print('balanced')
@@ -111,7 +112,7 @@ Menu {
 
         Action {
             id: preferQuality
-            text: "Perform Quality"
+            text: "Optimize Quality"
             checkable: true
             onTriggered: {
                 print('quality')
