@@ -1,6 +1,6 @@
 
 APP_NAME = 'Deepin Remote Assistance'
-APP_SNAME = 'deepin-remote-assitance'
+APP_SNAME = 'deepin-remote-assistance'
 LOCALE_DIR = '/usr/share/locale'
 ICON_NAME = APP_SNAME
 # Absolute path to icon file
