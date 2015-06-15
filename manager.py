@@ -88,10 +88,10 @@ class ManagerDBus(dbus.service.Object):
         return self._get_status()
 
     def _get_status(self):
-        if is_client_dbus_running():
-            return constants.MANAGER_STATUS_CLIENT
-        elif is_server_dbus_running():
+        if is_server_dbus_running():
             return constants.MANAGER_STATUS_SERVER
+        elif is_client_dbus_running():
+            return constants.MANAGER_STATUS_CLIENT
         else:
             return constants.MANAGER_STATUS_UNINITIALIZED
 

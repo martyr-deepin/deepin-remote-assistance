@@ -15,9 +15,9 @@ def main():
     if is_client_dbus_running():
         client_log.warn('[client] client side is running')
         return
-    if is_server_dbus_running():
-        client_log.warn('[client] server side is running')
-        return
+#    if is_server_dbus_running():
+#        client_log.warn('[client] server side is running')
+#        return
     app = QtWidgets.QApplication(sys.argv)
     app.setApplicationName(_(APP_NAME))
 
