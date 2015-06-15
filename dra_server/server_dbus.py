@@ -17,6 +17,7 @@ from dra_utils.i18n import _
 from dra_utils.log import server_log
 from dra_utils.notify import notify
 from dra_utils.dbusutil import dbus_has_owner
+from dra_utils.screensaver import ScreenSaver
 
 is_server_dbus_running = lambda: dbus_has_owner(constants.DBUS_NAME)
 
@@ -50,6 +51,9 @@ class ServerDBus(dbus.service.Object):
 
         # Connected to web server or not
         self.connected_to_webserver = False
+
+        # ScreenSaver interface instance
+        self.screensaver_iface = None
 
     def _get_root_iface_properties(self):
         return {
@@ -116,6 +120,11 @@ class ServerDBus(dbus.service.Object):
         QtCore.QTimer.singleShot(constants.WEBSERVER_CONNECTION_TIMEOUT,
                                  self.on_connection_timeout)
 
+        screensaver_iface = ScreenSaver()
+        if screensaver_iface.check():
+            self.screensaver_iface = screensaver_iface
+            self.screensaver_iface.inhibit()
+
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop server side'''
@@ -123,6 +132,9 @@ class ServerDBus(dbus.service.Object):
         if self.server:
             self.server.stop()
         self.StatusChanged(constants.SERVER_STATUS_STOPPED)
+
+        if self.screensaver_iface:
+            self.screensaver_iface.uninhibit()
 
         # If control panel is not shown, terminate within 1s
         QtCore.QTimer.singleShot(1000, self.kill)

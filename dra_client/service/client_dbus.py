@@ -18,6 +18,7 @@ from dra_utils.dbusutil import dbus_has_owner
 from dra_utils.i18n import _
 from dra_utils.log import client_log
 from dra_utils.notify import notify
+from dra_utils.screensaver import ScreenSaver
 
 is_client_dbus_running = lambda: dbus_has_owner(constants.DBUS_NAME)
 
@@ -51,6 +52,9 @@ class ClientDBus(dbus.service.Object):
 
         # To mark status of client side
         self._status = constants.CLIENT_STATUS_UNINITIALIZED
+
+        # ScreenSaver interface instance
+        self.screensaver_iface = None
 
     def _get_root_iface_properties(self):
         return {
@@ -154,6 +158,11 @@ class ClientDBus(dbus.service.Object):
         QtCore.QTimer.singleShot(constants.WEBSERVER_CONNECTION_TIMEOUT,
                                  self.on_connection_timeout)
 
+        screensaver_iface = ScreenSaver()
+        if screensaver_iface.check():
+            self.screensaver_iface = screensaver_iface
+            self.screensaver_iface.inhibit()
+
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def Stop(self):
         '''Stop client side'''
@@ -161,6 +170,9 @@ class ClientDBus(dbus.service.Object):
         self.StatusChanged(constants.CLIENT_STATUS_STOPPED)
         if self.client_host:
             self.client_host.stop()
+
+        if self.screensaver_iface:
+            self.screensaver_iface.uninhibit()
 
         # Kill qApp and dbus service after 1s
         QtCore.QTimer.singleShot(1000, self.kill)
