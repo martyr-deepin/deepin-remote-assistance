@@ -55,12 +55,6 @@ class MainWindow(QtQuick.QQuickView):
         QtWidgets.qApp.focusWindowChanged.connect(self.onWindowFocusChanged)
         self.root.screenLevelChanged.connect(self.onScreenLevelChanged)
 
-        self.tray = QtWidgets.QSystemTrayIcon()
-        self.tray.setIcon(QtGui.QIcon(ICON_PATH))
-        self.tray.activated.connect(self.onSystemTrayActivated)
-
-        self.visibilityChanged.connect(self.onVisibilityChanged)
-
         # Old visiblity of window
         self.oldVisibility = QtGui.QWindow.Windowed
 
@@ -116,19 +110,6 @@ class MainWindow(QtQuick.QQuickView):
         else:
             self.setVisibility(QtGui.QWindow.Windowed)
 
-    @QtCore.pyqtSlot()
-    def closeToSystemTray(self):
-        '''Close to system tray'''
-        self.setVisible(False)
-
-    @QtCore.pyqtSlot(QtCore.QVariant)
-    def onSystemTrayActivated(self, reason):
-        self.setVisible(not self.isVisible())
-
-    def onVisibilityChanged(self, visibility):
-        if visibility == 3:
-            self.setVisible(False)
-
     @QtCore.pyqtSlot(int, int)
     def _record_cursor_position(self, x, y):
         self._cursor_pos = QtCore.QPoint(x, y)
@@ -144,5 +125,4 @@ class MainWindow(QtQuick.QQuickView):
     def show(self):
         self._event_record.start()
         QtQuick.QQuickView.show(self)
-        self.tray.show()
         self.oldVisibility = self.visibility()

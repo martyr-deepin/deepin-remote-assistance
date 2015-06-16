@@ -47,7 +47,7 @@ Rectangle {
         
         DTitleMinimizeButton {
             onClicked: {
-                windowView.closeToSystemTray()
+                windowView.visibility = 3
             }
         }
 
