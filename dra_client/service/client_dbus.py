@@ -116,6 +116,10 @@ class ClientDBus(dbus.service.Object):
         elif self._status == constants.CLIENT_STATUS_CONNECT_FAILED:
             QtCore.QTimer.singleShot(1000, self.Stop)
 
+        # Peer id is invalid
+        elif self._status == constants.CLIENT_STATUS_UNAVAILABLE:
+            QtCore.QTimer.singleShot(1000, self.Stop)
+
         # Connect to remote peer OK
         elif self._status == constants.CLIENT_STATUS_CONNECT_OK:
             self.remoting_connected = True

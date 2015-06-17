@@ -65,6 +65,7 @@ CLIENT_STATUS_CONNECT_OK = 5
 # Failed to connect to remote peer
 CLIENT_STATUS_CONNECT_FAILED = 6
 
+# Peer id is invalid
 CLIENT_STATUS_UNAVAILABLE = 7
 
 # Remote peer has closed desktop sharing
