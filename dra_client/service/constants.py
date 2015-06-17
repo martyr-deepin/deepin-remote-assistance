@@ -89,4 +89,7 @@ CLIPBOARD_PIXMAP = 1
 
 # Connection to webserver timeout, in milliseconds
 # It also includes time to launch oxide and host service
-WEBSERVER_CONNECTION_TIMEOUT = 17000
+WEBSERVER_CONNECTION_TIMEOUT = 19000
+
+# Connection to remote peer timeout, in millionseconds
+WEBRTC_CONNECTION_TIMEOUT = 15000

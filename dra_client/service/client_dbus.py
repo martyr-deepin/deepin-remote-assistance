@@ -154,9 +154,9 @@ class ClientDBus(dbus.service.Object):
 
         self.StatusChanged(constants.CLIENT_STATUS_STARTED)
 
-        # Init connection-timed-out timer
+        # Init webserver-connection-timed-out timer
         QtCore.QTimer.singleShot(constants.WEBSERVER_CONNECTION_TIMEOUT,
-                                 self.on_connection_timeout)
+                                 self.on_webserver_connection_timeout)
 
         screensaver_iface = ScreenSaver()
         if screensaver_iface.check():
@@ -189,8 +189,20 @@ class ClientDBus(dbus.service.Object):
         self.StatusChanged(constants.CLIENT_STATUS_CONNECTING)
         cmd.init_remoting(remote_peer_id)
 
+        # Init webrtc-connection-timeout timer
+        QtCore.QTimer.singleShot(constants.WEBRTC_CONNECTION_TIMEOUT,
+                                 self.on_webrtc_connection_timeout)
+
     @QtCore.pyqtSlot()
-    def on_connection_timeout(self):
-        '''Handle connection timeout signal'''
+    def on_webserver_connection_timeout(self):
+        '''Handle webserver connection timeout signal'''
         if not self.connected_to_webserver:
+            client_log.warn('[dbus] connected to webserver timeout')
+            self.StatusChanged(constants.CLIENT_STATUS_CONNECT_FAILED)
+
+    @QtCore.pyqtSlot()
+    def on_webrtc_connection_timeout(self):
+        '''Handle WebRTC connection timeout signal'''
+        if not self.remoting_connected:
+            client_log.warn('[dbus] connected to remote peer timeout')
             self.StatusChanged(constants.CLIENT_STATUS_CONNECT_FAILED)
