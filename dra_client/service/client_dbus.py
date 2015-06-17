@@ -114,7 +114,7 @@ class ClientDBus(dbus.service.Object):
 
         # Connect to web server failed
         elif self._status == constants.CLIENT_STATUS_CONNECT_FAILED:
-            self.Stop()
+            QtCore.QTimer.singleShot(1000, self.Stop)
 
         # Connect to remote peer OK
         elif self._status == constants.CLIENT_STATUS_CONNECT_OK:
@@ -123,7 +123,7 @@ class ClientDBus(dbus.service.Object):
         # Disconnected, by remote peer or network failed
         elif self._status == constants.CLIENT_STATUS_DISCONNECTED:
             notify(_('Remoting service terminated!'))
-            self.Stop()
+            QtCore.QTimer.singleShot(1000, self.Stop)
 
     # root iface methods
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
