@@ -14,7 +14,7 @@ class Chromium(QObject):
     def __init__(self,
                  parent=None,
                  app_path='/usr/lib/dra/chromium/chrome',
-                 app='http://10.0.0.42:9000/remoting#server',
+                 app='http://dra.deepin.org:9000/remoting#server',
                  user_data_dir='~/.config/dra/chromium'):
         super().__init__(parent)
 

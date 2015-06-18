@@ -11,7 +11,7 @@ Rectangle {
     height: 800
 
     // URL of deepin peer server
-    property var startUrl: Qt.resolvedUrl('http://10.0.0.42:9000/remoting#client')
+    property var startUrl: Qt.resolvedUrl('http://dra.deepin.org:9000/remoting#client')
 
     // Remote media stream aspect ratio
     property real aspectRatio: 1
