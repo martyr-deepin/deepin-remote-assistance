@@ -2,9 +2,9 @@
 import json
 
 from PyQt5 import QtCore
-import tornado.websocket
 from Xlib import X
 
+from dra_utils import ByPassOriginWebSocketHandler
 from dra_utils.log import client_log
 
 # mouse button orders
@@ -56,7 +56,7 @@ def handle_mouse_event(event):
 
 connection = None
 
-class MouseWebSocket(tornado.websocket.WebSocketHandler):
+class MouseWebSocket(ByPassOriginWebSocketHandler):
     '''mouse message handler'''
 
     def open(self):

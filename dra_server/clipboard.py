@@ -4,8 +4,8 @@ import json
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 from PyQt5 import QtWidgets
-import tornado.websocket
 
+from dra_utils import ByPassOriginWebSocketHandler
 from dra_utils.log import server_log
 from . import constants
 
@@ -52,7 +52,7 @@ emitter.msgReceived.connect(handle)
 # CGeck connection and call connection.write_message(msg)
 connection = None
 
-class ClipboardWebSocket(tornado.websocket.WebSocketHandler):
+class ClipboardWebSocket(ByPassOriginWebSocketHandler):
     '''clipboard message handler'''
 
     def open(self):

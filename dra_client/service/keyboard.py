@@ -1,9 +1,9 @@
 
 import json
 
-import tornado.websocket
 from PyQt5 import QtCore
 
+from dra_utils import ByPassOriginWebSocketHandler
 from dra_utils.log import client_log
 
 @QtCore.pyqtSlot(str)
@@ -16,7 +16,7 @@ def send_message(msg):
 
 connection = None
 
-class KeyboardWebSocket(tornado.websocket.WebSocketHandler):
+class KeyboardWebSocket(ByPassOriginWebSocketHandler):
     '''Keyboard message handler'''
 
     def open(self):

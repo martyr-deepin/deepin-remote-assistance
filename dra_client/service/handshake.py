@@ -1,9 +1,9 @@
 
-import tornado.websocket
 
+from dra_utils import ByPassOriginWebSocketHandler
 from dra_utils.log import client_log
 
-class HandshakeWebSocket(tornado.websocket.WebSocketHandler):
+class HandshakeWebSocket(ByPassOriginWebSocketHandler):
 
     def on_message(self, msg):
         print('[handhshake] on message:', msg)

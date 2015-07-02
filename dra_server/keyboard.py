@@ -3,11 +3,11 @@
 
 import json
 
-import tornado.websocket
 from Xlib import X
 from Xlib.display import Display
 from Xlib.ext.xtest import fake_input
 
+from dra_utils import ByPassOriginWebSocketHandler
 from dra_utils.log import server_log
 
 dp = Display()
@@ -48,7 +48,7 @@ def handle(msg):
         release_key(event['code'])
 
 
-class KeyboardWebSocket(tornado.websocket.WebSocketHandler):
+class KeyboardWebSocket(ByPassOriginWebSocketHandler):
     '''Keyboard message handler'''
 
     def on_message(self, msg):

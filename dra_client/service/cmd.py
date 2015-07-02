@@ -2,8 +2,8 @@
 import json
 
 from PyQt5 import QtCore
-import tornado.websocket
 
+from dra_utils import ByPassOriginWebSocketHandler
 from dra_utils.log import client_log
 from . import constants
 
@@ -92,7 +92,7 @@ emitter.cmdReceived.connect(handle)
 # CGeck connection and call connection.write_message(msg)
 connection = None
 
-class CmdWebSocket(tornado.websocket.WebSocketHandler):
+class CmdWebSocket(ByPassOriginWebSocketHandler):
     '''cmd message handler'''
 
     def open(self):

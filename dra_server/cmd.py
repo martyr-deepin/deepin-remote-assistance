@@ -2,9 +2,9 @@
 import json
 
 from PyQt5 import QtCore
-import tornado.websocket
 
 from dra_utils.log import server_log
+from dra_utils import ByPassOriginWebSocketHandler
 from . import constants
 
 def init(server_dbus_):
@@ -53,7 +53,7 @@ emitter = Emitter()
 emitter.cmdReceived.connect(handle)
 
 
-class CmdWebSocket(tornado.websocket.WebSocketHandler):
+class CmdWebSocket(ByPassOriginWebSocketHandler):
     '''cmd message handler'''
 
     def on_message(self, msg):

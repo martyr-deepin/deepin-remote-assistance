@@ -5,8 +5,8 @@ from pymouse import PyMouse
 import Xlib
 import Xlib.X
 import Xlib.display
-import tornado.websocket
 
+from dra_utils import ByPassOriginWebSocketHandler
 from dra_utils.log import server_log
 
 def filter_event_to_local(event):
@@ -58,7 +58,7 @@ def handle(msg):
         server_log.warn('[mouse] unknown mouse event: %s' % event)
 
 
-class MouseWebSocket(tornado.websocket.WebSocketHandler):
+class MouseWebSocket(ByPassOriginWebSocketHandler):
     '''mouse message handler'''
 
     def on_message(self, msg):
