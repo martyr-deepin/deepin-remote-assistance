@@ -35,8 +35,8 @@ Menu {
             itemDelegate.label: Component {
                 Text {
                     text: styleData.text
-                    font.pixelSize: DConstants.fontSize
-                    color: styleData.selected ? DConstants.textHoverColor : DConstants.textNormalColor
+                    font.pixelSize: 12
+                    color: styleData.selected ? "#01bdff" : "#b4b4b4"
                 }
             }
 
@@ -52,7 +52,7 @@ Menu {
                     // check mark
                     //text: styleData.checked ? "\u2713" : ""
                     text: styleData.checked ? (styleData.exclusive ? "\u2022" : "\u2713") : ""
-                    font.pixelSize: DConstants.fontSize
+                    font.pixelSize: 12
                     y: -4
                 }
             }

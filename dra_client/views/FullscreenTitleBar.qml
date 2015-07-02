@@ -7,7 +7,7 @@ Rectangle {
     id: titlebar
     width: parent.width
     y: 0
-    color: DConstants.bgColor
+    color: "#1a1b1b"
 
     readonly property int defaultHeight: 30
 

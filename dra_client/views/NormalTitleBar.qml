@@ -4,7 +4,7 @@ import Deepin.Widgets 1.0
 Rectangle {
     width: parent.width
     height: 30
-    color: DConstants.bgColor
+    color: "#1a1b1b"
 
     DDragableArea {
         anchors.fill: parent
