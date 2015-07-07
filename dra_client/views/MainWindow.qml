@@ -46,8 +46,6 @@ DShadowRect {
     property int cursorY: 0
     property bool captureCursor: false
 
-    property var preferencesMenu: PreferencesMenu { }
-
     function getCaptureCursor() {
         return captureCursor;
     }
@@ -78,6 +76,22 @@ DShadowRect {
     // Internationalization
     function dsTr(s){
         return dsslocale.dsTr(s)
+    }
+
+    Component.onCompleted: {
+        preferencesMenu.balancedChecked.connect(function() {
+            screenLevelChanged(screenLevelBalanced)
+        })
+        preferencesMenu.qualityChecked.connect(function() {
+            screenLevelChanged(screenLevelQuality)
+        })
+        preferencesMenu.speedChecked.connect(function() {
+            screenLevelChanged(screenLevelSpeed)
+        })
+        preferencesMenu.fullscreenToggled.connect(function(toggle) {
+            // TODO: pass `toggle` parameter
+            toggleFullscreen()
+        })
     }
 
     NormalTitleBar {
@@ -125,4 +139,3 @@ DShadowRect {
         }
     ]
 }
-

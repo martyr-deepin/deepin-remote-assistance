@@ -20,10 +20,14 @@ Rectangle {
        x: 5
        y: 5
        text: "Preferences \u25be"
-        onClicked: {
-            preferencesMenu.__popup(x, y + height + 2, 0)
-            print(preferencesMenu.fullscreenItem.checked)
-        }
+       onClicked: {
+           preferencesMenu.__popup(0, height, 0)
+       }
+       Binding {
+           target: preferencesMenu
+           property: "__visualItem"
+           value: preferencesButton
+       }
    }
 
     PreferencesMenu {

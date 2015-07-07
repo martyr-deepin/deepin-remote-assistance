@@ -31,13 +31,8 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
-            preferencesMenu.__popup(0, height, 0)
-        }
-
-        Binding {
-            target: preferencesMenu
-            property: "__visualItem"
-            value: preferencesButton
+            // Popup preferences menu at bottom of this button
+            windowView.popupPreferencesMenu(x + 14, y + height + 14)
         }
     }
 

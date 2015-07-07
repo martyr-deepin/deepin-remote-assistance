@@ -1,3 +1,10 @@
+deepin-remote-assistance (1.0.1) unstable; urgency=medium
+
+  * Fixed: bypass origin check in tornado 4.0
+  * Fixed: remove DConstants from dra_client
+
+ -- Xu Shaohua <xushaohua@linuxdeepin.com>  Thu, 02 Jul 2015 10:57:57 +0800
+
 deepin-remote-assistance (1.0.0) unstable; urgency=medium
 
   * Initial release.

@@ -14,6 +14,7 @@ from dra_client.service import mouse
 from dra_client.utils.event import EventHandler
 from dra_client.utils.event import EventRecord
 from dra_utils.constants import ICON_PATH
+from .preferencesmenu import PreferencesMenu
 
 class MainWindow(QtQuick.QQuickView):
 
@@ -34,9 +35,12 @@ class MainWindow(QtQuick.QQuickView):
         # Mouse event 
         self._event_record.captureEvent.connect(mouse.handle_mouse_event)
 
+        self.preferencesMenu = PreferencesMenu()
         rootContext = self.rootContext()
         rootContext.setContextProperty('windowView', self)
         rootContext.setContextProperty('eventHandler', self._event_handler)
+        rootContext.setContextProperty('preferencesMenu',
+                                       self.preferencesMenu)
 
         # Do not kill qApp when main window is closed, instead emiting a 
         #window-closed signal so that client dbus can send
@@ -126,3 +130,9 @@ class MainWindow(QtQuick.QQuickView):
         self._event_record.start()
         QtQuick.QQuickView.show(self)
         self.oldVisibility = self.visibility()
+
+    @QtCore.pyqtSlot(int, int)
+    def popupPreferencesMenu(self, x, y):
+        '''Popup preferences menu at bottom of pref-button'''
+        self.preferencesMenu.move(self.x() + x, self.y() + y)
+        self.preferencesMenu.show()
