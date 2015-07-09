@@ -28,8 +28,7 @@ QMenu::item:selected {
 QMenu::separator {
     background-color: #717171;
     height: 1px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-top: 2px;
 }
 '''
 
