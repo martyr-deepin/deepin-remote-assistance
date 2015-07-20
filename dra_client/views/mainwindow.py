@@ -62,6 +62,9 @@ class MainWindow(QtQuick.QQuickView):
         # Old visiblity of window
         self.oldVisibility = QtGui.QWindow.Windowed
 
+        self.maxButtonClicked = False
+        self.windowStateChanged.connect(self.onWindowStateChanged)
+
     def keyPressEvent(self, event):
         keyboard.send_message(json.dumps({
             'press': True,
@@ -90,11 +93,6 @@ class MainWindow(QtQuick.QQuickView):
     @QtCore.pyqtSlot()
     def toggleFullscreen(self):
         '''Toggle window status between fullscreen and normal'''
-#        if self.visibility() != QtGui.QWindow.FullScreen:
-#            #self.showFullScreen()
-#            self.setVisibility(QtGui.QWindow.FullScreen)
-#        else:
-#            self.setVisibility(QtGui.QWindow.Windowed)
         if self.visibility() != QtGui.QWindow.FullScreen:
             self.oldVisibility = self.visibility()
             self.setVisibility(QtGui.QWindow.FullScreen)
@@ -111,8 +109,19 @@ class MainWindow(QtQuick.QQuickView):
         '''Toggle window status between maximized and normal'''
         if self.visibility() != QtGui.QWindow.Maximized:
             self.setVisibility(QtGui.QWindow.Maximized)
+            self.maxButtonClicked = True
         else:
             self.setVisibility(QtGui.QWindow.Windowed)
+            self.maxButtonClicked = False
+
+    @QtCore.pyqtSlot()
+    def minimize(self):
+        self.setVisibility(QtGui.QWindow.Minimized)
+
+    def onWindowStateChanged(self, state):
+        #To fix window state change bug in Qt5.3 and Qt5.4
+        if self.visibility() == QtGui.QWindow.Windowed and self.maxButtonClicked:
+            self.setVisibility(QtGui.QWindow.Maximized)
 
     @QtCore.pyqtSlot(int, int)
     def _record_cursor_position(self, x, y):
