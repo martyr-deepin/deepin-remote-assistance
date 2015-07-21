@@ -63,6 +63,7 @@ class MainWindow(QtQuick.QQuickView):
         self.oldVisibility = QtGui.QWindow.Windowed
 
         self.maxButtonClicked = False
+        self.requireMaximized = False
         self.windowStateChanged.connect(self.onWindowStateChanged)
 
     def keyPressEvent(self, event):
@@ -120,8 +121,18 @@ class MainWindow(QtQuick.QQuickView):
 
     def onWindowStateChanged(self, state):
         #To fix window state change bug in Qt5.3 and Qt5.4
-        if self.visibility() == QtGui.QWindow.Windowed and self.maxButtonClicked:
+        if self.requireMaximized:
+            self.windowStateChanged.disconnect(self.onWindowStateChanged)
             self.setVisibility(QtGui.QWindow.Maximized)
+            self.windowStateChanged.connect(self.onWindowStateChanged)
+            self.requireMaximized = False
+            return
+        if (self.visibility() == QtGui.QWindow.Windowed and
+            self.maxButtonClicked and
+            state == QtCore.Qt.WindowMinimized):
+            self.requireMaximized = True
+        else:
+            self.requireMaximized = False
 
     @QtCore.pyqtSlot(int, int)
     def _record_cursor_position(self, x, y):
