@@ -15,7 +15,7 @@
     </message>
     <message>
         <location line="+13"/>
-        <source>OK</source>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -31,7 +31,7 @@
     <name>FullscreenTitleBar</name>
     <message>
         <location filename="../dra_client/views/FullscreenTitleBar.qml" line="+32"/>
-        <source>Deepin Remote Assistance</source>
+        <source>Remote Assistance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -44,7 +44,7 @@
     <name>NormalTitleBar</name>
     <message>
         <location filename="../dra_client/views/NormalTitleBar.qml" line="+22"/>
-        <source>Deepin Remote Assistance</source>
+        <source>Remote Assistance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

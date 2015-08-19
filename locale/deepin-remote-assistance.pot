@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-20 16:09+0800\n"
+"POT-Creation-Date: 2015-08-20 15:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,12 +23,28 @@ msgstr ""
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
-msgid "Deepin Remote Assistance"
+msgid "Remote Assistance"
 msgstr ""
 
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30
 msgid "Preferences"
+msgstr ""
+
+#: ../dra_client/views/preferencesmenu.py:52
+msgid "Balance"
+msgstr ""
+
+#: ../dra_client/views/preferencesmenu.py:58
+msgid "Optimize Speed"
+msgstr ""
+
+#: ../dra_client/views/preferencesmenu.py:63
+msgid "Optimize Quality"
+msgstr ""
+
+#: ../dra_client/views/preferencesmenu.py:68
+msgid "Fullscreen"
 msgstr ""
 
 #: ../dra_server/server_dbus.py:176
@@ -44,7 +60,7 @@ msgid "Cancel"
 msgstr ""
 
 #: ../dra_server/views/ConfirmWindow.qml:107
-msgid "OK"
+msgid "Confirm"
 msgstr ""
 
 #: ../dra_server/views/DisconnectWindow.qml:141

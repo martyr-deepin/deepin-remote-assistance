@@ -104,7 +104,7 @@ Rectangle {
 
             DTransparentButton {
                 id: confirmButton
-                text: dsTr("OK")
+                text: dsTr("Confirm")
                 activeFocusOnTab: true
                 Keys.onReturnPressed: activate()
                 onClicked: active()

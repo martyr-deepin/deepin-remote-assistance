@@ -19,7 +19,7 @@ Rectangle {
     }
 
     DssH2 {
-        text: dsTr("Deepin Remote Assistance")
+        text: dsTr("Remote Assistance")
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.verticalCenter: parent.verticalCenter

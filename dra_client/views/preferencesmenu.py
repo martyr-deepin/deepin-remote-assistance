@@ -3,7 +3,7 @@
 from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 
-# TODO: support i18n
+from dra_utils.i18n import _
 
 # Customize styles of QMenu
 MENU_STYLE = '''
@@ -49,23 +49,23 @@ class PreferencesMenu(QtWidgets.QMenu):
 
         group = QtWidgets.QActionGroup(self)
 
-        balancedAction = QtWidgets.QAction('Balance', self)
+        balancedAction = QtWidgets.QAction(_('Balance'), self)
         balancedAction.setCheckable(True)
         balancedAction.setChecked(True)
         balancedAction.triggered.connect(self.balancedChecked)
         balancedAction.setActionGroup(group)
 
-        speedAction = QtWidgets.QAction('Optimize Speed', self)
+        speedAction = QtWidgets.QAction(_('Optimize Speed'), self)
         speedAction.setCheckable(True)
         speedAction.triggered.connect(self.speedChecked)
         speedAction.setActionGroup(group)
 
-        qualityAction = QtWidgets.QAction('Optimize Quality', self)
+        qualityAction = QtWidgets.QAction(_('Optimize Quality'), self)
         qualityAction.setCheckable(True)
         qualityAction.triggered.connect(self.qualityChecked)
         qualityAction.setActionGroup(group)
 
-        fullscreenAction = QtWidgets.QAction('Fullscreen', self)
+        fullscreenAction = QtWidgets.QAction(_('Fullscreen'), self)
         fullscreenAction.toggled.connect(self.fullscreenToggled)
         fullscreenAction.setCheckable(True)
 
@@ -76,4 +76,3 @@ class PreferencesMenu(QtWidgets.QMenu):
         self.addAction(fullscreenAction)
 
         self.setStyleSheet(MENU_STYLE)
-
