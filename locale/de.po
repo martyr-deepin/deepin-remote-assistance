@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ettore Atalan <atalanttore@googlemail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: dde-control-center\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-20 15:01+0800\n"
+"PO-Revision-Date: 2015-08-21 10:34+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Language-Team: German (http://www.transifex.com/linuxdeepin/dde-control-center/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
+msgid "Remoting service terminated!"
+msgstr "Fernzugriffsdienst beendet!"
+
+#: ../dra_client/views/FullscreenTitleBar.qml:32
+#: ../dra_client/views/NormalTitleBar.qml:22
+msgid "Remote Assistance"
+msgstr "Fernzugriffsassistent"
+
+#: ../dra_client/views/FullscreenTitleBar.qml:40
+#: ../dra_client/views/NormalTitleBar.qml:30
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: ../dra_client/views/preferencesmenu.py:52
+msgid "Balance"
+msgstr "Ausgleichen"
+
+#: ../dra_client/views/preferencesmenu.py:58
+msgid "Optimize Speed"
+msgstr "Geschwindigkeit optimieren"
+
+#: ../dra_client/views/preferencesmenu.py:63
+msgid "Optimize Quality"
+msgstr "Qualität optimieren"
+
+#: ../dra_client/views/preferencesmenu.py:68
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: ../dra_server/server_dbus.py:176
+msgid "Failed to get access code!"
+msgstr "Fehler beim Holen des Zugangscodes!"
+
+#: ../dra_server/views/ConfirmWindow.qml:81
+msgid "Are you sure to close remote desktop connection?"
+msgstr "Sind Sie sicher, dass Sie die Fernzugriffsdesktopverbindung beenden möchten?"
+
+#: ../dra_server/views/ConfirmWindow.qml:94
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: ../dra_server/views/ConfirmWindow.qml:107
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#: ../dra_server/views/DisconnectWindow.qml:141
+msgid "Disconnect"
+msgstr "Trennen"
