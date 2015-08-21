@@ -1,0 +1,10 @@
+[main]
+host = https://www.transifex.com
+minimum_perc = 80
+mode = developer
+
+[dde-control-center.remote-assistance]
+file_filter = locale/<lang>.po
+source_lang = en
+source_file = locale/deepin-remote-assistance.pot
+type = PO
