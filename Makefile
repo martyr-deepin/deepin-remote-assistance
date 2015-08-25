@@ -4,6 +4,7 @@ PYLIB = ${DESTDIR}${PREFIX}/lib/python3/dist-packages/
 DRALIB = ${DESTDIR}${PREFIX}/lib/dra
 DBUSLIB = ${DESTDIR}${PREFIX}/share/dbus-1/services/
 ICONS = ${DESTDIR}${PREFIX}/share/icons/
+LOCALE = ${DESTDIR}${PREFIX}/share/locale
 
 all:
 	
@@ -29,3 +30,8 @@ install:
 	chmod -v a+x ${DRALIB}/client
 	chmod -v a+x ${DRALIB}/server
 	chmod -v a+x ${DRALIB}/manager
+	# Generate mo files
+	for locale in $(shell cd locale; ls *.po); do \
+		mkdir -p ${LOCALE}/$${locale%.*}/LC_MESSAGES; \
+		msgfmt locale/$$locale -o ${LOCALE}/$${locale%.*}/LC_MESSAGES/deepin-remote-assistance.mo; \
+	done
