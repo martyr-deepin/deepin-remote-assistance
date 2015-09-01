@@ -3,6 +3,7 @@ from PyQt5 import QtDBus
 from PyQt5 import QtCore
 
 from . import constants
+from .i18n import _
 
 __all__ = ['notify']
 
@@ -35,10 +36,10 @@ class NotificationsInterface(QtDBus.QDBusAbstractInterface):
 
         msg = self.call(
             'Notify',            # `Notify` method
-            constants.APP_NAME,  # app name
+            _(constants.APP_NAME),  # app name
             varRPlaceId,         # replaces_id
             constants.ICON_NAME, # app icon
-            constants.APP_NAME,  # summary
+            _(constants.APP_NAME),  # summary
             message,             # message body
             varActions,          # actions
             {},                  # hints

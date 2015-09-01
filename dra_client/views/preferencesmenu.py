@@ -9,6 +9,7 @@ from dra_utils.i18n import _
 MENU_STYLE = '''
 QMenu {
     background-color: #151515;
+    font-size: 12px;
     padding: 0px;
 }
 
@@ -26,7 +27,7 @@ QMenu::item:selected {
 }
 
 QMenu::separator {
-    background-color: #717171;
+    background-color: rgba(255, 255, 255, 0.1);
     height: 1px;
     margin-top: 2px;
 }
