@@ -136,8 +136,7 @@ class ServerDBus(dbus.service.Object):
         if self.screensaver_iface:
             self.screensaver_iface.uninhibit()
 
-        # If control panel is not shown, terminate within 1s
-        QtCore.QTimer.singleShot(1000, self.kill)
+        self.kill()
 
     @dbus.service.method(constants.DBUS_ROOT_IFACE)
     def StopNotify(self):
@@ -174,7 +173,7 @@ class ServerDBus(dbus.service.Object):
         # If failed to connect to web server, stop local service
         if self._status == constants.SERVER_STATUS_PEERID_FAILED:
             notify(_('Failed to get access code!'))
-            QtCore.QTimer.singleShot(1000, self.Stop)
+            self.Stop()
 
         # Get peeer ID successfully
         elif self._status == constants.SERVER_STATUS_PEERID_OK:
@@ -190,7 +189,7 @@ class ServerDBus(dbus.service.Object):
         # If remote peer has closed remoting connection, terminate local service
         elif self._status == constants.SERVER_STATUS_DISCONNECTED:
             notify(_('Remoting service terminated!'))
-            QtCore.QTimer.singleShot(1000, self.Stop)
+            self.Stop()
 
     def peer_id_changed(self, new_peer_id):
         '''Peer id of server side changed'''
