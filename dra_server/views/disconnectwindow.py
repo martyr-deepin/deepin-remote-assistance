@@ -27,8 +27,7 @@ class DisconnectWindow(QtQuick.QQuickView):
         surface_format.setAlphaBufferSize(8)
         self.setFormat(surface_format)
         self.setColor(QtGui.QColor(0, 0, 0, 0))
-        self.setFlags(QtCore.Qt.FramelessWindowHint |
-                      QtCore.Qt.Window |
+        self.setFlags(QtCore.Qt.SplashScreen |
                       QtCore.Qt.WindowStaysOnTopHint)
 
         self.setSource(QtCore.QUrl.fromLocalFile(views.DISCONNECT_WINDOW))
