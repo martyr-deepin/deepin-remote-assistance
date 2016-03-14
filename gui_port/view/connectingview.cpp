@@ -15,6 +15,7 @@
 #include <libdui/dthememanager.h>
 #include <dloadingindicator.h>
 #include <dtextbutton.h>
+#include <QBitmap>
 
 #include "constants.h"
 
@@ -28,9 +29,7 @@ ConnectingView::ConnectingView(QWidget*p)
     setObjectName("ConnectingView");
     initialize();
 
-    auto button = new DTextButton(tr("Cancel"));
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
-    addButton(button);
+
 }
 
 QWidget* ConnectingView::createMainWidget()
@@ -84,6 +83,31 @@ QWidget* ConnectingView::createMainWidget()
     waitingText->setText(tr("This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully"));
 
     wrapLayout->addWidget(waitingText);
+
+
+
+    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
+
+    QPalette   pal;
+    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
+
+
+
+
+    auto button = new DTextButton(tr("Cancel"));
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
+
+    button->setMask(pixmap.mask());
+    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
+    button->setFixedSize(120, 32);
+    button->setPalette(pal);
+
+
+
+    wrapLayout->addWidget(button, 0, Qt::AlignHCenter);
+
     setStyleSheet(readStyleSheet("connectingview"));
     return mainWidget;
 }

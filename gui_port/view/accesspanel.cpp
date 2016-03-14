@@ -21,7 +21,7 @@
 DUI_USE_NAMESPACE
 
 AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
-    : AbstractPanel(tr("Accessing"), p),
+    : AbstractPanel(tr("我要求助"), p),
       m_controller(controller)
 {
     setObjectName("AccessPanel");

@@ -11,6 +11,7 @@
 #define ABSTRACTPANEL_H
 
 #include <QWidget>
+#include <QFrame>
 #include <QLayoutItem>
 #include "../remoteassistance.h"
 
@@ -18,7 +19,7 @@ class ModuleHeader;
 
 class QVBoxLayout;
 
-class AbstractPanel : public QWidget
+class AbstractPanel : public QFrame
 {
     Q_OBJECT
 public:

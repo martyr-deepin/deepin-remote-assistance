@@ -11,6 +11,7 @@
 #define REMOTE_ASSISTANCE_H
 
 #include <QObject>
+#include <QWidget>
 #include <QScopedPointer>
 #include <libdui_global.h>
 #include "dbus/manager.h"
@@ -23,6 +24,8 @@ DUI_BEGIN_NAMESPACE
 class DStackWidget;
 DUI_END_NAMESPACE
 
+class RemoteAssistance;
+
 enum ViewPanel
 {
     Main,
@@ -30,7 +33,34 @@ enum ViewPanel
     Access,
 };
 
-class RemoteAssistance: public QObject
+class Impl : public QObject
+{
+    Q_OBJECT
+public:
+    Impl(RemoteAssistance *, com::deepin::daemon::Remoting::Manager *);
+    ~Impl();
+    inline void popView(QWidget *w = nullptr, bool isDelete = true, int count = 1, bool enableTransition = true);
+    inline void pushView(QWidget *w, bool enableTransition = true);
+    void initPanel();
+    void changePanel(ViewPanel);
+
+public:
+    QWidget *getPanel(ViewPanel);
+
+    RemoteAssistance *m_pub;
+    com::deepin::daemon::Remoting::Manager *m_manager;
+    QFrame *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
+    DUI_NAMESPACE::DStackWidget *m_stackWidget; // this is child of m_view.
+    QWidget *m_panel;
+    ViewPanel m_viewType;
+
+    QWidget* m_mainPanel;
+    QWidget* m_accessPanel;
+    QWidget* m_sharePanel;
+};
+
+
+class RemoteAssistance: public QWidget
 {
     Q_OBJECT
 public:
@@ -42,26 +72,7 @@ public slots:
     void changePanel(ViewPanel);
 
 private:
-    class Impl
-    {
-    public:
-        Impl(RemoteAssistance *, com::deepin::daemon::Remoting::Manager *);
-        ~Impl();
-        inline void popView(QWidget *w = nullptr, bool isDelete = true, int count = 1, bool enableTransition = true);
-        inline void pushView(QWidget *w, bool enableTransition = true);
-        void initPanel();
-        void changePanel(ViewPanel);
 
-    public:
-        QWidget *getPanel(ViewPanel);
-
-        RemoteAssistance *m_pub;
-        com::deepin::daemon::Remoting::Manager *m_manager;
-        QFrame *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
-        DUI_NAMESPACE::DStackWidget *m_stackWidget; // this is child of m_view.
-        QWidget *m_panel;
-        ViewPanel m_viewType;
-    };
 
     QScopedPointer<Impl> m_impl;
 

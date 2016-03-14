@@ -15,6 +15,9 @@
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QDebug>
+#include <QFont>
+#include <QPixmap>
+#include <QBitmap>
 
 #include <libdui/dthememanager.h>
 #include <libdui/dtextbutton.h>
@@ -37,25 +40,35 @@ GeneratedView::GeneratedView(const QString& token, QWidget* p)
 
     initialize();
 
+    QFont font("SourceHanSansCN-Light", 30);
+    font.setLetterSpacing(QFont::AbsoluteSpacing, 10);
+//    font.setWordSpacing( 20);
+    m_token->setFont(font);
     m_token->setText(token);
 
-    auto button = new DTextButton(tr("Copy Code"));
-    connect(button, &DTextButton::clicked, [this] {
-        m_copyTip->setText(tr("Copied to clipboard successfully"));
-        QString token = m_token->text();
-        QApplication::clipboard()->setText(token);
-        qDebug() << "Copy Code button on GeneratedView is clicked.";
-        m_copyTipVisableTimer->stop();
-        m_copyTipVisableTimer->start();
-    });
-    addButton(button);
 
-    button = new DTextButton(tr("Cancel"));
-    connect(button, &DTextButton::clicked, [this] {
-        qDebug() << "cancel button on GeneratedView is clicked";
-        emit cancel();
-    });
-    addButton(button);
+
+
+//    connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
+
+//    auto button = new DTextButton(tr("复制"));
+
+//    connect(button, &DTextButton::clicked, [this] {
+//        m_copyTip->setText(tr("成功复制到剪贴板"));
+//        QString token = m_token->text();
+//        QApplication::clipboard()->setText(token);
+//        qDebug() << "Copy Code button on GeneratedView is clicked.";
+//        m_copyTipVisableTimer->stop();
+//        m_copyTipVisableTimer->start();
+//    });
+//    addButton(button);
+//DTextButton* buttonn;
+//    buttonn = new DTextButton(tr("取消"));
+//    connect(buttonn, &DTextButton::clicked, [this] {
+//        qDebug() << "cancel button on GeneratedView is clicked";
+//        emit cancel();
+//    });
+//    addButton(buttonn);
 }
 
 QWidget* GeneratedView::createMainWidget()
@@ -66,29 +79,96 @@ QWidget* GeneratedView::createMainWidget()
     layout->setSpacing(0);
     layout->setMargin(0);
 
-    layout->addSpacing(6);
+    layout->addSpacing(108);
 
     m_token = new QLabel;
+
+
     m_token->setObjectName("token");
-    m_token->setFixedSize(DCC::ModuleContentWidth, 50);
-    m_token->setAlignment(Qt::AlignCenter);
+
     layout->addWidget(m_token);
+    layout->setAlignment(m_token, Qt::AlignHCenter);
+    layout->addSpacing(40);
+
+    QHBoxLayout *m_buttonHLayout = new QHBoxLayout;
+    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
+
+    QPalette   pal;
+    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
+
+    QPushButton *button = new QPushButton(tr("复制"),this);
+    button->setMask(pixmap.mask());
+    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
+    button->setFixedSize(120, 32);
+    button->setPalette(pal);
+
+    connect(button, &DTextButton::clicked, [this] {
+        m_copyTip->setText(tr("成功复制到剪贴板"));
+        QString token = m_token->text();
+        QApplication::clipboard()->setText(token);
+        qDebug() << "Copy Code button on GeneratedView is clicked.";
+        m_copyTipVisableTimer->stop();
+        m_copyTipVisableTimer->start();
+    });
+
+
+
+
+
+    DTextButton *buttonn = new DTextButton(tr("取消"));
+    buttonn->setMask(pixmap.mask());
+    buttonn->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}"
+                           "font:#848484;");
+    buttonn->setFixedSize(120, 32);
+
+
+    buttonn->setPalette(pal);
+
+    connect(buttonn, &DTextButton::clicked, [this] {
+        qDebug() << "cancel button on GeneratedView is clicked";
+        emit cancel();
+    });
+
+
+
+    m_buttonHLayout->addWidget(button);
+    m_buttonHLayout->addWidget(buttonn);
+
+
 
     m_copyTip = new QLabel;
     m_copyTip->setObjectName("copyTip");
-    m_copyTip->setText(tr("Copied to clipboard successfully"));
-    m_copyTip->setAlignment(Qt::AlignCenter);
+    m_copyTip->setText(tr("成功复制到剪贴板"));
+    m_copyTip->setAlignment(Qt::AlignHCenter);
     m_copyTip->setFixedWidth(DCC::ModuleContentWidth);
-    layout->addWidget(m_copyTip);
+    m_copyTip->setStyleSheet("font-size:10px;"
+                         "color:#848484;"
+                         ); //not support "font-face:SourceHanSansCN-Normal;"
+
+
+
+
     m_copyTip->setText("");
-    layout->addSpacing(15);
+
 
     auto tip = new QLabel;
     tip->setObjectName("tip");
     tip->setWordWrap(true);
-    tip->setText(tr("To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input"));
-    layout->addWidget(tip);
-    layout->addSpacing(10);
+    tip->setText(tr("如需共享您的桌面，请将上面的验证码提供给协助您的人"));
+
+    tip->setStyleSheet("font-size:10px;"
+                         "color:#848484;"
+                         "font-face:SourceHanSansCN-Normal;");
+
+    layout->addWidget(tip,0,Qt::AlignHCenter);
+    layout->addWidget(m_copyTip);
+//    layout->addWidget(button, 0, Qt::AlignCenter);
+    layout->addLayout(m_buttonHLayout);
+    layout->addSpacing(40);
 
     mainWidget->setLayout(layout);
     setStyleSheet(readStyleSheet("generatedview"));

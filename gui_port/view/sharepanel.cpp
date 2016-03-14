@@ -23,7 +23,7 @@
 DUI_USE_NAMESPACE
 
 SharePanel::SharePanel(IShareController* controller, QWidget* p)
-    : AbstractPanel(tr("Sharing"), p),
+    : AbstractPanel(tr(" "), p),
       m_controller(controller)
 {
     setObjectName("SharePanel");
@@ -37,8 +37,8 @@ SharePanel::SharePanel(IShareController* controller, QWidget* p)
 
     connect(controller, SIGNAL(sharing()), this, SLOT(onSharing()));
     connect(controller, SIGNAL(generatingAccessToken()), this, SLOT(onGeneratingAccessToken()));
-    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
-    connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
+//    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
+//    connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
     connect(controller, SIGNAL(genAccessTokenSuccessed(QString)), this, SLOT(onGenAccessTokenSuccessed(QString)));
     controller->startGenAccessToken();
 }
@@ -127,5 +127,6 @@ void SharePanel::onGenAccessTokenSuccessed(QString token)
     qDebug() << "gen access token done";
     auto view = new GeneratedView(token);
     connect(view, SIGNAL(cancel()), this, SLOT(onDisconnected()));
+    view->show();
     setWidget(view);
 }

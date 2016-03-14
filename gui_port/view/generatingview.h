@@ -10,6 +10,7 @@
 #ifndef GENERATINGVIEW_H
 #define GENERATINGVIEW_H
 
+#include <QTimer>
 #include "abstractview.h"
 
 class GeneratingView : public AbstractView

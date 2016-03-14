@@ -12,6 +12,7 @@
 #include <QLabel>
 #include <QHBoxLayout>
 #include <QDebug>
+#include <QBitmap>
 
 #include <libdui/dthememanager.h>
 #include <dseparatorhorizontal.h>
@@ -29,20 +30,49 @@ ConnectedView::ConnectedView(QWidget* p)
     setObjectName("ConnectedView");
     initialize();
 
-    auto button = new DTextButton(tr("Disconnect"));
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(onDisconnectButtonClicked()));
-    addButton(button);
+
 
     setStyleSheet(readStyleSheet("connectedview"));
 }
 
 QWidget* ConnectedView::createMainWidget()
 {
+    auto mainWidget = new QWidget;
+   // mainWidget->setFixedSize(DCC::ModuleContentWidth, 140);
+
+    auto mainLayout = new QVBoxLayout(mainWidget);
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
+
+
+    auto button = new DTextButton(tr("Disconnect"));
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(onDisconnectButtonClicked()));
+
+
+    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
+    QPalette   pal;
+    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
+    button->setMask(pixmap.mask());
+    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
+    button->setFixedSize(120, 32);
+    button->setPalette(pal);
+
+
+
+
+
     m_text->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_text->setFixedSize(DCC::ModuleContentWidth, 70);
     m_text->setAlignment(Qt::AlignCenter);
     m_text->setWordWrap(true);
-    return m_text;
+
+    mainLayout->addWidget(m_text, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(button, 0, Qt::AlignHCenter);
+
+
+    return mainWidget;
 }
 
 ConnectedView* ConnectedView::setText(const QString& text)

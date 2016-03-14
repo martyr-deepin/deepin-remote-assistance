@@ -11,6 +11,7 @@
 #include <QVBoxLayout>
 #include <QMouseEvent>
 #include <libdui/dseparatorhorizontal.h>
+#include <QPushButton>
 
 #include "constants.h"
 #include "moduleheader.h"
@@ -22,31 +23,51 @@
 
 DUI_USE_NAMESPACE
 
-MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p): AbstractPanel(tr("Remote Assistance"), p), m_buttongroup(new ButtonGroup)
+MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p): AbstractPanel(tr(" "), p), m_buttongroup(new ButtonGroup)
 {
     setObjectName("MainPanel");
     m_manager = manager;
 
     // addWidget(new DSeparatorHorizontal);
     // m_buttongroup->setGroupTitle(tr("Remote Assistance"));
-    addWidget(m_buttongroup->addSeparator());
 
-    Button* button = nullptr;
 
-    button = new Button(tr("Share"), tr("Share your desktop to get remote assistance from other users"));
+    setWindowTitle("远程协助");
 
-    //button->setNormalIcon(getThemeImage("assistant_share_normal.svg"));
-    //button->setHoverIcon(getThemeImage("assistant_share_hover.svg"));
-    //button->setPressedIcon(getThemeImage("assistant_share_press.svg"));
+    QLabel *picon = new QLabel(this);
+    picon->setPixmap(QPixmap(getThemeImage("icon.png")));
+    picon->resize(64,64);
+    picon->move((360-64)/2, 50);
+    picon->show();
+
+    QLabel *ptext = new QLabel(this);
+    ptext->setText("欢迎您使用远程协助,通过它您可以连接到别人的电脑帮助别人解决问题,或共享您的电脑让别人来解决您的问题");
+  //  ptext->move((360-236)/2,50+88 );
+//    ptext->adjustSize();
+    ptext->setGeometry(QRect((360-236)/2,50+88, 236, 64));
+    ptext->setWordWrap(true);
+    ptext->setAlignment(Qt::AlignHCenter);
+    ptext->setStyleSheet("font-size:10px;"
+                         "color:#848484;"
+                         "font-face:SourceHanSansCN-Normal;");
+
+    QPushButton* button = nullptr;
+    button = new QPushButton(this);
+    button->resize(160,36);
+    button->move(100, 200);
+    button->setText(" 我要求助 ");
+    button->setIcon(QIcon(getThemeImage("assistant_help.png")));
+
     connect(button, SIGNAL(clicked()), this, SLOT(changeToSharePanel()));
-    m_buttongroup->addItem(button)->addSeparator();
 
-    button = new Button(tr("Access"), tr("Access to the desktop shared by other users"));
-//    button->setNormalIcon(getThemeImage("assistant_access_normal.svg"));
-//    button->setHoverIcon(getThemeImage("assistant_access_hover.svg"));
-//    button->setPressedIcon(getThemeImage("assistant_access_press.svg"));
+    button = new QPushButton(this);
+    button->resize(160,36);
+    button->move(100, 246);
+    button->setText(" 帮助别人 ");
+    button->setIcon(QIcon(getThemeImage("assistant_heart.png")));
+
     connect(button, SIGNAL(clicked()), this, SLOT(changeToAccessPanel()));
-    m_buttongroup->addItem(button);
+
 }
 
 void MainPanel::emitPanelChanged(ViewPanel v)

@@ -10,6 +10,7 @@
 #include <QFrame>
 #include <QDBusConnection>
 #include <QVBoxLayout>
+#include <QIcon>
 
 #include <libdui/dstackwidget.h>
 
@@ -21,6 +22,7 @@
 #include "view/mainpanel.h"
 #include "view/sharepanel.h"
 #include "constants.h"
+#include "helper.h"
 
 namespace ManagerState {
     enum {
@@ -32,23 +34,32 @@ namespace ManagerState {
 
 DUI_USE_NAMESPACE
 
-RemoteAssistance::Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manager)
+Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manager)
     : m_pub(pub),
       m_manager(manager),
       m_view(new QFrame),
       m_stackWidget(new DStackWidget(m_view))
 {
 //    connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
-    m_stackWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-    m_stackWidget->setFixedWidth(DCC::ModuleContentWidth);
+//    m_stackWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+    m_stackWidget->setFixedWidth(360);
+    m_stackWidget->setFixedHeight(320);
+
+    m_view->setStyleSheet("background-color: #f5f5f8;");
+    m_view->setWindowTitle("远程协助");
+    m_view->setWindowIcon(QIcon(getThemeImage("icon.png")));
+
+    m_mainPanel = nullptr;
+    m_accessPanel = nullptr;
+    m_sharePanel = nullptr;
 }
 
-RemoteAssistance::Impl::~Impl()
+Impl::~Impl()
 {
     m_manager->deleteLater();
 }
 
-void RemoteAssistance::Impl::initPanel()
+void Impl::initPanel()
 {
     qDebug() << "initPanel";
     QDBusPendingReply<int> reply = m_manager->GetStatus();
@@ -73,39 +84,42 @@ void RemoteAssistance::Impl::initPanel()
     }
 }
 
-QWidget* RemoteAssistance::Impl::getPanel(ViewPanel v)
+QWidget* Impl::getPanel(ViewPanel v)
 {
     switch (v) {
     case ViewPanel::Main: {
         // MainPanel should be created only once.
+
         qDebug() << "create Main Panel";
-        QWidget* m_mainPanel = new MainPanel(m_manager);
+        m_mainPanel = new MainPanel(m_manager);
         QObject::connect(m_mainPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
+
         return m_mainPanel;
     }
     case ViewPanel::Access: {
+
         qDebug() << "create Access Panel";
         auto client = new com::deepin::daemon::Remoting::Client("com.deepin.daemon.Remoting.Client", "/com/deepin/daemon/Remoting/Client", QDBusConnection::sessionBus());
         auto controller = new AccessController(m_manager, client);
-        QWidget* m_accessPanel = new AccessPanel(controller);
+        m_accessPanel = new AccessPanel(controller);
         QObject::connect(m_accessPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
         QObject::connect(m_accessPanel, SIGNAL(connected()), m_pub, SLOT(hide()));
         return m_accessPanel;
     }
     case ViewPanel::Share: {
+
         qDebug() << "create Share Panel";
         auto server = new com::deepin::daemon::Remoting::Server("com.deepin.daemon.Remoting.Server", "/com/deepin/daemon/Remoting/Server", QDBusConnection::sessionBus());
         auto controller  = new ShareController(m_manager, server);
-        QWidget* m_sharePanel = new SharePanel(controller);
+        m_sharePanel = new SharePanel(controller);
         QObject::connect(m_sharePanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
-        qDebug() <<"aaa";
         return m_sharePanel;
     }
     }
     throw "[RemoteAssistance::Impl::getPanel] should not reach here";
 }
 
-void RemoteAssistance::Impl::changePanel(ViewPanel v)
+void Impl::changePanel(ViewPanel v)
 {
     m_viewType = v;
     if (m_stackWidget->depth() > 1) {
@@ -116,6 +130,7 @@ void RemoteAssistance::Impl::changePanel(ViewPanel v)
 
     qDebug() <<"getPanel";
     QWidget* panel = getPanel(v);
+
     pushView(panel);
 }
 
@@ -133,7 +148,7 @@ void RemoteAssistance::changePanel(ViewPanel v)
     m_impl->changePanel(v);
 }
 
-inline void RemoteAssistance::Impl::pushView(QWidget* w, bool enableTransition)
+inline void Impl::pushView(QWidget* w, bool enableTransition)
 {
     qDebug() << "push new panel" << w->objectName();
     m_panel = w;
@@ -143,7 +158,7 @@ inline void RemoteAssistance::Impl::pushView(QWidget* w, bool enableTransition)
 //    }
 }
 
-inline void RemoteAssistance::Impl::popView(QWidget* w, bool isDelete, int count, bool enableTransition)
+inline void Impl::popView(QWidget* w, bool isDelete, int count, bool enableTransition)
 {
     qDebug() << "pop last panel" << m_panel->objectName() << ", depth" << m_stackWidget->depth();
     m_stackWidget->popWidget(w, isDelete, count, enableTransition);
@@ -152,9 +167,16 @@ inline void RemoteAssistance::Impl::popView(QWidget* w, bool isDelete, int count
 }
 
 RemoteAssistance::RemoteAssistance()
-    : QObject(),
-      m_impl(new Impl(this, new com::deepin::daemon::Remoting::Manager("com.deepin.daemon.Remoting.Manager", "/com/deepin/daemon/Remoting/Manager", QDBusConnection::sessionBus())))
+    : QWidget(),
+      m_impl(new Impl(this,
+                      new com::deepin::daemon::Remoting::Manager("com.deepin.daemon.Remoting.Manager",
+                                                                   "/com/deepin/daemon/Remoting/Manager",
+                                                                   QDBusConnection::sessionBus()
+                                                                   )
+                        ))
+
 {
+
     m_impl->initPanel();
 
 }

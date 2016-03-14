@@ -12,6 +12,8 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QDebug>
+#include <QThread>
+#include <QBitmap>
 
 #include <libdui/dthememanager.h>
 #include <libdui/dseparatorhorizontal.h>
@@ -19,6 +21,7 @@
 #include <libdui/dloadingindicator.h>
 
 #include "constants.h"
+#include "dmovie.h"
 #include "../helper.h"
 
 DUI_USE_NAMESPACE
@@ -29,11 +32,9 @@ GeneratingView::GeneratingView(QWidget* p)
     setObjectName("GeneratingView");
     initialize();
 
-    auto button = new DTextButton(tr("Cancel"));
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
-    addButton(button);
 
-    setStyleSheet(readStyleSheet("generatingview"));
+
+//    setStyleSheet(readStyleSheet("generatingview"));
 }
 
 void GeneratingView::onCancelButtonClicked()
@@ -43,31 +44,52 @@ void GeneratingView::onCancelButtonClicked()
 
 QWidget* GeneratingView::createMainWidget()
 {
+
+    QLabel *label = new QLabel;
+    label->setFixedSize(32,32);
+    QString path = ":/dark/images/Spinner32/";
+    DMovie *movie = new DMovie(label);
+    movie->setMoviePath(path, label);
+
+    movie->start();
+
+    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
+    QPalette   pal;
+    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
+
+    QPushButton *button = new QPushButton(tr("Cancel"),this);
+    button->setMask(pixmap.mask());
+    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
+    button->setFixedSize(120, 32);
+    button->setPalette(pal);
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
+
     QWidget* mainWidget = new QWidget;
-    auto mainLayout = new QHBoxLayout;
+
+    mainWidget->setFixedSize(360, 320);
+
+    auto mainLayout = new QVBoxLayout;
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
-    mainLayout->addStretch();
-
-    auto loadingIndicator = new DLoadingIndicator(mainWidget);
-    loadingIndicator->setFixedSize(16,16);
-    loadingIndicator->setImageSource(QPixmap(getThemeImage("waiting.png")));
-    loadingIndicator->setAniDuration(720);
-    loadingIndicator->setLoading(true);
-
-    mainLayout->addWidget(loadingIndicator);
-
-    mainLayout->addSpacing(21);
 
     QLabel* text = new QLabel;
     text->setWordWrap(true);
     text->setAlignment(Qt::AlignVCenter);
-    text->setText(tr("Generating the verification code, please wait..."));
+    text->setText(tr("正在生成验证码，请稍候......"));
 
-    mainLayout->addWidget(text);
     mainLayout->addStretch();
+    mainLayout->addWidget(label);
+    mainLayout->setAlignment(label, Qt::AlignHCenter);
+    mainLayout->addSpacing(24);
+    mainLayout->addWidget(text);
+    mainLayout->setAlignment(text, Qt::AlignHCenter);
+    mainLayout->addSpacing(70);
+    mainLayout->addWidget(button);
+    mainLayout->setAlignment(button, Qt::AlignCenter);
+    mainLayout->addSpacing(40);
 
-    mainWidget->setFixedHeight(70);
     mainWidget->setLayout(mainLayout);
 
     return mainWidget;

@@ -26,7 +26,8 @@ HEADERS         = constants.h \
     view/connectingview.h \
     view/inputview.h \
     view/abstractview.h \
-    helper.h
+    helper.h \
+    dmovie.h
 
 SOURCES         = main.cpp \
     moduleheader.cpp \
@@ -49,7 +50,8 @@ SOURCES         = main.cpp \
     view/connectingview.cpp \
     view/abstractview.cpp \
     view/inputview.cpp \
-    helper.cpp
+    helper.cpp \
+    dmovie.cpp
 
 TARGET          = $$qtLibraryTarget(remote_assistance) # ??
 DESTDIR         = .

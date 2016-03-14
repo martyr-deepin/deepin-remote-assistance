@@ -19,7 +19,7 @@
 #include <QDebug>
 
 AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
-    : QWidget(parent),
+    : QFrame(parent),
       m_viewLayout(new QVBoxLayout),
       m_view(new QWidget(this)),
       m_headerLine(new ModuleHeader(title, false))
@@ -28,12 +28,12 @@ AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
     m_viewLayout->setMargin(0);
 
     setLayout(m_viewLayout);
-    addWidget(m_headerLine);
-    m_viewLayout->addStretch();
+//    addWidget(m_headerLine);
+//    m_viewLayout->addStretch();
 
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-    setFixedWidth(DCC::ModuleContentWidth);
-    setFixedHeight(800);
+    setFixedWidth(360);
+    setFixedHeight(320);
 
 }
 
@@ -47,7 +47,8 @@ void AbstractPanel::setTitle(const QString &title)
 
 AbstractPanel* AbstractPanel::addWidget(QWidget*w)
 {
-    m_viewLayout->insertWidget(m_viewLayout->count()-1, w);
+    //m_viewLayout->insertWidget(m_viewLayout->count()-1, w);
+    m_viewLayout->insertWidget(0, w);
     return this;
 }
 
