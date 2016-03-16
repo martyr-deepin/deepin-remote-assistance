@@ -11,6 +11,7 @@
 #define ABSTRACTVIEW_H
 
 #include <QFrame>
+#include <QDebug>
 #include <libdui_global.h>
 
 class QVBoxLayout;
@@ -37,6 +38,8 @@ protected:
 
     virtual void initialize();
     virtual QWidget *createMainWidget() = 0;
+
+
 };
 
 #endif // ABSTRACTVIEW_H

@@ -15,6 +15,7 @@
 #include <QScopedPointer>
 #include <libdui_global.h>
 #include "dbus/manager.h"
+#include "view/ddraging.h"
 
 QT_BEGIN_NAMESPACE
 class QFrame;
@@ -49,7 +50,7 @@ public:
 
     RemoteAssistance *m_pub;
     com::deepin::daemon::Remoting::Manager *m_manager;
-    QFrame *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
+    DDraging *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
     DUI_NAMESPACE::DStackWidget *m_stackWidget; // this is child of m_view.
     QWidget *m_panel;
     ViewPanel m_viewType;
@@ -68,6 +69,8 @@ public:
     ~RemoteAssistance();
     QFrame *getContent();
 
+
+
 public slots:
     void changePanel(ViewPanel);
 
@@ -79,6 +82,14 @@ private:
 private slots:
     void onAnimationEnd();
     void hide();
+protected:
+    void mousePressEvent (QMouseEvent *event)
+       {
+           qDebug() <<"adsf";
+       }
+
+
+
 };
 
 #endif /* end of include guard: REMOTE_ASSISTANCE_H */

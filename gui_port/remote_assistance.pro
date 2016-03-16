@@ -1,7 +1,8 @@
 TEMPLATE        = app
 
 CONFIG         += plugin c++11 link_pkgconfig
-QT             += widgets dbus
+QT             += widgets dbus x11extras
+LIBS           += -lX11 -lXext
 PKGCONFIG      += dui
 
 HEADERS         = constants.h \
@@ -27,7 +28,8 @@ HEADERS         = constants.h \
     view/inputview.h \
     view/abstractview.h \
     helper.h \
-    dmovie.h
+    dmovie.h \
+    view/ddraging.h
 
 SOURCES         = main.cpp \
     moduleheader.cpp \
@@ -51,7 +53,8 @@ SOURCES         = main.cpp \
     view/abstractview.cpp \
     view/inputview.cpp \
     helper.cpp \
-    dmovie.cpp
+    dmovie.cpp \
+    view/ddraging.cpp
 
 TARGET          = $$qtLibraryTarget(remote_assistance) # ??
 DESTDIR         = .

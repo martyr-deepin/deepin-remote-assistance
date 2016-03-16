@@ -37,7 +37,7 @@ DUI_USE_NAMESPACE
 Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manager)
     : m_pub(pub),
       m_manager(manager),
-      m_view(new QFrame),
+      m_view(new DDraging),
       m_stackWidget(new DStackWidget(m_view))
 {
 //    connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
@@ -187,7 +187,8 @@ RemoteAssistance::~RemoteAssistance()
 
 QFrame* RemoteAssistance::getContent()
 {
-    return m_impl->m_view;
+
+    return (QFrame*)m_impl->m_view;
 }
 
 void RemoteAssistance::hide()

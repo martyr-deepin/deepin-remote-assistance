@@ -13,6 +13,8 @@
 #include <QWidget>
 #include <QFrame>
 #include <QLayoutItem>
+#include <QMouseEvent>
+
 #include "../remoteassistance.h"
 
 class ModuleHeader;
@@ -44,8 +46,10 @@ protected:
 
     void setWidget(QWidget *);
 
+
 private:
     ModuleHeader *m_headerLine;
+
 };
 
 #endif // ABSTRACTPANEL_H
