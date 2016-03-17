@@ -12,14 +12,14 @@
 
 #include <QString>
 
-#include <libdui/libdui_global.h>
+#include <libdui_global.h>
 
 #include "abstractpanel.h"
 #include "../controller/access.h"
 
-DUI_BEGIN_NAMESPACE
+DWIDGET_BEGIN_NAMESPACE
 class DTextButton;
-DUI_END_NAMESPACE
+DWIDGET_END_NAMESPACE
 
 class IAccessController;
 
@@ -53,7 +53,7 @@ private:
 
 private:
     IAccessController *m_controller;
-    DUI_NAMESPACE::DTextButton *m_retryBtn;
+    DTK_NAMESPACE::Widget::DTextButton *m_retryBtn;
 };
 
 #endif /* end of include guard: ACCESS_PANEL_H_T7BZFECR */

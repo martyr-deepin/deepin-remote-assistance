@@ -21,9 +21,9 @@ QT_BEGIN_NAMESPACE
 class QFrame;
 QT_END_NAMESPACE
 
-DUI_BEGIN_NAMESPACE
+DWIDGET_BEGIN_NAMESPACE
 class DStackWidget;
-DUI_END_NAMESPACE
+DWIDGET_END_NAMESPACE
 
 class RemoteAssistance;
 
@@ -51,7 +51,7 @@ public:
     RemoteAssistance *m_pub;
     com::deepin::daemon::Remoting::Manager *m_manager;
     DDraging *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
-    DUI_NAMESPACE::DStackWidget *m_stackWidget; // this is child of m_view.
+    DTK_NAMESPACE::Widget::DStackWidget *m_stackWidget; // this is child of m_view.
     QWidget *m_panel;
     ViewPanel m_viewType;
 

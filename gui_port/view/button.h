@@ -13,9 +13,9 @@
 #include <QFrame>
 #include "libdui_global.h"
 
-DUI_BEGIN_NAMESPACE
+DWIDGET_BEGIN_NAMESPACE
 class DImageButton;
-DUI_END_NAMESPACE
+DWIDGET_END_NAMESPACE
 
 class QHBoxLayout;
 class QVBoxLayout;
@@ -45,10 +45,10 @@ public:
 private:
     QHBoxLayout *m_hlayout;
     QVBoxLayout *m_vlayout;
-    DUI_NAMESPACE::DImageButton *m_icon;
+    DTK_NAMESPACE::Widget::DImageButton *m_icon;
     QLabel *m_title;
     QLabel *m_tip;
-    DUI_NAMESPACE::DImageButton *m_arrow;
+    DTK_NAMESPACE::Widget::DImageButton *m_arrow;
 
 private slots:
     void emitClicked() { emit clicked(); }

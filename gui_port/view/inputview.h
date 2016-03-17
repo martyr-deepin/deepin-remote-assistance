@@ -12,15 +12,15 @@
 
 #include <QString>
 #include "abstractview.h"
-#include <libdui/libdui_global.h>
+#include <libdui_global.h>
 
 class QLineEdit;
 class QLabel;
 class QRegExpValidator;
 
-DUI_BEGIN_NAMESPACE
+DWIDGET_BEGIN_NAMESPACE
 class DTextButton;
-DUI_END_NAMESPACE
+DWIDGET_END_NAMESPACE
 
 class InputView : public AbstractView
 {
@@ -42,7 +42,7 @@ private:
     QLineEdit *m_tokenEdit;
     QLabel *m_tip;
     QRegExpValidator *m_validator;
-    DUI_NAMESPACE::DTextButton *m_connectButton;
+    DTK_NAMESPACE::Widget::DTextButton *m_connectButton;
 };
 
 #endif // INPUTVIEW_H

@@ -12,7 +12,7 @@
 #include <QVBoxLayout>
 #include <QIcon>
 
-#include <libdui/dstackwidget.h>
+#include <dstackwidget.h>
 
 #include "remoteassistance.h"
 #include "dbus/manager.h"
@@ -32,7 +32,7 @@ namespace ManagerState {
     };
 }
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manager)
     : m_pub(pub),
