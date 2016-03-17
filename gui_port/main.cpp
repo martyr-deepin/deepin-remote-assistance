@@ -11,7 +11,7 @@ int main(int argv, char *args[])
     app.setApplicationVersion("1.0");
 
     RemoteAssistance ra;
-    ra.getContent()->show();
+    ra.showWindow();
 
     return app.exec();
 }

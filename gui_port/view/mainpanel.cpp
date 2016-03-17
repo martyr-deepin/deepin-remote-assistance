@@ -42,14 +42,13 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
 
     QLabel *ptext = new QLabel(this);
     ptext->setText("欢迎您使用远程协助,通过它您可以连接到别人的电脑帮助别人解决问题,或共享您的电脑让别人来解决您的问题");
-  //  ptext->move((360-236)/2,50+88 );
-//    ptext->adjustSize();
+
     ptext->setGeometry(QRect((360-236)/2,50+88, 236, 64));
     ptext->setWordWrap(true);
     ptext->setAlignment(Qt::AlignHCenter);
     ptext->setStyleSheet("font-size:10px;"
                          "color:#848484;"
-                         "font-face:SourceHanSansCN-Normal;");
+                         );//"font-face:SourceHanSansCN-Normal;"
 
     QPushButton* button = nullptr;
     button = new QPushButton(this);

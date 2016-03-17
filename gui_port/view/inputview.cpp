@@ -143,7 +143,7 @@ QWidget* InputView::createMainWidget()
     m_tip->setFixedSize(300, 20);
     m_tip->setStyleSheet("font-size:10px;"
                          "color:#848484;"
-                         "font-face:SourceHanSansCN-Normal;");
+                         );//"font-face:SourceHanSansCN-Normal;"
 
 
 
