@@ -1,0 +1,19 @@
+[Desktop Entry]
+Categories=Application;Network;
+Comment=Deepin Remote Assistance
+Encoding=UTF-8
+Exec=/usr/bin/remote-assistance
+Icon=preferences-system
+Name=Remote Assistance
+OnlyShowIn=Deepin
+StartupNotify=false
+Terminal=false
+Type=Application
+X-MultipleArgs=false
+
+# Translations
+Comment[zh_CN]=Deepin远程协助
+Name[zh_CN]=远程协助
+
+X-Deepin-CreatedBy=Launcher
+X-Deepin-AppID=deepin-remote-assistance

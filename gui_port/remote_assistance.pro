@@ -65,7 +65,9 @@ DISTFILES += dark/button.theme \
     dark/generatedview.theme \
     dark/errorview.theme \
     dark/connectingview.theme \
+    deepin-remote-assistance.desktop \
     TODO
+    
 
 RESOURCES += \
     theme.qrc
