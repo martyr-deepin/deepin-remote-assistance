@@ -5,15 +5,22 @@ DRALIB = ${DESTDIR}${PREFIX}/lib/dra
 DBUSLIB = ${DESTDIR}${PREFIX}/share/dbus-1/services/
 ICONS = ${DESTDIR}${PREFIX}/share/icons/
 LOCALE = ${DESTDIR}${PREFIX}/share/locale
+BIN = ${DESTDIR}${PREFIX}/bin
 
-all:
+all: build
+
+build: gui-port
 	
+gui-port:
+	cd gui_port ; qmake && make
+
 install:
 	# Create directories
 	mkdir -p ${PYLIB}
 	mkdir -p ${DRALIB}
 	mkdir -p ${DBUSLIB}
 	mkdir -p ${ICONS}
+	mkdir -p ${BIN}
 	# Copy files
 	cp -rvf dra_client ${PYLIB}
 	cp -rvf dra_server ${PYLIB}
@@ -35,3 +42,8 @@ install:
 		mkdir -p ${LOCALE}/$${locale%.*}/LC_MESSAGES; \
 		msgfmt locale/$$locale -o ${LOCALE}/$${locale%.*}/LC_MESSAGES/deepin-remote-assistance.mo; \
 	done
+	#install gui-port
+	install -D gui_port/remote_assistance ${BIN}
+
+clean:
+	-cd gui_port ;make clean;rm Makefile remote_assistance
