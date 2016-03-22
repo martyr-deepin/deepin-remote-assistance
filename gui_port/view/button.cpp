@@ -44,7 +44,7 @@ Button::Button(const QString& title, const QString& tip, QWidget* p)
     setFixedHeight(button_fixed_height);
 
     auto contentWrap = new QWidget(this);
-    contentWrap->setFixedWidth(DCC::ModuleContentWidth);
+    contentWrap->setFixedWidth(DRA::ModuleContentWidth);
 
     // To make sure mousearea stacked above the real content, mousearea MUST add to this after real content.
 //    auto mousearea = new MouseArea(this);

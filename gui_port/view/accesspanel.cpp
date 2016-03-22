@@ -17,6 +17,7 @@
 #include "connectedview.h"
 #include "errorview.h"
 #include "inputview.h"
+#include "constants.h"
 
 DWIDGET_USE_NAMESPACE
 

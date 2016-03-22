@@ -43,6 +43,7 @@ private:
     QLabel *m_tip;
     QRegExpValidator *m_validator;
     DTK_NAMESPACE::Widget::DTextButton *m_connectButton;
+    DTK_NAMESPACE::Widget::DTextButton *m_cancelButton;
 };
 
 #endif // INPUTVIEW_H

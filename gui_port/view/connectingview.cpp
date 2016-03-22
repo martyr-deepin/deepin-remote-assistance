@@ -35,7 +35,7 @@ ConnectingView::ConnectingView(QWidget*p)
 QWidget* ConnectingView::createMainWidget()
 {
     auto mainWidget = new QWidget;
-    mainWidget->setFixedSize(DCC::ModuleContentWidth, 140);
+    mainWidget->setFixedSize(DRA::ModuleContentWidth, 140);
     auto mainLayout = new QHBoxLayout(mainWidget);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);

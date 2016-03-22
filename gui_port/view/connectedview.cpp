@@ -64,7 +64,7 @@ QWidget* ConnectedView::createMainWidget()
 
 
     m_text->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    m_text->setFixedSize(DCC::ModuleContentWidth, 70);
+    m_text->setFixedSize(DRA::ModuleContentWidth, 70);
     m_text->setAlignment(Qt::AlignCenter);
     m_text->setWordWrap(true);
 

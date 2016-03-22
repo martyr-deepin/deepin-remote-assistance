@@ -68,7 +68,7 @@ QWidget* GeneratingView::createMainWidget()
 
     QWidget* mainWidget = new QWidget;
 
-    mainWidget->setFixedSize(360, 320);
+    mainWidget->setFixedSize(360, 290);
 
     auto mainLayout = new QVBoxLayout;
     mainLayout->setSpacing(0);
@@ -79,16 +79,14 @@ QWidget* GeneratingView::createMainWidget()
     text->setAlignment(Qt::AlignVCenter);
     text->setText(tr("正在生成验证码，请稍候......"));
 
-    mainLayout->addStretch();
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(label);
-    mainLayout->setAlignment(label, Qt::AlignHCenter);
-    mainLayout->addSpacing(24);
+    mainLayout->setAlignment(label, Qt::AlignCenter);
     mainLayout->addWidget(text);
-    mainLayout->setAlignment(text, Qt::AlignHCenter);
-    mainLayout->addSpacing(70);
+    mainLayout->setAlignment(text, Qt::AlignCenter);
     mainLayout->addWidget(button);
     mainLayout->setAlignment(button, Qt::AlignCenter);
-    mainLayout->addSpacing(40);
+    mainLayout->addSpacing(48);
 
     mainWidget->setLayout(mainLayout);
 

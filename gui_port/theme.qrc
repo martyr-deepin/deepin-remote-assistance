@@ -23,7 +23,6 @@
         <file>dark/images/button_hover.png</file>
         <file>dark/images/button_normal.png</file>
         <file>dark/images/button_press.png</file>
-        <file>dark/images/icon.png</file>
         <file>dark/images/Spinner32/Spinner01.png</file>
         <file>dark/images/Spinner32/Spinner02.png</file>
         <file>dark/images/Spinner32/Spinner03.png</file>
@@ -114,5 +113,6 @@
         <file>dark/images/Spinner32/Spinner88.png</file>
         <file>dark/images/Spinner32/Spinner89.png</file>
         <file>dark/images/Spinner32/Spinner90.png</file>
+        <file>dark/images/logo.svg</file>
     </qresource>
 </RCC>

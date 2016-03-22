@@ -29,6 +29,8 @@ private:
     QLabel *m_token;
     QLabel *m_copyTip;
     QTimer *m_copyTipVisableTimer;
+protected:
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // GENERATEDVIEW_H

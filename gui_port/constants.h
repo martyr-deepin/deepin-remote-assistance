@@ -13,8 +13,10 @@
 #include <QColor>
 #include <QString>
 #include <QEasingCurve>
+#include <QApplication>
+#include "remoteassistance.h"
 
-namespace DCC
+namespace DRA
 {
 
 static const uint SideBarWidth = 48;
@@ -26,7 +28,8 @@ static const QColor TextNormalColor = "#b4b4b4";
 static const QColor TextHoverColor = "#ffffff";
 
 static const uint FrameShadowWidth = 16;
-static const uint ControlCenterWidth = 360;
+static const uint RemoteAssistanceWidth = 360;
+static const uint RemoteAssistanceHeight = 320;
 static const uint ModuleContentWidth = 310;
 static const uint HomeScreen_TopWidgetHeight = 150;
 static const uint HomeScreen_BottomWidgetHeight = 84;
@@ -39,6 +42,8 @@ static const uint TipsMoveAnimationDuration = 201;
 static const QEasingCurve TipsMoveCurve = QEasingCurve::OutCubic;
 
 static const QString IconPath = ":/resources/images/";
+static QApplication * globalApp;
+static RemoteAssistance * globalRa;
 }
 
 #endif // CONSTANTS_H

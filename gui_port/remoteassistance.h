@@ -47,6 +47,9 @@ public:
     void changePanel(ViewPanel);
     void changeTitle(ViewPanel v);
 
+public slots:
+        void debug();
+
 public:
     QWidget *getPanel(ViewPanel);
 
@@ -71,9 +74,12 @@ public:
     ~RemoteAssistance();
 
     void showWindow();
+   // void showMinimized();
+
 
 public slots:
     void changePanel(ViewPanel);
+
 
 private:
     QScopedPointer<Impl> m_impl;
@@ -81,13 +87,6 @@ private:
 private slots:
     void onAnimationEnd();
     void hide();
-protected:
-    void mousePressEvent (QMouseEvent *event)
-       {
-           qDebug() <<"adsf";
-       }
-
-
 
 };
 

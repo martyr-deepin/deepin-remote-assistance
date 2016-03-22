@@ -22,7 +22,7 @@ class SharePanel : public AbstractPanel
     Q_OBJECT
 public:
     SharePanel(IShareController *, QWidget *p = nullptr);
-    ~SharePanel() { dtor(); }
+    ~SharePanel();
 
 public slots:
     void onGeneratingAccessToken();

@@ -1,7 +1,7 @@
 TEMPLATE        = app
 
 CONFIG         += plugin c++11 link_pkgconfig
-QT             += widgets dbus x11extras
+QT             += widgets dbus x11extras svg
 LIBS           += -lX11 -lXext
 PKGCONFIG      += dtkbase dtkwidget
 
@@ -67,7 +67,6 @@ DISTFILES += dark/button.theme \
     dark/connectingview.theme \
     deepin-remote-assistance.desktop \
     TODO
-    
 
 RESOURCES += \
     theme.qrc

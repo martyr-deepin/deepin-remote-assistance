@@ -44,24 +44,27 @@ Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manage
     //    connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
     //    m_stackWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
 
-    QSize frameSize(380, 390);
+    QSize frameSize(360, 320);
+    // TODO
+    QSize contentSize(frameSize.width(), frameSize.height() - 40);
+
     QVBoxLayout * mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
-//    m_view->setStyleSheet("background-color: #f5f5f8;");
+
     m_view->setTitle("远程协助");
-//    m_view->setWindowIcon(QIcon(getThemeImage("icon.png")));
-    m_view->setIcon(QPixmap(getThemeImage("icon.png")));
+
+//    m_view->setIcon(QPixmap(getThemeImage("logo.svg")));
 //    m_view->setWindowFlags(m_view->windowFlags() &~ Qt::WindowSystemMenuHint);
     m_view->setWindowFlags(m_view->windowFlags() &~ Qt::WindowMaximizeButtonHint);
-    m_view->setFixedSize(frameSize);
+    m_view->resize(frameSize);
 
-    m_stackWidget->setFixedSize(m_view->size());
-//    m_stackWidget->setStyleSheet("background-color:red;");
+    m_stackWidget->setFixedSize(contentSize);
     mainLayout->addWidget(m_stackWidget);
 
     m_view->setContentLayout(mainLayout);
+
 
     m_mainPanel = nullptr;
     m_accessPanel = nullptr;
@@ -101,6 +104,12 @@ void Impl::initPanel()
     }
 }
 
+void Impl::debug()
+{
+    qDebug() <<"showMinimizedshowMinimizedshowMinimizedshowMinimizedshowMinimized";
+    this->m_view->showMinimized();
+}
+
 QWidget* Impl::getPanel(ViewPanel v)
 {
     switch (v) {
@@ -118,7 +127,7 @@ QWidget* Impl::getPanel(ViewPanel v)
         auto controller = new AccessController(m_manager, client);
         m_accessPanel = new AccessPanel(controller);
         QObject::connect(m_accessPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
-        QObject::connect(m_accessPanel, SIGNAL(connected()), m_pub, SLOT(hide()));
+        QObject::connect(m_accessPanel, SIGNAL(connected()), this, SLOT(debug()));
         return m_accessPanel;
     }
     case ViewPanel::Share: {
@@ -139,7 +148,8 @@ void Impl::changeTitle(ViewPanel v)
     case ViewPanel::Main: {
         // MainPanel should be created only once.
         m_view->setTitle("远程协助");
-        m_view->setIcon(QPixmap(getThemeImage("icon.png")));
+        qDebug() << "height" << m_view->height();
+        m_view->setIcon(QPixmap(getThemeImage("")));
         break;
 
     }
@@ -195,9 +205,7 @@ inline void Impl::pushView(QWidget* w, bool enableTransition)
     qDebug() << "push new panel" << w->objectName();
     m_panel = w;
     m_stackWidget->pushWidget(w, enableTransition);
-    //    if (!enableTransition) {
-    //        m_pub->onAnimationEnd();
-    //    }
+
 }
 
 inline void Impl::popView(QWidget* w, bool isDelete, int count, bool enableTransition)
@@ -231,6 +239,11 @@ void RemoteAssistance::showWindow()
 {
     m_impl->m_view->show();
 }
+
+//void RemoteAssistance::showMinimized()
+//{
+//    m_impl->m_view->showMinimized();
+//}
 
 void RemoteAssistance::hide()
 {

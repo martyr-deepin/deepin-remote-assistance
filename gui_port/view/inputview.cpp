@@ -67,12 +67,38 @@ QWidget* InputView::createMainWidget()
     m_tokenEdit->setMaxLength(6);
     m_tokenEdit->setAttribute(Qt::WA_TranslucentBackground);
     m_tokenEdit->setAlignment(Qt::AlignCenter);
-    m_tokenEdit->setFixedWidth(DCC::ModuleContentWidth);
+    m_tokenEdit->setFixedWidth(DRA::ModuleContentWidth);
     m_tokenEdit->setFixedHeight(70);
 
 //    font.setWordSpacing( 20);
     m_tokenEdit->setFont(font);
 
+
+    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
+
+    QPalette   pal;
+    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
+
+
+
+
+    m_cancelButton = new DTextButton(tr("取消"));
+    QObject::connect(m_cancelButton, &DTextButton::clicked, [this] (bool){
+        emit cancel();
+    });
+    m_cancelButton->setMask(pixmap.mask());
+    m_cancelButton->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
+    m_cancelButton->setFixedSize(120, 32);
+    m_cancelButton->setPalette(pal);
+
+    m_connectButton->setFixedSize(120, 32);
+    m_connectButton->setPalette(pal);
+    m_connectButton->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
+    m_connectButton->hide();
 
 
 
@@ -82,64 +108,41 @@ QWidget* InputView::createMainWidget()
         QString copyToken = token;
         int pos = 0;
         m_connectButton->setEnabled(false);
+        m_connectButton->hide();
+        m_cancelButton->show();
         if (m_validator->validate(copyToken, pos) == QValidator::Acceptable) {
             m_connectButton->setEnabled(true);
-            m_tip->setText(tr("Start remote access after clicking on \"Connect\""));
-        } else if (m_tip->text() == tr("Start remote access after clicking on \"Connect\"")){
-            m_tip->setText(tr("Please enter the verification code in the input field above"));
+            m_connectButton->show();
+            m_cancelButton->hide();
+//            m_tip->setText(tr("Start remote access after clicking on \"Connect\""));
+//        } else if (m_tip->text() == tr("Start remote access after clicking on \"Connect\"")){
+//            m_tip->setText(tr("Please enter the verification code in the input field above"));
         }
     });
 
 
 
     QHBoxLayout *m_buttonHLayout = new QHBoxLayout;
-    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
-
-    QPalette   pal;
-    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
 
 
 
 
-    auto button = new DTextButton(tr("取消"));
-    QObject::connect(button, &DTextButton::clicked, [this] (bool){
-        emit cancel();
-    });
-    button->setMask(pixmap.mask());
-    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    button->setFixedSize(120, 32);
-    button->setPalette(pal);
-
-    m_connectButton->setFixedSize(120, 32);
-    m_connectButton->setPalette(pal);
-    m_connectButton->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-
-
-
-    m_buttonHLayout->addWidget(button);
+    m_buttonHLayout->addWidget(m_cancelButton);
     m_buttonHLayout->addWidget(m_connectButton);
+//    m_connectButton->hide();
 
 
 
 
 
+    layout->addSpacing(56);
+    layout->addWidget(m_tokenEdit, 0, Qt::AlignCenter);
 
-    layout->addWidget(m_tokenEdit, 0, Qt::AlignHCenter);
 
-//    auto separator = new QWidget;
-//    separator->setObjectName("separator");
-//    separator->setFixedSize(DCC::ModuleContentWidth-30, 1);
-//    separator->setStyleSheet("background-color:red;");
-//    layout->addWidget(separator);
-//    layout->setAlignment(separator, Qt::AlignHCenter);
 
     m_tip = new QLabel;
     m_tip->setText(tr("请在上方输入验证码，完成“连接”后开始远程访问"));
-    m_tip->setAlignment(Qt::AlignTop|Qt::AlignHCenter);
+    m_tip->setAlignment(Qt::AlignTop|Qt::AlignCenter);
     m_tip->setFixedSize(300, 20);
     m_tip->setStyleSheet("font-size:10px;"
                          "color:#848484;"
@@ -147,9 +150,11 @@ QWidget* InputView::createMainWidget()
 
 
 
-//    layout->addSpacing(10);
-    layout->addWidget(m_tip, 0, Qt::AlignHCenter);
+    layout->addSpacing(10);
+    layout->addWidget(m_tip, 0, Qt::AlignCenter);
+    layout->addSpacing(40);
     layout->addLayout(m_buttonHLayout);
+    layout->addStretch();
     mainWidget->setLayout(layout);
     setStyleSheet(readStyleSheet("inputview"));
     return mainWidget;
