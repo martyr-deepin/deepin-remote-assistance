@@ -60,9 +60,9 @@ public:
     QWidget *m_panel;
     ViewPanel m_viewType;
 
-    QWidget* m_mainPanel;
-    QWidget* m_accessPanel;
-    QWidget* m_sharePanel;
+    QWidget* m_mainPanel = nullptr;
+    QWidget* m_accessPanel = nullptr;
+    QWidget* m_sharePanel = nullptr;
 };
 
 

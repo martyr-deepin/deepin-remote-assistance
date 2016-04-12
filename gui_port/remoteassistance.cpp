@@ -41,11 +41,6 @@ Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manage
       m_view(new DWindow),
       m_stackWidget(new DStackWidget)
 {
-    //    connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
-    //    m_stackWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-
-
-
     QVBoxLayout * mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
@@ -65,10 +60,7 @@ Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manage
 
     m_view->setContentLayout(mainLayout);
 
-
-    m_mainPanel = nullptr;
-    m_accessPanel = nullptr;
-    m_sharePanel = nullptr;
+    connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
 }
 
 Impl::~Impl()
