@@ -17,12 +17,14 @@
 
 #include "constants.h"
 #include "../helper.h"
+#include "widgets/notifylabel.h"
+#include "widgets/tiplabel.h"
 
 DWIDGET_USE_NAMESPACE
 
 ErrorView::ErrorView(QWidget* p)
     : AbstractView(p),
-      m_text(new QLabel)
+      m_text(new NotifyLabel(this))
 {
     setObjectName("ErrorView");
     initialize();
@@ -30,25 +32,20 @@ ErrorView::ErrorView(QWidget* p)
 
 QWidget* ErrorView::createMainWidget()
 {
-     auto mainWidget = new QWidget;
-     auto mainLayout = new QVBoxLayout(mainWidget);
-     mainLayout->setSpacing(0);
-     mainLayout->setMargin(0);
+    auto mainWidget = new QWidget;
+    auto mainLayout = new QVBoxLayout(mainWidget);
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
 
-    m_text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-//    m_text->setFixedSize(DRA::ModuleContentWidth, 70);
-//    m_text->setAlignment(Qt::AlignCenter);
-    m_text->setWordWrap(true);
-    m_text->setStyleSheet(" font-size : 20px; color:#ff8000; ");
-
+    m_text->setFixedSize(DRA::NotifyLabelMaxWidth, DRA::NotifyLabelMaxHeight);
+    mainLayout->addSpacing(55);
     mainLayout->addWidget(m_text, 0, Qt::AlignCenter);
+    mainLayout->addSpacing(30);
 
-    QLabel * msgBox = new QLabel;
-    msgBox->setText("您输入的验证码无效，请重新输入");
-    msgBox->setStyleSheet("font-size:10px;"
-                          "color:#848484;");
-//    mainLayout->addSpacing(10);
-    mainLayout->addWidget(msgBox, 0, Qt::AlignCenter);
+    TipLabel *tip = new TipLabel(this);
+    tip->setText("您输入的验证码无效，请重新输入");
+    tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
+    mainLayout->addWidget(tip, 0, Qt::AlignHCenter);
 
     return mainWidget;
 }

@@ -111,7 +111,6 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     view->setText(tr("连接失败"));
 
     auto button = new SimpleButton(tr("取消"));
-
     connect(button, &SimpleButton::clicked, [this]{
         emitChangePanel();
     });

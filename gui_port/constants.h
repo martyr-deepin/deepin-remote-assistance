@@ -53,6 +53,9 @@ static const uint WindowContentHeight = 244;
 
 static const uint TipLabelMaxWidth = 231;
 static const uint TipLabelMaxHeight = 40;
+
+static const uint NotifyLabelMaxWidth = 200;
+static const uint NotifyLabelMaxHeight = 30;
 }
 
 #endif // CONSTANTS_H

@@ -16,16 +16,17 @@
 
 #include <dthememanager.h>
 #include <dseparatorhorizontal.h>
-#include "widgets/simplebutton.h"
 
 #include "constants.h"
-
 #include "../helper.h"
+#include "widgets/notifylabel.h"
+#include "widgets/simplebutton.h"
+#include "widgets/tiplabel.h"
 
 DWIDGET_USE_NAMESPACE
 
 ConnectedView::ConnectedView(QWidget* p)
-    : AbstractView(p), m_text(new QLabel)
+    : AbstractView(p), m_text(new NotifyLabel(this))
 {
     setObjectName("ConnectedView");
     initialize();
@@ -40,25 +41,20 @@ QWidget* ConnectedView::createMainWidget()
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
+    m_text->setFixedSize(DRA::NotifyLabelMaxWidth, DRA::NotifyLabelMaxHeight);
+    mainLayout->addSpacing(55);
+    mainLayout->addWidget(m_text);
+    mainLayout->addSpacing(30);
+
+    TipLabel * tip  = new TipLabel(this);
+    tip->setText("您可以继续访问或选择断开");
+    tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
+    mainLayout->addWidget(tip);
 
     auto button = new SimpleButton(tr("断开"));
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onDisconnectButtonClicked()));
 
-    m_text->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    m_text->setFixedSize(DRA::ModuleContentWidth, 70);
-    m_text->setAlignment(Qt::AlignCenter);
-    m_text->setWordWrap(true);
-
-    QLabel * msgBox = new QLabel;
-        msgBox->setText("您可以继续访问或选择断开");
-        msgBox->setStyleSheet("font-size:10px;"
-                              "color:#848484;");
-    //    mainLayout->addSpacing(10);
-
-    mainLayout->addWidget(m_text, 0, Qt::AlignCenter);
-    mainLayout->addWidget(msgBox, 0, Qt::AlignCenter);
-    mainLayout->addWidget(button, 0, Qt::AlignCenter);
-
+    addButton(button);
 
     return mainWidget;
 }

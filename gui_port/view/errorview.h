@@ -12,7 +12,7 @@
 
 #include "abstractview.h"
 
-class QLabel;
+class NotifyLabel;
 
 class ErrorView : public AbstractView
 {
@@ -26,7 +26,7 @@ private slots:
     // void onRetryButtonClicked();
 
 private:
-    QLabel *m_text;
+    NotifyLabel *m_text;
 
     QWidget *createMainWidget() Q_DECL_OVERRIDE;
 };

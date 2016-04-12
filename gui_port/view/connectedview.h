@@ -12,7 +12,7 @@
 
 #include "abstractview.h"
 
-class QLabel;
+class NotifyLabel;
 
 class ConnectedView : public AbstractView
 {
@@ -31,7 +31,7 @@ private slots:
     void onDisconnectButtonClicked();
 
 private:
-    QLabel *m_text;
+    NotifyLabel *m_text;
 };
 
 #endif // SHARINGVIEW_H

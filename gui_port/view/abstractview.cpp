@@ -31,12 +31,8 @@ void AbstractView::initialize()
     m_mainWidget = createMainWidget();
 
     m_viewLayout->addWidget(m_mainWidget);
-//    m_viewLayout->addWidget(new DSeparatorHorizontal);
-//    m_viewLayout->addSpacing(5);
+    m_viewLayout->addStretch();
     m_viewLayout->addLayout(m_buttonLayout);
-
-//    m_buttonLayout->addStretch();
-//    m_buttonLayout->addSpacing(8);
 }
 
 AbstractView* AbstractView::addWidget(QWidget* w)

@@ -28,7 +28,8 @@ HEADERS         = constants.h \
     dmovie.h \
     view/ddraging.h \
     widgets/simplebutton.h \
-    widgets/tiplabel.h
+    widgets/tiplabel.h \
+    widgets/notifylabel.h
 
 SOURCES         = main.cpp \
     controller/share.cpp \
@@ -52,7 +53,8 @@ SOURCES         = main.cpp \
     dmovie.cpp \
     view/ddraging.cpp \
     widgets/simplebutton.cpp \
-    widgets/tiplabel.cpp
+    widgets/tiplabel.cpp \
+    widgets/notifylabel.cpp
 
 TARGET          = $$qtLibraryTarget(remote_assistance) # ??
 DESTDIR         = .
