@@ -29,10 +29,6 @@ ConnectedView::ConnectedView(QWidget* p)
 {
     setObjectName("ConnectedView");
     initialize();
-
-
-
-    setStyleSheet(readStyleSheet("connectedview"));
 }
 
 QWidget* ConnectedView::createMainWidget()

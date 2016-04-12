@@ -50,7 +50,6 @@ QWidget* ErrorView::createMainWidget()
 //    mainLayout->addSpacing(10);
     mainLayout->addWidget(msgBox, 0, Qt::AlignCenter);
 
-    setStyleSheet(readStyleSheet("errorview"));
     return mainWidget;
 }
 

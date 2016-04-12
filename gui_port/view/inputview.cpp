@@ -131,7 +131,6 @@ QWidget* InputView::createMainWidget()
     layout->addLayout(m_buttonHLayout);
     layout->addStretch();
     mainWidget->setLayout(layout);
-    setStyleSheet(readStyleSheet("inputview"));
     return mainWidget;
 }
 

@@ -112,6 +112,5 @@ QWidget* GeneratedView::createMainWidget()
     layout->addStretch();
 
     mainWidget->setLayout(layout);
-    setStyleSheet(readStyleSheet("generatedview"));
     return mainWidget;
 }

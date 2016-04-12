@@ -91,7 +91,6 @@ QWidget* ConnectingView::createMainWidget()
 
     mainLayout->addWidget(button, 0, Qt::AlignCenter);
 
-    setStyleSheet(readStyleSheet("connectingview"));
     return mainWidget;
 }
 

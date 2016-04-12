@@ -31,10 +31,6 @@ GeneratingView::GeneratingView(QWidget* p)
 {
     setObjectName("GeneratingView");
     initialize();
-
-
-
-//    setStyleSheet(readStyleSheet("generatingview"));
 }
 
 void GeneratingView::onCancelButtonClicked()
