@@ -12,7 +12,7 @@
 #include <QBitmap>
 
 #include "accesspanel.h"
-#include <dtextbutton.h>
+#include "widgets/simplebutton.h"
 
 #include "connectingview.h"
 #include "connectedview.h"
@@ -20,8 +20,6 @@
 #include "inputview.h"
 #include "constants.h"
 #include "helper.h"
-
-DWIDGET_USE_NAMESPACE
 
 AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
     : AbstractPanel(tr("我要求助"), p),
@@ -112,38 +110,16 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     }
     view->setText(tr("连接失败"));
 
+    auto button = new SimpleButton(tr("取消"));
 
-
-
-
-
-    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
-    QPalette   pal;
-    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
-
-    auto button = new DTextButton(tr("取消"));
-    button->setMask(pixmap.mask());
-    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    button->setFixedSize(120, 32);
-    button->setPalette(pal);
-
-    connect(button, &DTextButton::clicked, [this]{
+    connect(button, &SimpleButton::clicked, [this]{
         emitChangePanel();
     });
+
     view->addButton(button, 0, Qt::AlignCenter);
-    button = new DTextButton(tr("重试"));
+
+    button = new SimpleButton(tr("重试"));
     button->setEnabled(false);
-
-
-    button->setMask(pixmap.mask());
-    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    button->setFixedSize(120, 32);
-    button->setPalette(pal);
-
 
     // waiting the remoting window to be closed.
     // NB: QTimer::singleShot not support lambda in Qt5.3.
@@ -156,7 +132,7 @@ void AccessPanel::onConnectFailed(AccessErrors e)
         timer->deleteLater();
     });
     timer->start();
-    connect(button, &DTextButton::clicked, [this]{
+    connect(button, &SimpleButton::clicked, [this]{
         m_controller->retry();
     });
     view->addButton(button, 0, Qt::AlignCenter);

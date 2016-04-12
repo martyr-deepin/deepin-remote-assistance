@@ -16,7 +16,7 @@
 
 #include <dthememanager.h>
 #include <dseparatorhorizontal.h>
-#include <dtextbutton.h>
+#include "widgets/simplebutton.h"
 
 #include "constants.h"
 
@@ -45,23 +45,8 @@ QWidget* ConnectedView::createMainWidget()
     mainLayout->setMargin(0);
 
 
-    auto button = new DTextButton(tr("断开"));
+    auto button = new SimpleButton(tr("断开"));
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onDisconnectButtonClicked()));
-
-
-    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
-    QPalette   pal;
-    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
-    button->setMask(pixmap.mask());
-    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    button->setFixedSize(120, 32);
-    button->setPalette(pal);
-
-
-
-
 
     m_text->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_text->setFixedSize(DRA::ModuleContentWidth, 70);
@@ -73,8 +58,6 @@ QWidget* ConnectedView::createMainWidget()
         msgBox->setStyleSheet("font-size:10px;"
                               "color:#848484;");
     //    mainLayout->addSpacing(10);
-
-
 
     mainLayout->addWidget(m_text, 0, Qt::AlignCenter);
     mainLayout->addWidget(msgBox, 0, Qt::AlignCenter);

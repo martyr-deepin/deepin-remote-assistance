@@ -14,7 +14,7 @@
 
 #include <dthememanager.h>
 #include <dloadingindicator.h>
-#include <dtextbutton.h>
+#include "widgets/simplebutton.h"
 #include <QBitmap>
 
 #include "constants.h"
@@ -86,27 +86,8 @@ QWidget* ConnectingView::createMainWidget()
 
 //    wrapLayout->addWidget(waitingText);
 
-
-
-    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
-
-    QPalette   pal;
-    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
-
-
-
-
-    auto button = new DTextButton(tr("取消"));
+    auto button = new SimpleButton(tr("取消"));
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
-
-    button->setMask(pixmap.mask());
-    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    button->setFixedSize(120, 32);
-    button->setPalette(pal);
-
-
 
     mainLayout->addWidget(button, 0, Qt::AlignCenter);
 

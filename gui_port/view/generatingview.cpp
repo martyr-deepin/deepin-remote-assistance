@@ -17,7 +17,7 @@
 
 #include <dthememanager.h>
 #include <dseparatorhorizontal.h>
-#include <dtextbutton.h>
+#include "widgets/simplebutton.h"
 #include <dloadingindicator.h>
 
 #include "constants.h"
@@ -50,20 +50,9 @@ QWidget* GeneratingView::createMainWidget()
     QString path = ":/dark/images/Spinner32/";
     DMovie *movie = new DMovie(label);
     movie->setMoviePath(path, label);
-
     movie->start();
 
-    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
-    QPalette   pal;
-    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
-
-    QPushButton *button = new QPushButton(tr("Cancel"),this);
-    button->setMask(pixmap.mask());
-    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    button->setFixedSize(120, 32);
-    button->setPalette(pal);
+    SimpleButton *button = new SimpleButton(tr("Cancel"),this);
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
 
     QWidget* mainWidget = new QWidget;

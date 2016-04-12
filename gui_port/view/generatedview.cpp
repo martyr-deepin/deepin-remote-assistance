@@ -19,14 +19,9 @@
 #include <QPixmap>
 #include <QBitmap>
 
-#include <dthememanager.h>
-#include <dtextbutton.h>
-
+#include "widgets/simplebutton.h"
 #include "constants.h"
-
 #include "../helper.h"
-
-DWIDGET_USE_NAMESPACE
 
 GeneratedView::GeneratedView(const QString& token, QWidget* p)
     : AbstractView(p),
@@ -45,21 +40,6 @@ GeneratedView::GeneratedView(const QString& token, QWidget* p)
 //    font.setWordSpacing( 20);
     m_token->setFont(font);
     m_token->setText(token);
-
-
-
-
-}
-
-void GeneratedView::closeEvent(QCloseEvent *event)
-{
-    qDebug()<<"close!";
-//    if (maybeSave()) {
-//        writeSettings();
-//        event->accept();
-//    } else {
-//        event->ignore();
-//    }
 }
 
 QWidget* GeneratedView::createMainWidget()
@@ -80,20 +60,10 @@ QWidget* GeneratedView::createMainWidget()
 //    layout->addSpacing(40);
 
     QHBoxLayout *m_buttonHLayout = new QHBoxLayout;
-    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
 
-    QPalette   pal;
-    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
+    SimpleButton *button = new SimpleButton(tr("复制"),this);
 
-    QPushButton *button = new QPushButton(tr("复制"),this);
-    button->setMask(pixmap.mask());
-    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    button->setFixedSize(120, 32);
-    button->setPalette(pal);
-
-    connect(button, &DTextButton::clicked, [this] {
+    connect(button, &SimpleButton::clicked, [this] {
         m_copyTip->setText(tr("成功复制到剪贴板"));
         QString token = m_token->text();
         QApplication::clipboard()->setText(token);
@@ -102,31 +72,16 @@ QWidget* GeneratedView::createMainWidget()
         m_copyTipVisableTimer->start();
     });
 
-
-
-
     m_buttonHLayout->addWidget(button);
 
-    DTextButton *buttonn = new DTextButton(tr("取消"));
-    buttonn->setMask(pixmap.mask());
-    buttonn->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}"
-                           "font:#848484;");
-    buttonn->setFixedSize(120, 32);
-    buttonn->setPalette(pal);
+    SimpleButton *buttonn = new SimpleButton(tr("取消"));
 
-    connect(buttonn, &DTextButton::clicked, [this] {
+    connect(buttonn, &SimpleButton::clicked, [this] {
         qDebug() << "cancel button on GeneratedView is clicked";
         emit cancel();
     });
 
-
-
     m_buttonHLayout->addWidget(buttonn);
-
-
-
 
     m_copyTip = new QLabel;
     m_copyTip->setObjectName("copyTip");

@@ -12,15 +12,11 @@
 
 #include <QFrame>
 #include <QDebug>
-#include <libdui_global.h>
 
 class QVBoxLayout;
 class QHBoxLayout;
 
-DWIDGET_BEGIN_NAMESPACE
-class DTextButton;
-DWIDGET_END_NAMESPACE
-
+class SimpleButton;
 class AbstractView : public QWidget
 {
     Q_OBJECT
@@ -29,7 +25,7 @@ public:
     AbstractView *addWidget(QWidget *);
     AbstractView *addSpacing(int);
     AbstractView *addLayout(QLayout *, int = 0);
-    AbstractView *addButton(DTK_NAMESPACE::Widget::DTextButton *btn, int stretch = 0, Qt::Alignment alignment = 0);
+    AbstractView *addButton(SimpleButton *btn, int stretch = 0, Qt::Alignment alignment = 0);
 
 protected:
     QWidget *m_mainWidget;

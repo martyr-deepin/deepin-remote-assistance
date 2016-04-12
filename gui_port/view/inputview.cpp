@@ -18,13 +18,10 @@
 #include <QDebug>
 #include <QBitmap>
 
-#include <dthememanager.h>
-#include <dtextbutton.h>
+#include "widgets/simplebutton.h"
 
 #include "constants.h"
 #include "../helper.h"
-
-DWIDGET_USE_NAMESPACE
 
 static const QString TokenLineEditStyle = "QLineEdit#TokenLineEdit { "
                                           "background: white; "
@@ -35,11 +32,11 @@ static const QString TokenLineEditStyle = "QLineEdit#TokenLineEdit { "
 InputView::InputView(QWidget* p)
     : AbstractView(p),
       m_validator(new QRegExpValidator(*new QRegExp("[A-Za-z0-9]{6}"), this)),
-      m_connectButton(new DTextButton(tr("连接")))
+      m_connectButton(new SimpleButton(tr("连接")))
 {
     setObjectName("InputView");
     m_connectButton->setEnabled(false);
-    QObject::connect(m_connectButton, &DTextButton::clicked, this, &InputView::emitConnect);
+    QObject::connect(m_connectButton, &SimpleButton::clicked, this, &InputView::emitConnect);
 
     initialize();
 
@@ -81,33 +78,11 @@ QWidget* InputView::createMainWidget()
 //    font.setLetterSpacing(QFont::AbsoluteSpacing, 6);
     m_tokenEdit->setFont(font);
 
-    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
-
-    QPalette   pal;
-    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
-
-
-
-
-    m_cancelButton = new DTextButton(tr("取消"));
-    QObject::connect(m_cancelButton, &DTextButton::clicked, [this] (bool){
+    m_cancelButton = new SimpleButton(tr("取消"));
+    QObject::connect(m_cancelButton, &SimpleButton::clicked, [this] (bool){
         emit cancel();
     });
-    m_cancelButton->setMask(pixmap.mask());
-    m_cancelButton->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    m_cancelButton->setFixedSize(120, 32);
-    m_cancelButton->setPalette(pal);
-
-    m_connectButton->setFixedSize(120, 32);
-    m_connectButton->setPalette(pal);
-    m_connectButton->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
     m_connectButton->hide();
-
-
 
     QObject::connect(m_tokenEdit, SIGNAL(returnPressed()), this, SLOT(connectToClient()));
     QObject::connect(m_tokenEdit, &QLineEdit::textChanged, [this](const QString& token){
@@ -132,20 +107,13 @@ QWidget* InputView::createMainWidget()
     QHBoxLayout *m_buttonHLayout = new QHBoxLayout;
 
 
-
-
     m_buttonHLayout->addWidget(m_cancelButton);
     m_buttonHLayout->addWidget(m_connectButton);
 //    m_connectButton->hide();
 
 
-
-
-
     layout->addSpacing(56);
     layout->addWidget(m_tokenEdit, 0, Qt::AlignCenter);
-
-
 
     m_tip = new QLabel;
     m_tip->setText(tr("请在上方输入验证码，完成“连接”后开始远程访问"));
