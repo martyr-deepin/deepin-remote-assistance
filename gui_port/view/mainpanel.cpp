@@ -15,9 +15,9 @@
 #include <QSvgWidget>
 
 #include "constants.h"
-
 #include "mainpanel.h"
 #include "helper.h"
+#include "widgets/tiplabel.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -43,16 +43,10 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
     mainLayout->addWidget(picon, 0, Qt::AlignHCenter);
 
 
-    QLabel *ptext = new QLabel;
+    TipLabel *ptext = new TipLabel(this);
     ptext->setText("欢迎您使用远程协助,通过它您可以连接到别人的电脑帮助别人解决问题,或共享您的电脑让别人来解决您的问题");
+    ptext->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
 
-
-    ptext->setWordWrap(true);
-    ptext->setFixedSize(231, 40);
-    ptext->setAlignment(Qt::AlignHCenter);
-    ptext->setStyleSheet("font-size:10px;"
-                         "color:#848484;"
-                         );//"font-face:SourceHanSansCN-Normal;"
     mainLayout->addSpacing(137 - (64 + 50));
     mainLayout->addWidget(ptext, 0 , Qt::AlignCenter);
 

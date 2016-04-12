@@ -17,6 +17,7 @@ class QLineEdit;
 class QLabel;
 class QRegExpValidator;
 class SimpleButton;
+class TipLabel;
 
 class InputView : public AbstractView
 {
@@ -36,7 +37,7 @@ private slots:
 private:
     QWidget *createMainWidget() Q_DECL_OVERRIDE;
     QLineEdit *m_tokenEdit;
-    QLabel *m_tip;
+    TipLabel *m_tip;
     QRegExpValidator *m_validator;
     SimpleButton *m_connectButton;
     SimpleButton *m_cancelButton;

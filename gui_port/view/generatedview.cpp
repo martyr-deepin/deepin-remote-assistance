@@ -22,6 +22,7 @@
 #include "widgets/simplebutton.h"
 #include "constants.h"
 #include "../helper.h"
+#include "widgets/tiplabel.h"
 
 GeneratedView::GeneratedView(const QString& token, QWidget* p)
     : AbstractView(p),
@@ -94,14 +95,9 @@ QWidget* GeneratedView::createMainWidget()
 
     m_copyTip->setText("");
 
-    auto tip = new QLabel;
-    tip->setObjectName("tip");
-    tip->setWordWrap(true);
+    auto tip = new TipLabel(this);
     tip->setText(tr("如需共享您的桌面，请将上面的验证码提供给协助您的人"));
-
-    tip->setStyleSheet("font-size:10px;"
-                         "color:#848484;"
-                         );//"font-face:SourceHanSansCN-Normal;"
+    tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
 
     layout->addSpacing(20);
     layout->addWidget(tip,0,Qt::AlignCenter);
