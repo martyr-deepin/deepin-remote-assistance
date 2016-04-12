@@ -6,6 +6,7 @@ DBUSLIB = ${DESTDIR}${PREFIX}/share/dbus-1/services/
 ICONS = ${DESTDIR}${PREFIX}/share/icons/
 LOCALE = ${DESTDIR}${PREFIX}/share/locale
 BIN = ${DESTDIR}${PREFIX}/bin
+APPLICATIONS = ${DESTDIR}${PREFIX}/share/applications/
 
 all: build
 
@@ -21,6 +22,7 @@ install:
 	mkdir -p ${DBUSLIB}
 	mkdir -p ${ICONS}
 	mkdir -p ${BIN}
+	mkdir -p ${APPLICATIONS}
 	# Copy files
 	cp -rvf dra_client ${PYLIB}
 	cp -rvf dra_server ${PYLIB}
@@ -44,6 +46,7 @@ install:
 	done
 	#install gui-port
 	install -D gui_port/remote_assistance ${BIN}
+	install -D gui_port/deepin-remote-assistance.desktop ${APPLICATIONS}
 
 clean:
 	-cd gui_port ;make clean;rm Makefile remote_assistance
