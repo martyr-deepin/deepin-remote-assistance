@@ -6,7 +6,6 @@ LIBS           += -lX11 -lXext
 PKGCONFIG      += dtkbase dtkwidget
 
 HEADERS         = constants.h \
-    moduleheader.h \
     controller/access.h \
     controller/share.h \
     interface.h \
@@ -32,7 +31,6 @@ HEADERS         = constants.h \
     view/ddraging.h
 
 SOURCES         = main.cpp \
-    moduleheader.cpp \
     controller/share.cpp \
     controller/access.cpp \
     dbus/client.cpp \

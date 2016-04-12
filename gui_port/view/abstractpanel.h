@@ -17,8 +17,6 @@
 
 #include "../remoteassistance.h"
 
-class ModuleHeader;
-
 class QVBoxLayout;
 
 class AbstractPanel : public QFrame
@@ -28,9 +26,6 @@ public:
     explicit AbstractPanel(const QString &title = QLatin1String(""), QWidget *parent = 0);
     AbstractPanel *addWidget(QWidget *);
     AbstractPanel *addLayout(QLayout *l, int stretch = 0);
-
-protected:
-    void setTitle(const QString &);
 
 protected slots:
     virtual void onNoNetwork();
@@ -45,11 +40,6 @@ protected:
     QWidget *m_view;
 
     void setWidget(QWidget *);
-
-
-private:
-    ModuleHeader *m_headerLine;
-
 };
 
 #endif // ABSTRACTPANEL_H

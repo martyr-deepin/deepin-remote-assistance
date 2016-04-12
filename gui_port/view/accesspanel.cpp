@@ -81,7 +81,6 @@ void AccessPanel::onConnect(QString token)
 
 void AccessPanel::onConnecting()
 {
-    setTitle(tr("Accessing"));
     qDebug() << "connecting";
     auto view = new ConnectingView;
     connect(view, SIGNAL(cancel()), this, SLOT(onDisconnected()));
@@ -102,7 +101,6 @@ void AccessPanel::onConnected()
 void AccessPanel::onConnectFailed(AccessErrors e)
 {
     qDebug() << "connect failed";
-    setTitle(tr("Remote Assistance"));
     auto view = new ErrorView;
     switch (e) {
     case AccessError::ConnectServerFailed:

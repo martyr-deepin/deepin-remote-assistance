@@ -110,7 +110,6 @@ void SharePanel::onDisconnected()
 
 void SharePanel::onGenAccessTokenFailed()
 {
-    setTitle(tr("Remote Assistance"));
     qDebug() << "gen access token failed";
     auto view = new ErrorView;
     auto button = new DTextButton(tr("Cancel"));
@@ -120,7 +119,6 @@ void SharePanel::onGenAccessTokenFailed()
     view->addButton(button);
     button = new DTextButton(tr("Retry"));
     QObject::connect(button, &DTextButton::clicked, [this]{
-        setTitle(tr("Sharing"));
         m_controller->retry();
     });
     view->addButton(button);

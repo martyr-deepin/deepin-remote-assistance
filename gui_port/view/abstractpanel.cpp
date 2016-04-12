@@ -10,26 +10,23 @@
 #include <dtextbutton.h>
 
 #include "abstractpanel.h"
-#include "moduleheader.h"
 #include "constants.h"
-
 #include "errorview.h"
 
-
 #include <QDebug>
+#include <QVBoxLayout>
+
+DWIDGET_USE_NAMESPACE
 
 AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
     : QFrame(parent),
       m_viewLayout(new QVBoxLayout),
-      m_view(new QWidget(this)),
-      m_headerLine(new ModuleHeader(title, false))
+      m_view(new QWidget(this))
 {
     m_viewLayout->setSpacing(0);
     m_viewLayout->setMargin(0);
 
     setLayout(m_viewLayout);
-//    addWidget(m_headerLine);
-//    m_viewLayout->addStretch();
 
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     setFixedWidth(DRA::WindowContentWidth);
@@ -41,11 +38,6 @@ AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
 
 void AbstractPanel::emitChangePanel()
 {}
-
-void AbstractPanel::setTitle(const QString &title)
-{
-    m_headerLine->setTitle(title);
-}
 
 AbstractPanel* AbstractPanel::addWidget(QWidget*w)
 {
@@ -74,7 +66,6 @@ void AbstractPanel::abort()
 
 void AbstractPanel::onNoNetwork()
 {
-    setTitle(tr("Remote Assistance"));
     qDebug ()<< "no network";
     auto view = new ErrorView;
     auto button = new DTextButton(tr("Ok"));

@@ -15,7 +15,6 @@
 #include <QSvgWidget>
 
 #include "constants.h"
-#include "moduleheader.h"
 
 #include "mainpanel.h"
 #include "buttongroup.h"
