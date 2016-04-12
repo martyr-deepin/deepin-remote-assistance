@@ -14,7 +14,6 @@
 
 #include "abstractpanel.h"
 
-class ButtonGroup;
 class MainPanel : public AbstractPanel
 {
     Q_OBJECT
@@ -28,7 +27,6 @@ private slots:
 
 private:
     com::deepin::daemon::Remoting::Manager *m_manager;
-    ButtonGroup *m_buttongroup;
 };
 
 #endif

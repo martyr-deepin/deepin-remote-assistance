@@ -17,22 +17,15 @@
 #include "constants.h"
 
 #include "mainpanel.h"
-#include "buttongroup.h"
-#include "button.h"
 #include "helper.h"
 
 DWIDGET_USE_NAMESPACE
 
-MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p): AbstractPanel(tr(" "), p), m_buttongroup(new ButtonGroup)
+MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p):
+    AbstractPanel(tr(" "), p)
 {
     setObjectName("MainPanel");
     m_manager = manager;
-
-    // addWidget(new DSeparatorHorizontal);
-    // m_buttongroup->setGroupTitle(tr("Remote Assistance"));
-
-
-    setWindowTitle("远程协助");
 
     auto mainWidget = new QWidget;
     mainWidget->setStyleSheet("QWidget { background-color: #f5f5f8 }");

@@ -13,8 +13,6 @@ HEADERS         = constants.h \
     dbus/manager.h \
     dbus/server.h \
     remoteassistance.h \
-    view/buttongroup.h \
-    view/button.h \
     view/abstractpanel.h \
     view/sharepanel.h \
     view/mainpanel.h \
@@ -38,8 +36,6 @@ SOURCES         = main.cpp \
     dbus/manager.cpp \
     dbus/server.cpp \
     remoteassistance.cpp \
-    view/buttongroup.cpp \
-    view/button.cpp \
     view/abstractpanel.cpp \
     view/accesspanel.cpp \
     view/mainpanel.cpp \
