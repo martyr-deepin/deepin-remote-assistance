@@ -22,10 +22,15 @@
 #include <dtextbutton.h>
 
 #include "constants.h"
-
 #include "../helper.h"
 
 DWIDGET_USE_NAMESPACE
+
+static const QString TokenLineEditStyle = "QLineEdit#TokenLineEdit { "
+                                          "background: white; "
+                                          "border: 1px solid rgba(0, 0, 0, 0.1); "
+                                          "border-radius: 4px; "
+                                          "}";
 
 InputView::InputView(QWidget* p)
     : AbstractView(p),
@@ -39,7 +44,6 @@ InputView::InputView(QWidget* p)
     initialize();
 
     focus();
-
 }
 
 void InputView::emitConnect()
@@ -60,19 +64,22 @@ QWidget* InputView::createMainWidget()
     auto layout = new QVBoxLayout;
     layout->setSpacing(0);
     layout->setMargin(0);
-    QFont font("SourceHanSansCN-Light", 30);
-    font.setLetterSpacing(QFont::AbsoluteSpacing, 10);
 
     m_tokenEdit = new QLineEdit;
     m_tokenEdit->setMaxLength(6);
-    m_tokenEdit->setAttribute(Qt::WA_TranslucentBackground);
+//    m_tokenEdit->setAttribute(Qt::WA_TranslucentBackground);
     m_tokenEdit->setAlignment(Qt::AlignCenter);
     m_tokenEdit->setFixedWidth(DRA::ModuleContentWidth);
     m_tokenEdit->setFixedHeight(70);
 
-//    font.setWordSpacing( 20);
-    m_tokenEdit->setFont(font);
+    // Set style for our token edit box.
+    m_tokenEdit->setObjectName("TokenLineEdit");
+    m_tokenEdit->setStyleSheet(TokenLineEditStyle);
 
+    QFont font = m_tokenEdit->font();
+    font.setPixelSize(30);
+//    font.setLetterSpacing(QFont::AbsoluteSpacing, 6);
+    m_tokenEdit->setFont(font);
 
     QPixmap pixmap(getThemeImage("blue_button_normal.png"));
 
