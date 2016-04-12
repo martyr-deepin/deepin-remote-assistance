@@ -37,14 +37,13 @@ SharePanel::SharePanel(IShareController* controller, QWidget* p)
 
     connect(controller, SIGNAL(sharing()), this, SLOT(onSharing()));
     connect(controller, SIGNAL(generatingAccessToken()), this, SLOT(onGeneratingAccessToken()));
-    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
-    connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
+//    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
+//    connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
     connect(controller, SIGNAL(genAccessTokenSuccessed(QString)), this, SLOT(onGenAccessTokenSuccessed(QString)));
     controller->startGenAccessToken();
 }
 SharePanel::~SharePanel()
 {
-    onDisconnected();
     dtor();
 }
 
@@ -80,7 +79,7 @@ void SharePanel::onSharing()
 {
     qDebug() << "sharing";
     auto view = new ConnectedView;
-    view->setText(tr("Sharing your desktop, your can continue to share or choose to disconnect"));
+    view->setText(tr("正在进行远程协助"));
     connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnectedWithAsk()));
     setWidget(view);
 }
@@ -104,7 +103,7 @@ void SharePanel::onDisconnectedWithAsk()
 
 void SharePanel::onDisconnected()
 {
-    qDebug() << "disconnect immedately";
+    qDebug() << "disconnect immedately"<< m_controller->isSharing();
     m_controller->cancel();
     emitChangePanel();
 }

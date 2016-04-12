@@ -11,6 +11,7 @@
 
 #include <QDebug>
 #include <QLabel>
+#include <QVBoxLayout>
 
 #include <dthememanager.h>
 
@@ -29,16 +30,33 @@ ErrorView::ErrorView(QWidget* p)
 
 QWidget* ErrorView::createMainWidget()
 {
+     auto mainWidget = new QWidget;
+     auto mainLayout = new QVBoxLayout(mainWidget);
+     mainLayout->setSpacing(0);
+     mainLayout->setMargin(0);
+
     m_text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-    m_text->setFixedSize(DRA::ModuleContentWidth, 70);
-    m_text->setAlignment(Qt::AlignCenter);
+//    m_text->setFixedSize(DRA::ModuleContentWidth, 70);
+//    m_text->setAlignment(Qt::AlignCenter);
     m_text->setWordWrap(true);
+    m_text->setStyleSheet(" font-size : 20px; color:#ff8000; ");
+
+    mainLayout->addWidget(m_text, 0, Qt::AlignCenter);
+
+    QLabel * msgBox = new QLabel;
+    msgBox->setText("您输入的验证码无效，请重新输入");
+    msgBox->setStyleSheet("font-size:10px;"
+                          "color:#848484;");
+//    mainLayout->addSpacing(10);
+    mainLayout->addWidget(msgBox, 0, Qt::AlignCenter);
+
     setStyleSheet(readStyleSheet("errorview"));
-    return m_text;
+    return mainWidget;
 }
 
 ErrorView* ErrorView::setText(const QString& text)
 {
     m_text->setText(text);
+
     return this;
 }

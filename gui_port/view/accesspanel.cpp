@@ -9,6 +9,7 @@
 
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QBitmap>
 
 #include "accesspanel.h"
 #include <dtextbutton.h>
@@ -18,6 +19,7 @@
 #include "errorview.h"
 #include "inputview.h"
 #include "constants.h"
+#include "helper.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -63,7 +65,7 @@ void AccessPanel::emitChangePanel()
 void AccessPanel::onStopped()
 {
     qDebug() << "onStopped";
-    emitChangePanel();
+//    emitChangePanel();
 }
 
 void AccessPanel::abort()
@@ -90,7 +92,7 @@ void AccessPanel::onConnected()
 {
     qDebug() << "connected";
     auto view = new ConnectedView;
-    view->setText(tr("You are accessing the desktop shared by other users, you can choose to continue or disconnect"));
+    view->setText(tr("正在进行远程协助"));
     connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnected()));
     setWidget(view);
     connect(m_controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
@@ -110,14 +112,41 @@ void AccessPanel::onConnectFailed(AccessErrors e)
         qDebug() << "invalid token";
         break;
     }
-    view->setText(tr("Failed to establish the connection, you can retry to connect"));
-    auto button = new DTextButton(tr("Cancel"));
+    view->setText(tr("连接失败"));
+
+
+
+
+
+
+    QPixmap pixmap(getThemeImage("blue_button_normal.png"));
+    QPalette   pal;
+    pal.setColor(QPalette::ButtonText, QColor(255,255,255));
+
+    auto button = new DTextButton(tr("取消"));
+    button->setMask(pixmap.mask());
+    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
+    button->setFixedSize(120, 32);
+    button->setPalette(pal);
+
     connect(button, &DTextButton::clicked, [this]{
         emitChangePanel();
     });
-    view->addButton(button);
-    button = new DTextButton(tr("Retry"));
+    view->addButton(button, 0, Qt::AlignCenter);
+    button = new DTextButton(tr("重试"));
     button->setEnabled(false);
+
+
+    button->setMask(pixmap.mask());
+    button->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
+    button->setFixedSize(120, 32);
+    button->setPalette(pal);
+
+
     // waiting the remoting window to be closed.
     // NB: QTimer::singleShot not support lambda in Qt5.3.
     auto timer = new QTimer(this); // FIXME: this timer may not needed now.
@@ -132,7 +161,8 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     connect(button, &DTextButton::clicked, [this]{
         m_controller->retry();
     });
-    view->addButton(button);
+    view->addButton(button, 0, Qt::AlignCenter);
+
     setWidget(view);
 }
 

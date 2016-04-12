@@ -105,27 +105,26 @@ QWidget* GeneratedView::createMainWidget()
 
 
 
-
-//    DTextButton *buttonn = new DTextButton(tr("取消"));
-//    buttonn->setMask(pixmap.mask());
-//    buttonn->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
-//                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
-//                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}"
-//                           "font:#848484;");
-//    buttonn->setFixedSize(120, 32);
-
-
-//    buttonn->setPalette(pal);
-
-//    connect(buttonn, &DTextButton::clicked, [this] {
-//        qDebug() << "cancel button on GeneratedView is clicked";
-//        emit cancel();
-//    });
-
-
-
     m_buttonHLayout->addWidget(button);
-//    m_buttonHLayout->addWidget(buttonn);
+
+    DTextButton *buttonn = new DTextButton(tr("取消"));
+    buttonn->setMask(pixmap.mask());
+    buttonn->setStyleSheet("QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
+                         "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
+                         "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}"
+                           "font:#848484;");
+    buttonn->setFixedSize(120, 32);
+    buttonn->setPalette(pal);
+
+    connect(buttonn, &DTextButton::clicked, [this] {
+        qDebug() << "cancel button on GeneratedView is clicked";
+        emit cancel();
+    });
+
+
+
+    m_buttonHLayout->addWidget(buttonn);
+
 
 
 
@@ -154,7 +153,6 @@ QWidget* GeneratedView::createMainWidget()
     layout->addSpacing(20);
     layout->addWidget(m_copyTip);
     layout->addSpacing(10);
-//    layout->addWidget(button, 0, Qt::AlignCenter);
     layout->addLayout(m_buttonHLayout);
     layout->addStretch();
 

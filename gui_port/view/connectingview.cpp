@@ -20,6 +20,7 @@
 #include "constants.h"
 
 #include "../helper.h"
+#include "dmovie.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -35,54 +36,55 @@ ConnectingView::ConnectingView(QWidget*p)
 QWidget* ConnectingView::createMainWidget()
 {
     auto mainWidget = new QWidget;
-    mainWidget->setFixedSize(DRA::ModuleContentWidth, 140);
-    auto mainLayout = new QHBoxLayout(mainWidget);
+
+    auto mainLayout = new QVBoxLayout(mainWidget);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
-    mainLayout->addSpacing(15);
 
-    auto wrap = new QWidget;
-    mainLayout->addWidget(wrap);
 
-    mainLayout->addSpacing(15);
-
-    auto wrapLayout = new QVBoxLayout(wrap);
-
-    auto displayWidget = new QWidget;
-    auto displayLayout = new QHBoxLayout(displayWidget);
-    displayLayout->addStretch();
-
-    auto loadingImage = new DLoadingIndicator(displayWidget);
-    loadingImage->setFixedSize(16, 16);
+//    auto loadingImage = new DLoadingIndicator(displayWidget);
+//    loadingImage->setFixedSize(16, 16);
     
-    loadingImage->setImageSource(QPixmap(getThemeImage("waiting.png")));
-    loadingImage->setAniDuration(720);
-    loadingImage->setLoading(true);
-    displayLayout->addWidget(loadingImage);
+//    loadingImage->setImageSource(QPixmap(getThemeImage("waiting.png")));
+//    loadingImage->setAniDuration(720);
+//    loadingImage->setLoading(true);
+//    displayLayout->addWidget(loadingImage);
+
+    QLabel *movieLabel = new QLabel;
+    movieLabel->setFixedSize(32,32);
+    QString path = ":/dark/images/Spinner32/";
+    DMovie *movie = new DMovie(movieLabel);
+    movie->setMoviePath(path, movieLabel);
+
+    movie->start();
+
+    mainLayout->addWidget(movieLabel, 0, Qt::AlignCenter);
+    mainLayout->addSpacing(20);
 
     auto label = new QLabel;
     label->setObjectName("msg");
-    label->setText(tr("Establishing connection, please wait..."));
+    label->setText(tr("正在建立连接，请稍候......"));
     label->setAlignment(Qt::AlignVCenter);
-    displayLayout->addWidget(label);
+    mainLayout->addWidget(label, 0, Qt::AlignCenter);
 
-    displayLayout->addStretch();
-    wrapLayout->addWidget(displayWidget);
 
-    auto line = new QWidget;
-    line->setObjectName("separator");
-    line->setFixedHeight(1);
-    wrapLayout->addWidget(line);
-    wrapLayout->addSpacing(10);
+//    displayLayout->addStretch();
+//    mainLayout->addWidget(displayWidget);
 
-    auto waitingText = new QLabel;
-    waitingText->setObjectName("waitingText");
-    waitingText->setWordWrap(true);
-    waitingText->setAlignment(Qt::AlignTop|Qt::AlignHCenter);
-    waitingText->setText(tr("This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully"));
+//    auto line = new QWidget;
+//    line->setObjectName("separator");
+//    line->setFixedHeight(1);
+//    wrapLayout->addWidget(line);
+//    wrapLayout->addSpacing(10);
 
-    wrapLayout->addWidget(waitingText);
+//    auto waitingText = new QLabel;
+//    waitingText->setObjectName("waitingText");
+//    waitingText->setWordWrap(true);
+//    waitingText->setAlignment(Qt::AlignTop|Qt::AlignHCenter);
+//    waitingText->setText(tr("This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully"));
+
+//    wrapLayout->addWidget(waitingText);
 
 
 
@@ -94,7 +96,7 @@ QWidget* ConnectingView::createMainWidget()
 
 
 
-    auto button = new DTextButton(tr("Cancel"));
+    auto button = new DTextButton(tr("取消"));
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
 
     button->setMask(pixmap.mask());
@@ -106,7 +108,7 @@ QWidget* ConnectingView::createMainWidget()
 
 
 
-    wrapLayout->addWidget(button, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(button, 0, Qt::AlignCenter);
 
     setStyleSheet(readStyleSheet("connectingview"));
     return mainWidget;

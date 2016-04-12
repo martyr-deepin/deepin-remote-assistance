@@ -18,7 +18,6 @@ switch(movieType) {
     case DMovie::list:
         if(m_i < m_imageListSize)
         {
-//            qDebug() << "path:" + m_imageList.at(m_i);
             m_pixmap.load( m_path + m_imageList.at(m_i));
             m_label->setPixmap(m_pixmap);
             m_i++;
@@ -38,10 +37,8 @@ void DMovie::setMoviePath(QString path, QLabel *label)
     QDir dir( path );
     dir.setFilter(QDir::Files| QDir::NoDotAndDotDot);
     QStringList list = dir.entryList();
-//    qDebug() << list;
     movieType = DMovie::list;
     m_imageList = list;
-//    qDebug() << m_imageList;
     m_imageListSize = list.size();
     m_label = label;
 }

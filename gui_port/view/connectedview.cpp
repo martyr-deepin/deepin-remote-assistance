@@ -45,7 +45,7 @@ QWidget* ConnectedView::createMainWidget()
     mainLayout->setMargin(0);
 
 
-    auto button = new DTextButton(tr("Disconnect"));
+    auto button = new DTextButton(tr("断开"));
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onDisconnectButtonClicked()));
 
 
@@ -68,8 +68,17 @@ QWidget* ConnectedView::createMainWidget()
     m_text->setAlignment(Qt::AlignCenter);
     m_text->setWordWrap(true);
 
-    mainLayout->addWidget(m_text, 0, Qt::AlignHCenter);
-    mainLayout->addWidget(button, 0, Qt::AlignHCenter);
+    QLabel * msgBox = new QLabel;
+        msgBox->setText("您可以继续访问或选择断开");
+        msgBox->setStyleSheet("font-size:10px;"
+                              "color:#848484;");
+    //    mainLayout->addSpacing(10);
+
+
+
+    mainLayout->addWidget(m_text, 0, Qt::AlignCenter);
+    mainLayout->addWidget(msgBox, 0, Qt::AlignCenter);
+    mainLayout->addWidget(button, 0, Qt::AlignCenter);
 
 
     return mainWidget;

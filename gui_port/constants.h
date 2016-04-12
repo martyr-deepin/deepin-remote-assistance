@@ -30,7 +30,7 @@ static const QColor TextHoverColor = "#ffffff";
 static const uint FrameShadowWidth = 16;
 static const uint RemoteAssistanceWidth = 360;
 static const uint RemoteAssistanceHeight = 320;
-static const uint ModuleContentWidth = 310;
+static const uint ModuleContentWidth = 320;
 static const uint HomeScreen_TopWidgetHeight = 150;
 static const uint HomeScreen_BottomWidgetHeight = 84;
 

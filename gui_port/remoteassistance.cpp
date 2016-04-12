@@ -12,7 +12,7 @@
 #include <QVBoxLayout>
 #include <QIcon>
 
-#include <dwindows.h>
+#include <DWindow>
 #include <dstackwidget.h>
 
 #include "remoteassistance.h"
@@ -44,16 +44,18 @@ Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manage
     //    connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
     //    m_stackWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
 
-    QSize frameSize(360, 320);
-    // TODO
-    QSize contentSize(frameSize.width(), frameSize.height() - 40);
+
 
     QVBoxLayout * mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
+//m_view->setTitlebarFixedHeight(60);
+    QSize frameSize(360, 320-m_view->titlebarHeight());
+    // TODO
+    QSize contentSize(frameSize);
 
-
-    m_view->setTitle("远程协助");
+    m_view->setTitle(tr("远程协助"));
+    m_view->setStyleSheet("background-color: #f5f5f8");
 
 //    m_view->setIcon(QPixmap(getThemeImage("logo.svg")));
 //    m_view->setWindowFlags(m_view->windowFlags() &~ Qt::WindowSystemMenuHint);
@@ -106,7 +108,7 @@ void Impl::initPanel()
 
 void Impl::debug()
 {
-    qDebug() <<"showMinimizedshowMinimizedshowMinimizedshowMinimizedshowMinimized";
+
     this->m_view->showMinimized();
 }
 
@@ -147,24 +149,24 @@ void Impl::changeTitle(ViewPanel v)
     switch (v) {
     case ViewPanel::Main: {
         // MainPanel should be created only once.
-        m_view->setTitle("远程协助");
+        m_view->setTitle(tr("远程协助"));
         qDebug() << "height" << m_view->height();
-        m_view->setIcon(QPixmap(getThemeImage("")));
+        m_view->setTitleIcon(QPixmap(getThemeImage("")));
         break;
 
     }
     case ViewPanel::Access: {
 
         qDebug() << "create Access Panel";
-        m_view->setTitle("帮助别人");
-        m_view->setIcon(QPixmap(getThemeImage("assistant_help.png")));
+        m_view->setTitle(tr("帮助别人"));
+        m_view->setTitleIcon(QPixmap(getThemeImage("assistant_help.png")));
         break;
 
     }
     case ViewPanel::Share: {
         qDebug() << "create Share Panel";
-        m_view->setTitle("我要求助");
-        m_view->setIcon(QPixmap(getThemeImage("assistant_heart.png")));
+        m_view->setTitle(tr("我要求助"));
+        m_view->setTitleIcon(QPixmap(getThemeImage("assistant_heart.png")));
         break;
     }
     }
@@ -240,10 +242,6 @@ void RemoteAssistance::showWindow()
     m_impl->m_view->show();
 }
 
-//void RemoteAssistance::showMinimized()
-//{
-//    m_impl->m_view->showMinimized();
-//}
 
 void RemoteAssistance::hide()
 {
