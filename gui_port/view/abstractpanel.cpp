@@ -32,9 +32,11 @@ AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
 //    m_viewLayout->addStretch();
 
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-    setFixedWidth(360);
-    setFixedHeight(320);
+    setFixedWidth(DRA::WindowContentWidth);
+    setFixedHeight(DRA::WindowContentHeight);
 
+    setObjectName("AbstractPanel");
+    setStyleSheet("AbstractPanel { border: 1px solid black } ");
 }
 
 void AbstractPanel::emitChangePanel()
@@ -48,7 +50,7 @@ void AbstractPanel::setTitle(const QString &title)
 AbstractPanel* AbstractPanel::addWidget(QWidget*w)
 {
     //m_viewLayout->insertWidget(m_viewLayout->count()-1, w);
-    m_viewLayout->insertWidget(0, w);
+    m_viewLayout->insertWidget(0, w, 0, Qt::AlignHCenter);
     return this;
 }
 

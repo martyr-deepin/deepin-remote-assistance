@@ -28,8 +28,6 @@ static const QColor TextNormalColor = "#b4b4b4";
 static const QColor TextHoverColor = "#ffffff";
 
 static const uint FrameShadowWidth = 16;
-static const uint RemoteAssistanceWidth = 360;
-static const uint RemoteAssistanceHeight = 320;
 static const uint ModuleContentWidth = 320;
 static const uint HomeScreen_TopWidgetHeight = 150;
 static const uint HomeScreen_BottomWidgetHeight = 84;
@@ -42,8 +40,16 @@ static const uint TipsMoveAnimationDuration = 201;
 static const QEasingCurve TipsMoveCurve = QEasingCurve::OutCubic;
 
 static const QString IconPath = ":/resources/images/";
+
+// TODO: delete code above.
 static QApplication * globalApp;
 static RemoteAssistance * globalRa;
+
+static const uint WindowWidth = 360;
+static const uint WindowHeight = 320;
+
+static const uint WindowContentWidth = 360;
+static const uint WindowContentHeight = 244;
 }
 
 #endif // CONSTANTS_H

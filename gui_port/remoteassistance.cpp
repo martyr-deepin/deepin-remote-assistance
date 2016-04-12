@@ -50,20 +50,18 @@ Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manage
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 //m_view->setTitlebarFixedHeight(60);
-    QSize frameSize(360, 320-m_view->titlebarHeight());
-    // TODO
-    QSize contentSize(frameSize);
+
+    QSize frameSize(DRA::WindowWidth, DRA::WindowHeight);
+    QSize contentSize(DRA::WindowWidth,
+                      DRA::WindowHeight - m_view->titlebarHeight());
 
     m_view->setTitle(tr("远程协助"));
     m_view->setStyleSheet("background-color: #f5f5f8");
-
-//    m_view->setIcon(QPixmap(getThemeImage("logo.svg")));
-//    m_view->setWindowFlags(m_view->windowFlags() &~ Qt::WindowSystemMenuHint);
     m_view->setWindowFlags(m_view->windowFlags() &~ Qt::WindowMaximizeButtonHint);
     m_view->resize(frameSize);
 
     m_stackWidget->setFixedSize(contentSize);
-    mainLayout->addWidget(m_stackWidget);
+    mainLayout->addWidget(m_stackWidget/*, 0, Qt::AlignHCenter*/);
 
     m_view->setContentLayout(mainLayout);
 
