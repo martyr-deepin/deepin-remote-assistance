@@ -11,6 +11,7 @@
 #define GENERATEDVIEW_H
 
 #include "abstractview.h"
+#include "widgets/notifylabel.h"
 
 class QLabel;
 class QTimer;
@@ -26,7 +27,7 @@ signals:
 
 private:
     QWidget *createMainWidget() Q_DECL_OVERRIDE;
-    QLabel *m_token;
+    NotifyLabel *m_token;
     QLabel *m_copyTip;
     QTimer *m_copyTipVisableTimer;
 };

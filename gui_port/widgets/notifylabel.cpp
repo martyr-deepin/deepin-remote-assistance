@@ -5,7 +5,7 @@ NotifyLabel::NotifyLabel(QWidget *parent) :
 {
     setWordWrap(true);
     setAlignment(Qt::AlignHCenter);
-    setStyleSheet("NotifyLabel { font-size:20px; color:black; }");
+//    setStyleSheet("NotifyLabel { font-size:20px; color: red; }");
 }
 
 NotifyLabel::NotifyLabel(QString text, QWidget *parent) :

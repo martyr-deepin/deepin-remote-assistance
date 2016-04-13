@@ -23,6 +23,7 @@
 #include "constants.h"
 #include "dmovie.h"
 #include "../helper.h"
+#include "widgets/infolabel.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -48,32 +49,25 @@ QWidget* GeneratingView::createMainWidget()
     movie->setMoviePath(path, label);
     movie->start();
 
-    SimpleButton *button = new SimpleButton(tr("Cancel"),this);
+    SimpleButton *button = new SimpleButton(tr("取消"),this);
+
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
 
     QWidget* mainWidget = new QWidget;
 
-    mainWidget->setFixedSize(360, 290);
+    InfoLabel* text = new InfoLabel;
+    text->setText(tr("正在生成验证码，请稍候......"));
 
-    auto mainLayout = new QVBoxLayout;
+    auto mainLayout = new QVBoxLayout(mainWidget);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
-    QLabel* text = new QLabel;
-    text->setWordWrap(true);
-    text->setAlignment(Qt::AlignVCenter);
-    text->setText(tr("正在生成验证码，请稍候......"));
+    mainLayout->addSpacing(60);
+    mainLayout->addWidget(label, 0, Qt::AlignHCenter);
+    mainLayout->addSpacing(30);
+    mainLayout->addWidget(text, 0, Qt::AlignHCenter);
 
-    mainLayout->addSpacing(10);
-    mainLayout->addWidget(label);
-    mainLayout->setAlignment(label, Qt::AlignCenter);
-    mainLayout->addWidget(text);
-    mainLayout->setAlignment(text, Qt::AlignCenter);
-    mainLayout->addWidget(button);
-    mainLayout->setAlignment(button, Qt::AlignCenter);
-    mainLayout->addSpacing(48);
-
-    mainWidget->setLayout(mainLayout);
+    addButton(button);
 
     return mainWidget;
 }

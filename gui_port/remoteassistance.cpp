@@ -149,14 +149,14 @@ void Impl::changeTitle(ViewPanel v)
 
         qDebug() << "create Access Panel";
         m_view->setTitle(tr("帮助别人"));
-        m_view->setTitleIcon(QPixmap(getThemeImage("assistant_help.png")));
+        m_view->setTitleIcon(QPixmap(getThemeImage("assistant_heart.png")));
         break;
 
     }
     case ViewPanel::Share: {
         qDebug() << "create Share Panel";
         m_view->setTitle(tr("我要求助"));
-        m_view->setTitleIcon(QPixmap(getThemeImage("assistant_heart.png")));
+        m_view->setTitleIcon(QPixmap(getThemeImage("assistant_help.png")));
         break;
     }
     }

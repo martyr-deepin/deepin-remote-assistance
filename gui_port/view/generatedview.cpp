@@ -36,31 +36,39 @@ GeneratedView::GeneratedView(const QString& token, QWidget* p)
 
     initialize();
 
-    QFont font("SourceHanSansCN-Light", 30);
-    font.setLetterSpacing(QFont::AbsoluteSpacing, 10);
-//    font.setWordSpacing( 20);
-    m_token->setFont(font);
+
     m_token->setText(token);
+
 }
 
 QWidget* GeneratedView::createMainWidget()
 {
     auto mainWidget = new QWidget;
 
-    auto layout = new QVBoxLayout;
+    auto layout = new QVBoxLayout(mainWidget);
     layout->setSpacing(0);
     layout->setMargin(0);
 
-    layout->addSpacing(78);
+    layout->addSpacing(70);
 
-    m_token = new QLabel;
+    m_token = new NotifyLabel(this);
     m_token->setObjectName("token");
+    m_token->setFixedSize(200, 36);
+    QFont font = m_token->font();
+    font.setPixelSize(30);
+    m_token->setFont(font);
 
-    layout->addWidget(m_token);
-    layout->setAlignment(m_token, Qt::AlignCenter);
-//    layout->addSpacing(40);
+    qDebug() << font.pixelSize() << "------------------------";
 
-    QHBoxLayout *m_buttonHLayout = new QHBoxLayout;
+
+//    m_token->setStyleSheet("background-color:red");
+//    qDebug() << m_token->styleSheet();
+//    m_token->setStyleSheet("NotifyLabel { font-size:20px; color: red; }");
+//    m_token->setStyleSheet(m_token->styleSheet());
+//    m_token->setStyleSheet("NotifyLabel { font-size: 30px; color:black; }");
+
+    layout->addWidget(m_token, 0, Qt::AlignHCenter);
+
 
     SimpleButton *button = new SimpleButton(tr("复制"),this);
 
@@ -73,8 +81,6 @@ QWidget* GeneratedView::createMainWidget()
         m_copyTipVisableTimer->start();
     });
 
-    m_buttonHLayout->addWidget(button);
-
     SimpleButton *buttonn = new SimpleButton(tr("取消"));
 
     connect(buttonn, &SimpleButton::clicked, [this] {
@@ -82,16 +88,19 @@ QWidget* GeneratedView::createMainWidget()
         emit cancel();
     });
 
-    m_buttonHLayout->addWidget(buttonn);
+
+    addButton(button);
+    addButton(buttonn);
+
+
 
     m_copyTip = new QLabel;
     m_copyTip->setObjectName("copyTip");
     m_copyTip->setText(tr("成功复制到剪贴板"));
     m_copyTip->setAlignment(Qt::AlignHCenter);
     m_copyTip->setFixedWidth(DRA::ModuleContentWidth);
-    m_copyTip->setStyleSheet("font-size:10px;"
-                         "color:#848484;"
-                         ); //not support "font-face:SourceHanSansCN-Normal;"
+//    m_copyTip->setStyleSheet("font-size:24px;"
+//                         "color:#848484;");
 
     m_copyTip->setText("");
 
@@ -99,14 +108,12 @@ QWidget* GeneratedView::createMainWidget()
     tip->setText(tr("如需共享您的桌面，请将上面的验证码提供给协助您的人"));
     tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
 
-    layout->addSpacing(20);
-    layout->addWidget(tip,0,Qt::AlignCenter);
+    layout->addSpacing(35.6);
+    layout->addWidget(tip,0,Qt::AlignHCenter);
     layout->addSpacing(20);
     layout->addWidget(m_copyTip);
-    layout->addSpacing(10);
-    layout->addLayout(m_buttonHLayout);
+    layout->addSpacing(18);
     layout->addStretch();
 
-    mainWidget->setLayout(layout);
     return mainWidget;
 }

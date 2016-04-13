@@ -9,7 +9,7 @@ SimpleButton::SimpleButton(QString text, QWidget *parent) :
                   "QPushButton{border-image:url(" + getThemeImage("blue_button_normal.png") + ");}"
                   "QPushButton:hover{border-image:url("+ getThemeImage("button_hover.png") + ");}"
                   "QPushButton:pressed{border-image:url(" + getThemeImage("button_press.png") +");}");
-    setFixedSize(120, 32);
+    setFixedSize(160, 36);
 }
 
 SimpleButton::~SimpleButton()
