@@ -73,7 +73,6 @@ public Q_SLOTS: // METHODS
 
     inline QDBusPendingReply<> Stop()
     {
-        qDebug() <<"why crash ?";
         QList<QVariant> argumentList;
         return asyncCallWithArgumentList(QStringLiteral("Stop"), argumentList);
     }

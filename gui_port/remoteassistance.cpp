@@ -194,10 +194,8 @@ void RemoteAssistance::changePanel(ViewPanel v)
 
 inline void Impl::pushView(QWidget* w, bool enableTransition)
 {
-    qDebug() << "push new panel" << w->objectName();
     m_panel = w;
     m_stackWidget->pushWidget(w, enableTransition);
-
 }
 
 inline void Impl::popView(QWidget* w, bool isDelete, int count, bool enableTransition)
