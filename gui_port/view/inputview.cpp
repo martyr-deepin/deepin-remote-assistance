@@ -33,11 +33,24 @@ static const QString TokenLineEditStyle = "QLineEdit#TokenLineEdit { "
 InputView::InputView(QWidget* p)
     : AbstractView(p),
       m_validator(new QRegExpValidator(*new QRegExp("[A-Za-z0-9]{6}"), this)),
-      m_connectButton(new SimpleButton(tr("连接")))
+      m_connectButton(new SimpleButton(tr("取消")))
 {
     setObjectName("InputView");
-    m_connectButton->setEnabled(false);
-    QObject::connect(m_connectButton, &SimpleButton::clicked, this, &InputView::emitConnect);
+    m_buttonFlag = InputView::btncancel;
+
+    QObject::connect(m_connectButton, &SimpleButton::clicked, [this]{
+        switch(m_buttonFlag)
+        {
+            case InputView::btncancel:
+                emit cancel();
+                break;
+            case InputView::btnconnect:
+                emitConnect();
+                break;
+        }
+
+    });
+
 
     initialize();
 
@@ -65,7 +78,7 @@ QWidget* InputView::createMainWidget()
 
     m_tokenEdit = new QLineEdit;
     m_tokenEdit->setMaxLength(6);
-//    m_tokenEdit->setAttribute(Qt::WA_TranslucentBackground);
+
     m_tokenEdit->setAlignment(Qt::AlignCenter);
     m_tokenEdit->setFixedWidth(DRA::ModuleContentWidth);
     m_tokenEdit->setFixedHeight(70);
@@ -76,42 +89,26 @@ QWidget* InputView::createMainWidget()
 
     QFont font = m_tokenEdit->font();
     font.setPixelSize(30);
-//    font.setLetterSpacing(QFont::AbsoluteSpacing, 6);
     m_tokenEdit->setFont(font);
 
-    m_cancelButton = new SimpleButton(tr("取消"));
-    QObject::connect(m_cancelButton, &SimpleButton::clicked, [this] (bool){
-        emit cancel();
-    });
-    m_connectButton->hide();
 
     QObject::connect(m_tokenEdit, SIGNAL(returnPressed()), this, SLOT(connectToClient()));
     QObject::connect(m_tokenEdit, &QLineEdit::textChanged, [this](const QString& token){
         qDebug() << "valid token";
         QString copyToken = token;
         int pos = 0;
-        m_connectButton->setEnabled(false);
-        m_connectButton->hide();
-        m_cancelButton->show();
+
+        m_connectButton->setText(tr("取消"));
+        m_buttonFlag = InputView::btncancel;
         if (m_validator->validate(copyToken, pos) == QValidator::Acceptable) {
-            m_connectButton->setEnabled(true);
-            m_connectButton->show();
-            m_cancelButton->hide();
-//            m_tip->setText(tr("Start remote access after clicking on \"Connect\""));
-//        } else if (m_tip->text() == tr("Start remote access after clicking on \"Connect\"")){
-//            m_tip->setText(tr("Please enter the verification code in the input field above"));
+            m_connectButton->setText(tr("连接"));
+            m_buttonFlag = InputView::btnconnect;
         }
     });
 
-
-
     QHBoxLayout *m_buttonHLayout = new QHBoxLayout;
 
-
-    m_buttonHLayout->addWidget(m_cancelButton);
-    m_buttonHLayout->addWidget(m_connectButton);
-//    m_connectButton->hide();
-
+    addButton(m_connectButton);
 
     layout->addSpacing(56);
     layout->addWidget(m_tokenEdit, 0, Qt::AlignCenter);
@@ -123,7 +120,7 @@ QWidget* InputView::createMainWidget()
     layout->addSpacing(20);
     layout->addWidget(m_tip, 0, Qt::AlignCenter);
     layout->addSpacing(40);
-    layout->addLayout(m_buttonHLayout);
+//    layout->addLayout(m_buttonHLayout);
     layout->addStretch();
     mainWidget->setLayout(layout);
     return mainWidget;

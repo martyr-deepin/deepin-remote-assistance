@@ -23,6 +23,10 @@ class InputView : public AbstractView
 {
     Q_OBJECT
 public:
+    enum{
+        btnconnect,
+        btncancel
+    };
     InputView(QWidget *p = nullptr);
     void focus();
 
@@ -40,7 +44,7 @@ private:
     TipLabel *m_tip;
     QRegExpValidator *m_validator;
     SimpleButton *m_connectButton;
-    SimpleButton *m_cancelButton;
+    int m_buttonFlag;
 };
 
 #endif // INPUTVIEW_H
