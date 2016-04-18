@@ -77,7 +77,7 @@ void SharePanel::onSharing()
 {
     qDebug() << "sharing";
     auto view = new ConnectedView;
-    view->setText(tr("正在进行远程协助"));
+    view->setText(tr("Remotely assisting"));
     connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnectedWithAsk()));
     setWidget(view);
 }

@@ -49,14 +49,14 @@ QWidget* GeneratingView::createMainWidget()
     movie->setMoviePath(path, label);
     movie->start();
 
-    SimpleButton *button = new SimpleButton(tr("取消"),this);
+    SimpleButton *button = new SimpleButton(tr("Cancel"),this);
 
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
 
     QWidget* mainWidget = new QWidget;
 
     InfoLabel* text = new InfoLabel;
-    text->setText(tr("正在生成验证码，请稍候......"));
+    text->setText(tr("Generating verification code, please wait... "));
 
     auto mainLayout = new QVBoxLayout(mainWidget);
     mainLayout->setSpacing(0);

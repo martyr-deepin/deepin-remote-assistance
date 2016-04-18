@@ -22,7 +22,7 @@
 #include "helper.h"
 
 AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
-    : AbstractPanel(tr("我要求助"), p),
+    : AbstractPanel(tr("Assist me"), p),
       m_controller(controller)
 {
     setObjectName("AccessPanel");
@@ -89,7 +89,7 @@ void AccessPanel::onConnected()
 {
     qDebug() << "connected";
     auto view = new ConnectedView;
-    view->setText(tr("正在进行远程协助"));
+    view->setText(tr("Remotely assisting"));
     connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnected()));
     setWidget(view);
     connect(m_controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
@@ -108,16 +108,17 @@ void AccessPanel::onConnectFailed(AccessErrors e)
         qDebug() << "invalid token";
         break;
     }
-    view->setText(tr("连接失败"));
+    view->setText(tr("Connect failed"));
 
-    auto button = new SimpleButton(tr("取消"));
+    auto button = new SimpleButton(tr("cancel"));
     connect(button, &SimpleButton::clicked, [this]{
         emitChangePanel();
     });
 
     view->addButton(button, 0, Qt::AlignCenter);
 
-    button = new SimpleButton(tr("重试"));
+
+    button = new SimpleButton(tr("Retry"));
     button->setEnabled(false);
 
     // waiting the remoting window to be closed.

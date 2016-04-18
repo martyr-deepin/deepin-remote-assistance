@@ -42,16 +42,16 @@ QWidget* ConnectedView::createMainWidget()
     mainLayout->setMargin(0);
 
     m_text->setFixedSize(DRA::NotifyLabelMaxWidth, DRA::NotifyLabelMaxHeight);
-    mainLayout->addSpacing(55);
+    mainLayout->addSpacing(67);
     mainLayout->addWidget(m_text);
     mainLayout->addSpacing(30);
 
     TipLabel * tip  = new TipLabel(this);
-    tip->setText("您可以继续访问或选择断开");
+    tip->setText(tr("Continue to access or disconnect"));
     tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
     mainLayout->addWidget(tip);
 
-    auto button = new SimpleButton(tr("断开"));
+    auto button = new SimpleButton(tr("Disconnect"));
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onDisconnectButtonClicked()));
 
     addButton(button);

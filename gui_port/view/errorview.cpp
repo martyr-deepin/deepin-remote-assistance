@@ -38,12 +38,13 @@ QWidget* ErrorView::createMainWidget()
     mainLayout->setMargin(0);
 
     m_text->setFixedSize(DRA::NotifyLabelMaxWidth, DRA::NotifyLabelMaxHeight);
-    mainLayout->addSpacing(55);
-    mainLayout->addWidget(m_text, 0, Qt::AlignCenter);
-    mainLayout->addSpacing(30);
+    m_text->setStyleSheet("NotifyLabel { font-size:20px; color: #ff8000; }");
+    mainLayout->addSpacing(62);
+    mainLayout->addWidget(m_text, 0, Qt::AlignHCenter);
+    mainLayout->addSpacing(37);
 
     TipLabel *tip = new TipLabel(this);
-    tip->setText("您输入的验证码无效，请重新输入");
+    tip->setText(tr("Invalid verification code, please retry!"));
     tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
     mainLayout->addWidget(tip, 0, Qt::AlignHCenter);
 

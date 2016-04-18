@@ -44,7 +44,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
 
 
     TipLabel *ptext = new TipLabel(this);
-    ptext->setText("欢迎您使用远程协助,通过它您可以连接到别人的电脑帮助别人解决问题,或共享您的电脑让别人来解决您的问题");
+    ptext->setText(tr("欢迎您使用远程协助,通过它您可以连接到别人的电脑帮助别人解决问题,或共享您的电脑让别人来解决您的问题"));
     ptext->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
 
     mainLayout->addSpacing(137 - (64 + 50));
@@ -54,7 +54,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
     button = new QPushButton;
     button->setFixedSize(160, 36);
 
-    button->setText(" 我要求助 ");
+    button->setText(tr("我要求助"));
     button->setIcon(QIcon(getThemeImage("assistant_help.png")));
 
 
@@ -65,7 +65,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
 
     button = new QPushButton;
     button->setFixedSize(160,36);
-    button->setText(" 帮助别人 ");
+    button->setText(tr("帮助别人"));
     button->setIcon(QIcon(getThemeImage("assistant_heart.png")));
 
     connect(button, SIGNAL(clicked()), this, SLOT(changeToAccessPanel()));

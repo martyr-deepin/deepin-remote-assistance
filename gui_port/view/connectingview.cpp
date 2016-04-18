@@ -55,11 +55,11 @@ QWidget* ConnectingView::createMainWidget()
 
     auto label = new QLabel;
     label->setObjectName("msg");
-    label->setText(tr("正在建立连接，请稍候......"));
+    label->setText(tr("Establishing connection, please wait..."));
     label->setAlignment(Qt::AlignVCenter);
     mainLayout->addWidget(label, 0, Qt::AlignCenter);
 
-    auto button = new SimpleButton(tr("取消"));
+    auto button = new SimpleButton(tr("Cancel"));
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
 
     addButton(button);

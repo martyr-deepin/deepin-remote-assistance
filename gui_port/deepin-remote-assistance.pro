@@ -58,7 +58,7 @@ SOURCES         = main.cpp \
     widgets/notifylabel.cpp \
     widgets/infolabel.cpp
 
-TARGET          = $$qtLibraryTarget(remote_assistance) # ??
+TARGET          = deepin-remote-assistance
 DESTDIR         = .
 DISTFILES += dark/button.theme \
     dark/generatingview.theme \
@@ -69,6 +69,15 @@ DISTFILES += dark/button.theme \
     dark/connectingview.theme \
     deepin-remote-assistance.desktop \
     TODO
+
+#Automating generation .qm files from .ts files
+system($$PWD/translate_generation.sh)
+
+TRANSLATIONS = translations/deepin-remote-assistance.ts
+
+qm_files.files = translations/*.qm
+qm_files.path = /usr/share/deepin-remote-assistance/translations
+
 
 RESOURCES += \
     theme.qrc

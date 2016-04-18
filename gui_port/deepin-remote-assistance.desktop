@@ -2,7 +2,7 @@
 Categories=Application;Network;
 Comment=Deepin Remote Assistance
 Encoding=UTF-8
-Exec=/usr/bin/remote-assistance
+Exec=/usr/bin/deepin-remote-assistance
 Icon=deepin-remote-assistance 
 Name=Remote Assistance
 OnlyShowIn=Deepin

@@ -83,7 +83,7 @@ QWidget* GeneratedView::createMainWidget()
         m_copyTipVisableTimer->start();
     });
 
-    SimpleButton *buttonn = new SimpleButton(tr("取消"));
+    SimpleButton *buttonn = new SimpleButton(tr("Cancel"));
 
     connect(buttonn, &SimpleButton::clicked, [this] {
         qDebug() << "cancel button on GeneratedView is clicked";
@@ -98,7 +98,7 @@ QWidget* GeneratedView::createMainWidget()
 
 
     m_tipLabel = new TipLabel(this);
-    m_tipLabel->setText(tr("如需共享您的桌面，请将上面的验证码提供给协助您的人"));
+    m_tipLabel->setText(tr("To share your desktop, please provide the above verification code to your help provider"));
     m_tipLabel->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
 
     layout->addSpacing(35.6);

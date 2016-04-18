@@ -98,10 +98,10 @@ QWidget* InputView::createMainWidget()
         QString copyToken = token;
         int pos = 0;
 
-        m_connectButton->setText(tr("取消"));
+        m_connectButton->setText(tr("Cancel"));
         m_buttonFlag = InputView::btncancel;
         if (m_validator->validate(copyToken, pos) == QValidator::Acceptable) {
-            m_connectButton->setText(tr("连接"));
+            m_connectButton->setText(tr("Connect"));
             m_buttonFlag = InputView::btnconnect;
         }
     });
@@ -114,7 +114,7 @@ QWidget* InputView::createMainWidget()
     layout->addWidget(m_tokenEdit, 0, Qt::AlignCenter);
 
     m_tip = new TipLabel(this);
-    m_tip->setText(tr("请在上方输入验证码，完成“连接”后开始远程访问"));
+    m_tip->setText(tr("Input verification code and \"Connect\" to start remote access"));
     m_tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
 
     layout->addSpacing(20);
