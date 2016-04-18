@@ -50,7 +50,7 @@ Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manage
     QSize contentSize(DRA::WindowWidth,
                       DRA::WindowHeight - m_view->titlebarHeight());
 
-    m_view->setTitle(tr("远程协助"));
+    m_view->setTitle(tr("Remote Assistance"));
     m_view->setStyleSheet("background-color: #f5f5f8");
     m_view->setWindowFlags(m_view->windowFlags() &~ Qt::WindowMaximizeButtonHint);
     m_view->resize(frameSize);
@@ -139,7 +139,7 @@ void Impl::changeTitle(ViewPanel v)
     switch (v) {
     case ViewPanel::Main: {
         // MainPanel should be created only once.
-        m_view->setTitle(tr("远程协助"));
+        m_view->setTitle(tr("Remote Assistance"));
         qDebug() << "height" << m_view->height();
         m_view->setTitleIcon(QPixmap(getThemeImage("")));
         break;
@@ -148,14 +148,14 @@ void Impl::changeTitle(ViewPanel v)
     case ViewPanel::Access: {
 
         qDebug() << "create Access Panel";
-        m_view->setTitle(tr("帮助别人"));
+        m_view->setTitle(tr("Assist others"));
         m_view->setTitleIcon(QPixmap(getThemeImage("assistant_heart.png")));
         break;
 
     }
     case ViewPanel::Share: {
         qDebug() << "create Share Panel";
-        m_view->setTitle(tr("我要求助"));
+        m_view->setTitle(tr("Assist me"));
         m_view->setTitleIcon(QPixmap(getThemeImage("assistant_help.png")));
         break;
     }

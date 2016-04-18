@@ -62,20 +62,14 @@ QWidget* GeneratedView::createMainWidget()
     qDebug() << font.pixelSize() << "------------------------";
 
 
-//    m_token->setStyleSheet("background-color:red");
-//    qDebug() << m_token->styleSheet();
-//    m_token->setStyleSheet("NotifyLabel { font-size:20px; color: red; }");
-//    m_token->setStyleSheet(m_token->styleSheet());
-//    m_token->setStyleSheet("NotifyLabel { font-size: 30px; color:black; }");
-
     layout->addWidget(m_tokenLabel, 0, Qt::AlignHCenter);
 
 
-    SimpleButton *button = new SimpleButton(tr("复制"),this);
+    SimpleButton *button = new SimpleButton(tr("Copy"),this);
 
     connect(button, &SimpleButton::clicked, [this] {
-        m_tokenLabel->setText(tr("成功复制到剪贴板"));
-        m_tipLabel->setText(tr("正在等待连接，请稍后…\n连接成功后，此界面会自动隐藏到任务栏"));
+        m_tokenLabel->setText(tr("Copied to clipboard successfully"));
+        m_tipLabel->setText(tr("Connecting, please wait...interface will close after successfully connected"));
         QString token = m_tokenLabel->text();
         QApplication::clipboard()->setText(m_token);
         qDebug() << "Copy Code button on GeneratedView is clicked.";
