@@ -45,7 +45,7 @@ install:
 		msgfmt locale/$$locale -o ${LOCALE}/$${locale%.*}/LC_MESSAGES/deepin-remote-assistance.mo; \
 	done
 	#install gui-port
-	install -D gui_port/remote_assistance ${BIN}
+	install -D gui_port/deepin-remote-assistance ${BIN}
 	install -D gui_port/deepin-remote-assistance.desktop ${APPLICATIONS}
 
 clean:
