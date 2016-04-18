@@ -79,28 +79,27 @@
 <context>
     <name>GeneratedView</name>
     <message>
-        <location filename="../view/generatedview.cpp" line="74"/>
-        <source>复制</source>
+        <location filename="../view/generatedview.cpp" line="68"/>
+        <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="77"/>
-        <source>成功复制到剪贴板</source>
+        <location filename="../view/generatedview.cpp" line="71"/>
+        <source>Copied to clipboard successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="78"/>
-        <source>正在等待连接，请稍后…
-连接成功后，此界面会自动隐藏到任务栏</source>
+        <location filename="../view/generatedview.cpp" line="72"/>
+        <source>Connecting, please wait...interface will close after successfully connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="86"/>
+        <location filename="../view/generatedview.cpp" line="80"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="101"/>
+        <location filename="../view/generatedview.cpp" line="95"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
         <translation type="unfinished"></translation>
     </message>
@@ -141,10 +140,6 @@
     <name>InputView</name>
     <message>
         <location filename="../view/inputview.cpp" line="36"/>
-        <source>取消</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../view/inputview.cpp" line="101"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
