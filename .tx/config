@@ -3,8 +3,16 @@ host = https://www.transifex.com
 minimum_perc = 80
 mode = developer
 
-[deepin-desktop-environment.remote-assistancepot]
+; the backend part
+[deepin-desktop-environment.deepin-remote-assistant.pot]
 file_filter = locale/<lang>.po
 source_lang = en
 source_file = locale/deepin-remote-assistance.pot
 type = PO
+
+; the gui part
+[deepin-desktop-environment.deepin-remote-assistant_gui]
+file-filter = gui_port/translations/deepin-remote-assistant_<lang>.ts
+source_lang = en
+source_file = gui_port/translations/deepin-remote-assistant.ts
+type = QT
