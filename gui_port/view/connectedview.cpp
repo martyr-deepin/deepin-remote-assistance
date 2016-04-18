@@ -43,13 +43,13 @@ QWidget* ConnectedView::createMainWidget()
 
     m_text->setFixedSize(DRA::NotifyLabelMaxWidth, DRA::NotifyLabelMaxHeight);
     mainLayout->addSpacing(67);
-    mainLayout->addWidget(m_text);
+    mainLayout->addWidget(m_text, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(30);
 
     TipLabel * tip  = new TipLabel(this);
     tip->setText(tr("Continue to access or disconnect"));
     tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
-    mainLayout->addWidget(tip);
+    mainLayout->addWidget(tip, 0, Qt::AlignHCenter);
 
     auto button = new SimpleButton(tr("Disconnect"));
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onDisconnectButtonClicked()));

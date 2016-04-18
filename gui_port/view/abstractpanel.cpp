@@ -31,7 +31,7 @@ AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
     setFixedHeight(DRA::WindowContentHeight);
 
     setObjectName("AbstractPanel");
-    setStyleSheet("AbstractPanel { border: 1px solid black } ");
+//    setStyleSheet("AbstractPanel { border: 1px solid black } ");
 }
 
 void AbstractPanel::emitChangePanel()
