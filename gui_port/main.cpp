@@ -20,6 +20,8 @@ int main(int argv, char *args[])
     app.installTranslator(&translator);
 
     RemoteAssistance ra;
+    QObject::connect(&app, SIGNAL(aboutToQuit()), &ra, SIGNAL(aboutToQuit()) );
+
     ra.showWindow();
     DRA::globalRa = &ra;
 

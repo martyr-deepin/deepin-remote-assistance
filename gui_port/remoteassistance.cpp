@@ -118,6 +118,7 @@ QWidget* Impl::getPanel(ViewPanel v)
         auto client = new com::deepin::daemon::Remoting::Client("com.deepin.daemon.Remoting.Client", "/com/deepin/daemon/Remoting/Client", QDBusConnection::sessionBus());
         auto controller = new AccessController(m_manager, client);
         m_accessPanel = new AccessPanel(controller);
+        QObject::connect(m_pub, SIGNAL(aboutToQuit()), (AccessPanel*)m_accessPanel, SLOT(emitChangePanel()));
         QObject::connect(m_accessPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
         QObject::connect(m_accessPanel, SIGNAL(connected()), this, SLOT(debug()));
         return m_accessPanel;
@@ -127,6 +128,7 @@ QWidget* Impl::getPanel(ViewPanel v)
         auto server = new com::deepin::daemon::Remoting::Server("com.deepin.daemon.Remoting.Server", "/com/deepin/daemon/Remoting/Server", QDBusConnection::sessionBus());
         auto controller  = new ShareController(m_manager, server);
         m_sharePanel = new SharePanel(controller);
+        QObject::connect(m_pub, SIGNAL(aboutToQuit()), (SharePanel*)m_sharePanel, SLOT(onDisconnected()));
         QObject::connect(m_sharePanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
         return m_sharePanel;
     }

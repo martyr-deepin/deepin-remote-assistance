@@ -74,7 +74,9 @@ public:
     ~RemoteAssistance();
 
     void showWindow();
-   // void showMinimized();
+
+signals:
+    void aboutToQuit();
 
 
 public slots:
