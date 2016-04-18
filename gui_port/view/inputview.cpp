@@ -33,7 +33,7 @@ static const QString TokenLineEditStyle = "QLineEdit#TokenLineEdit { "
 InputView::InputView(QWidget* p)
     : AbstractView(p),
       m_validator(new QRegExpValidator(*new QRegExp("[A-Za-z0-9]{6}"), this)),
-      m_connectButton(new SimpleButton(tr("取消")))
+      m_connectButton(new SimpleButton(tr("Cancel")))
 {
     setObjectName("InputView");
     m_buttonFlag = InputView::btncancel;
