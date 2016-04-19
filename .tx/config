@@ -4,7 +4,7 @@ minimum_perc = 80
 mode = developer
 
 ; the backend part
-[deepin-desktop-environment.deepin-remote-assistant.pot]
+[deepin-desktop-environment.deepin-remote-assistantpot]
 file_filter = locale/<lang>.po
 source_lang = en
 source_file = locale/deepin-remote-assistance.pot
