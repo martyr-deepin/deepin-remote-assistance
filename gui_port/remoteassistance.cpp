@@ -24,6 +24,7 @@
 #include "view/sharepanel.h"
 #include "constants.h"
 #include "helper.h"
+#include "view/aboutdialog.h"
 
 namespace ManagerState {
 enum {
@@ -32,6 +33,8 @@ enum {
     Server,
 };
 }
+
+
 
 DWIDGET_USE_NAMESPACE
 
@@ -51,6 +54,12 @@ Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manage
                       DRA::WindowHeight - m_view->titlebarHeight());
 
     m_view->setTitle(tr("Remote Assistance"));
+
+    m_about = new Dtk::Widget::DAction(tr("About"), this);
+    connect(m_about, SIGNAL(triggered()), this, SLOT(showAbout()));
+
+    m_view->dbusMenu()->addAction(m_about);
+
     m_view->setStyleSheet("background-color: #f5f5f8");
     m_view->setWindowFlags(m_view->windowFlags() &~ Qt::WindowMaximizeButtonHint);
     m_view->resize(frameSize);
@@ -66,6 +75,13 @@ Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manage
 Impl::~Impl()
 {
     m_manager->deleteLater();
+}
+
+void Impl::showAbout()
+{
+    DAboutDialog * about = new DAboutDialog(m_view);
+    about->show();
+
 }
 
 void Impl::initPanel()

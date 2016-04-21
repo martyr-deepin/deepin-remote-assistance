@@ -30,7 +30,8 @@ HEADERS         = constants.h \
     widgets/simplebutton.h \
     widgets/tiplabel.h \
     widgets/notifylabel.h \
-    widgets/infolabel.h
+    widgets/infolabel.h \
+    view/aboutdialog.h
 
 SOURCES         = main.cpp \
     controller/share.cpp \
@@ -56,7 +57,8 @@ SOURCES         = main.cpp \
     widgets/simplebutton.cpp \
     widgets/tiplabel.cpp \
     widgets/notifylabel.cpp \
-    widgets/infolabel.cpp
+    widgets/infolabel.cpp \
+    view/aboutdialog.cpp
 
 TARGET          = deepin-remote-assistance
 DESTDIR         = .
@@ -80,4 +82,5 @@ qm_files.path = /usr/share/deepin-remote-assistance/translations
 
 
 RESOURCES += \
-    theme.qrc
+    theme.qrc \
+    Resource.qrc

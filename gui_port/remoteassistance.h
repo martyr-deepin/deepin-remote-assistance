@@ -16,6 +16,8 @@
 #include <libdui_global.h>
 #include "dbus/manager.h"
 #include "view/ddraging.h"
+#include "daction.h"
+
 
 QT_BEGIN_NAMESPACE
 class QFrame;
@@ -28,12 +30,15 @@ DWIDGET_END_NAMESPACE
 
 class RemoteAssistance;
 
+
 enum ViewPanel
 {
     Main,
     Share,
     Access,
 };
+
+
 
 class Impl : public QObject
 {
@@ -49,6 +54,7 @@ public:
 
 public slots:
         void debug();
+        void showAbout();
 
 public:
     QWidget *getPanel(ViewPanel);
@@ -63,6 +69,8 @@ public:
     QWidget* m_mainPanel = nullptr;
     QWidget* m_accessPanel = nullptr;
     QWidget* m_sharePanel = nullptr;
+
+    Dtk::Widget::DAction * m_about = nullptr;
 };
 
 

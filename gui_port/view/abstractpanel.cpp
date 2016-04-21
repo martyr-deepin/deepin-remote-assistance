@@ -66,11 +66,13 @@ void AbstractPanel::onNoNetwork()
 {
     qDebug ()<< "no network";
     auto view = new ErrorView;
-    auto button = new SimpleButton(tr("Ok"));
+    auto button = new SimpleButton(tr("Confirm"));
     QObject::connect(button, &SimpleButton::clicked, [this] {
         abort();
     });
     view->addButton(button);
 
-    setWidget(view->setText(tr("No network connections are available, please retry after connected")));
+    setWidget(view->setText(tr("Network connection unavailable, please retry...")));
 }
+
+

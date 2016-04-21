@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resource/logo.png</file>
+        <file>Resource/print-agent.svg</file>
+        <file>Resource/print-agent-48.png</file>
+        <file>Resource/print-agent-96.png</file>
+    </qresource>
+</RCC>

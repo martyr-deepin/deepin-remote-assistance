@@ -202,7 +202,7 @@
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="123"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
+        <source>Failed to establish connection, please retry</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
