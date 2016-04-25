@@ -41,10 +41,6 @@ static const QEasingCurve TipsMoveCurve = QEasingCurve::OutCubic;
 
 static const QString IconPath = ":/resources/images/";
 
-// TODO: delete code above.
-static QApplication * globalApp;
-static RemoteAssistance * globalRa;
-
 static const uint WindowWidth = 360;
 static const uint WindowHeight = 320;
 

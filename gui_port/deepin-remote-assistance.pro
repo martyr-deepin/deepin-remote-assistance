@@ -26,7 +26,6 @@ HEADERS         = constants.h \
     view/abstractview.h \
     helper.h \
     dmovie.h \
-    view/ddraging.h \
     widgets/simplebutton.h \
     widgets/tiplabel.h \
     widgets/notifylabel.h \
@@ -53,7 +52,6 @@ SOURCES         = main.cpp \
     view/inputview.cpp \
     helper.cpp \
     dmovie.cpp \
-    view/ddraging.cpp \
     widgets/simplebutton.cpp \
     widgets/tiplabel.cpp \
     widgets/notifylabel.cpp \

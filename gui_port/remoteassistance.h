@@ -15,7 +15,6 @@
 #include <QScopedPointer>
 #include <libdui_global.h>
 #include "dbus/manager.h"
-#include "view/ddraging.h"
 #include "daction.h"
 
 

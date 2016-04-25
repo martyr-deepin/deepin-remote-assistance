@@ -2,16 +2,18 @@
 
 
 #include <QFrame>
-#include <QApplication>
+#include <DApplication>
 #include "constants.h"
+
+using namespace Dtk::Widget;
 
 int main(int argv, char *args[])
 {
-    QApplication app(argv, args);
+    DApplication app(argv, args);
+
     app.setOrganizationName("deepin");
     app.setApplicationName("deepin-remote-assistance");
     app.setApplicationVersion("1.0");
-    DRA::globalApp = &app;
 
 
     QTranslator translator;
@@ -23,9 +25,6 @@ int main(int argv, char *args[])
     QObject::connect(&app, SIGNAL(aboutToQuit()), &ra, SIGNAL(aboutToQuit()) );
 
     ra.showWindow();
-    DRA::globalRa = &ra;
-
-
 
     return app.exec();
 }

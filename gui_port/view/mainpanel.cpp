@@ -14,6 +14,7 @@
 #include <QPushButton>
 #include <QSvgWidget>
 
+
 #include "constants.h"
 #include "mainpanel.h"
 #include "helper.h"
@@ -56,7 +57,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
 
     button->setText(tr("Assist me"));
     button->setIcon(QIcon(getThemeImage("assistant_help.png")));
-
+    button->setStyleSheet("QPushButton { padding-left: 25px; text-align: left; border-width: 1px; border-color: rgba(0, 0, 0, 0.1); border-style: solid; border-radius: 4px;}");
 
     mainLayout->addSpacing(198 - (40 + 23 + 64 + 50));
     mainLayout->addWidget(button, 0, Qt::AlignCenter);
@@ -67,6 +68,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
     button->setFixedSize(160,36);
     button->setText(tr("Assist others"));
     button->setIcon(QIcon(getThemeImage("assistant_heart.png")));
+    button->setStyleSheet("QPushButton { padding-left: 25px; text-align: left; border-width: 1px; border-color: rgba(0, 0, 0, 0.1); border-style: solid; border-radius: 4px;}");
 
     connect(button, SIGNAL(clicked()), this, SLOT(changeToAccessPanel()));
 
