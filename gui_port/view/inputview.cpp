@@ -64,7 +64,7 @@ void InputView::emitConnect()
 
 void InputView::connectToClient()
 {
-    if (m_connectButton->isEnabled()) {
+    if (InputView::btnconnect == m_buttonFlag) {
         emitConnect();
     }
 }
