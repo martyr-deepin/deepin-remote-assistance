@@ -15,7 +15,6 @@ int main(int argv, char *args[])
     app.setApplicationName("deepin-remote-assistance");
     app.setApplicationVersion("1.0");
 
-
     QTranslator translator;
     translator.load("/usr/share/dde-launcher/translations/deepin-remote-assistance_" +
     QLocale::system().name() + ".qm");

@@ -16,7 +16,7 @@
 #include <QDebug>
 #include <QVBoxLayout>
 
-AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
+AbstractPanel::AbstractPanel(const QString& /*title*/, QWidget *parent)
     : QFrame(parent),
       m_viewLayout(new QVBoxLayout),
       m_view(new QWidget(this))

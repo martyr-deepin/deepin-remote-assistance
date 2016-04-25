@@ -106,8 +106,6 @@ QWidget* InputView::createMainWidget()
         }
     });
 
-    QHBoxLayout *m_buttonHLayout = new QHBoxLayout;
-
     addButton(m_connectButton);
 
     layout->addSpacing(56);

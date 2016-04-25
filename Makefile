@@ -11,7 +11,7 @@ APPLICATIONS = ${DESTDIR}${PREFIX}/share/applications/
 all: build
 
 build: gui-port
-	
+
 gui-port:
 	cd gui_port ; qmake && make
 
@@ -33,8 +33,8 @@ install:
 	cp -v services/* ${DBUSLIB}
 	cp -rvf icons/* ${ICONS}
 	# Cleanup temporary files
-	find ${DESTDIR}${PREFIX} -type d -iname '__pycache__' | xargs rm -rvf
-	find ${DESTDIR}${PREFIX} -type f -iname '*_test*' | xargs rm -v
+#	find ${DESTDIR}${PREFIX} -type d -iname '__pycache__' | xargs rm -rvf
+#	find ${DESTDIR}${PREFIX} -type f -iname '*_test*' | xargs rm -v
 	# Update file permissions
 	chmod -v a+x ${DRALIB}/client
 	chmod -v a+x ${DRALIB}/server
@@ -44,10 +44,12 @@ install:
 		mkdir -p ${LOCALE}/$${locale%.*}/LC_MESSAGES; \
 		msgfmt locale/$$locale -o ${LOCALE}/$${locale%.*}/LC_MESSAGES/deepin-remote-assistance.mo; \
 	done
-	
+
 	#install gui-port
 	install -D gui_port/deepin-remote-assistance ${BIN}
 	install -D gui_port/deepin-remote-assistance.desktop ${APPLICATIONS}
+	mkdir -pv ${DESTDIR}${PREFIX}/share/dman/deepin-remote-assistance
+	cp -rvf gui_port/manuals/*  ${DESTDIR}${PREFIX}/share/dman/deepin-remote-assistance
 
 clean:
 	-cd gui_port ;make clean;rm Makefile remote_assistance

@@ -58,11 +58,19 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
     m_about = new Dtk::Widget::DAction(tr("About"), this);
     connect(m_about, SIGNAL(triggered()), this, SLOT(showAbout()));
 
-    m_view->dbusMenu()->addAction(m_about);
+    Dtk::Widget::DAction *m_help = new Dtk::Widget::DAction(tr("Help"), this);
+    connect(m_help, SIGNAL(triggered()), this, SLOT(showHelp()));
 
-//    m_view->setStyleSheet("background-color: #f5f5f8");
+    Dtk::Widget::DAction *m_close = new Dtk::Widget::DAction(tr("Exit"), this);
+    connect(m_close, SIGNAL(triggered()), m_view, SLOT(close()));
+
+    m_view->dbusMenu()->addAction(m_about);
+    m_view->dbusMenu()->addAction(m_help);
+    m_view->dbusMenu()->addAction(m_close);
+
     m_view->setWindowFlags(m_view->windowFlags() & ~ Qt::WindowMaximizeButtonHint);
     m_view->setFixedSize(frameSize);
+    m_view->setBackgroundColor(qRgb(0xf5, 0xf5, 0xf8));
 
     m_stackWidget->setFixedSize(contentSize);
     mainLayout->addWidget(m_stackWidget/*, 0, Qt::AlignHCenter*/);
@@ -70,6 +78,8 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
     m_view->setContentLayout(mainLayout);
 
     connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
+
+    qApp->installEventFilter(this);
 }
 
 Impl::~Impl()
@@ -81,8 +91,20 @@ void Impl::showAbout()
 {
     DAboutDialog *about = new DAboutDialog(m_view);
     about->show();
-
 }
+
+
+void Impl::showHelp()
+{
+    if (NULL == dManual) {
+        dManual =  new QProcess(this);
+        const QString pro = "dman";
+        const QStringList args("deepin-remote-assistance");
+        connect(dManual, SIGNAL(finished(int)), this, SLOT(manualClose(int)));
+        dManual->start(pro, args);
+    }
+}
+
 
 void Impl::initPanel()
 {
@@ -114,8 +136,27 @@ void Impl::initPanel()
 
 void Impl::debug()
 {
-
     this->m_view->showMinimized();
+}
+
+bool Impl::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_F1) {
+            qDebug() << "show manual for help...";
+            showHelp();
+            return true;
+        }
+    }
+    // standard event processing
+    return QObject::eventFilter(obj, event);
+}
+
+void Impl::manualClose(int)
+{
+    dManual->deleteLater();
+    dManual = NULL;
 }
 
 QWidget *Impl::getPanel(ViewPanel v)

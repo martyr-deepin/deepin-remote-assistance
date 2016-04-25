@@ -5,9 +5,11 @@
 #include <QIcon>
 #include <QEvent>
 
-DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(parent) {
+DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(parent)
+{
     setWindowIcon(QIcon(":/Resource/print-agent-48.png"));
-    setStyleSheet("background-color: #f5f5f8;");
+    setBackgroundColor(qRgb(0xf5, 0xf5, 0xf8));
+
     setWindowFlags(Qt::ToolTip);
     QLabel *logo = new QLabel("logo");
     logo->setPixmap(QPixmap(":/Resource/print-agent-96.png"));
@@ -37,7 +39,7 @@ DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(
     description->setStyleSheet("font-size:12px; color: #1A1A1A; border: 0px solid;");
     description->setWordWrap(true);
     description->adjustSize();
-    description->setFixedSize(400-38*2, description->height()+16);
+    description->setFixedSize(400 - 38 * 2, description->height() + 16);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(logo);
@@ -67,37 +69,30 @@ DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(
 
 bool DAboutDialog::event(QEvent *event)
 {
-    switch(event->type())
-    {
-        case QEvent::ActivationChange:
-        {
-            if(!this->isActiveWindow())
-            {
-                this->close();
-            }
+    switch (event->type()) {
+    case QEvent::ActivationChange:
+        if (!this->isActiveWindow()) {
+            this->close();
         }
         break;
-
-        default:
-        {
-            Dtk::Widget::DWindow::event(event);
-        }
+    default:
         break;
-
     }
-
+    return Dtk::Widget::DWindow::event(event);
 }
 
-void DAboutDialog::focusOutEvent(QFocusEvent* event) {
-   // hide();
+void DAboutDialog::focusOutEvent(QFocusEvent * /*event*/)
+{
+    // hide();
 }
 
 #include <QDesktopServices>
 #include <QUrl>
 #include <QDebug>
 
-void DAboutDialog::onLogLinkActivated(const QString &link) {
-    if(link == "www.deepin.org") {
+void DAboutDialog::onLogLinkActivated(const QString &link)
+{
+    if (link == "www.deepin.org") {
         QDesktopServices::openUrl(QUrl(link));
     }
 }

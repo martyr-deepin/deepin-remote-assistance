@@ -20,6 +20,7 @@
 
 QT_BEGIN_NAMESPACE
 class QFrame;
+class QProcess;
 QT_END_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
@@ -51,9 +52,13 @@ public:
     void changePanel(ViewPanel);
     void changeTitle(ViewPanel v);
 
+    bool eventFilter(QObject *obj, QEvent *event);
+
 public slots:
         void debug();
         void showAbout();
+        void showHelp();
+        void manualClose(int);
 
 public:
     QWidget *getPanel(ViewPanel);
@@ -68,7 +73,7 @@ public:
     QWidget* m_mainPanel = nullptr;
     QWidget* m_accessPanel = nullptr;
     QWidget* m_sharePanel = nullptr;
-
+    QProcess* dManual = nullptr;
     Dtk::Widget::DAction * m_about = nullptr;
 };
 
