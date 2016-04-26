@@ -120,16 +120,13 @@ void Impl::initPanel()
     pushView(getPanel(ViewPanel::Main), false);
     switch (reply.value()) {
     case ManagerState::Uninitialized:
-
         m_viewType = ViewPanel::Main;
         break;
     case ManagerState::Client:
-
         m_viewType = ViewPanel::Access;
         pushView(getPanel(ViewPanel::Access), false);
         break;
     case ManagerState::Server:
-
         m_viewType = ViewPanel::Share;
         pushView(getPanel(ViewPanel::Share), false);
         break;
@@ -202,12 +199,11 @@ void Impl::changeTitle(ViewPanel v)
         // MainPanel should be created only once.
         m_view->setTitle(tr("Remote Assistance"));
         qDebug() << "height" << m_view->height();
-        m_view->setTitleIcon(QPixmap(getThemeImage("")));
+        m_view->setTitleIcon(QPixmap());
         break;
 
     }
     case ViewPanel::Access: {
-
         qDebug() << "create Access Panel";
         m_view->setTitle(tr("Assist others"));
         m_view->setTitleIcon(QPixmap(getThemeImage("assistant_heart.png")));
@@ -242,8 +238,9 @@ void Impl::changePanel(ViewPanel v)
 void RemoteAssistance::onAnimationEnd()
 {
     qDebug() << "onAnimationEnd();";
-    if (qobject_cast<AccessPanel*>(m_impl->m_panel)) {
-        qobject_cast<AccessPanel*>(m_impl->m_panel)->focus();
+    AccessPanel *m_accessPanel = qobject_cast<AccessPanel *>(m_impl->m_panel);
+    if (m_accessPanel) {
+        m_accessPanel->focus();
     }
 }
 

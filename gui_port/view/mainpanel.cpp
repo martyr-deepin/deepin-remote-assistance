@@ -83,7 +83,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
     mainLayout->addSpacing(244 - (198 + 36));
     mainLayout->addWidget(button, 0, Qt::AlignCenter);
     mainLayout->addStretch();
-    this->setLayout(mainLayout);
+    mainWidget->setLayout(mainLayout);
     setWidget(mainWidget);
 
 }

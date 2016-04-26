@@ -23,7 +23,7 @@
 
 DWIDGET_USE_NAMESPACE
 
-AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
+AccessPanel::AccessPanel(IAccessController *controller, QWidget *p)
     : AbstractPanel(tr("Assist me"), p),
       m_controller(controller)
 {
@@ -45,21 +45,16 @@ AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
     connect(controller, SIGNAL(connecting()), this, SLOT(onConnecting()));
     connect(controller, SIGNAL(connectFailed(AccessErrors)), this, SLOT(onConnectFailed(AccessErrors)));
     controller->initStatus();
+
+    m_controller->setParent(this);
 }
 
-void AccessPanel::dtor()
-{
-    if (m_controller != nullptr) {
-        m_controller->disconnect();
-        m_controller->deleteLater();
-        m_controller = nullptr;
-    }
+AccessPanel::~AccessPanel(){
+    m_controller->disconnect();
 }
 
 void AccessPanel::emitChangePanel()
 {
-    dtor();
-    qDebug() <<"";
     emit changePanel(ViewPanel::Main);
 }
 
@@ -118,9 +113,7 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     connect(button, &Dtk::Widget::DBaseButton::clicked, [this]{
         emitChangePanel();
     });
-
     view->addButton(button, 0, Qt::AlignCenter);
-
 
     button = new Dtk::Widget::DBaseButton(tr("Retry"));
     button->setFixedSize(160,36);
@@ -131,7 +124,7 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     auto timer = new QTimer(this); // FIXME: this timer may not needed now.
     timer->setInterval(200);
     timer->setSingleShot(true);
-    QObject::connect(timer, &QTimer::timeout, [=]{
+    QObject::connect(timer, &QTimer::timeout, [ = ] {
         qDebug() << "enable retry button";
         button->setEnabled(true);
         timer->deleteLater();
@@ -154,6 +147,8 @@ void AccessPanel::onDisconnected()
 
 void AccessPanel::focus()
 {
-    if (m_view->objectName() == "InputView")
-        qobject_cast<InputView*>(m_view)->focus();
+    InputView *inputView = qobject_cast<InputView *>(m_view);
+    if (inputView) {
+        inputView->focus();
+    }
 }

@@ -28,7 +28,7 @@ class AccessPanel: public AbstractPanel
     Q_OBJECT
 public:
     AccessPanel(IAccessController *controller, QWidget *p = nullptr);
-    ~AccessPanel() { dtor(); }
+    ~AccessPanel();
 
 signals:
     void connected();
@@ -47,9 +47,6 @@ private slots:
 
 private slots:
     void emitChangePanel() Q_DECL_OVERRIDE;
-
-private:
-    void dtor();
 
 private:
     IAccessController *m_controller;

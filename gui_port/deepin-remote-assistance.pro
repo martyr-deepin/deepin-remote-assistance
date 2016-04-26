@@ -3,7 +3,7 @@ TEMPLATE        = app
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus x11extras svg
 LIBS           += -lX11 -lXext
-PKGCONFIG      += dtkbase dtkwidget
+PKGCONFIG      += dtkbase dtkutil dtkwidget
 
 HEADERS         = constants.h \
     controller/access.h \

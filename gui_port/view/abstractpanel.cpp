@@ -36,15 +36,17 @@ AbstractPanel::AbstractPanel(const QString& /*title*/, QWidget *parent)
 }
 
 void AbstractPanel::emitChangePanel()
-{}
+{
+    emit changePanel(ViewPanel::Main);
+}
 
-AbstractPanel* AbstractPanel::addWidget(QWidget*w)
+AbstractPanel *AbstractPanel::addWidget(QWidget *w)
 {
     m_viewLayout->insertWidget(0, w, 0, Qt::AlignHCenter);
     return this;
 }
 
-AbstractPanel* AbstractPanel::addLayout(QLayout* l, int stretch)
+AbstractPanel *AbstractPanel::addLayout(QLayout *l, int stretch)
 {
     m_viewLayout->addLayout(l, stretch);
     return this;
@@ -64,7 +66,7 @@ void AbstractPanel::abort()
 
 void AbstractPanel::onNoNetwork()
 {
-    qDebug ()<< "no network";
+    qDebug() << "no network";
     auto view = new ErrorView;
     auto button = new DBaseButton(tr("Confirm"));
     button->setFixedSize(160,36);

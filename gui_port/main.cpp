@@ -3,9 +3,12 @@
 
 #include <QFrame>
 #include <DApplication>
+#include <DLog>
+
 #include "constants.h"
 
 using namespace Dtk::Widget;
+using namespace Dtk::Util;
 
 int main(int argv, char *args[])
 {
@@ -15,6 +18,8 @@ int main(int argv, char *args[])
     app.setApplicationName("deepin-remote-assistance");
     app.setApplicationVersion("1.0");
     app.setTheme("light");
+
+    DLogManager::registerConsoleAppender();
 
     QTranslator translator;
     translator.load("/usr/share/dde-launcher/translations/deepin-remote-assistance_" +
