@@ -21,6 +21,11 @@ int main(int argv, char *args[])
 
     DLogManager::registerConsoleAppender();
 
+    if (!app.setSingleInstance("deepin-remote-assistance")) {
+        qDebug() << "Another deepin-remote-assistance exist.";
+        return 0;
+    }
+
     QTranslator translator;
     translator.load("/usr/share/dde-launcher/translations/deepin-remote-assistance_" +
     QLocale::system().name() + ".qm");
