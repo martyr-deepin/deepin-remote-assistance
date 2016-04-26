@@ -49,7 +49,7 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
-    QSize frameSize(DRA::WindowWidth, DRA::WindowHeight);
+    QSize frameSize(DRA::WindowWidth, DRA::WindowHeight - m_view->titlebarHeight());
     QSize contentSize(DRA::WindowWidth,
                       DRA::WindowHeight - m_view->titlebarHeight());
 

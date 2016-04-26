@@ -61,7 +61,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
     QString btThemeStr = btTheme.readAll();
     btTheme.close();
 
-    button->setText(tr("Assist me"));
+    button->setText("  " + tr("Assist me"));
     button->setIcon(QIcon(getThemeImage("assistant_help.png")));
     button->setStyleSheet(btThemeStr);
     mainLayout->addSpacing(198 - (40 + 23 + 64 + 50));
@@ -71,7 +71,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
 
     button = new DBaseButton;
     button->setFixedSize(160, 36);
-    button->setText(tr("Assist others"));
+    button->setText("  " + tr("Assist others"));
     button->setIcon(QIcon(getThemeImage("assistant_heart.png")));
     button->setStyleSheet(btThemeStr);
 

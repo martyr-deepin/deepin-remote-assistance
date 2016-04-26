@@ -1,6 +1,6 @@
 Dtk--Widget--DBaseButton {
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #FFFFFF, stop: 1.0 #FDFDFD);
-    padding-left: 25px;
+    padding-left: 30px;
     text-align: left;
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.1);
