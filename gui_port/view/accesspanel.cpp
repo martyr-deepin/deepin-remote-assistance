@@ -50,8 +50,9 @@ AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
 void AccessPanel::dtor()
 {
     if (m_controller != nullptr) {
-//        m_controller->deleteLater();
-//        m_controller = nullptr;
+        m_controller->disconnect();
+        m_controller->deleteLater();
+        m_controller = nullptr;
     }
 }
 
