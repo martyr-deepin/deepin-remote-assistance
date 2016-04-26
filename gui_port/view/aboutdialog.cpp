@@ -5,20 +5,19 @@
 #include <QIcon>
 #include <QEvent>
 
-DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(parent)
-{
-    setWindowIcon(QIcon(":/Resource/print-agent-48.png"));
-    setBackgroundColor(qRgb(0xf5, 0xf5, 0xf8));
 
+DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(parent) {
+    setWindowIcon(QIcon(":/Resource/remote-assistance-48.png"));
+    setBackgroundColor(qRgb(0xf5, 0xf5, 0xf8));
     setWindowFlags(Qt::ToolTip);
     QLabel *logo = new QLabel("logo");
-    logo->setPixmap(QPixmap(":/Resource/print-agent-96.png"));
+    logo->setPixmap(QPixmap(":/Resource/remote-assistance-96.png"));
     logo->setFixedSize(96, 96);
 
     QLabel *productName = new QLabel(tr("Deepin Remote Assistance"));
     productName->setStyleSheet("font-size:18px;");
 
-    QLabel *version = new QLabel(tr("Version: 1.0"));
+    QLabel *version = new QLabel(tr("Version: 2.0"));
     version->setStyleSheet("font-size:12px; color: #666666");
 
     QPixmap companyLogoPixmap(":/Resource/logo.png");
@@ -34,12 +33,12 @@ DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(
             this, SLOT(onLogLinkActivated(QString)));
 
     QString textFormat = "<p style='text-indent: 24px;'>%1</p>";
-    QString descriptionText =  textFormat.arg(tr("Deepin Cloud Print is a new printing technology developed by Wuhan Deepin Technology Co., Ltd.. It will connect your printer to the network, and is enabled for network printing via daily used applications. Deepin Cloud Print is suitable for desktops, laptops, tablets and other networking devices that you have authorized to print."));
+    QString descriptionText =  textFormat.arg(tr("Remote Assistance is a remote controller, users can connect to computers between each other with it."));
     QLabel *description = new QLabel(descriptionText);
     description->setStyleSheet("font-size:12px; color: #1A1A1A; border: 0px solid;");
     description->setWordWrap(true);
     description->adjustSize();
-    description->setFixedSize(400 - 38 * 2, description->height() + 16);
+    description->setFixedWidth(400-38*2);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(logo);

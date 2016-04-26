@@ -240,8 +240,8 @@ void Impl::changePanel(ViewPanel v)
 void RemoteAssistance::onAnimationEnd()
 {
     qDebug() << "onAnimationEnd();";
-    if (m_impl->m_viewType == ViewPanel::Access) {
-        qobject_cast<AccessPanel *>(m_impl->m_panel)->focus();
+    if (qobject_cast<AccessPanel*>(m_impl->m_panel)) {
+        qobject_cast<AccessPanel*>(m_impl->m_panel)->focus();
     }
 }
 

@@ -1,8 +1,10 @@
 <RCC>
     <qresource prefix="/">
+        <file>Resource/remote-assistance-48.png</file>
+        <file>Resource/remote-assistance-logo.png</file>
+        <file>Resource/remote-assistance-96.png</file>
+        <file>Resource/remote-assistance.svg</file>
+        <file>Resource/remote-assistance.ico</file>
         <file>Resource/logo.png</file>
-        <file>Resource/print-agent.svg</file>
-        <file>Resource/print-agent-48.png</file>
-        <file>Resource/print-agent-96.png</file>
     </qresource>
 </RCC>
