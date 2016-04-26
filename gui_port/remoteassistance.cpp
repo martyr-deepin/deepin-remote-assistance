@@ -89,7 +89,7 @@ Impl::~Impl()
 
 void Impl::showAbout()
 {
-    DAboutDialog *about = new DAboutDialog(m_view);
+    DAboutDialog *about = new DAboutDialog(nullptr);
     about->show();
 }
 
