@@ -14,6 +14,7 @@
 #include <QPushButton>
 #include <QSvgWidget>
 
+#include <dbasebutton.h>
 
 #include "constants.h"
 #include "mainpanel.h"
@@ -22,7 +23,7 @@
 
 DWIDGET_USE_NAMESPACE
 
-MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p):
+MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p):
     AbstractPanel(tr(" "), p)
 {
     setObjectName("MainPanel");
@@ -38,8 +39,8 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
 
     QSvgWidget *picon = new QSvgWidget(getThemeImage("logo.svg"));
 
-    picon->setContentsMargins(0,0,0,0);
-    picon->setFixedSize(64,64);
+    picon->setContentsMargins(0, 0, 0, 0);
+    picon->setFixedSize(64, 64);
     mainLayout->addSpacing(18);
     mainLayout->addWidget(picon, 0, Qt::AlignHCenter);
 
@@ -51,24 +52,28 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
     mainLayout->addSpacing(137 - (64 + 50));
     mainLayout->addWidget(ptext, 0 , Qt::AlignCenter);
 
-    QPushButton* button = nullptr;
-    button = new QPushButton;
+    DBaseButton *button = nullptr;
+    button = new DBaseButton;
     button->setFixedSize(160, 36);
+
+    QFile btTheme(":/dark/WhiteButton.theme");
+    btTheme.open(QIODevice::ReadOnly);
+    QString btThemeStr = btTheme.readAll();
+    btTheme.close();
 
     button->setText(tr("Assist me"));
     button->setIcon(QIcon(getThemeImage("assistant_help.png")));
-    button->setStyleSheet("QPushButton { padding-left: 25px; text-align: left; border-width: 1px; border-color: rgba(0, 0, 0, 0.1); border-style: solid; border-radius: 4px;}");
-
+    button->setStyleSheet(btThemeStr);
     mainLayout->addSpacing(198 - (40 + 23 + 64 + 50));
     mainLayout->addWidget(button, 0, Qt::AlignCenter);
 
     connect(button, SIGNAL(clicked()), this, SLOT(changeToSharePanel()));
 
-    button = new QPushButton;
-    button->setFixedSize(160,36);
+    button = new DBaseButton;
+    button->setFixedSize(160, 36);
     button->setText(tr("Assist others"));
     button->setIcon(QIcon(getThemeImage("assistant_heart.png")));
-    button->setStyleSheet("QPushButton { padding-left: 25px; text-align: left; border-width: 1px; border-color: rgba(0, 0, 0, 0.1); border-style: solid; border-radius: 4px;}");
+    button->setStyleSheet(btThemeStr);
 
     connect(button, SIGNAL(clicked()), this, SLOT(changeToAccessPanel()));
 
@@ -82,7 +87,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p)
 
 void MainPanel::emitPanelChanged(ViewPanel v)
 {
-    qDebug() <<"emitPanelChanged";
+    qDebug() << "emitPanelChanged";
     emit changePanel(v);
 }
 

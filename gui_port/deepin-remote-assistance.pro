@@ -68,7 +68,8 @@ DISTFILES += dark/button.theme \
     dark/errorview.theme \
     dark/connectingview.theme \
     deepin-remote-assistance.desktop \
-    TODO
+    TODO \
+    dark/WhiteButton.theme
 
 #Automating generation .qm files from .ts files
 system($$PWD/translate_generation.sh)

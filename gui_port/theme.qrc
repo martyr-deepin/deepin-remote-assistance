@@ -114,5 +114,6 @@
         <file>dark/images/Spinner32/Spinner89.png</file>
         <file>dark/images/Spinner32/Spinner90.png</file>
         <file>dark/images/logo.svg</file>
+        <file>dark/WhiteButton.theme</file>
     </qresource>
 </RCC>
