@@ -20,6 +20,7 @@
 #include "mainpanel.h"
 #include "helper.h"
 #include "widgets/tiplabel.h"
+#include "widgets/diconbutton.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -52,27 +53,29 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
     mainLayout->addSpacing(137 - (64 + 50));
     mainLayout->addWidget(ptext, 0 , Qt::AlignCenter);
 
-    DBaseButton *button = nullptr;
-    button = new DBaseButton;
+    DIconButton *button = nullptr;
+    button = new DIconButton(":/Resource/theme/light/hand_normal.svg",
+                             ":/Resource/theme/light/hand_hover.svg",
+                             ":/Resource/theme/light/hand_pressed.svg");
     button->setFixedSize(160, 36);
 
-    QFile btTheme(":/dark/WhiteButton.theme");
+    QFile btTheme(":/Resource/theme/light/WhiteButton.theme");
     btTheme.open(QIODevice::ReadOnly);
     QString btThemeStr = btTheme.readAll();
     btTheme.close();
 
     button->setText("  " + tr("Assist me"));
-    button->setIcon(QIcon(getThemeImage("assistant_help.png")));
     button->setStyleSheet(btThemeStr);
     mainLayout->addSpacing(198 - (40 + 23 + 64 + 50));
     mainLayout->addWidget(button, 0, Qt::AlignCenter);
 
     connect(button, SIGNAL(clicked()), this, SLOT(changeToSharePanel()));
 
-    button = new DBaseButton;
+    button = new DIconButton(":/Resource/theme/light/heart_normal.svg",
+                             ":/Resource/theme/light/heart_hover.svg",
+                             ":/Resource/theme/light/heart_pressed.svg");
     button->setFixedSize(160, 36);
     button->setText("  " + tr("Assist others"));
-    button->setIcon(QIcon(getThemeImage("assistant_heart.png")));
     button->setStyleSheet(btThemeStr);
 
     connect(button, SIGNAL(clicked()), this, SLOT(changeToAccessPanel()));

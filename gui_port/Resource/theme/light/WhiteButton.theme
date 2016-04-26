@@ -1,4 +1,4 @@
-Dtk--Widget--DBaseButton {
+DIconButton {
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #FFFFFF, stop: 1.0 #FDFDFD);
     padding-left: 30px;
     text-align: left;
@@ -10,25 +10,26 @@ Dtk--Widget--DBaseButton {
     color: black;
 }
 
-Dtk--Widget--DBaseButton:hover{
+DIconButton:hover{
+    qproperty-icon: url(:/Resource/theme/light/hand_hover.svg);
     color: white;
     border-color: rgba( 29,130,255, 0.30);
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #6EC9FF, stop: 1.0 #2DA9F6);
 }
 
-Dtk--Widget--DBaseButton:pressed{
+DIconButton:pressed{
     color: white;
     border-color: rgba( 29,130,255, 0.30);
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #0B8CFF, stop: 1.0 #0AA1FF);
 }
 
-Dtk--Widget--DBaseButton:disabled {
+DIconButton:disabled {
     color: white;
     border-color: rgba( 29,130,255, 0.30);
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 rgba(59,193,255,0.50), stop: 1.0 rgba(7,157,255,0.50));
 }
 
-Dtk--Widget--DBaseButton:flat {
+DIconButton:flat {
     border: none; /* no border for a flat push button */
 }
 

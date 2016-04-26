@@ -49,11 +49,13 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
+    m_view->setTitlebarFixedHeight(38);
+    m_view->setTitle(tr("Remote Assistance"));
+
+
     QSize frameSize(DRA::WindowWidth, DRA::WindowHeight - m_view->titlebarHeight());
     QSize contentSize(DRA::WindowWidth,
                       DRA::WindowHeight - m_view->titlebarHeight());
-
-    m_view->setTitle(tr("Remote Assistance"));
 
     m_about = new Dtk::Widget::DAction(tr("About"), this);
     connect(m_about, SIGNAL(triggered()), this, SLOT(showAbout()));

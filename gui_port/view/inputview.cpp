@@ -18,37 +18,40 @@
 #include <QDebug>
 #include <QBitmap>
 
-#include "widgets/simplebutton.h"
 #include "widgets/tiplabel.h"
 
 #include "constants.h"
 #include "../helper.h"
 
-static const QString TokenLineEditStyle = "QLineEdit#TokenLineEdit { "
-                                          "background: white; "
-                                          "border: 1px solid rgba(0, 0, 0, 0.1); "
-                                          "border-radius: 4px; "
-                                          "}";
+DWIDGET_USE_NAMESPACE
 
-InputView::InputView(QWidget* p)
+
+static const QString TokenLineEditStyle = "QLineEdit#TokenLineEdit { "
+        "background: white; "
+        "border: 1px solid rgba(0, 0, 0, 0.1); "
+        "border-radius: 4px; "
+        "}";
+
+InputView::InputView(QWidget *p)
     : AbstractView(p),
-      m_validator(new QRegExpValidator(*new QRegExp("[A-Za-z0-9]{6}"), this)),
-      m_connectButton(new SimpleButton(tr("Cancel")))
+      m_validator(new QRegExpValidator(*new QRegExp("[A-Za-z0-9]{6}"), this))
 {
     setObjectName("InputView");
     m_buttonFlag = InputView::btncancel;
 
-    QObject::connect(m_connectButton, &SimpleButton::clicked, [this]{
-        switch(m_buttonFlag)
-        {
-            case InputView::btncancel:
-                emit cancel();
-                break;
-            case InputView::btnconnect:
-                emitConnect();
-                break;
-        }
+    m_connectButton = new DBaseButton(tr("Cancel"));
+    m_connectButton->setFixedSize(160,36);
 
+    QObject::connect(m_connectButton, &DBaseButton::clicked, [this] {
+        switch (m_buttonFlag)
+        {
+        case InputView::btncancel:
+            emit cancel();
+            break;
+        case InputView::btnconnect:
+            emitConnect();
+            break;
+        }
     });
 
 
@@ -69,7 +72,7 @@ void InputView::connectToClient()
     }
 }
 
-QWidget* InputView::createMainWidget()
+QWidget *InputView::createMainWidget()
 {
     auto mainWidget = new QWidget;
     auto layout = new QVBoxLayout;
@@ -93,7 +96,7 @@ QWidget* InputView::createMainWidget()
 
 
     QObject::connect(m_tokenEdit, SIGNAL(returnPressed()), this, SLOT(connectToClient()));
-    QObject::connect(m_tokenEdit, &QLineEdit::textChanged, [this](const QString& token){
+    QObject::connect(m_tokenEdit, &QLineEdit::textChanged, [this](const QString & token) {
         qDebug() << "valid token";
         QString copyToken = token;
         int pos = 0;
@@ -124,7 +127,8 @@ QWidget* InputView::createMainWidget()
     return mainWidget;
 }
 
-void InputView::focus() {
+void InputView::focus()
+{
     qDebug() << "focus token input widget";
     m_tokenEdit->setFocus();
 }

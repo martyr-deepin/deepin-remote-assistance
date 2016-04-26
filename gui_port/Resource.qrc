@@ -6,5 +6,12 @@
         <file>Resource/remote-assistance.svg</file>
         <file>Resource/remote-assistance.ico</file>
         <file>Resource/logo.png</file>
+        <file>Resource/theme/light/heart_normal.svg</file>
+        <file>Resource/theme/light/heart_hover.svg</file>
+        <file>Resource/theme/light/heart_pressed.svg</file>
+        <file>Resource/theme/light/WhiteButton.theme</file>
+        <file>Resource/theme/light/hand_normal.svg</file>
+        <file>Resource/theme/light/hand_hover.svg</file>
+        <file>Resource/theme/light/hand_pressed.svg</file>
     </qresource>
 </RCC>

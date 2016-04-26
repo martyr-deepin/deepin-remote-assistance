@@ -15,8 +15,8 @@
 
 class QVBoxLayout;
 class QHBoxLayout;
+class QPushButton;
 
-class SimpleButton;
 class AbstractView : public QWidget
 {
     Q_OBJECT
@@ -25,7 +25,7 @@ public:
     AbstractView *addWidget(QWidget *);
     AbstractView *addSpacing(int);
     AbstractView *addLayout(QLayout *, int = 0);
-    AbstractView *addButton(SimpleButton *btn, int stretch = 0, Qt::Alignment alignment = 0);
+    AbstractView *addButton(QPushButton *btn, int stretch = 0, Qt::Alignment alignment = 0);
 
 protected:
     QWidget *m_mainWidget;

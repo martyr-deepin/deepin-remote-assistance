@@ -14,6 +14,7 @@ int main(int argv, char *args[])
     app.setOrganizationName("deepin");
     app.setApplicationName("deepin-remote-assistance");
     app.setApplicationVersion("1.0");
+    app.setTheme("light");
 
     QTranslator translator;
     translator.load("/usr/share/dde-launcher/translations/deepin-remote-assistance_" +

@@ -20,7 +20,7 @@
 #include "constants.h"
 #include "../helper.h"
 #include "widgets/notifylabel.h"
-#include "widgets/simplebutton.h"
+#include <dbasebutton.h>
 #include "widgets/tiplabel.h"
 
 DWIDGET_USE_NAMESPACE
@@ -51,7 +51,8 @@ QWidget* ConnectedView::createMainWidget()
     tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
     mainLayout->addWidget(tip, 0, Qt::AlignHCenter);
 
-    auto button = new SimpleButton(tr("Disconnect"));
+    auto button = new DBaseButton(tr("Disconnect"));
+    button->setFixedSize(160,36);
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onDisconnectButtonClicked()));
 
     addButton(button);

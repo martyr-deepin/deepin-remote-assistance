@@ -26,11 +26,11 @@ HEADERS         = constants.h \
     view/abstractview.h \
     helper.h \
     dmovie.h \
-    widgets/simplebutton.h \
     widgets/tiplabel.h \
     widgets/notifylabel.h \
     widgets/infolabel.h \
-    view/aboutdialog.h
+    view/aboutdialog.h \
+    widgets/diconbutton.h
 
 SOURCES         = main.cpp \
     controller/share.cpp \
@@ -52,24 +52,24 @@ SOURCES         = main.cpp \
     view/inputview.cpp \
     helper.cpp \
     dmovie.cpp \
-    widgets/simplebutton.cpp \
     widgets/tiplabel.cpp \
     widgets/notifylabel.cpp \
     widgets/infolabel.cpp \
-    view/aboutdialog.cpp
+    view/aboutdialog.cpp \
+    widgets/diconbutton.cpp
 
 TARGET          = deepin-remote-assistance
 DESTDIR         = .
-DISTFILES += dark/button.theme \
-    dark/generatingview.theme \
-    dark/connectedview.theme \
-    dark/inputview.theme \
-    dark/generatedview.theme \
-    dark/errorview.theme \
-    dark/connectingview.theme \
+DISTFILES += light/button.theme \
+    light/generatingview.theme \
+    light/connectedview.theme \
+    light/inputview.theme \
+    light/generatedview.theme \
+    light/errorview.theme \
+    light/connectingview.theme \
     deepin-remote-assistance.desktop \
     TODO \
-    dark/WhiteButton.theme
+    light/WhiteButton.theme
 
 #Automating generation .qm files from .ts files
 system($$PWD/translate_generation.sh)

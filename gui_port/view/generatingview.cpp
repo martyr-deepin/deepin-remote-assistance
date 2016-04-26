@@ -17,8 +17,9 @@
 
 #include <dthememanager.h>
 #include <dseparatorhorizontal.h>
-#include "widgets/simplebutton.h"
+
 #include <dloadingindicator.h>
+#include <dbasebutton.h>
 
 #include "constants.h"
 #include "dmovie.h"
@@ -44,13 +45,13 @@ QWidget* GeneratingView::createMainWidget()
 
     QLabel *label = new QLabel;
     label->setFixedSize(32,32);
-    QString path = ":/dark/images/Spinner32/";
+    QString path = ":/light/images/Spinner32/";
     DMovie *movie = new DMovie(label);
     movie->setMoviePath(path, label);
     movie->start();
 
-    SimpleButton *button = new SimpleButton(tr("Cancel"),this);
-
+    DBaseButton *button = new DBaseButton(tr("Cancel"),this);
+    button->setFixedSize(160, 36);
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
 
     QWidget* mainWidget = new QWidget;

@@ -12,7 +12,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-#include "widgets/simplebutton.h"
+#include <dbasebutton.h>
 #include "constants.h"
 
 AbstractView::AbstractView(QWidget* p)
@@ -54,7 +54,7 @@ AbstractView* AbstractView::addLayout(QLayout* l, int stretch)
     return this;
 }
 
-AbstractView* AbstractView::addButton(SimpleButton* btn, int stretch, Qt::Alignment alignment)
+AbstractView* AbstractView::addButton(QPushButton* btn, int stretch, Qt::Alignment alignment)
 {
     m_buttonLayout->insertSpacing(m_buttonLayout->count()-1, 5);
     m_buttonLayout->insertWidget(m_buttonLayout->count()-1, btn, stretch, alignment);

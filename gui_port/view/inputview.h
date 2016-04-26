@@ -16,8 +16,9 @@
 class QLineEdit;
 class QLabel;
 class QRegExpValidator;
-class SimpleButton;
 class TipLabel;
+
+#include <dbasebutton.h>
 
 class InputView : public AbstractView
 {
@@ -43,7 +44,7 @@ private:
     QLineEdit *m_tokenEdit;
     TipLabel *m_tip;
     QRegExpValidator *m_validator;
-    SimpleButton *m_connectButton;
+    Dtk::Widget::DBaseButton *m_connectButton;
     int m_buttonFlag;
 };
 

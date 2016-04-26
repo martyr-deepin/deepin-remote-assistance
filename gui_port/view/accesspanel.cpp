@@ -12,7 +12,7 @@
 #include <QBitmap>
 
 #include "accesspanel.h"
-#include "widgets/simplebutton.h"
+#include <dbasebutton.h>
 
 #include "connectingview.h"
 #include "connectedview.h"
@@ -20,6 +20,8 @@
 #include "inputview.h"
 #include "constants.h"
 #include "helper.h"
+
+DWIDGET_USE_NAMESPACE
 
 AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
     : AbstractPanel(tr("Assist me"), p),
@@ -110,15 +112,17 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     }
     view->setText(tr("Connect failed"));
 
-    auto button = new SimpleButton(tr("Cancel"));
-    connect(button, &SimpleButton::clicked, [this]{
+    auto button = new Dtk::Widget::DBaseButton(tr("Cancel"));
+    button->setFixedSize(160,36);
+    connect(button, &Dtk::Widget::DBaseButton::clicked, [this]{
         emitChangePanel();
     });
 
     view->addButton(button, 0, Qt::AlignCenter);
 
 
-    button = new SimpleButton(tr("Retry"));
+    button = new Dtk::Widget::DBaseButton(tr("Retry"));
+    button->setFixedSize(160,36);
     button->setEnabled(false);
 
     // waiting the remoting window to be closed.
@@ -132,7 +136,7 @@ void AccessPanel::onConnectFailed(AccessErrors e)
         timer->deleteLater();
     });
     timer->start();
-    connect(button, &SimpleButton::clicked, [this]{
+    connect(button, &Dtk::Widget::DBaseButton::clicked, [this]{
         m_controller->retry();
     });
     view->addButton(button, 0, Qt::AlignCenter);

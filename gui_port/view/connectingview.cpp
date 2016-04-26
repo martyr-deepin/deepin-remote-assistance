@@ -14,13 +14,15 @@
 
 #include <dthememanager.h>
 #include <dloadingindicator.h>
-#include "widgets/simplebutton.h"
+#include <dbasebutton.h>
 #include <QBitmap>
 
 #include "constants.h"
 
 #include "../helper.h"
 #include "dmovie.h"
+
+#include <dspinbox.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -44,7 +46,7 @@ QWidget* ConnectingView::createMainWidget()
     // TODO: refactory to make this block one linear
     QLabel *movieLabel = new QLabel;
     movieLabel->setFixedSize(32,32);
-    QString path = ":/dark/images/Spinner32/";
+    QString path = ":/light/images/Spinner32/";
     DMovie *movie = new DMovie(movieLabel);
     movie->setMoviePath(path, movieLabel);
     movie->start();
@@ -59,7 +61,8 @@ QWidget* ConnectingView::createMainWidget()
     label->setAlignment(Qt::AlignVCenter);
     mainLayout->addWidget(label, 0, Qt::AlignCenter);
 
-    auto button = new SimpleButton(tr("Cancel"));
+    auto button = new DBaseButton(tr("Cancel"));
+    button->setFixedSize(160,36);
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onCancelButtonClicked()));
 
     addButton(button);

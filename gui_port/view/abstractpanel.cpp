@@ -7,7 +7,7 @@
  * (at your option) any later version.
  **/
 
-#include "widgets/simplebutton.h"
+#include <dbasebutton.h>
 
 #include "abstractpanel.h"
 #include "constants.h"
@@ -15,6 +15,8 @@
 
 #include <QDebug>
 #include <QVBoxLayout>
+
+DWIDGET_USE_NAMESPACE
 
 AbstractPanel::AbstractPanel(const QString& /*title*/, QWidget *parent)
     : QFrame(parent),
@@ -64,8 +66,9 @@ void AbstractPanel::onNoNetwork()
 {
     qDebug ()<< "no network";
     auto view = new ErrorView;
-    auto button = new SimpleButton(tr("Confirm"));
-    QObject::connect(button, &SimpleButton::clicked, [this] {
+    auto button = new DBaseButton(tr("Confirm"));
+    button->setFixedSize(160,36);
+    QObject::connect(button, &DBaseButton::clicked, [this] {
         abort();
     });
     view->addButton(button);

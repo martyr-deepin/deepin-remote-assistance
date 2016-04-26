@@ -53,7 +53,6 @@ private:
 
 private:
     IAccessController *m_controller;
-    DTK_NAMESPACE::Widget::SimpleButton *m_retryBtn;
 };
 
 #endif /* end of include guard: ACCESS_PANEL_H_T7BZFECR */

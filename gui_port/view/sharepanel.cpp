@@ -9,7 +9,7 @@
 
 #include <QLabel>
 #include <dseparatorhorizontal.h>
-#include "widgets/simplebutton.h"
+#include <dbasebutton.h>
 
 #include "constants.h"
 
@@ -19,6 +19,8 @@
 #include "generatedview.h"
 #include "connectedview.h"
 #include "errorview.h"
+
+DWIDGET_USE_NAMESPACE
 
 SharePanel::SharePanel(IShareController* controller, QWidget* p)
     : AbstractPanel(tr(" "), p),
@@ -110,13 +112,17 @@ void SharePanel::onGenAccessTokenFailed()
 {
     qDebug() << "gen access token failed";
     auto view = new ErrorView;
-    auto button = new SimpleButton(tr("Cancel"));
-    QObject::connect(button, &SimpleButton::clicked, [this]{
+
+    auto button = new DBaseButton(tr("Cancel"));
+    button->setFixedSize(160,36);
+    QObject::connect(button, &DBaseButton::clicked, [this]{
         onDisconnectedWithAsk();
     });
     view->addButton(button);
-    button = new SimpleButton(tr("Retry"));
-    QObject::connect(button, &SimpleButton::clicked, [this]{
+
+    button = new DBaseButton(tr("Retry"));
+    button->setFixedSize(160,36);
+    QObject::connect(button, &DBaseButton::clicked, [this]{
         m_controller->retry();
     });
     view->addButton(button);

@@ -19,10 +19,11 @@
 #include <QPixmap>
 #include <QBitmap>
 
-#include "widgets/simplebutton.h"
+#include <dbasebutton.h>
 #include "constants.h"
 #include "../helper.h"
 
+DWIDGET_USE_NAMESPACE
 
 GeneratedView::GeneratedView(const QString& token, QWidget* p)
     : AbstractView(p),
@@ -65,9 +66,10 @@ QWidget* GeneratedView::createMainWidget()
     layout->addWidget(m_tokenLabel, 0, Qt::AlignHCenter);
 
 
-    SimpleButton *button = new SimpleButton(tr("Copy"),this);
+    DBaseButton *copyBt = new DBaseButton(tr("Copy"),this);
+    copyBt->setFixedSize(160,36);
 
-    connect(button, &SimpleButton::clicked, [this] {
+    connect(copyBt, &DBaseButton::clicked, [this] {
         m_tokenLabel->setText(tr("Copied to clipboard successfully"));
         m_tipLabel->setText(tr("Connecting, please wait...interface will close after successfully connected"));
         QString token = m_tokenLabel->text();
@@ -77,19 +79,17 @@ QWidget* GeneratedView::createMainWidget()
         m_copyTipVisableTimer->start();
     });
 
-    SimpleButton *buttonn = new SimpleButton(tr("Cancel"));
+    DBaseButton *cancelBt = new DBaseButton(tr("Cancel"));
+    cancelBt->setFixedSize(160,36);
 
-    connect(buttonn, &SimpleButton::clicked, [this] {
+    connect(cancelBt, &DBaseButton::clicked, [this] {
         qDebug() << "cancel button on GeneratedView is clicked";
         emit cancel();
     });
 
 
-    addButton(button);
-    addButton(buttonn);
-
-
-
+    addButton(copyBt);
+    addButton(cancelBt);
 
     m_tipLabel = new TipLabel(this);
     m_tipLabel->setText(tr("To share your desktop, please provide the above verification code to your help provider"));
