@@ -2,7 +2,7 @@
 
 DMovie::DMovie(QObject *parent) : QObject(parent)
 {
-    connect(&m_timer,SIGNAL(timeout()), this, SLOT(play()));
+    connect(&m_timer, SIGNAL(timeout()), this, SLOT(play()));
     m_i = 0;
 }
 
@@ -13,29 +13,28 @@ void  DMovie::start()
 
 void  DMovie::play()
 {
-
-switch(movieType) {
+    switch (movieType) {
     case DMovie::list:
-        if(m_i < m_imageListSize)
-        {
-            m_pixmap.load( m_path + m_imageList.at(m_i));
+        if (m_i < m_imageListSize) {
+            m_pixmap.load(m_path + m_imageList.at(m_i));
             m_label->setPixmap(m_pixmap);
             m_i++;
-        }else{
+        } else {
             m_i = 0;
         }
         break;
+    case DMovie::notype:
     case DMovie::anifile:
         break;
-}
+    }
 
 }
 
 void DMovie::setMoviePath(QString path, QLabel *label)
 {
     m_path = path;
-    QDir dir( path );
-    dir.setFilter(QDir::Files| QDir::NoDotAndDotDot);
+    QDir dir(path);
+    dir.setFilter(QDir::Files | QDir::NoDotAndDotDot);
     QStringList list = dir.entryList();
     movieType = DMovie::list;
     m_imageList = list;

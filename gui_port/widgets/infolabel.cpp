@@ -7,7 +7,7 @@ InfoLabel::InfoLabel(QWidget *parent) :
     setWordWrap(true);
     setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 
-    setFixedSize(200,16);
+    setFixedWidth(200);
 
     setObjectName("InfoLabel");
 //    setStyleSheet("InfoLabel { border: 1px solid black } ");

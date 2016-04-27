@@ -11,16 +11,18 @@
 
 #include <QDebug>
 
-ShareController::ShareController(com::deepin::daemon::Remoting::Manager* manager,
-        com::deepin::daemon::Remoting::Server* server,
-        QObject* p)
-        : IShareController(p),
-          m_manager(manager),
-          m_server(server)
+ShareController::ShareController(com::deepin::daemon::Remoting::Manager *manager,
+                                 com::deepin::daemon::Remoting::Server *server,
+                                 QObject *p)
+    : IShareController(p),
+      m_manager(manager),
+      m_server(server)
 {
+    QObject::connect(m_server, SIGNAL(StatusChanged(int)), this, SLOT(onStatusChanged(int)));
 }
 
-ShareController::~ShareController() {
+ShareController::~ShareController()
+{
     m_server->deleteLater();
 }
 
@@ -38,8 +40,9 @@ QString ShareController::getPeerID()
 
 void ShareController::checkNetworkConnectivity()
 {
-    if (doCheckNetworkConnectivity() == NetworkConnectivity::Disconnected)
+    if (doCheckNetworkConnectivity() == NetworkConnectivity::Disconnected) {
         emit noNetwork();
+    }
 }
 
 int ShareController::doCheckNetworkConnectivity()
@@ -60,9 +63,10 @@ void ShareController::onStatusChanged(int status)
 {
     qDebug() << "status" << status;
     int networkState = doCheckNetworkConnectivity();
-    if (NetworkConnectivity::Disconnected == networkState ) {
+    if (NetworkConnectivity::Disconnected == networkState) {
+//        qDebug() << "return noNetwork" << status;
         emit noNetwork();
-        return;
+//        return;
     }
 
     switch (status) {
@@ -107,7 +111,7 @@ void ShareController::startGenAccessToken()
     }
 
     qDebug() << "listen StatusChanged signal";
-    QObject::connect(m_server, SIGNAL(StatusChanged(int)), this, SLOT(onStatusChanged(int)));
+
     m_server->Start();
 }
 
@@ -119,5 +123,6 @@ void ShareController::cancel()
 
 void ShareController::disconnect()
 {
+    qDebug() << "disconnect";
     m_server->StopNotify();
 }

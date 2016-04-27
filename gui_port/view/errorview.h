@@ -13,6 +13,7 @@
 #include "abstractview.h"
 
 class NotifyLabel;
+class TipLabel;
 
 class ErrorView : public AbstractView
 {
@@ -20,6 +21,7 @@ class ErrorView : public AbstractView
 public:
     ErrorView(QWidget *p = nullptr);
     ErrorView *setText(const QString &text);
+    ErrorView *setTips(const QString &tips);
 
 private slots:
     // void onCancelButtonClicked();
@@ -27,8 +29,8 @@ private slots:
 
 private:
     NotifyLabel *m_text;
-
-    QWidget *createMainWidget() Q_DECL_OVERRIDE;
+    TipLabel    	*m_tip;
+    QWidget 	*createMainWidget() Q_DECL_OVERRIDE;
 };
 
 #endif // ERRORVIEW_H

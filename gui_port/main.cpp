@@ -21,7 +21,7 @@ int main(int argv, char *args[])
 
     DLogManager::registerConsoleAppender();
 
-    if (!app.setSingleInstance("deepin-remote-assistance")) {
+    if (!app.setSingleInstance("deepin-remote-assistance-ui")) {
         qDebug() << "Another deepin-remote-assistance exist.";
         return 0;
     }

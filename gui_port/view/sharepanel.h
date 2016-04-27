@@ -31,7 +31,7 @@ public slots:
     void onDisconnectedWithAsk();
     void onDisconnected();
     void onSharing();
-    void onStopped();
+    void OnRetry();
 
 private slots:
     void emitChangePanel() Q_DECL_OVERRIDE;
@@ -41,7 +41,8 @@ private:
     void dtor();
 
 private:
-    IShareController *m_controller;
+    QTimer              *m_deleyRetryTimer;
+    IShareController    *m_controller;
 };
 
 #endif /* end of include guard: SHARE_PANEL_H_WNAMLTE2 */

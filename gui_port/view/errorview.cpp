@@ -43,10 +43,9 @@ QWidget* ErrorView::createMainWidget()
     mainLayout->addWidget(m_text, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(37);
 
-    TipLabel *tip = new TipLabel(this);
-    tip->setText(tr("Invalid verification code, please retry!"));
-    tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
-    mainLayout->addWidget(tip, 0, Qt::AlignHCenter);
+    m_tip = new TipLabel(this);
+    m_tip->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
+    mainLayout->addWidget(m_tip, 0, Qt::AlignHCenter);
 
     return mainWidget;
 }
@@ -54,6 +53,10 @@ QWidget* ErrorView::createMainWidget()
 ErrorView* ErrorView::setText(const QString& text)
 {
     m_text->setText(text);
+    return this;
+}
 
+ErrorView *ErrorView::setTips(const QString &tips){
+    m_tip->setText(tips);
     return this;
 }

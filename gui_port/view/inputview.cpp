@@ -54,7 +54,6 @@ InputView::InputView(QWidget *p)
         }
     });
 
-
     initialize();
 
     focus();
@@ -98,12 +97,13 @@ QWidget *InputView::createMainWidget()
     QObject::connect(m_tokenEdit, SIGNAL(returnPressed()), this, SLOT(connectToClient()));
     QObject::connect(m_tokenEdit, &QLineEdit::textChanged, [this](const QString & token) {
         qDebug() << "valid token";
-        QString copyToken = token;
-        int pos = 0;
+//        QString copyToken = token;
+//        int pos = 0;
 
         m_connectButton->setText(tr("Cancel"));
         m_buttonFlag = InputView::btncancel;
-        if (m_validator->validate(copyToken, pos) == QValidator::Acceptable) {
+        if (token.length() == 6 ) {
+//        if (m_validator->validate(copyToken, pos) == QValidator::Acceptable) {
             m_connectButton->setText(tr("Connect"));
             m_buttonFlag = InputView::btnconnect;
         }

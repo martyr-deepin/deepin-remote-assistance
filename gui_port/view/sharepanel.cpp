@@ -22,14 +22,15 @@
 
 DWIDGET_USE_NAMESPACE
 
-SharePanel::SharePanel(IShareController* controller, QWidget* p)
+SharePanel::SharePanel(IShareController *controller, QWidget *p)
     : AbstractPanel(tr(" "), p),
       m_controller(controller)
 {
     setObjectName("SharePanel");
-    connect(controller, SIGNAL(noNetwork()), this, SLOT(onNoNetwork()));
-    connect(controller, SIGNAL(stopped()), this, SLOT(onStopped()));
-
+//    connect(controller, SIGNAL(noNetwork()), this, SLOT(onGenAccessTokenFailed()));
+//    connect(controller, SIGNAL(stopped()), this, SLOT(onGenAccessTokenFailed()));
+    m_deleyRetryTimer = new QTimer(this);
+    connect(m_deleyRetryTimer, &QTimer::timeout, this, &SharePanel::OnRetry);
     if (controller->isSharing()) {
         onSharing();
         return;
@@ -38,10 +39,11 @@ SharePanel::SharePanel(IShareController* controller, QWidget* p)
     connect(controller, SIGNAL(sharing()), this, SLOT(onSharing()));
     connect(controller, SIGNAL(generatingAccessToken()), this, SLOT(onGeneratingAccessToken()));
 //    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
-//    connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
+    connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
     connect(controller, SIGNAL(genAccessTokenSuccessed(QString)), this, SLOT(onGenAccessTokenSuccessed(QString)));
     controller->startGenAccessToken();
 }
+
 SharePanel::~SharePanel()
 {
     dtor();
@@ -59,19 +61,13 @@ void SharePanel::dtor()
 void SharePanel::emitChangePanel()
 {
     dtor();
-    qDebug() <<"emit changePanel";
+    qDebug() << "emit changePanel";
     emit changePanel(ViewPanel::Main);
 }
 
 void SharePanel::abort()
 {
     onDisconnected();
-    emitChangePanel();
-}
-
-void SharePanel::onStopped()
-{
-    qDebug() << "onStopped";
     emitChangePanel();
 }
 
@@ -94,16 +90,13 @@ void SharePanel::onGeneratingAccessToken()
 
 void SharePanel::onDisconnectedWithAsk()
 {
-    qDebug() << "disconnect";
+    qDebug() << "onDisconnectedWithAsk";
     m_controller->disconnect();
-
-
-
 }
 
 void SharePanel::onDisconnected()
 {
-    qDebug() << "disconnect immedately"<< m_controller->isSharing();
+    qDebug() << "disconnect immedately" << m_controller->isSharing();
     m_controller->cancel();
     emitChangePanel();
 }
@@ -113,20 +106,23 @@ void SharePanel::onGenAccessTokenFailed()
     qDebug() << "gen access token failed";
     auto view = new ErrorView;
 
-    auto button = new DBaseButton(tr("Cancel"));
-    button->setFixedSize(160,36);
-    QObject::connect(button, &DBaseButton::clicked, [this]{
-        onDisconnectedWithAsk();
+    auto button = new DBaseButton(tr("Retry"));
+    button->setFixedSize(160, 36);
+    QObject::connect(button, &DBaseButton::clicked, [this] {
+        onGeneratingAccessToken();
+        m_deleyRetryTimer->start(2000);
     });
     view->addButton(button);
 
-    button = new DBaseButton(tr("Retry"));
-    button->setFixedSize(160,36);
-    QObject::connect(button, &DBaseButton::clicked, [this]{
-        m_controller->retry();
-    });
-    view->addButton(button);
-    setWidget(view->setText(tr("Failed to establish the connection, you can retry to connect")));
+    setWidget(view->setText(tr("Connected failed"))->setTips(tr("Failed to obtain verification code! ")));
+}
+
+
+void SharePanel::OnRetry()
+{
+    qDebug() << "SharePanel::OnRetry()";
+    m_deleyRetryTimer->stop();
+    m_controller->startGenAccessToken();
 }
 
 void SharePanel::onGenAccessTokenSuccessed(QString token)
