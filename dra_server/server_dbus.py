@@ -153,6 +153,11 @@ class ServerDBus(dbus.service.Object):
         '''Quit now'''
         QtWidgets.qApp.quit()
 
+    @QtCore.pyqtSlot()
+    def disconnected(self):
+        '''Disconnect media stream'''
+        self.StatusChanged(constants.SERVER_STATUS_DISCONNECTED)
+
     @dbus.service.method(constants.DBUS_ROOT_IFACE, in_signature='',
                          out_signature='s')
     def GetPeerId(self):
@@ -183,7 +188,7 @@ class ServerDBus(dbus.service.Object):
         elif self._status == constants.SERVER_STATUS_SHARING:
             self.remoting_connected = True
             self.disconnect_window = DisconnectWindow()
-            self.disconnect_window.disconnected.connect(self.Stop)
+            self.disconnect_window.disconnected.connect(self.disconnected)
             self.disconnect_window.show()
 
         # If remote peer has closed remoting connection, terminate local service
