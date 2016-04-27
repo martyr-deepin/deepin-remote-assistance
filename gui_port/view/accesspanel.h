@@ -17,11 +17,8 @@
 #include "abstractpanel.h"
 #include "../controller/access.h"
 
-DWIDGET_BEGIN_NAMESPACE
-class SimpleButton;
-DWIDGET_END_NAMESPACE
-
 class IAccessController;
+class InputView;
 
 class AccessPanel: public AbstractPanel
 {
@@ -49,7 +46,8 @@ private slots:
     void emitChangePanel() Q_DECL_OVERRIDE;
 
 private:
-    IAccessController *m_controller;
+    IAccessController   *m_controller;
+    InputView           *m_inputView;
 };
 
 #endif /* end of include guard: ACCESS_PANEL_H_T7BZFECR */

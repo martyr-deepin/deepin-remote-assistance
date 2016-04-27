@@ -30,6 +30,7 @@ public:
     };
     InputView(QWidget *p = nullptr);
     void focus();
+    void setTips(const QString& tips);
 
 signals:
     void cancel();

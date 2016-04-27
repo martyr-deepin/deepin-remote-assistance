@@ -120,7 +120,7 @@ QWidget *InputView::createMainWidget()
 
     layout->addSpacing(20);
     layout->addWidget(m_tip, 0, Qt::AlignCenter);
-    layout->addSpacing(40);
+//    layout->addS(30);
 //    layout->addLayout(m_buttonHLayout);
     layout->addStretch();
     mainWidget->setLayout(layout);
@@ -131,4 +131,8 @@ void InputView::focus()
 {
     qDebug() << "focus token input widget";
     m_tokenEdit->setFocus();
+}
+
+void InputView::setTips(const QString& tips) {
+    m_tip->setText(tips);
 }

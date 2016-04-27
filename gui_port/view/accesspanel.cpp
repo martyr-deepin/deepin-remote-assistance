@@ -37,10 +37,10 @@ AccessPanel::AccessPanel(IAccessController *controller, QWidget *p)
         return;
     }
 
-    auto view = new InputView;
-    connect(view, SIGNAL(connect(QString)), this, SLOT(onConnect(QString)));
-    connect(view, SIGNAL(cancel()), this, SLOT(onDisconnected()));
-    setWidget(view);
+    m_inputView = new InputView;
+    connect(m_inputView, SIGNAL(connect(QString)), this, SLOT(onConnect(QString)));
+    connect(m_inputView, SIGNAL(cancel()), this, SLOT(onDisconnected()));
+    setWidget(m_inputView);
 
     connect(controller, SIGNAL(connecting()), this, SLOT(onConnecting()));
     connect(controller, SIGNAL(connectFailed(AccessErrors)), this, SLOT(onConnectFailed(AccessErrors)));
@@ -49,7 +49,8 @@ AccessPanel::AccessPanel(IAccessController *controller, QWidget *p)
     m_controller->setParent(this);
 }
 
-AccessPanel::~AccessPanel(){
+AccessPanel::~AccessPanel()
+{
     m_controller->disconnect();
 }
 
@@ -104,19 +105,25 @@ void AccessPanel::onConnectFailed(AccessErrors e)
         break;
     case AccessError::InvalidToken:
         qDebug() << "invalid token";
-        break;
+        auto inputView = new InputView;
+        connect(inputView, SIGNAL(connect(QString)), this, SLOT(onConnect(QString)));
+        connect(inputView, SIGNAL(cancel()), this, SLOT(onDisconnected()));
+        inputView->setTips(tr("Invalid verification code, please retry!"));
+        setWidget(inputView);
+        return;
     }
-    view->setText(tr("Connect failed"));
+
+    view->setText(tr("Connect failed"))->setTips(tr("Failed to establish connection, please retry"));
 
     auto button = new Dtk::Widget::DBaseButton(tr("Cancel"));
-    button->setFixedSize(160,36);
-    connect(button, &Dtk::Widget::DBaseButton::clicked, [this]{
+    button->setFixedSize(160, 36);
+    connect(button, &Dtk::Widget::DBaseButton::clicked, [this] {
         emitChangePanel();
     });
     view->addButton(button, 0, Qt::AlignCenter);
 
     button = new Dtk::Widget::DBaseButton(tr("Retry"));
-    button->setFixedSize(160,36);
+    button->setFixedSize(160, 36);
     button->setEnabled(false);
 
     // waiting the remoting window to be closed.
@@ -130,7 +137,7 @@ void AccessPanel::onConnectFailed(AccessErrors e)
         timer->deleteLater();
     });
     timer->start();
-    connect(button, &Dtk::Widget::DBaseButton::clicked, [this]{
+    connect(button, &Dtk::Widget::DBaseButton::clicked, [this] {
         m_controller->retry();
     });
     view->addButton(button, 0, Qt::AlignCenter);
