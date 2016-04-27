@@ -12,12 +12,12 @@
 
 #define RETURN_IF_NO_NETWORK(status) if (status == NetworkConnectivity::Disconnected) { emit noNetwork(); return ;}
 
-AccessController::AccessController(com::deepin::daemon::Remoting::Manager* manager,
-                                   com::deepin::daemon::Remoting::Client* client,
-                                   QObject*p)
-        : IAccessController(p),
-          m_manager(manager),
-          m_client(client)
+AccessController::AccessController(com::deepin::daemon::Remoting::Manager *manager,
+                                   com::deepin::daemon::Remoting::Client *client,
+                                   QObject *p)
+    : IAccessController(p),
+      m_manager(manager),
+      m_client(client)
 {
 }
 
@@ -80,6 +80,8 @@ void AccessController::disconnect()
 
 void AccessController::onStatusChanged(int status)
 {
+    qDebug() << "emit " << status;
+
     if (NetworkConnectivity::Disconnected == doCheckNetworkConnectivity()) {
         emit  noNetwork();
         return;

@@ -30,17 +30,17 @@ AccessPanel::AccessPanel(IAccessController *controller, QWidget *p)
     setObjectName("AccessPanel");
     connect(controller, SIGNAL(noNetwork()), this, SLOT(onNoNetwork()));
     connect(controller, SIGNAL(connected()), this, SLOT(onConnected()));
-    connect(controller, SIGNAL(stopped()), this, SLOT(onStopped()));
+//    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
 
     if (controller->isAlreadyConnected()) {
         onConnected();
         return;
     }
 
-    m_inputView = new InputView;
-    connect(m_inputView, SIGNAL(connect(QString)), this, SLOT(onConnect(QString)));
-    connect(m_inputView, SIGNAL(cancel()), this, SLOT(onDisconnected()));
-    setWidget(m_inputView);
+    InputView *inputView = new InputView;
+    connect(inputView, SIGNAL(connect(QString)), this, SLOT(onConnect(QString)));
+    connect(inputView, SIGNAL(cancel()), this, SLOT(onCancel()));
+    setWidget(inputView);
 
     connect(controller, SIGNAL(connecting()), this, SLOT(onConnecting()));
     connect(controller, SIGNAL(connectFailed(AccessErrors)), this, SLOT(onConnectFailed(AccessErrors)));
@@ -62,11 +62,12 @@ void AccessPanel::emitChangePanel()
 void AccessPanel::onStopped()
 {
     qDebug() << "onStopped";
-//    emitChangePanel();
+    emitChangePanel();
 }
 
 void AccessPanel::abort()
 {
+    qDebug()<< "AccessPanel::abort()";
     onDisconnected();
 }
 
@@ -80,7 +81,7 @@ void AccessPanel::onConnecting()
 {
     qDebug() << "connecting";
     auto view = new ConnectingView;
-    connect(view, SIGNAL(cancel()), this, SLOT(onDisconnected()));
+    connect(view, SIGNAL(cancel()), this, SLOT(onCancel()));
     setWidget(view);
 }
 
@@ -107,7 +108,7 @@ void AccessPanel::onConnectFailed(AccessErrors e)
         qDebug() << "invalid token";
         auto inputView = new InputView;
         connect(inputView, SIGNAL(connect(QString)), this, SLOT(onConnect(QString)));
-        connect(inputView, SIGNAL(cancel()), this, SLOT(onDisconnected()));
+        connect(inputView, SIGNAL(cancel()), this, SLOT(onCancel()));
         inputView->setTips(tr("Invalid verification code, please retry!"));
         setWidget(inputView);
         return;
@@ -143,6 +144,13 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     view->addButton(button, 0, Qt::AlignCenter);
 
     setWidget(view);
+}
+
+void AccessPanel::onCancel()
+{
+    qDebug() << "disconnected accessing";
+//    m_controller->disconnect();
+    emitChangePanel();
 }
 
 void AccessPanel::onDisconnected()

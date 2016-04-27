@@ -221,18 +221,23 @@ void Impl::changeTitle(ViewPanel v)
 
 void Impl::changePanel(ViewPanel v)
 {
+    qDebug() << "changePanel to " << v;
+    qDebug() << "m_stackWidget->depth()" << m_stackWidget->depth();
     m_viewType = v;
     changeTitle(v);
-    if (m_stackWidget->depth() > 1) {
+    while (m_stackWidget->depth() > 1) {
         popView();
         qDebug() << "popView return";
         return;
     }
 
-    qDebug() << "getPanel";
     QWidget *panel = getPanel(v);
 
+    qDebug()<<"old panel"<<m_panel->objectName();
+
     pushView(panel);
+
+    qDebug()<<"current panel"<<m_panel->objectName();
 }
 
 void RemoteAssistance::onAnimationEnd()
@@ -246,7 +251,7 @@ void RemoteAssistance::onAnimationEnd()
 
 void RemoteAssistance::changePanel(ViewPanel v)
 {
-    qDebug() << "changePanel";
+    qDebug() << "changePanel" << v;
     m_impl->changePanel(v);
 }
 
@@ -258,10 +263,10 @@ inline void Impl::pushView(QWidget *w, bool enableTransition)
 
 inline void Impl::popView(QWidget *w, bool isDelete, int count, bool enableTransition)
 {
-    qDebug() << "pop last panel" << m_panel->objectName() << ", depth" << m_stackWidget->depth();
+//    qDebug() << "pop last panel" << m_panel->objectName() << ", depth" << m_stackWidget->depth();
     m_stackWidget->popWidget(w, isDelete, count, enableTransition);
     m_panel = m_stackWidget->currentWidget();
-    qDebug() << "current panel is" << m_panel->objectName();
+//    qDebug() << "current panel is" << m_panel->objectName();
 }
 
 RemoteAssistance::RemoteAssistance()

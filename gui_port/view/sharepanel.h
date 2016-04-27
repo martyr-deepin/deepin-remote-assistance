@@ -31,7 +31,8 @@ public slots:
     void onDisconnectedWithAsk();
     void onDisconnected();
     void onSharing();
-    void OnRetry();
+    void onStop();
+    void onRetry();
 
 private slots:
     void emitChangePanel() Q_DECL_OVERRIDE;

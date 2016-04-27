@@ -28,11 +28,11 @@ int main(int argv, char *args[])
 
     QTranslator translator;
     translator.load("/usr/share/dde-launcher/translations/deepin-remote-assistance_" +
-    QLocale::system().name() + ".qm");
+                    QLocale::system().name() + ".qm");
     app.installTranslator(&translator);
 
     RemoteAssistance ra;
-    QObject::connect(&app, SIGNAL(aboutToQuit()), &ra, SIGNAL(aboutToQuit()) );
+    QObject::connect(&app, SIGNAL(aboutToQuit()), &ra, SIGNAL(aboutToQuit()));
 
     ra.showWindow();
 

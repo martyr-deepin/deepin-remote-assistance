@@ -40,6 +40,7 @@ private slots:
     void onConnected();
     void onConnectFailed(AccessErrors);
     void onDisconnected();
+    void onCancel();
     void abort() Q_DECL_OVERRIDE;
 
 private slots:
@@ -47,7 +48,6 @@ private slots:
 
 private:
     IAccessController   *m_controller;
-    InputView           *m_inputView;
 };
 
 #endif /* end of include guard: ACCESS_PANEL_H_T7BZFECR */

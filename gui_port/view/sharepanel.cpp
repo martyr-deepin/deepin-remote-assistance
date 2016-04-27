@@ -28,9 +28,9 @@ SharePanel::SharePanel(IShareController *controller, QWidget *p)
 {
     setObjectName("SharePanel");
 //    connect(controller, SIGNAL(noNetwork()), this, SLOT(onGenAccessTokenFailed()));
-//    connect(controller, SIGNAL(stopped()), this, SLOT(onGenAccessTokenFailed()));
+//    connect(controller, SIGNAL(stopped()), this, SLOT(onStop()));
     m_deleyRetryTimer = new QTimer(this);
-    connect(m_deleyRetryTimer, &QTimer::timeout, this, &SharePanel::OnRetry);
+    connect(m_deleyRetryTimer, &QTimer::timeout, this, &SharePanel::onRetry);
     if (controller->isSharing()) {
         onSharing();
         return;
@@ -38,7 +38,7 @@ SharePanel::SharePanel(IShareController *controller, QWidget *p)
 
     connect(controller, SIGNAL(sharing()), this, SLOT(onSharing()));
     connect(controller, SIGNAL(generatingAccessToken()), this, SLOT(onGeneratingAccessToken()));
-//    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
+    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
     connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
     connect(controller, SIGNAL(genAccessTokenSuccessed(QString)), this, SLOT(onGenAccessTokenSuccessed(QString)));
     controller->startGenAccessToken();
@@ -68,6 +68,11 @@ void SharePanel::emitChangePanel()
 void SharePanel::abort()
 {
     onDisconnected();
+    emitChangePanel();
+}
+
+void SharePanel::onStop()
+{
     emitChangePanel();
 }
 
@@ -118,7 +123,7 @@ void SharePanel::onGenAccessTokenFailed()
 }
 
 
-void SharePanel::OnRetry()
+void SharePanel::onRetry()
 {
     qDebug() << "SharePanel::OnRetry()";
     m_deleyRetryTimer->stop();
