@@ -62,6 +62,7 @@ QWidget *GeneratedView::createMainWidget()
     m_tokenLabel = new NotifyLabel(this);
     m_tokenLabel->setObjectName("token");
     m_tokenLabel->setFixedSize(200, 32);
+    m_tokenLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
     QFont font = m_tokenLabel->font();
     font.setPixelSize(30);
