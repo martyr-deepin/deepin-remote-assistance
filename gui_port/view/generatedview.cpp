@@ -25,25 +25,25 @@
 
 DWIDGET_USE_NAMESPACE
 
-GeneratedView::GeneratedView(const QString& token, QWidget* p)
+GeneratedView::GeneratedView(const QString &token, QWidget *p)
     : AbstractView(p),
       m_copyTipVisableTimer(new QTimer(this))
 {
     setObjectName("GeneratedView");
     m_copyTipVisableTimer->setInterval(3000);
     QObject::connect(m_copyTipVisableTimer, &QTimer::timeout, [this] {
-        m_tokenLabel->setText(m_token);
+        m_tokenLabel->show();
+        m_copyTip->hide();
+//        m_tipLabel->setText(tr("To share your desktop, please provide the above verification code to your help provider"));
     });
 
     initialize();
 
-
     m_tokenLabel->setText(token);
     m_token = token;
-
 }
 
-QWidget* GeneratedView::createMainWidget()
+QWidget *GeneratedView::createMainWidget()
 {
     auto mainWidget = new QWidget;
 
@@ -53,25 +53,33 @@ QWidget* GeneratedView::createMainWidget()
 
     layout->addSpacing(70);
 
+    m_copyTip = new QLabel;
+    m_copyTip->setFixedHeight(32);
+    m_copyTip->setText(tr("Copied to clipboard successfully"));
+    m_copyTip->setStyleSheet("font-size: 20px;");
+    m_copyTip->hide();
+
     m_tokenLabel = new NotifyLabel(this);
     m_tokenLabel->setObjectName("token");
-    m_tokenLabel->setFixedSize(300, 36);
+    m_tokenLabel->setFixedSize(200, 32);
+
     QFont font = m_tokenLabel->font();
     font.setPixelSize(30);
+    font.setLetterSpacing(QFont::AbsoluteSpacing, 16);
+    m_tokenLabel->setStyleSheet("margin-left: 4px;");
     m_tokenLabel->setFont(font);
+    m_tokenLabel->setAlignment(Qt::AlignCenter);
 
-    qDebug() << font.pixelSize() << "------------------------";
+    layout->addWidget(m_copyTip, 0, Qt::AlignCenter);
+    layout->addWidget(m_tokenLabel, 0, Qt::AlignCenter);
 
-
-    layout->addWidget(m_tokenLabel, 0, Qt::AlignHCenter);
-
-
-    DBaseButton *copyBt = new DBaseButton(tr("Copy"),this);
-    copyBt->setFixedSize(160,36);
+    DBaseButton *copyBt = new DBaseButton(tr("Copy"), this);
+    copyBt->setFixedSize(160, 36);
 
     connect(copyBt, &DBaseButton::clicked, [this] {
-        m_tokenLabel->setText(tr("Copied to clipboard successfully"));
-        m_tipLabel->setText(tr("Connecting, please wait...interface will close after successfully connected"));
+        m_tokenLabel->hide();
+        m_copyTip->show();
+//        m_tipLabel->setText(tr("Connecting, please wait..\ninterface will close after successfully connected"));
         QString token = m_tokenLabel->text();
         QApplication::clipboard()->setText(m_token);
         qDebug() << "Copy Code button on GeneratedView is clicked.";
@@ -80,7 +88,7 @@ QWidget* GeneratedView::createMainWidget()
     });
 
     DBaseButton *cancelBt = new DBaseButton(tr("Cancel"));
-    cancelBt->setFixedSize(160,36);
+    cancelBt->setFixedSize(160, 36);
 
     connect(cancelBt, &DBaseButton::clicked, [this] {
         qDebug() << "cancel button on GeneratedView is clicked";
@@ -98,7 +106,6 @@ QWidget* GeneratedView::createMainWidget()
     layout->addSpacing(35.6);
     layout->addWidget(m_tipLabel, 0, Qt::AlignHCenter);
     layout->addSpacing(20);
-    layout->addWidget(m_copyTip);
     layout->addSpacing(18);
     layout->addStretch();
 

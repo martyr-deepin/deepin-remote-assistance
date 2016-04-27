@@ -92,8 +92,8 @@ QWidget *InputView::createMainWidget()
 
     QFont font = m_tokenEdit->font();
     font.setPixelSize(30);
+    font.setLetterSpacing(QFont::AbsoluteSpacing, 16);
     m_tokenEdit->setFont(font);
-
 
     QObject::connect(m_tokenEdit, SIGNAL(returnPressed()), this, SLOT(connectToClient()));
     QObject::connect(m_tokenEdit, &QLineEdit::textChanged, [this](const QString & token) {
