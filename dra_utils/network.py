@@ -6,8 +6,8 @@ from . import constants
 DBUS_NAME = 'org.freedesktop.NetworkManager'
 DBUS_PATH = '/org/freedesktop/NetworkManager'
 DBUS_IFACE = 'org.freedesktop.NetworkManager'
-# State of nm is 1L when no network is connected
-IS_NOT_CONNECTED = 1
+# State of nm is 70L when no network is connected
+IS_CONNECTED = 70
 
 __all__ = ['is_connected']
 
@@ -23,14 +23,14 @@ class NetworkInterface(QtDBus.QDBusAbstractInterface):
         super().__init__(DBUS_NAME, DBUS_PATH, DBUS_IFACE, system_bus, None)
 
     def is_connected(self):
-        reply = self.call('CheckConnectivity')
+        reply = self.call('state')
 
         # Failed to check
         if reply.type() != QtDBus.QDBusMessage.ReplyMessage:
             print('[network]', reply.errorName(), reply.errorMessage())
             return constants.NETWORK_UNKNOWN
         state = reply.arguments()
-        if len(state) == 1 and state[0] != IS_NOT_CONNECTED:
+        if len(state) == 1 and state[0] == IS_CONNECTED:
             return constants.NETWORK_CONNECTED
         else:
             return constants.NETWORK_DISCONNECTED
