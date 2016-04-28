@@ -117,6 +117,7 @@ void Impl::initPanel()
         qDebug() << reply.error();
         return ;
     }
+    qDebug() << reply.value();
     pushView(getPanel(ViewPanel::Main), false);
     switch (reply.value()) {
     case ManagerState::Uninitialized:
@@ -233,11 +234,11 @@ void Impl::changePanel(ViewPanel v)
 
     QWidget *panel = getPanel(v);
 
-    qDebug()<<"old panel"<<m_panel->objectName();
+    qDebug() << "old panel" << m_panel->objectName();
 
     pushView(panel);
 
-    qDebug()<<"current panel"<<m_panel->objectName();
+    qDebug() << "current panel" << m_panel->objectName();
 }
 
 void RemoteAssistance::onAnimationEnd()

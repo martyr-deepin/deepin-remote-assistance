@@ -40,7 +40,7 @@ InputView::InputView(QWidget *p)
     m_buttonFlag = InputView::btncancel;
 
     m_connectButton = new DBaseButton(tr("Cancel"));
-    m_connectButton->setFixedSize(160,36);
+    m_connectButton->setFixedSize(160, 36);
 
     QObject::connect(m_connectButton, &DBaseButton::clicked, [this] {
         switch (m_buttonFlag)
@@ -97,13 +97,20 @@ QWidget *InputView::createMainWidget()
     QObject::connect(m_tokenEdit, SIGNAL(returnPressed()), this, SLOT(connectToClient()));
     QObject::connect(m_tokenEdit, &QLineEdit::textChanged, [this](const QString & token) {
         qDebug() << "valid token";
-//        QString copyToken = token;
-//        int pos = 0;
+        QString copyToken = token;
+        int pos = 0;
 
         m_connectButton->setText(tr("Cancel"));
         m_buttonFlag = InputView::btncancel;
-        if (token.length() == 6 ) {
-//        if (m_validator->validate(copyToken, pos) == QValidator::Acceptable) {
+
+        QRegExpValidator tipsValidator(*new QRegExp("[A-Za-z0-9]"));
+        if (tipsValidator.validate(copyToken, pos) != QValidator::Acceptable) {
+            setTips(tr("Invalid verification code, please retry!"));
+        } else {
+            setTips(tr("Input verification code and \"Connect\" to start remote access"));
+        }
+
+        if (m_validator->validate(copyToken, pos) == QValidator::Acceptable) {
             m_connectButton->setText(tr("Connect"));
             m_buttonFlag = InputView::btnconnect;
         }
@@ -133,6 +140,7 @@ void InputView::focus()
     m_tokenEdit->setFocus();
 }
 
-void InputView::setTips(const QString& tips) {
+void InputView::setTips(const QString &tips)
+{
     m_tip->setText(tips);
 }

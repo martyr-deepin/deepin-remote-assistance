@@ -6,10 +6,15 @@
 #include <QEvent>
 
 
-DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(parent) {
+DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(parent)
+{
     setWindowIcon(QIcon(":/Resource/remote-assistance-48.png"));
     setBackgroundColor(qRgb(0xf5, 0xf5, 0xf8));
-    setWindowFlags(Qt::ToolTip);
+
+    setWindowFlags(windowFlags() & ~ Qt::WindowMinimizeButtonHint);
+    setWindowFlags(windowFlags() & ~ Qt::WindowSystemMenuHint);
+    setWindowFlags(windowFlags() & ~ Qt::WindowMaximizeButtonHint);
+
     QLabel *logo = new QLabel("logo");
     logo->setPixmap(QPixmap(":/Resource/remote-assistance-96.png"));
     logo->setFixedSize(96, 96);
@@ -38,7 +43,7 @@ DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(
     description->setStyleSheet("font-size:12px; color: #1A1A1A; border: 0px solid;");
     description->setWordWrap(true);
     description->adjustSize();
-    description->setFixedWidth(400-38*2);
+    description->setFixedWidth(400 - 38 * 2);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(logo);
@@ -63,7 +68,8 @@ DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(
 
     setLayout(mainLayout);
 
-    this->setFixedWidth(420);
+    this->adjustSize();
+    this->setFixedSize(this->size());
 }
 
 bool DAboutDialog::event(QEvent *event)
@@ -91,6 +97,7 @@ void DAboutDialog::focusOutEvent(QFocusEvent * /*event*/)
 
 void DAboutDialog::onLogLinkActivated(const QString &link)
 {
+    qDebug() << this->size();
     if (link == "www.deepin.org") {
         QDesktopServices::openUrl(QUrl(link));
     }
