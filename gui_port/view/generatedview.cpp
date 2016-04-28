@@ -61,12 +61,13 @@ QWidget *GeneratedView::createMainWidget()
 
     m_tokenLabel = new NotifyLabel(this);
     m_tokenLabel->setObjectName("token");
-    m_tokenLabel->setFixedSize(200, 32);
+    m_tokenLabel->setFixedWidth(200);
     m_tokenLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
     QFont font = m_tokenLabel->font();
     font.setPixelSize(30);
     font.setLetterSpacing(QFont::AbsoluteSpacing, 16);
+
     m_tokenLabel->setStyleSheet("margin-left: 4px;");
     m_tokenLabel->setFont(font);
     m_tokenLabel->setAlignment(Qt::AlignCenter);
