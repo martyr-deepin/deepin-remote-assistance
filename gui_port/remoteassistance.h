@@ -13,7 +13,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QScopedPointer>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include "dbus/manager.h"
 #include "daction.h"
 
