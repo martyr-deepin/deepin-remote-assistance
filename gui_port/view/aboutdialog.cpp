@@ -69,7 +69,7 @@ DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(
     setLayout(mainLayout);
 
     this->adjustSize();
-    this->setFixedSize(this->size());
+//    this->setFixedSize(this->size());
 }
 
 bool DAboutDialog::event(QEvent *event)
