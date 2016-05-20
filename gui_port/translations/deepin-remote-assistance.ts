@@ -4,20 +4,25 @@
 <context>
     <name>AbstractPanel</name>
     <message>
-        <location filename="../view/abstractpanel.cpp" line="69"/>
-        <source>Ok</source>
+        <location filename="../view/abstractpanel.cpp" line="71"/>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/abstractpanel.cpp" line="75"/>
-        <source>No network connections are available, please retry after connected</source>
+        <location filename="../view/abstractpanel.cpp" line="77"/>
+        <source>Connected Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../view/abstractpanel.cpp" line="77"/>
+        <source>Network connection unavailable, please retry...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AccessPanel</name>
     <message>
-        <location filename="../view/accesspanel.cpp" line="25"/>
+        <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27,17 +32,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/accesspanel.cpp" line="111"/>
+        <location filename="../view/accesspanel.cpp" line="112"/>
+        <source>Invalid verification code, please retry!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/accesspanel.cpp" line="113"/>
+        <location filename="../view/accesspanel.cpp" line="117"/>
+        <source>Failed to establish connection, please retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../view/accesspanel.cpp" line="119"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/accesspanel.cpp" line="121"/>
+        <location filename="../view/accesspanel.cpp" line="126"/>
         <source>Retry</source>
         <translation type="unfinished"></translation>
     </message>
@@ -58,48 +73,53 @@
 <context>
     <name>ConnectingView</name>
     <message>
-        <location filename="../view/connectingview.cpp" line="58"/>
+        <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/connectingview.cpp" line="62"/>
+        <location filename="../view/connectingview.cpp" line="64"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>ErrorView</name>
+    <name>DAboutDialog</name>
     <message>
-        <location filename="../view/errorview.cpp" line="47"/>
-        <source>Invalid verification code, please retry!</source>
+        <location filename="../view/aboutdialog.cpp" line="22"/>
+        <source>Deepin Remote Assistance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../view/aboutdialog.cpp" line="25"/>
+        <source>Version: 2.0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../view/aboutdialog.cpp" line="41"/>
+        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>GeneratedView</name>
     <message>
-        <location filename="../view/generatedview.cpp" line="68"/>
+        <location filename="../view/generatedview.cpp" line="78"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="71"/>
+        <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="72"/>
-        <source>Connecting, please wait...interface will close after successfully connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../view/generatedview.cpp" line="80"/>
+        <location filename="../view/generatedview.cpp" line="92"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="95"/>
+        <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
         <translation type="unfinished"></translation>
     </message>
@@ -107,12 +127,12 @@
 <context>
     <name>GeneratingView</name>
     <message>
-        <location filename="../view/generatingview.cpp" line="52"/>
+        <location filename="../view/generatingview.cpp" line="53"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatingview.cpp" line="59"/>
+        <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
         <translation type="unfinished"></translation>
     </message>
@@ -121,17 +141,32 @@
     <name>Impl</name>
     <message>
         <location filename="../remoteassistance.cpp" line="53"/>
-        <location filename="../remoteassistance.cpp" line="142"/>
+        <location filename="../remoteassistance.cpp" line="201"/>
         <source>Remote Assistance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="151"/>
+        <location filename="../remoteassistance.cpp" line="60"/>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="63"/>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="66"/>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="209"/>
         <source>Assist others</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="158"/>
+        <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist me</source>
         <translation type="unfinished"></translation>
     </message>
@@ -139,18 +174,24 @@
 <context>
     <name>InputView</name>
     <message>
-        <location filename="../view/inputview.cpp" line="36"/>
-        <location filename="../view/inputview.cpp" line="101"/>
+        <location filename="../view/inputview.cpp" line="42"/>
+        <location filename="../view/inputview.cpp" line="103"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/inputview.cpp" line="104"/>
+        <location filename="../view/inputview.cpp" line="108"/>
+        <source>Invalid verification code, please retry!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../view/inputview.cpp" line="114"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/inputview.cpp" line="117"/>
+        <location filename="../view/inputview.cpp" line="110"/>
+        <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
         <translation type="unfinished"></translation>
     </message>
@@ -158,22 +199,22 @@
 <context>
     <name>MainPanel</name>
     <message>
-        <location filename="../view/mainpanel.cpp" line="25"/>
+        <location filename="../view/mainpanel.cpp" line="28"/>
         <source> </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="47"/>
+        <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="57"/>
+        <location filename="../view/mainpanel.cpp" line="67"/>
         <source>Assist me</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="68"/>
+        <location filename="../view/mainpanel.cpp" line="78"/>
         <source>Assist others</source>
         <translation type="unfinished"></translation>
     </message>
@@ -181,28 +222,28 @@
 <context>
     <name>SharePanel</name>
     <message>
-        <location filename="../view/sharepanel.cpp" line="24"/>
+        <location filename="../view/sharepanel.cpp" line="26"/>
         <source> </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/sharepanel.cpp" line="80"/>
+        <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/sharepanel.cpp" line="113"/>
-        <source>Cancel</source>
+        <location filename="../view/sharepanel.cpp" line="122"/>
+        <source>Connected failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/sharepanel.cpp" line="118"/>
+        <location filename="../view/sharepanel.cpp" line="122"/>
+        <source>Failed to obtain verification code! </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../view/sharepanel.cpp" line="114"/>
         <source>Retry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../view/sharepanel.cpp" line="123"/>
-        <source>Failed to establish connection, please retry</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
