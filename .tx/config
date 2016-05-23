@@ -12,7 +12,7 @@ type = PO
 
 ; the gui part
 [deepin-desktop-environment.deepin-remote-assistant_gui]
-file-filter = gui_port/translations/deepin-remote-assistance_<lang>.ts
+file_filter = gui_port/translations/deepin-remote-assistance_<lang>.ts
 source_lang = en
 source_file = gui_port/translations/deepin-remote-assistance.ts
 type = QT
