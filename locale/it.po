@@ -3,15 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Massimo Antonio Carofano <real.massimo@hotmail.it>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: dde-control-center\n"
+"Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2015-08-23 15:42+0000\n"
-"Last-Translator: Massimo Antonio Carofano <real.massimo@hotmail.it>\n"
-"Language-Team: Italian (http://www.transifex.com/linuxdeepin/dde-control-center/language/it/)\n"
+"PO-Revision-Date: 2016-04-19 01:59+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Italian (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,12 +19,12 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "Servizio remoto terminato!"
+msgstr "Servizio di assistenza remota terminato!"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
 msgid "Remote Assistance"
-msgstr "Assistenza remota"
+msgstr "Assistenza Remota"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30

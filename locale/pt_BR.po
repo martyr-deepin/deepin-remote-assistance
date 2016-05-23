@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Raphael Miquelis <raphaelmiquelis@gmail.com>, 2015
+# Paulo Henrique de Sousa <simbios.devs@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: dde-control-center\n"
+"Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2015-09-10 03:23+0000\n"
-"Last-Translator: Raphael Miquelis <raphaelmiquelis@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/linuxdeepin/dde-control-center/language/pt_BR/)\n"
+"PO-Revision-Date: 2016-05-01 14:33+0000\n"
+"Last-Translator: Paulo Henrique de Sousa <simbios.devs@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,12 +20,12 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "Comunicação de serviço remoto encerrado!"
+msgstr "Serviço remoto encerrado!"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
 msgid "Remote Assistance"
-msgstr "Assistência remota"
+msgstr "Assistência Remota"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30
@@ -46,7 +46,7 @@ msgstr "Otimizar a qualidade"
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
-msgstr "Tela Inteira"
+msgstr "Tela Cheia"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"
@@ -54,7 +54,7 @@ msgstr "Falha ao obter o código de acesso!"
 
 #: ../dra_server/views/ConfirmWindow.qml:81
 msgid "Are you sure to close remote desktop connection?"
-msgstr "Tem certeza que deseja fechar a conexão de área de trabalho remota?"
+msgstr "Tem certeza que deseja fechar a conexão da área de trabalho remota?"
 
 #: ../dra_server/views/ConfirmWindow.qml:94
 msgid "Cancel"

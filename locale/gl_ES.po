@@ -3,15 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Xurxo Guerra Perez <xguerrap@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: dde-control-center\n"
+"Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2015-09-12 00:04+0000\n"
-"Last-Translator: Xurxo Guerra Perez <xguerrap@gmail.com>\n"
-"Language-Team: Galician (Spain) (http://www.transifex.com/linuxdeepin/dde-control-center/language/gl_ES/)\n"
+"PO-Revision-Date: 2016-04-19 01:59+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Galician (Spain) (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +19,7 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "Servizo remoto rematado!"
+msgstr "Rematou o servizo remoto!"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
@@ -34,7 +33,7 @@ msgstr "Preferencias"
 
 #: ../dra_client/views/preferencesmenu.py:52
 msgid "Balance"
-msgstr "Equilibrio"
+msgstr "Equilibrado"
 
 #: ../dra_client/views/preferencesmenu.py:58
 msgid "Optimize Speed"
@@ -50,7 +49,7 @@ msgstr "Pantalla completa"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"
-msgstr "Fallou ao obter o código de acceso!"
+msgstr "Produciuse un erro ao obter o código de acceso!"
 
 #: ../dra_server/views/ConfirmWindow.qml:81
 msgid "Are you sure to close remote desktop connection?"
