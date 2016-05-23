@@ -25,7 +25,7 @@
 DWIDGET_USE_NAMESPACE
 
 MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p):
-    AbstractPanel(tr(" "), p)
+    AbstractPanel("", p)
 {
     setObjectName("MainPanel");
     m_manager = manager;

@@ -105,7 +105,7 @@ QWidget *InputView::createMainWidget()
 
         QRegExpValidator tipsValidator(*new QRegExp("[A-Za-z0-9]"));
         if (tipsValidator.validate(copyToken, pos) != QValidator::Acceptable) {
-            setTips(tr("Invalid verification code, please retry!"));
+            setTips(tr("Invalid verification code, please retype!"));
         } else {
             setTips(tr("Input verification code and \"Connect\" to start remote access"));
         }

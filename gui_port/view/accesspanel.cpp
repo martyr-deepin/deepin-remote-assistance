@@ -109,7 +109,7 @@ void AccessPanel::onConnectFailed(AccessErrors e)
         auto inputView = new InputView;
         connect(inputView, SIGNAL(connect(QString)), this, SLOT(onConnect(QString)));
         connect(inputView, SIGNAL(cancel()), this, SLOT(onCancel()));
-        inputView->setTips(tr("Invalid verification code, please retry!"));
+        inputView->setTips(tr("Invalid verification code, please retype!"));
         setWidget(inputView);
         return;
     }

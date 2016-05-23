@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
-        <source>Connected Failed</source>
+        <source>Connect failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
-        <source>Invalid verification code, please retry!</source>
+        <source>Invalid verification code, please retype!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -181,7 +181,7 @@
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
-        <source>Invalid verification code, please retry!</source>
+        <source>Invalid verification code, please retype!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -198,11 +198,6 @@
 </context>
 <context>
     <name>MainPanel</name>
-    <message>
-        <location filename="../view/mainpanel.cpp" line="28"/>
-        <source> </source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
@@ -222,18 +217,13 @@
 <context>
     <name>SharePanel</name>
     <message>
-        <location filename="../view/sharepanel.cpp" line="26"/>
-        <source> </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
-        <source>Connected failed</source>
+        <source>Connect failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -74,7 +74,7 @@ void AbstractPanel::onNoNetwork()
         abort();
     });
     view->addButton(button);
-    setWidget(view->setText(tr("Connected Failed"))->setTips(tr("Network connection unavailable, please retry...")));
+    setWidget(view->setText(tr("Connect failed"))->setTips(tr("Network connection unavailable, please retry...")));
 }
 
 

@@ -23,7 +23,7 @@
 DWIDGET_USE_NAMESPACE
 
 SharePanel::SharePanel(IShareController *controller, QWidget *p)
-    : AbstractPanel(tr(" "), p),
+    : AbstractPanel("", p),
       m_controller(controller)
 {
     setObjectName("SharePanel");
@@ -119,7 +119,7 @@ void SharePanel::onGenAccessTokenFailed()
     });
     view->addButton(button);
 
-    setWidget(view->setText(tr("Connected failed"))->setTips(tr("Failed to obtain verification code! ")));
+    setWidget(view->setText(tr("Connect failed"))->setTips(tr("Failed to obtain verification code! ")));
 }
 
 
