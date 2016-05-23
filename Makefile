@@ -50,6 +50,8 @@ install:
 	install -D gui_port/deepin-remote-assistance.desktop ${APPLICATIONS}
 	mkdir -pv ${DESTDIR}${PREFIX}/share/dman/deepin-remote-assistance
 	cp -rvf gui_port/manuals/*  ${DESTDIR}${PREFIX}/share/dman/deepin-remote-assistance
+	mkdir -pv ${DESTDIR}${PREFIX}/share/deepin-remote-assistance/translations
+	cp -rvf gui_port/translations/*  ${DESTDIR}${PREFIX}/share/deepin-remote-assistance/translations
 
 clean:
 	-cd gui_port ;make clean;rm Makefile remote_assistance
