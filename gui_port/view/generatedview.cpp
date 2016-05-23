@@ -88,7 +88,9 @@ QWidget *GeneratedView::createMainWidget()
         m_copyTipVisableTimer->stop();
         m_copyTipVisableTimer->start();
     });
+    addButton(copyBt);
 
+	/*
     DBaseButton *cancelBt = new DBaseButton(tr("Cancel"));
     cancelBt->setFixedSize(160, 36);
 
@@ -96,10 +98,8 @@ QWidget *GeneratedView::createMainWidget()
         qDebug() << "cancel button on GeneratedView is clicked";
         emit cancel();
     });
-
-
-    addButton(copyBt);
     addButton(cancelBt);
+	*/
 
     m_tipLabel = new TipLabel(this);
     m_tipLabel->setText(tr("To share your desktop, please provide the above verification code to your help provider"));
