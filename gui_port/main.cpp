@@ -27,7 +27,7 @@ int main(int argv, char *args[])
     }
 
     QTranslator translator;
-    translator.load("/usr/share/dde-launcher/translations/deepin-remote-assistance_" +
+    translator.load("/usr/share/deepin-remote-assistance/translations/deepin-remote-assistance_" +
                     QLocale::system().name() + ".qm");
     app.installTranslator(&translator);
 
