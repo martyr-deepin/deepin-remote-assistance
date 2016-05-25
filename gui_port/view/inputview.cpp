@@ -103,7 +103,7 @@ QWidget *InputView::createMainWidget()
         m_connectButton->setText(tr("Cancel"));
         m_buttonFlag = InputView::btncancel;
 
-        QRegExpValidator tipsValidator(*new QRegExp("[A-Za-z0-9]"));
+        QRegExpValidator tipsValidator(*new QRegExp("[A-Za-z0-9]{0,6}"));
         if (tipsValidator.validate(copyToken, pos) != QValidator::Acceptable) {
             setTips(tr("Invalid verification code, please retype!"));
         } else {
