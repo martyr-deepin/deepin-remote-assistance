@@ -4,7 +4,7 @@ Remote Assistance is used to help users and technicians to solve all kinds of is
 
 ![0|remoteinterface](png/remoteinterface.png)
 
-## Assist Me|../common/icon_ineedhelp.svg|
+## Assist Me|../common/icon_remoteassistance.svg|
 
 If you encountered an issue and need online help, by starting Remote Assistance, you can share your desktop to another user to remotely assist you.
 
@@ -19,7 +19,7 @@ If you encountered an issue and need online help, by starting Remote Assistance,
 ![2|verificationcode](png/verificationcode1.png)
 ![2|verificationcode](png/verificationcode2.png)
 
-## Assist Others|../common/icon_ihelpful.svg|
+## Assist Others|../common/icon_remoteassistance.svg|
 
 If another user requests for your assistance, you can access the other user's desktop by inputing the verification code obtained from the user.
 
@@ -39,9 +39,9 @@ If another user requests for your assistance, you can access the other user's de
 
 After inputting the verification code, the system will access the remote desktop, you can execute control operations to the desktop. Meanwhile, you can set the display effect of the remote desktop.
 
-![1|remoteassdesktop](png/remoteassdesktop.jpg)
+![1|remoteassdesktop](png/remoteassdesktop.png)
 
-After successfully connected to remote desktop, click on **Settings** collapse menu, you can:
+After successfully connected to remote desktop, click on **Preferences** collapse menu, you can:
 - Select **Optimize quality** to optimize the screen display quality of the remote desktop.
 - Select **Optimize speed** to optimize the performance of remote assistance.
 - Select **Balance**, the remote desktop will be in balance status.
@@ -59,13 +59,13 @@ When remote control operations are completed, you can disconnect with a button i
 
 ![1|exitremoteassdesktop](png/exitremoteassdesktop.png)
 
-## Settings|../common/icon_optionsettings.svg|
+## Settings|../common/icon_remoteassistance.svg|
 
 ### About
 
 You can click "About" to view the introduction of Remote Assistance.
 
-1. On Remote Assistance interface, click on **Settings**.
+1. On Remote Assistance interface, click on ![Settings](icon/icon_menu.svg).
 2. Click on **About**.
 3. View the version and introduction of Remote Assistance.
 
@@ -73,7 +73,7 @@ You can click "About" to view the introduction of Remote Assistance.
 
 You can click "Help" to read the manual, which will help you further know and use Remote Assistance.
 
-1. On Remote Assistance interface, click on **Settings**.
+1. On Remote Assistance interface, click on ![Settings](icon/icon_menu.svg).
 2. Click on **Help**.
 3. View the manual of Remote Assistance.
 
@@ -81,7 +81,7 @@ You can click "Help" to read the manual, which will help you further know and us
 
 You can click menu bar to exit Remote Assistance.
 
-1. On Remote Assistance interface, click on **Settings**.
+1. On Remote Assistance interface, click on ![Settings](icon/icon_menu.svg).
 2. Click on **Exit**.
 
 > ![notes](icon/notes.svg): You can also click on ![close_icon](icon/close_icon.svg) in Remote Assistance interface.
