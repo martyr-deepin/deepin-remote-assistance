@@ -14,7 +14,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation type="unfinished"/>
+        <translation>Connexions réseaux indisponibles,veuillez réessayer...</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Code de vérification non valide, veuillez réessayer!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Connexion non effectuée, veuillez réessayer </translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -84,19 +84,24 @@
 <context>
     <name>DAboutDialog</name>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="22"/>
+        <location filename="../view/aboutdialog.cpp" line="11"/>
+        <source>Remote Assistance</source>
+        <translation>Aide à distance</translation>
+    </message>
+    <message>
+        <location filename="../view/aboutdialog.cpp" line="23"/>
         <source>Deepin Remote Assistance</source>
-        <translation type="unfinished"/>
+        <translation>Aide à distance Deepin</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="25"/>
+        <location filename="../view/aboutdialog.cpp" line="26"/>
         <source>Version: 2.0</source>
-        <translation type="unfinished"/>
+        <translation>Version: 2.0</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="41"/>
+        <location filename="../view/aboutdialog.cpp" line="42"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"/>
+        <translation>Aide à distance Deepin est un programme qui permet aux utilisateurs de s&apos;entraider à résoudre leurs problèmes informatiques.</translation>
     </message>
 </context>
 <context>
@@ -110,11 +115,6 @@
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
         <translation>Copié dans le presse papier avec succès</translation>
-    </message>
-    <message>
-        <location filename="../view/generatedview.cpp" line="92"/>
-        <source>Cancel</source>
-        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Code de vérification non valide, veuillez réessayer!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;obtenir le code de vérification!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>

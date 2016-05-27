@@ -84,17 +84,22 @@
 <context>
     <name>DAboutDialog</name>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="22"/>
+        <location filename="../view/aboutdialog.cpp" line="11"/>
+        <source>Remote Assistance</source>
+        <translation>远程协助</translation>
+    </message>
+    <message>
+        <location filename="../view/aboutdialog.cpp" line="23"/>
         <source>Deepin Remote Assistance</source>
         <translation>深度远程协助</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="25"/>
+        <location filename="../view/aboutdialog.cpp" line="26"/>
         <source>Version: 2.0</source>
         <translation>版本：2.0</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="41"/>
+        <location filename="../view/aboutdialog.cpp" line="42"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
         <translation>远程协助是一款远程控制软件，它可以远程连接到别人的电脑或共享您的电脑。</translation>
     </message>
@@ -110,11 +115,6 @@
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
         <translation>复制验证码成功</translation>
-    </message>
-    <message>
-        <location filename="../view/generatedview.cpp" line="92"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>

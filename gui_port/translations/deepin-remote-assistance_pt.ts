@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Código de verificação inválido, por favor escreva-o novamente!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -84,17 +84,22 @@
 <context>
     <name>DAboutDialog</name>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="22"/>
+        <location filename="../view/aboutdialog.cpp" line="11"/>
+        <source>Remote Assistance</source>
+        <translation>Assistência Remota</translation>
+    </message>
+    <message>
+        <location filename="../view/aboutdialog.cpp" line="23"/>
         <source>Deepin Remote Assistance</source>
         <translation>Assistência Remota Deepin</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="25"/>
+        <location filename="../view/aboutdialog.cpp" line="26"/>
         <source>Version: 2.0</source>
         <translation>Versão: 2.0</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="41"/>
+        <location filename="../view/aboutdialog.cpp" line="42"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
         <translation>A Assistência Remota é um controlo remoto, os utilizadores pode ligar-se a computadores entre si graças a ele.</translation>
     </message>
@@ -109,12 +114,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Copiado para o clipboard com sucesso</translation>
-    </message>
-    <message>
-        <location filename="../view/generatedview.cpp" line="92"/>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Copiado com sucesso para o clipboard</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist me</source>
-        <translation>Assistir-me</translation>
+        <translation>Solicitar Assistência</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Código de verificação inválido, por favor escreva-o novamente!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>

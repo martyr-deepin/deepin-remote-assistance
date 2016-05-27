@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger Bestätigungscode, bitte erneut eintippen!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -84,17 +84,22 @@
 <context>
     <name>DAboutDialog</name>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="22"/>
+        <location filename="../view/aboutdialog.cpp" line="11"/>
+        <source>Remote Assistance</source>
+        <translation>Fernzugriffsassistent</translation>
+    </message>
+    <message>
+        <location filename="../view/aboutdialog.cpp" line="23"/>
         <source>Deepin Remote Assistance</source>
         <translation>Deepin-Fernzugriffsassistent</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="25"/>
+        <location filename="../view/aboutdialog.cpp" line="26"/>
         <source>Version: 2.0</source>
         <translation>Version: 2.0</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="41"/>
+        <location filename="../view/aboutdialog.cpp" line="42"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
         <translation type="unfinished"/>
     </message>
@@ -110,11 +115,6 @@
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
         <translation>Erfolgreich in die Zwischenablage kopiert</translation>
-    </message>
-    <message>
-        <location filename="../view/generatedview.cpp" line="92"/>
-        <source>Cancel</source>
-        <translation>Abbrechen</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger Bestätigungscode, bitte erneut eintippen!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>

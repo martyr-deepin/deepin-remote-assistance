@@ -84,17 +84,22 @@
 <context>
     <name>DAboutDialog</name>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="22"/>
+        <location filename="../view/aboutdialog.cpp" line="11"/>
+        <source>Remote Assistance</source>
+        <translation>Zdalne wsparcie</translation>
+    </message>
+    <message>
+        <location filename="../view/aboutdialog.cpp" line="23"/>
         <source>Deepin Remote Assistance</source>
         <translation>Zdalne wsparcie Deepin</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="25"/>
+        <location filename="../view/aboutdialog.cpp" line="26"/>
         <source>Version: 2.0</source>
         <translation>Wersja 2.0</translation>
     </message>
     <message>
-        <location filename="../view/aboutdialog.cpp" line="41"/>
+        <location filename="../view/aboutdialog.cpp" line="42"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
         <translation>Zdalne wsparcie to zdalny kontroler, dzięki któremu użytkownicy mogą łączyć się nawzajem ze swoimi komputerami</translation>
     </message>
@@ -110,11 +115,6 @@
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
         <translation>Pomyślnie skopiowano tekst do schowka</translation>
-    </message>
-    <message>
-        <location filename="../view/generatedview.cpp" line="92"/>
-        <source>Cancel</source>
-        <translation>Anuluj</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
