@@ -8,6 +8,7 @@
 
 DAboutDialog::DAboutDialog(Dtk::Widget::DWindow *parent) : Dtk::Widget::DWindow(parent)
 {
+    setTitle(tr("Remote Assistance"));
     setWindowIcon(QIcon(":/Resource/remote-assistance-48.png"));
     setBackgroundColor(qRgb(0xf5, 0xf5, 0xf8));
 

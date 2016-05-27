@@ -26,10 +26,7 @@ int main(int argv, char *args[])
         return 0;
     }
 
-    QTranslator translator;
-    translator.load("/usr/share/deepin-remote-assistance/translations/deepin-remote-assistance_" +
-                    QLocale::system().name() + ".qm");
-    app.installTranslator(&translator);
+    app.loadTranslator();
 
     RemoteAssistance ra;
     QObject::connect(&app, SIGNAL(aboutToQuit()), &ra, SIGNAL(aboutToQuit()));
