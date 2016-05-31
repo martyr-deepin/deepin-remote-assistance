@@ -24,7 +24,7 @@
 #include "view/sharepanel.h"
 #include "constants.h"
 #include "helper.h"
-#include "view/aboutdialog.h"
+#include <DAboutDialog>
 
 namespace ManagerState
 {
@@ -34,8 +34,6 @@ enum {
     Server,
 };
 }
-
-
 
 DWIDGET_USE_NAMESPACE
 
@@ -53,7 +51,7 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
     m_view->setTitle(tr("Remote Assistance"));
 
 
-    QSize frameSize(DRA::WindowWidth, DRA::WindowHeight - m_view->titlebarHeight());
+    QSize frameSize(DRA::WindowWidth, DRA::WindowHeight);
     QSize contentSize(DRA::WindowWidth,
                       DRA::WindowHeight - m_view->titlebarHeight());
 
@@ -91,7 +89,15 @@ Impl::~Impl()
 
 void Impl::showAbout()
 {
-    DAboutDialog *about = new DAboutDialog(nullptr);
+    QString descriptionText = tr("Remote Assistance is a remote controller, users can connect to computers between each other with it.");
+    DAboutDialog *about = new DAboutDialog(
+        tr("Remote Assistance"),
+        QString(":/Resource/remote-assistance-48.png"),
+        QString(":/Resource/remote-assistance-96.png"),
+        tr("Deepin Remote Assistance"),
+        tr("Version: 2.0"),
+        descriptionText,
+        m_view);
     about->show();
 }
 

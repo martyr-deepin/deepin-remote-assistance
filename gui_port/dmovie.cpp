@@ -8,7 +8,7 @@ DMovie::DMovie(QObject *parent) : QObject(parent)
 
 void  DMovie::start()
 {
-    m_timer.start(41.6);
+    m_timer.start(42);
 }
 
 void  DMovie::play()

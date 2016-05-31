@@ -90,7 +90,7 @@ QWidget *GeneratedView::createMainWidget()
     });
     addButton(copyBt);
 
-	/*
+    /*
     DBaseButton *cancelBt = new DBaseButton(tr("Cancel"));
     cancelBt->setFixedSize(160, 36);
 
@@ -99,13 +99,13 @@ QWidget *GeneratedView::createMainWidget()
         emit cancel();
     });
     addButton(cancelBt);
-	*/
+    */
 
     m_tipLabel = new TipLabel(this);
     m_tipLabel->setText(tr("To share your desktop, please provide the above verification code to your help provider"));
     m_tipLabel->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
 
-    layout->addSpacing(35.6);
+    layout->addSpacing(36);
     layout->addWidget(m_tipLabel, 0, Qt::AlignHCenter);
     layout->addSpacing(20);
     layout->addSpacing(18);

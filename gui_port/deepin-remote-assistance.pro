@@ -29,7 +29,6 @@ HEADERS         = constants.h \
     widgets/tiplabel.h \
     widgets/notifylabel.h \
     widgets/infolabel.h \
-    view/aboutdialog.h \
     widgets/diconbutton.h
 
 SOURCES         = main.cpp \
@@ -55,7 +54,6 @@ SOURCES         = main.cpp \
     widgets/tiplabel.cpp \
     widgets/notifylabel.cpp \
     widgets/infolabel.cpp \
-    view/aboutdialog.cpp \
     widgets/diconbutton.cpp
 
 TARGET          = deepin-remote-assistance
