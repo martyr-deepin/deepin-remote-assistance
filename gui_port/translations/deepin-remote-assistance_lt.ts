@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.1">
 <context>
     <name>AbstractPanel</name>
     <message>
         <location filename="../view/abstractpanel.cpp" line="71"/>
         <source>Confirm</source>
-        <translation>Potwierdź</translation>
+        <translation>Patvirtinti</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Prisijungimas nepavyko</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>Brak połączenia sieciowego, spróbuj ponownie...</translation>
+        <translation>Tinklo ryšys neprieinamas, prašome bandyti vėl...</translation>
     </message>
 </context>
 <context>
@@ -22,37 +22,37 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Padėkite man</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation>Zdalne asystowanie</translation>
+        <translation>Padedama nuotoliniu būdu</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Nieprawidłowy kod weryfikacyjny, prosimy wpisać ponownie!</translation>
+        <translation>Neteisingas patvirtinimo kodas, prašome įrašyti iš naujo!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Prisijungimas nepavyko</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>Błąd nawiązania połączenia, prosimy spróbować ponownie</translation>
+        <translation>Nepavyko užmegzti ryšio, prašome bandyti vėl</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="126"/>
         <source>Retry</source>
-        <translation>Ponów</translation>
+        <translation>Bandyti vėl</translation>
     </message>
 </context>
 <context>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation>Kontynuuj uzyskiwanie dostępu lub rozłącz się</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
         <source>Disconnect</source>
-        <translation>Rozłącz</translation>
+        <translation>Atsijungti</translation>
     </message>
 </context>
 <context>
@@ -73,12 +73,12 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>Ustanawianie połączenia, proszę czekać...</translation>
+        <translation>Užmezgiamas ryšys, prašome palaukti...</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Atsisakyti</translation>
     </message>
 </context>
 <context>
@@ -86,17 +86,17 @@
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
         <source>Copy</source>
-        <translation>Kopiuj</translation>
+        <translation>Kopijuoti</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Pomyślnie skopiowano tekst do schowka</translation>
+        <translation>Sėkmingai nukopijuota į iškarpinę</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Aby rozpocząć współdzielenie swojego pulpitu proszę podać poniższy kod weryfikacyjny osobie, która ma Tobie pomóc.</translation>
+        <translation>Norėdami bendrinti savo darbalaukį, pateikite aukščiau esantį patvirtinimo kodą savo pagalbininkui</translation>
     </message>
 </context>
 <context>
@@ -104,12 +104,12 @@
     <message>
         <location filename="../view/generatingview.cpp" line="53"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>Tworzenie kodu weryfikacyjnego, proszę czekać...</translation>
+        <translation>Generuojamas patvirtinimo kodas, prašome palaukti...</translation>
     </message>
 </context>
 <context>
@@ -119,47 +119,47 @@
         <location filename="../remoteassistance.cpp" line="94"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>Zdalne wsparcie</translation>
+        <translation>Nuotolinė pagalba</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
-        <translation>O programie</translation>
+        <translation>Apie</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
-        <translation>Pomoc</translation>
+        <translation>Pagalba</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation>Wyjdź</translation>
+        <translation>Išeiti</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Zdalne wsparcie to zdalny kontroler, dzięki któremu użytkownicy mogą łączyć się nawzajem ze swoimi komputerami.</translation>
+        <translation>Nuotolinė pagalba yra nuotolinis valdiklis, kurio dėka naudotojai gali prisijungti vieni prie kitų kompiuterių.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Deepin Remote Assistance</source>
-        <translation>Zdalne wsparcie Deepin</translation>
+        <translation>Deepin nuotolinė pagalba</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="98"/>
         <source>Version: 2.0</source>
-        <translation>Wersja 2.0</translation>
+        <translation>Versija: 2.0</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
-        <translation>Asystuj innym</translation>
+        <translation>Padėti kitiems</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Padėkite man</translation>
     </message>
 </context>
 <context>
@@ -168,23 +168,23 @@
         <location filename="../view/inputview.cpp" line="42"/>
         <location filename="../view/inputview.cpp" line="103"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Nieprawidłowy kod weryfikacyjny, prosimy wpisać ponownie!</translation>
+        <translation>Neteisingas patvirtinimo kodas, prašome įrašyti iš naujo!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
         <source>Connect</source>
-        <translation>Połącz</translation>
+        <translation>Prisijungti</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Wprowadź kod weryfikacyjny i kliknij &quot;Połącz&quot;, aby rozpocząć zdalny dostęp</translation>
+        <translation>Įrašykite patvirtinimo kodą ir spauskite &quot;Prisijungti&quot;, kad pradėtumėte nuotolinę prieigą</translation>
     </message>
 </context>
 <context>
@@ -192,17 +192,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Witamy w Zdalnym wsparciu, dzięki któremu użytkownicy mogą pomagać sobie rozwiązywać swoje problemy z komputerem.</translation>
+        <translation>Sveiki atvykę į Nuotolinę pagalbą, jos dėka, naudotojai gali pataisyti vieni kitų kompiuterius.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="67"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Padėkite man</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="78"/>
         <source>Assist others</source>
-        <translation>Asystuj innym</translation>
+        <translation>Padėti kitiems</translation>
     </message>
 </context>
 <context>
@@ -210,22 +210,22 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation>Zdalne asystowanie</translation>
+        <translation>Padedama nuotoliniu būdu</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Prisijungimas nepavyko</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation>Błąd uzyskania kodu weryfikacyjnego!</translation>
+        <translation>Nepavyko gauti patvirtinimo kodo!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>
         <source>Retry</source>
-        <translation>Ponów</translation>
+        <translation>Bandyti vėl</translation>
     </message>
 </context>
 </TS>

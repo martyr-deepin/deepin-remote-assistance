@@ -82,29 +82,6 @@
     </message>
 </context>
 <context>
-    <name>DAboutDialog</name>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="11"/>
-        <source>Remote Assistance</source>
-        <translation>Assistência Remota</translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="23"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>Assistência Remota Deepin</translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="26"/>
-        <source>Version: 2.0</source>
-        <translation>Versão: 2.0</translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="42"/>
-        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>A Assistência Remota é um controlo remoto, os utilizadores pode ligar-se a computadores entre si graças a ele.</translation>
-    </message>
-</context>
-<context>
     <name>GeneratedView</name>
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
@@ -138,33 +115,49 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="53"/>
-        <location filename="../remoteassistance.cpp" line="201"/>
+        <location filename="../remoteassistance.cpp" line="51"/>
+        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>Assistência Remota</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="60"/>
+        <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
         <translation>Sobre</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="63"/>
+        <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
         <translation>Ajuda</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="66"/>
+        <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="209"/>
+        <location filename="../remoteassistance.cpp" line="92"/>
+        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
+        <translation>A Assistência Remota é um controlo remoto, os utilizadores podem ligar-se a computadores entre si graças a ele.</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="97"/>
+        <source>Deepin Remote Assistance</source>
+        <translation>Assistência Remota Deepin</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="98"/>
+        <source>Version: 2.0</source>
+        <translation>Versão: 2.0</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
         <translation>Assistir outros</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="216"/>
+        <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
         <translation>Solicitar Assistência</translation>
     </message>

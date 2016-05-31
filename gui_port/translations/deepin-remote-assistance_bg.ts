@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bg" version="2.1">
 <context>
     <name>AbstractPanel</name>
     <message>
         <location filename="../view/abstractpanel.cpp" line="71"/>
         <source>Confirm</source>
-        <translation>Potwierdź</translation>
+        <translation>Потвърждение</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Провалена връзка</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>Brak połączenia sieciowego, spróbuj ponownie...</translation>
+        <translation>Няма мрежова връзка, опитайте пак </translation>
     </message>
 </context>
 <context>
@@ -22,37 +22,37 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Помогни ми</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation>Zdalne asystowanie</translation>
+        <translation>Отдалечена помощ</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Nieprawidłowy kod weryfikacyjny, prosimy wpisać ponownie!</translation>
+        <translation>Невалиден код за идентификация, попълнете пак!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Провалена връзка</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>Błąd nawiązania połączenia, prosimy spróbować ponownie</translation>
+        <translation>Неуспежно установяване на връзка, опитайте пак!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Отказ</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="126"/>
         <source>Retry</source>
-        <translation>Ponów</translation>
+        <translation>Повторен опит</translation>
     </message>
 </context>
 <context>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation>Kontynuuj uzyskiwanie dostępu lub rozłącz się</translation>
+        <translation>Продължение при връзка или прекъсване</translation>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
         <source>Disconnect</source>
-        <translation>Rozłącz</translation>
+        <translation>Прекъсване</translation>
     </message>
 </context>
 <context>
@@ -73,12 +73,12 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>Ustanawianie połączenia, proszę czekać...</translation>
+        <translation>Осъществяване на връзка, почакайте…</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Отказ</translation>
     </message>
 </context>
 <context>
@@ -86,17 +86,17 @@
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
         <source>Copy</source>
-        <translation>Kopiuj</translation>
+        <translation>Копиране</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Pomyślnie skopiowano tekst do schowka</translation>
+        <translation>Копирането в системния буфер е успешно</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Aby rozpocząć współdzielenie swojego pulpitu proszę podać poniższy kod weryfikacyjny osobie, która ma Tobie pomóc.</translation>
+        <translation>За да започнете споделянето, моля предайте кодът за проверка на този, който ще ви помага. </translation>
     </message>
 </context>
 <context>
@@ -104,12 +104,12 @@
     <message>
         <location filename="../view/generatingview.cpp" line="53"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Отказ</translation>
     </message>
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>Tworzenie kodu weryfikacyjnego, proszę czekać...</translation>
+        <translation>Генериране на кода за идентификация, моля почакайте...</translation>
     </message>
 </context>
 <context>
@@ -119,47 +119,47 @@
         <location filename="../remoteassistance.cpp" line="94"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>Zdalne wsparcie</translation>
+        <translation>Отдалечена помощ</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
-        <translation>O programie</translation>
+        <translation>Относно:</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
-        <translation>Pomoc</translation>
+        <translation>Помощ</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation>Wyjdź</translation>
+        <translation>Изход</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Zdalne wsparcie to zdalny kontroler, dzięki któremu użytkownicy mogą łączyć się nawzajem ze swoimi komputerami.</translation>
+        <translation>Дистанционна поддръжка е програма за отдалечен достъп, с която потребителите могат да свързват компютрите си. </translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Deepin Remote Assistance</source>
-        <translation>Zdalne wsparcie Deepin</translation>
+        <translation>Deepin дистанционна поддръжка</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="98"/>
         <source>Version: 2.0</source>
-        <translation>Wersja 2.0</translation>
+        <translation>Версия: 2.0</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
-        <translation>Asystuj innym</translation>
+        <translation>Помогнете на другите</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Помогни ми</translation>
     </message>
 </context>
 <context>
@@ -168,23 +168,23 @@
         <location filename="../view/inputview.cpp" line="42"/>
         <location filename="../view/inputview.cpp" line="103"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Отказ</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Nieprawidłowy kod weryfikacyjny, prosimy wpisać ponownie!</translation>
+        <translation>Невалиден код за идентификация, попълнете пак! </translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
         <source>Connect</source>
-        <translation>Połącz</translation>
+        <translation>Свързване</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Wprowadź kod weryfikacyjny i kliknij &quot;Połącz&quot;, aby rozpocząć zdalny dostęp</translation>
+        <translation>Въведете код за идентификация и &quot;Свързване&quot; за начало на връзка</translation>
     </message>
 </context>
 <context>
@@ -192,17 +192,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Witamy w Zdalnym wsparciu, dzięki któremu użytkownicy mogą pomagać sobie rozwiązywać swoje problemy z komputerem.</translation>
+        <translation>С Дистанционна поддръжка потребителите могат да си помагат при проблеми.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="67"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Помогни ми</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="78"/>
         <source>Assist others</source>
-        <translation>Asystuj innym</translation>
+        <translation>Помогнете на другите</translation>
     </message>
 </context>
 <context>
@@ -210,22 +210,22 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation>Zdalne asystowanie</translation>
+        <translation>Отдалечена помощ</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Провалена връзка</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation>Błąd uzyskania kodu weryfikacyjnego!</translation>
+        <translation>Неуспешно вземане на код за достъп!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>
         <source>Retry</source>
-        <translation>Ponów</translation>
+        <translation>Повторен опит</translation>
     </message>
 </context>
 </TS>

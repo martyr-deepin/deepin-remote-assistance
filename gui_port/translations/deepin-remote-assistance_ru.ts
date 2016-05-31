@@ -14,7 +14,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation type="unfinished"/>
+        <translation>Сетевое соединение не доступно, повторите...</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Проверка кода не удалась, повторите ввод!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Создание соединения не удалось, повторите</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -82,29 +82,6 @@
     </message>
 </context>
 <context>
-    <name>DAboutDialog</name>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="11"/>
-        <source>Remote Assistance</source>
-        <translation>Remote Assistance</translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="23"/>
-        <source>Deepin Remote Assistance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="26"/>
-        <source>Version: 2.0</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="42"/>
-        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>GeneratedView</name>
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
@@ -138,33 +115,49 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="53"/>
-        <location filename="../remoteassistance.cpp" line="201"/>
+        <location filename="../remoteassistance.cpp" line="51"/>
+        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>Remote Assistance</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="60"/>
+        <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
         <translation>О программе </translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="63"/>
+        <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="66"/>
+        <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="209"/>
+        <location filename="../remoteassistance.cpp" line="92"/>
+        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
+        <translation>Удалённый помощник это контроль на расстоянии, пользователи могут подключаться друг к другу соединяя свои компьютеры между собой.</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="97"/>
+        <source>Deepin Remote Assistance</source>
+        <translation>Удаленный помощник Deepin</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="98"/>
+        <source>Version: 2.0</source>
+        <translation>Версия: 2.0</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
         <translation>Помощь другим</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="216"/>
+        <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
         <translation>Помогите мне</translation>
     </message>
@@ -180,7 +173,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Проверка кода не удалась, повторите ввод!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -227,7 +220,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation type="unfinished"/>
+        <translation>Не удалось получить проверочный код!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>

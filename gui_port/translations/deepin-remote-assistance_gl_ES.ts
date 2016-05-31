@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl_ES" version="2.1">
 <context>
     <name>AbstractPanel</name>
     <message>
         <location filename="../view/abstractpanel.cpp" line="71"/>
         <source>Confirm</source>
-        <translation>Potwierdź</translation>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Fallo na conexión</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>Brak połączenia sieciowego, spróbuj ponownie...</translation>
+        <translation>Conexión de rede non dispoñible, téntao de novo...</translation>
     </message>
 </context>
 <context>
@@ -22,37 +22,37 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Asistirme</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation>Zdalne asystowanie</translation>
+        <translation>Asistindo remotamente</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Nieprawidłowy kod weryfikacyjny, prosimy wpisać ponownie!</translation>
+        <translation>Código de verificación incorrecto, insíreo de novo!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Fallo na conexión</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>Błąd nawiązania połączenia, prosimy spróbować ponownie</translation>
+        <translation>Non se puido estabelecer a conexión, téntao de novo</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="126"/>
         <source>Retry</source>
-        <translation>Ponów</translation>
+        <translation>Tentar de novo</translation>
     </message>
 </context>
 <context>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation>Kontynuuj uzyskiwanie dostępu lub rozłącz się</translation>
+        <translation>Continuar ou desconectar</translation>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
         <source>Disconnect</source>
-        <translation>Rozłącz</translation>
+        <translation>Desconectar</translation>
     </message>
 </context>
 <context>
@@ -73,12 +73,12 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>Ustanawianie połączenia, proszę czekać...</translation>
+        <translation>Conectando, por favor agarda...</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -86,17 +86,17 @@
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
         <source>Copy</source>
-        <translation>Kopiuj</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Pomyślnie skopiowano tekst do schowka</translation>
+        <translation>Copiado ao portaretallos correctamente</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Aby rozpocząć współdzielenie swojego pulpitu proszę podać poniższy kod weryfikacyjny osobie, która ma Tobie pomóc.</translation>
+        <translation>Para compartir o teu escritorio, por favor informa do código de verificación ao teu provedor</translation>
     </message>
 </context>
 <context>
@@ -104,12 +104,12 @@
     <message>
         <location filename="../view/generatingview.cpp" line="53"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>Tworzenie kodu weryfikacyjnego, proszę czekać...</translation>
+        <translation>Xerando o código de verificación, por favor agarda...</translation>
     </message>
 </context>
 <context>
@@ -119,47 +119,47 @@
         <location filename="../remoteassistance.cpp" line="94"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>Zdalne wsparcie</translation>
+        <translation>Asistencia remota</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
-        <translation>O programie</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
-        <translation>Pomoc</translation>
+        <translation>Axuda</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation>Wyjdź</translation>
+        <translation>Saír</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Zdalne wsparcie to zdalny kontroler, dzięki któremu użytkownicy mogą łączyć się nawzajem ze swoimi komputerami.</translation>
+        <translation>Asistencia Remota é un controlador que permite aos usuarios conectar os seus computadores entre eles.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Deepin Remote Assistance</source>
-        <translation>Zdalne wsparcie Deepin</translation>
+        <translation>Asistencia remota de Deepin</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="98"/>
         <source>Version: 2.0</source>
-        <translation>Wersja 2.0</translation>
+        <translation>Versión: 2.0</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
-        <translation>Asystuj innym</translation>
+        <translation>Asistir a outros</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Asistirme</translation>
     </message>
 </context>
 <context>
@@ -168,23 +168,23 @@
         <location filename="../view/inputview.cpp" line="42"/>
         <location filename="../view/inputview.cpp" line="103"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Nieprawidłowy kod weryfikacyjny, prosimy wpisać ponownie!</translation>
+        <translation>Código de verificación incorrecto, insíreo de novo!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
         <source>Connect</source>
-        <translation>Połącz</translation>
+        <translation>Conectar</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Wprowadź kod weryfikacyjny i kliknij &quot;Połącz&quot;, aby rozpocząć zdalny dostęp</translation>
+        <translation>Insire o código de verificación e &quot;Conecta&quot; para acceder remotamente</translation>
     </message>
 </context>
 <context>
@@ -192,17 +192,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Witamy w Zdalnym wsparciu, dzięki któremu użytkownicy mogą pomagać sobie rozwiązywać swoje problemy z komputerem.</translation>
+        <translation>Benvido/a a Asistencia Remota, os usuarios poden axudarse entre eles a arranxar os problemas dos seus computadores.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="67"/>
         <source>Assist me</source>
-        <translation>Asystuj mi</translation>
+        <translation>Asistirme</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="78"/>
         <source>Assist others</source>
-        <translation>Asystuj innym</translation>
+        <translation>Asistir a outros</translation>
     </message>
 </context>
 <context>
@@ -210,22 +210,22 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation>Zdalne asystowanie</translation>
+        <translation>Asistindo remotamente</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation>Błąd połączenia</translation>
+        <translation>Fallo na conexión</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation>Błąd uzyskania kodu weryfikacyjnego!</translation>
+        <translation>Produciuse un erro ao obter o código de verificación!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>
         <source>Retry</source>
-        <translation>Ponów</translation>
+        <translation>Tentar de novo</translation>
     </message>
 </context>
 </TS>
