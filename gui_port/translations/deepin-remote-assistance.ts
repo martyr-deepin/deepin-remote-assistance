@@ -84,29 +84,6 @@
     </message>
 </context>
 <context>
-    <name>DAboutDialog</name>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="11"/>
-        <source>Remote Assistance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="23"/>
-        <source>Deepin Remote Assistance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="26"/>
-        <source>Version: 2.0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="42"/>
-        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>GeneratedView</name>
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
@@ -140,33 +117,49 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="53"/>
-        <location filename="../remoteassistance.cpp" line="201"/>
+        <location filename="../remoteassistance.cpp" line="51"/>
+        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="60"/>
+        <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="63"/>
+        <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="66"/>
+        <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="209"/>
+        <location filename="../remoteassistance.cpp" line="92"/>
+        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="97"/>
+        <source>Deepin Remote Assistance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="98"/>
+        <source>Version: 2.0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="216"/>
+        <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
         <translation type="unfinished"></translation>
     </message>
