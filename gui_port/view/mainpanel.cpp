@@ -48,7 +48,8 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
 
     TipLabel *ptext = new TipLabel(this);
     ptext->setText(tr("Welcome to Remote Assistance, users can fix computer issues between each other with it."));
-    ptext->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
+    ptext->setFixedSize(DRA::TipLabelMaxWidth, 45);
+    ptext->setAlignment(Qt::AlignCenter);
 
     mainLayout->addSpacing(137 - (64 + 50));
     mainLayout->addWidget(ptext, 0 , Qt::AlignCenter);

@@ -5,6 +5,8 @@ QT             += widgets dbus x11extras svg
 LIBS           += -lX11 -lXext
 PKGCONFIG      += dtkbase dtkutil dtkwidget
 
+DEFINES += QT_MESSAGELOGCONTEXT
+
 HEADERS         = constants.h \
     controller/access.h \
     controller/share.h \
