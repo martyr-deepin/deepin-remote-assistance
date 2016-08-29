@@ -47,9 +47,7 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
-    m_view->setTitlebarFixedHeight(38);
     m_view->setTitle(tr("Remote Assistance"));
-
 
     QSize frameSize(DRA::WindowWidth, DRA::WindowHeight);
     QSize contentSize(DRA::WindowWidth,
@@ -70,7 +68,7 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
 
     m_view->setWindowFlags(m_view->windowFlags() & ~ Qt::WindowMaximizeButtonHint);
     m_view->setFixedSize(frameSize);
-    m_view->setBackgroundColor(qRgb(0xf5, 0xf5, 0xf8));
+    m_view->setBackgroundColor(Qt::white);
 
     m_stackWidget->setFixedSize(contentSize);
     mainLayout->addWidget(m_stackWidget/*, 0, Qt::AlignHCenter*/);

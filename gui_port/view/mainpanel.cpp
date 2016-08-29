@@ -31,7 +31,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
     m_manager = manager;
 
     auto mainWidget = new QWidget;
-    mainWidget->setStyleSheet("QWidget { background-color: #f5f5f8 }");
+    mainWidget->setStyleSheet("QWidget { background-color: transparent }");
 
     auto mainLayout = new QVBoxLayout(mainWidget);
     mainLayout->setSpacing(0);
