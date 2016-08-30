@@ -59,6 +59,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
                              ":/Resource/theme/light/hand_hover.svg",
                              ":/Resource/theme/light/hand_pressed.svg");
     button->setFixedSize(160, 36);
+    button->setFocusPolicy(Qt::NoFocus);
 
     QFile btTheme(":/Resource/theme/light/WhiteButton.theme");
     btTheme.open(QIODevice::ReadOnly);
@@ -76,6 +77,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
                              ":/Resource/theme/light/heart_hover.svg",
                              ":/Resource/theme/light/heart_pressed.svg");
     button->setFixedSize(160, 36);
+    button->setFocusPolicy(Qt::NoFocus);
     button->setText("  " + tr("Assist others"));
     button->setStyleSheet(btThemeStr);
 
