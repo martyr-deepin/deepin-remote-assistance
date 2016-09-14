@@ -13,6 +13,3 @@ X-MultipleArgs=false
 # Translations
 Comment[zh_CN]=Deepin远程协助
 Name[zh_CN]=远程协助
-
-X-Deepin-CreatedBy=Launcher
-X-Deepin-AppID=deepin-remote-assistance
