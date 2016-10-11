@@ -83,7 +83,7 @@ class MainWindow(QtQuick.QQuickView):
         self.windowClosed.emit()
         super().close()
 
-    @QtCore.pyqtSlot(QtCore.QVariant)
+    @QtCore.pyqtSlot("QWindow*")
     def onWindowFocusChanged(self, window):
         self.setKeyboardGrabEnabled(window is not None)
 
