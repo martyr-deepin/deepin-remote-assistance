@@ -1,0 +1,65 @@
+deepin-remote-assistance (1.0.7-1) stable; urgency=low
+
+  * Autobuild Tag 1.0.7 
+
+ -- TagBuilder <tagbuilder@deepin.com>  Fri, 12 Aug 2016 14:11:34 +0000
+
+deepin-remote-assistance (1.0.6-2) stable; urgency=low
+
+  * Rebuild Version 1.0.6 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Fri, 27 May 2016 03:18:46 +0000
+
+deepin-remote-assistance (1.0.6-1) stable; urgency=low
+
+  * Autobuild Tag 1.0.6 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Thu, 26 May 2016 17:24:26 +0000
+
+deepin-remote-assistance (1.0.5-1) stable; urgency=low
+
+  * Autobuild Tag 1.0.5 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 23 May 2016 15:54:06 +0000
+
+deepin-remote-assistance (1.0.4-1) stable; urgency=low
+
+  * Autobuild Tag 1.0.4 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 23 May 2016 14:17:49 +0000
+
+deepin-remote-assistance (1.0.3-2) stable; urgency=low
+
+  * Rebuild Version 1.0.3 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Thu, 21 Apr 2016 16:18:19 +0000
+
+deepin-remote-assistance (1.0.3-1) stable; urgency=low
+
+  * Autobuild Tag 1.0.3 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 22 Feb 2016 10:23:26 +0000
+
+deepin-remote-assistance (1.0.2-1) stable; urgency=low
+
+  * Autobuild Tag 1.0.2 
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Wed, 02 Dec 2015 10:22:45 +0000
+
+deepin-remote-assistance (1.0.0-1) stable; urgency=low
+
+  * Autobuild Tag 1.0.0 
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Fri, 20 Nov 2015 09:51:18 +0000
+
+deepin-remote-assistance (1.0.0+20150608095318~ebb0aabedd) trusty; urgency=medium
+
+  * Build from git ebb0aabeddf7b4227fa4f308013bf5ba5f941e0f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 08 Jun 2015 09:53:19 +0800
+
+deepin-remote-assistance (1.0.0) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Xu Shaohua <xushaohua@linuxdeepin.com>  Tue, 05 May 2015 10:48:24 +0800
