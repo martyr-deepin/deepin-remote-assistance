@@ -11,6 +11,8 @@
 #include <QDBusConnection>
 #include <QVBoxLayout>
 #include <QIcon>
+#include <QMenu>
+#include <QAction>
 
 #include <DWindow>
 #include <dstackwidget.h>
@@ -53,18 +55,18 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
     QSize contentSize(DRA::WindowWidth,
                       DRA::WindowHeight - m_view->titlebarHeight());
 
-    m_about = new Dtk::Widget::DAction(tr("About"), this);
-    connect(m_about, SIGNAL(triggered()), this, SLOT(showAbout()));
+    QAction *aboutAction = new QAction(tr("About"), this);
+    connect(aboutAction, SIGNAL(triggered()), this, SLOT(showAbout()));
 
-    Dtk::Widget::DAction *m_help = new Dtk::Widget::DAction(tr("Help"), this);
-    connect(m_help, SIGNAL(triggered()), this, SLOT(showHelp()));
+    QAction *helpAction = new QAction(tr("Help"), this);
+    connect(helpAction, SIGNAL(triggered()), this, SLOT(showHelp()));
 
-    Dtk::Widget::DAction *m_close = new Dtk::Widget::DAction(tr("Exit"), this);
-    connect(m_close, SIGNAL(triggered()), m_view, SLOT(close()));
+    QAction *closeAction = new QAction(tr("Exit"), this);
+    connect(closeAction, SIGNAL(triggered()), m_view, SLOT(close()));
 
-    m_view->dbusMenu()->addAction(m_about);
-    m_view->dbusMenu()->addAction(m_help);
-    m_view->dbusMenu()->addAction(m_close);
+    m_view->titleBarMenu()->addAction(aboutAction);
+    m_view->titleBarMenu()->addAction(helpAction);
+    m_view->titleBarMenu()->addAction(closeAction);
 
     m_view->setWindowFlags(m_view->windowFlags() & ~ Qt::WindowMaximizeButtonHint);
     m_view->setFixedSize(frameSize);
@@ -88,14 +90,15 @@ Impl::~Impl()
 void Impl::showAbout()
 {
     QString descriptionText = tr("Remote Assistance is a remote controller, users can connect to computers between each other with it.");
-    DAboutDialog *about = new DAboutDialog(
-        tr("Remote Assistance"),
-        QString(":/Resource/remote-assistance-48.png"),
-        QString(":/Resource/remote-assistance-96.png"),
-        tr("Deepin Remote Assistance"),
-        tr("Version: 2.0"),
-        descriptionText,
-        m_view);
+
+    DAboutDialog *about = new DAboutDialog(m_view);
+    about->setProductName(tr("Remote Assistance"));
+    about->setProductIcon(QPixmap(":/Resource/remote-assistance-96.png"));
+    about->setVersion(tr("Version: %1").arg(qApp->applicationVersion()));
+    about->setDescription(descriptionText);
+    about->setLicense(tr("Deepin Remote Assistance is released under GPL v3"));
+    about->setAcknowledgementLink("https://www.deepin.org/acknowledgments/deepin-remote-assistance");
+
     about->show();
 }
 

@@ -15,7 +15,6 @@
 #include <QScopedPointer>
 #include <dwidget_global.h>
 #include "dbus/manager.h"
-#include "daction.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -74,7 +73,6 @@ public:
     QWidget* m_accessPanel = nullptr;
     QWidget* m_sharePanel = nullptr;
     QProcess* dManual = nullptr;
-    Dtk::Widget::DAction * m_about = nullptr;
 };
 
 
