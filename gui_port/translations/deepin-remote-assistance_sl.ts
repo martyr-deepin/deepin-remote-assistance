@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sl" version="2.1">
 <context>
     <name>AbstractPanel</name>
     <message>
         <location filename="../view/abstractpanel.cpp" line="71"/>
         <source>Confirm</source>
-        <translation>Potvrdit</translation>
+        <translation>Potrdi</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation>Připojení se nezdařilo</translation>
+        <translation>Povezava ni uspela</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>Síťové spojení nedostupné. Zkuste to, prosím, znovu...</translation>
+        <translation>Omrežna povezava ni na voljo, prosim, poskusite ponovno...</translation>
     </message>
 </context>
 <context>
@@ -22,37 +22,37 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation>Pomáhat mně</translation>
+        <translation>Pomagaj mi</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation>Pomáhat na dálku</translation>
+        <translation>Oddaljena pomoč</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Neplatný ověřovací kód. Napište jej, prosím. znovu!</translation>
+        <translation>Neveljavna potrditvena šifra, prosim, vnesite ponovno!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation>Připojení se nezdařilo</translation>
+        <translation>Povezava ni uspela</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>Nepodařilo se zřídit připojení. Zkuste to, prosím, znovu</translation>
+        <translation>Nisem uspel vzpostaviti povezave, prosim, poskusite ponovno</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Prekliči</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="126"/>
         <source>Retry</source>
-        <translation>Zkusit znovu</translation>
+        <translation>Poskusi ponovno</translation>
     </message>
 </context>
 <context>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation>Pokračovat v přistupování nebo odpojit</translation>
+        <translation>Nadaljujte z vstopom ali se odklopite</translation>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
         <source>Disconnect</source>
-        <translation>Odpojeno</translation>
+        <translation>Prekini</translation>
     </message>
 </context>
 <context>
@@ -73,12 +73,12 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>Zřizuje se připojení. Počkejte, prosím...</translation>
+        <translation>Vzpostavljanje povezave, prosim, počakajte...</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Prekliči</translation>
     </message>
 </context>
 <context>
@@ -86,17 +86,17 @@
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
         <source>Copy</source>
-        <translation>Kopírovat</translation>
+        <translation>Kopiraj</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Úspěšně zkopírováno do schránky</translation>
+        <translation>Uspešno kopirano v odložišče</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Pro sdílení plochy, poskytněte, prosím, svému pomocníkovi výše uvedený ověřovací kód</translation>
+        <translation>Če hočete deliti namizje, prosim, da sporočite zgornjo potrditveno šifro osebi, ki vam pomaga.</translation>
     </message>
 </context>
 <context>
@@ -104,12 +104,12 @@
     <message>
         <location filename="../view/generatingview.cpp" line="53"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Prekliči</translation>
     </message>
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>Vytváří se ověřovací kód. Počkejte, prosím...</translation>
+        <translation>Ustvarjam potrditveno šifro, prosim, počakajte...</translation>
     </message>
 </context>
 <context>
@@ -119,7 +119,7 @@
         <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>Vzdálená podpora</translation>
+        <translation>Oddaljena pomoč</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
@@ -129,37 +129,37 @@
     <message>
         <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
-        <translation>Nápověda</translation>
+        <translation>Pomoč</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation>Ukončit</translation>
+        <translation>Izhod</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Vzdálená podpora je dálkový ovladač. Uživatelé se mohou s jeho pomocí navzájem připojovat ke svým počítačům.</translation>
+        <translation>Oddaljena pomoč je oddaljen krmilnik, s katerim se lahko uporabniki povežejo na računalnike drugih.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Version: %1</source>
-        <translation>Verze: %1</translation>
+        <translation>Različica: %1</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation>Deepin Remote Assistance je vedený pod licencí GPL v3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
-        <translation>Pomáhat ostatním</translation>
+        <translation>Pomagaj drugim</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
-        <translation>Pomáhat mně</translation>
+        <translation>Pomagaj meni</translation>
     </message>
 </context>
 <context>
@@ -168,23 +168,23 @@
         <location filename="../view/inputview.cpp" line="42"/>
         <location filename="../view/inputview.cpp" line="103"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Prekliči</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Neplatný ověřovací kód. Napište jej, prosím. znovu!</translation>
+        <translation>Neveljavna potrditvena šifra, prosim, vnesite ponovno!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
         <source>Connect</source>
-        <translation>Připojit</translation>
+        <translation>Poveži</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Zadejte ověřovací kód a prověďte připojení pro započetí vzdáleného přistupování</translation>
+        <translation>Vnesite potrditveno šifro in kliknite &quot;Poveži&quot;, da začnete z oddaljenim dostopom</translation>
     </message>
 </context>
 <context>
@@ -192,17 +192,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Vítejte v pomoci vykonávané na dálku. Uživatelé přes ni mohou vzájemně opravovat potíže svých počítačů.</translation>
+        <translation>Dobrodošli v Oddaljeno pomoč. S tem programom lahko uporabniki rešijo računalniške težave drugih uporabnikov.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
-        <translation>Pomáhat mně</translation>
+        <translation>Pomagaj meni</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
-        <translation>Pomáhat ostatním</translation>
+        <translation>Pomagaj drugim</translation>
     </message>
 </context>
 <context>
@@ -210,22 +210,22 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation>Pomáhat na dálku</translation>
+        <translation>Oddaljena pomoč</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation>Připojení se nezdařilo</translation>
+        <translation>Povezava ni uspela</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation>Nepodařilo se získat ověřovací kód</translation>
+        <translation>Ni mi uspelo dobiti potrditvene šifre!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>
         <source>Retry</source>
-        <translation>Zkusit znovu</translation>
+        <translation>Poskusi ponovno</translation>
     </message>
 </context>
 </TS>

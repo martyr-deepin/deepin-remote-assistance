@@ -22,12 +22,12 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation>Asísteme</translation>
+        <translation>Asístame</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation>Asistir Remotamente</translation>
+        <translation>Asistir remotamente</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
@@ -91,7 +91,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Copiado al portapapeles con éxito</translation>
+        <translation>Copiado al portapapeles exitosamente</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
@@ -115,11 +115,11 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="51"/>
-        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>Asistencia Remota</translation>
+        <translation>Asistencia remota</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
@@ -139,17 +139,17 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>La Asistencia Remota es un control remoto que permite a los usuarios conectar sus ordenadores entre ellos.</translation>
+        <translation>La Asistencia Remota es un control remoto que posibilita a los usuarios conectarse a sus ordenadores entre sí.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>Asistencia Remota Deepin</translation>
+        <source>Version: %1</source>
+        <translation>Versión: %1</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="98"/>
-        <source>Version: 2.0</source>
-        <translation>Versión: 2.0</translation>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
@@ -192,15 +192,15 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Bienvenido a la Asistencia Remota. Con esta aplicación, los usuarios pueden solucionar entre ellos los problemas de su ordenador.</translation>
+        <translation>Bienvenido a la Asistencia Remota. Con esta aplicación, los usuarios pueden solucionarse los problemas de ordenador entre ellos mismos.</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>Asísteme</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>Asistir a otros</translation>
     </message>
@@ -210,7 +210,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation>Asistir Remotamente</translation>
+        <translation>Asistir remotamente</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>

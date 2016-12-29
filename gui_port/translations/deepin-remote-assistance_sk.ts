@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Neplatný overovací kód, prosím opíšte znova!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -115,8 +115,8 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="51"/>
-        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>Vzdialená pomoc</translation>
@@ -143,13 +143,13 @@
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>Deepin Vzdialená pomoc</translation>
+        <source>Version: %1</source>
+        <translation>Verzia: %1</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="98"/>
-        <source>Version: 2.0</source>
-        <translation>Verzia: 2.0</translation>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation>Deepin Vzdialená pomoc je vydaná pod GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
@@ -173,7 +173,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Neplatný overovací kód, prosím opíšte znova!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -195,12 +195,12 @@
         <translation>Vitajte na vzdialenej pomoci, užívatelia s ním môžu vyriešiť problémy s počítačom medzi sebou.</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>Asistovať mi</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>Asistovať iným</translation>
     </message>

@@ -14,7 +14,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation type="unfinished"/>
+        <translation>Netværksforbindelse utilgængelig, prøv igen...</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Ugyldig bekræftelseskode, prøv igen!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Det lykkedes ikke at oprette forbindelse, prøv igen</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -82,29 +82,6 @@
     </message>
 </context>
 <context>
-    <name>DAboutDialog</name>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="11"/>
-        <source>Remote Assistance</source>
-        <translation>Fjernsupport</translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="23"/>
-        <source>Deepin Remote Assistance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="26"/>
-        <source>Version: 2.0</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="42"/>
-        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>GeneratedView</name>
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
@@ -138,33 +115,49 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="53"/>
-        <location filename="../remoteassistance.cpp" line="201"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
+        <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>Fjernsupport</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="60"/>
+        <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
         <translation>Om</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="63"/>
+        <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
         <translation>Hjælp</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="66"/>
+        <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
         <translation>Log ud</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="209"/>
+        <location filename="../remoteassistance.cpp" line="92"/>
+        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
+        <translation>Fjernsupport er en fjernbetjening, hvor bbrugere kan oprette forbindelse til computere mellem hinanden med det.</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="97"/>
+        <source>Version: %1</source>
+        <translation>Version: %1</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
         <translation>Hjælpe andre</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="216"/>
+        <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
         <translation>Hjælp mig</translation>
     </message>
@@ -180,7 +173,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Ugyldig bekræftelseskode, Prøv igen!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -202,12 +195,12 @@
         <translation>Velkommen til Fjernsupport, brugerne kan løse computerproblemer mellem hinanden med det.</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>Hjælp mig</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>Hjælpe andre</translation>
     </message>
@@ -227,7 +220,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation type="unfinished"/>
+        <translation>Det lykkedes ikke at få bekræftelseskoden!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>

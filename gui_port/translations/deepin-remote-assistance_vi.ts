@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Mã xác nhận vô hiệu, xin hãy nhập lại!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -115,8 +115,8 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="51"/>
-        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>Hỗ trợ Từ xa</translation>
@@ -144,13 +144,13 @@ với nhau với nó.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>Hỗ trợ Từ xa Deepin</translation>
+        <source>Version: %1</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="98"/>
-        <source>Version: 2.0</source>
-        <translation>Phiên bản: 2.0</translation>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
@@ -174,7 +174,7 @@ với nhau với nó.</translation>
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Mã xác nhận vô hiệu, xin hãy nhập lại!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -196,12 +196,12 @@ với nhau với nó.</translation>
         <translation>Xin chào mừng tới Hỗ trợ Từ xa, người dùng có thể sửa các vấn đề máy tính giữa nó với nhau.</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>Hỗ trợ tôi</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>Hỗ trợ những người khác</translation>
     </message>

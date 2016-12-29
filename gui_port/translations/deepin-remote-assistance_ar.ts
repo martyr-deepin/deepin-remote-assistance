@@ -42,7 +42,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>تعذر تأسيس اتصال، يرجى إعادة المحاولة</translation>
+        <translation>تعذر إنشاء اتصال، يرجى إعادة المحاولة</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>يتم تأسيس اتصال ، يرجى الانتظار ...</translation>
+        <translation>يتم إنشاء اتصال ، يرجى الانتظار ...</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
@@ -115,11 +115,11 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="51"/>
-        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>المساعدة عن بعد</translation>
+        <translation>المساعدة البعيدة</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
@@ -143,13 +143,13 @@
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>مساعدة ديبين البعيدة</translation>
+        <source>Version: %1</source>
+        <translation>اﻹصدار : %1</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="98"/>
-        <source>Version: 2.0</source>
-        <translation>اﻹصدار 2.0</translation>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
@@ -195,12 +195,12 @@
         <translation>مرحبا بكم في المساعدة عن بعد، يمكن للمستخدمين إصلاح مشاكل الحاسوب بين بعضها البعض .</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>مساعدتي </translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>مساعدة اﻵخرين</translation>
     </message>

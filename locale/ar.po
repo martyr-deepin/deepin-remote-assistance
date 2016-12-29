@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2016-05-29 15:58+0000\n"
+"PO-Revision-Date: 2016-08-13 16:04+0000\n"
 "Last-Translator: MUHAAB SHAAM <muhaab.org@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "خدمة الاتصال عن بعد منتهية !"
+msgstr "خدمة الاتصال عن بعد منتهية."
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22

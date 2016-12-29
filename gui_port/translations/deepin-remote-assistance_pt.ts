@@ -115,8 +115,8 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="51"/>
-        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>Assistência Remota</translation>
@@ -143,13 +143,13 @@
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>Assistência Remota Deepin</translation>
+        <source>Version: %1</source>
+        <translation>Versão: %1</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="98"/>
-        <source>Version: 2.0</source>
-        <translation>Versão: 2.0</translation>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation>O Assistente Remoto Deepin é lançado sob GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
@@ -195,12 +195,12 @@
         <translation>Bem vindo à Assistência Remota, come ela os utilizadores podem solucionar problemas entre si.</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>Assistir-me</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>Assistir outros</translation>
     </message>

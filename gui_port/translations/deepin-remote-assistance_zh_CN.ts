@@ -115,8 +115,8 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="51"/>
-        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>远程协助</translation>
@@ -143,13 +143,13 @@
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>深度远程协助</translation>
+        <source>Version: %1</source>
+        <translation>版本：%1</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="98"/>
-        <source>Version: 2.0</source>
-        <translation>版本：2.0</translation>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation>深度远程协助遵循GPLv3协议发布。</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
@@ -195,12 +195,12 @@
         <translation>欢迎您使用远程协助，通过它您可以连接到别人的电脑帮助别人解决问题，或共享您的电脑让别人来解决您的问题。</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>我要求助</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>帮助别人</translation>
     </message>

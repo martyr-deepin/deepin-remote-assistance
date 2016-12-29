@@ -115,8 +115,8 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="51"/>
-        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>Assistenza Remota</translation>
@@ -139,17 +139,18 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Assistenza Remota è un controllo remoto con cui gli utenti si possono connettere ai PC di altri utenti ed aiutarsi.</translation>
+        <translation>Assistenza Remota è un controllo remoto con cui gli utenti si possono connettere ai PC di altri utenti ed aiutarsi. Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>Assistenza Remota Deepin</translation>
+        <source>Version: %1</source>
+        <translation>Versione: %1</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="98"/>
-        <source>Version: 2.0</source>
-        <translation>Versione: 2.0</translation>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation>Deepin Remote Assistance è rilasciato sotto licenza GPL v3.
+Localizzazione italiana a cura di Carofano Massimo A.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
@@ -195,12 +196,12 @@
         <translation>Benvenuto nell&apos;assistenza remota, potrete sistemare eventuali problemi aiutandovi a vicenda.</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>Assistimi</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>Fornisci assistenza</translation>
     </message>

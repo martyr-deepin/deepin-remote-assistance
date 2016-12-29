@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alejandro Hamann <linkstat@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2016-04-19 01:59+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2016-09-18 14:36+0000\n"
+"Last-Translator: Alejandro Hamann <linkstat@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "¡Servicio remoto terminado!"
+msgstr "¡Servicio remoto finalizado!"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
@@ -37,15 +38,15 @@ msgstr "Balance"
 
 #: ../dra_client/views/preferencesmenu.py:58
 msgid "Optimize Speed"
-msgstr "Optimizar Velocidad"
+msgstr "Optimizar velocidad"
 
 #: ../dra_client/views/preferencesmenu.py:63
 msgid "Optimize Quality"
-msgstr "Optimizar Calidad"
+msgstr "Optimizar calidad"
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
-msgstr "Pantalla Completa"
+msgstr "Pantalla completa"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"

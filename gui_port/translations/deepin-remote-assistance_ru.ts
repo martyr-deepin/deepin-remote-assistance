@@ -14,7 +14,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>Сетевое соединение не доступно, повторите...</translation>
+        <translation>Сетевое соединение не доступно, пожалуйста повторите попытку...</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Проверка кода не удалась, повторите ввод!</translation>
+        <translation>Неверный проверочный код, пожалуйста, повторите!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>Создание соединения не удалось, повторите</translation>
+        <translation>Не удалось установить соединение, пожалуйста, повторите</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
         <source>Disconnect</source>
-        <translation>Отключение</translation>
+        <translation>Отключить</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>Установка соединения, подождите...</translation>
+        <translation>Установка соединения, пожалуйста подождите...</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
@@ -91,7 +91,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Успешно скопировано в буфер</translation>
+        <translation>Успешно скопировано в буфер обмена</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
@@ -115,11 +115,11 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="51"/>
-        <location filename="../remoteassistance.cpp" line="94"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>Remote Assistance</translation>
+        <translation>Удаленный помощник</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
@@ -139,22 +139,22 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Удалённый помощник это контроль на расстоянии, пользователи могут подключаться друг к другу соединяя свои компьютеры между собой.</translation>
+        <translation>Удалённый помощник - это пульт дистанционного управления, с помощью которого пользователи могут подключаться к компьютерам друг друга.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
-        <source>Deepin Remote Assistance</source>
-        <translation>Удаленный помощник Deepin</translation>
+        <source>Version: %1</source>
+        <translation>Версия: %1</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="98"/>
-        <source>Version: 2.0</source>
-        <translation>Версия: 2.0</translation>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation>Удаленный помощник Deepin выпущен под лицензией GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
-        <translation>Помощь другим</translation>
+        <translation>Оказание помощи</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
@@ -173,12 +173,12 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Проверка кода не удалась, повторите ввод!</translation>
+        <translation>Неверный проверочный код, пожалуйста, повторите!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
         <source>Connect</source>
-        <translation>Подключение</translation>
+        <translation>Подключить</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="110"/>
@@ -192,15 +192,15 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Добро пожаловать в Remote Assistance, пользователи могут решать компьютерные вопросы между собой.</translation>
+        <translation>Добро пожаловать в Удаленный помощник, пользователи могут с помощью него исправить компьютерные проблемы.</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>Помогите мне</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>Помощь другим</translation>
     </message>

@@ -14,7 +14,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation type="unfinished"/>
+        <translation>Conexão indisponível, por favor, tente novamente...</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Verificação  de código inválida, por favor, digite novamente!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao estabelecer conexão, por favor, tente novamente</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -82,29 +82,6 @@
     </message>
 </context>
 <context>
-    <name>DAboutDialog</name>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="11"/>
-        <source>Remote Assistance</source>
-        <translation>Assistência Remota</translation>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="23"/>
-        <source>Deepin Remote Assistance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="26"/>
-        <source>Version: 2.0</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../view/aboutdialog.cpp" line="42"/>
-        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>GeneratedView</name>
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
@@ -138,33 +115,49 @@
 <context>
     <name>Impl</name>
     <message>
-        <location filename="../remoteassistance.cpp" line="53"/>
-        <location filename="../remoteassistance.cpp" line="201"/>
+        <location filename="../remoteassistance.cpp" line="52"/>
+        <location filename="../remoteassistance.cpp" line="95"/>
+        <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
         <translation>Assistência Remota</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="60"/>
+        <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
         <translation>Sobre</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="63"/>
+        <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
         <translation>Ajuda</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="66"/>
+        <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="209"/>
+        <location filename="../remoteassistance.cpp" line="92"/>
+        <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
+        <translation>Assistência remota é um controlador remoto, os usuários podem se conectar a computadores entre si.</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="97"/>
+        <source>Version: %1</source>
+        <translation>Versão: %1</translation>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="99"/>
+        <source>Deepin Remote Assistance is released under GPL v3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
         <translation>Auxiliar outros</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="216"/>
+        <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
         <translation>Me auxilie</translation>
     </message>
@@ -180,7 +173,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Verificação  de código inválida, por favor, digite novamente! </translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -199,15 +192,15 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Bem vindo à assistência remota, os usuário podem corrigir os problemas do computador entre si.</translation>
+        <translation>Bem-vindo à assistência remota, os usuários podem corrigir problemas de computador entre si.</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="67"/>
+        <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
         <translation>Me auxilie</translation>
     </message>
     <message>
-        <location filename="../view/mainpanel.cpp" line="78"/>
+        <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
         <translation>Auxiliar outros</translation>
     </message>
@@ -227,7 +220,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation type="unfinished"/>
+        <translation>Falha ao obter o código de verificação!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>
