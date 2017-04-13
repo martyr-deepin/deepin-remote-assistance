@@ -13,3 +13,5 @@ X-MultipleArgs=false
 # Translations
 Comment[zh_CN]=Deepin远程协助
 Name[zh_CN]=远程协助
+Comment[zh_TW]=Deepin 遠端協助
+Name[zh_CN]=Deepin 遠端協助
