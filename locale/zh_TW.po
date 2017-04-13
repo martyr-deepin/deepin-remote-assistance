@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# freddy4212 <freddy4212@gmail.com>, 2016
+# 鄭子凡（凡凡不想平凡） <freddy4212@gmail.com>, 2016
+# 鄭子凡（凡凡不想平凡） <freddy4212@gmail.com>, 2017
+# 鄭子凡（凡凡不想平凡） <freddy4212@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2016-08-08 17:55+0000\n"
-"Last-Translator: freddy4212 <freddy4212@gmail.com>\n"
+"PO-Revision-Date: 2017-04-12 16:52+0000\n"
+"Last-Translator: 鄭子凡（凡凡不想平凡） <freddy4212@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +22,17 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "遠端協助終止！"
+msgstr "遠端協助中斷！"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
 msgid "Remote Assistance"
-msgstr "遠端協助"
+msgstr "Deepin 遠端協助"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30
 msgid "Preferences"
-msgstr "偏好設定"
+msgstr "效果選擇"
 
 #: ../dra_client/views/preferencesmenu.py:52
 msgid "Balance"
@@ -38,11 +40,11 @@ msgstr "平衡"
 
 #: ../dra_client/views/preferencesmenu.py:58
 msgid "Optimize Speed"
-msgstr "速度優先"
+msgstr "最佳速度"
 
 #: ../dra_client/views/preferencesmenu.py:63
 msgid "Optimize Quality"
-msgstr "畫質優先"
+msgstr "最佳畫質"
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
@@ -50,11 +52,11 @@ msgstr "全螢幕"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"
-msgstr "無法取得驗證碼"
+msgstr "取得驗證碼失敗！"
 
 #: ../dra_server/views/ConfirmWindow.qml:81
 msgid "Are you sure to close remote desktop connection?"
-msgstr "你確定要關閉遠端桌面連線？"
+msgstr "確定關閉遠端桌面連線？"
 
 #: ../dra_server/views/ConfirmWindow.qml:94
 msgid "Cancel"
@@ -66,4 +68,4 @@ msgstr "確定"
 
 #: ../dra_server/views/DisconnectWindow.qml:141
 msgid "Disconnect"
-msgstr "斷線"
+msgstr "中斷連線"
