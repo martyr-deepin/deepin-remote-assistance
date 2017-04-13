@@ -9,12 +9,12 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation>無法連線</translation>
+        <translation>連線失敗</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>沒有網路連線，請重試…</translation>
+        <translation>無網路連線，請重試…</translation>
     </message>
 </context>
 <context>
@@ -22,27 +22,27 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation>協助我</translation>
+        <translation>別人協助我</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation type="unfinished"/>
+        <translation>正在遠端協助</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>無效的驗證碼，請重新輸入！</translation>
+        <translation>驗證碼錯誤，請重新輸入！</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation>無法連線</translation>
+        <translation>連線失敗</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>建立連線失敗，請重試</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>正在建立連線，請稍等…</translation>
+        <translation>正在建立連線，請稍候…</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>成功複製到剪貼簿</translation>
+        <translation>成功複製到剪貼板</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>要分享你的桌面，請提供以上的驗證碼給協助你的人。</translation>
+        <translation>要分享桌面，請提供驗證碼給協助你的人</translation>
     </message>
 </context>
 <context>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>正在產生驗證碼，請稍等…</translation>
+        <translation>正在產生驗證碼，請稍候…</translation>
     </message>
 </context>
 <context>
@@ -119,7 +119,7 @@
         <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>遠端協助</translation>
+        <translation>Deepin 遠端協助</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
@@ -134,32 +134,32 @@
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation>結束</translation>
+        <translation>離開</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"/>
+        <translation>Deepin 遠端協助是一個遠端控制程式，使用者間可相互連線。</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>版本：%1</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Deepin 遠端協助遵循 GNU 通用公共授權條款第三版發布</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
-        <translation>協助其他人</translation>
+        <translation>我協助他人</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
-        <translation>協助我</translation>
+        <translation>別人協助我</translation>
     </message>
 </context>
 <context>
@@ -173,7 +173,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>無效的驗證碼，請重新輸入！</translation>
+        <translation>驗證碼錯誤，請重新輸入！</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -184,7 +184,7 @@
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>輸入驗證碼並按下「連線」來開始遠端協助</translation>
+        <translation>輸入驗證碼並按下「連線」開始遠端存取</translation>
     </message>
 </context>
 <context>
@@ -192,17 +192,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>歡迎使用遠端連線，使用者之間可以相互修理電腦疑難雜症。</translation>
+        <translation>歡迎使用 Deepin 遠端協助，使用者間可以相互修理電腦疑難雜症。</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
-        <translation>協助我</translation>
+        <translation>別人協助我</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
-        <translation>協助其他人</translation>
+        <translation>我協助他人</translation>
     </message>
 </context>
 <context>
@@ -210,17 +210,17 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation type="unfinished"/>
+        <translation>正在遠端協助</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation>無法連線</translation>
+        <translation>連線失敗</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation type="unfinished"/>
+        <translation>取得驗證碼失敗！</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>
