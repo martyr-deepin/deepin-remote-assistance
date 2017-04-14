@@ -145,12 +145,12 @@ với nhau với nó.</translation>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>Phiên bản: %1</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Trợ giúp Từ xa Deepin được phát hành theo GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>

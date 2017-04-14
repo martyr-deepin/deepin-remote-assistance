@@ -22,7 +22,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation>Assistir-me</translation>
+        <translation>Assistam-me</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
@@ -159,7 +159,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
-        <translation>Solicitar Assistência</translation>
+        <translation>Assistam-me</translation>
     </message>
 </context>
 <context>
@@ -192,12 +192,12 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Bem vindo à Assistência Remota, come ela os utilizadores podem solucionar problemas entre si.</translation>
+        <translation>Bem-vindo à Assistência Remota, com isto os utilizadores podem solucionar problemas entre si.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
-        <translation>Assistir-me</translation>
+        <translation>Assistam-me</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>

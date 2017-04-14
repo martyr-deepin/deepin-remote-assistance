@@ -149,7 +149,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Помощника за отдалечен достъп на Deepin е лицензиран под GPL v3 лиценз</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>

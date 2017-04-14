@@ -129,7 +129,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
-        <translation>Pagalba</translation>
+        <translation>Žinynas</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>

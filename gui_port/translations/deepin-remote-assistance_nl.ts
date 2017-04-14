@@ -96,7 +96,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Geef om uw scherm te delen de bovenstaande verificatie code aan de persoon die u zal assisteren alstublieft</translation>
+        <translation>Om uw bureaublad te delen geeft u de bovenstaande verificatiecode aan de persoon die u zal assisteren</translation>
     </message>
 </context>
 <context>
@@ -139,7 +139,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Hulp op Afstand is een afstandsbediening, die gebruikers kunnen gebruiken om verbinding te maken met elkaars computer.</translation>
+        <translation>Hulp op Afstand geeft controle over een bureaublad op afstand. Gebruikers kunnen hiermee verbinding te maken met elkaars computer.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
@@ -154,12 +154,12 @@
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
-        <translation>Andere helpen</translation>
+        <translation>Anderen helpen</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
         <source>Assist me</source>
-        <translation>Help mij</translation>
+        <translation>Assisteer mij</translation>
     </message>
 </context>
 <context>
@@ -197,12 +197,12 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
-        <translation>Help mij</translation>
+        <translation>Assissteer mij</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
-        <translation>Andere helpen</translation>
+        <translation>Anderen helpen</translation>
     </message>
 </context>
 <context>

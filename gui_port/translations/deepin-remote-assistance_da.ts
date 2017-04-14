@@ -14,7 +14,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>Netværksforbindelse utilgængelig, prøv igen...</translation>
+        <translation>Netværksforbindelse utilgængelig, prøv venligst igen...</translation>
     </message>
 </context>
 <context>
@@ -27,12 +27,12 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation>Fjernsupport</translation>
+        <translation>Fjernassistance</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Ugyldig bekræftelseskode, prøv igen!</translation>
+        <translation>Ugyldig bekræftelseskode. Indtast den venligst igen!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation>Forsøg fortsat at få adgang til eller afbryd</translation>
+        <translation>Forsøg fortsat at få adgang eller afbryd</translation>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>Etablerer forbindelse, vent venligst ...</translation>
+        <translation>Etablerer forbindelse, vent venligst...</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
@@ -86,17 +86,17 @@
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
         <source>Copy</source>
-        <translation>kopiere</translation>
+        <translation>Kopiér</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Kopieret til klippebordet med succes</translation>
+        <translation>Kopieret til udklipsholder</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Hvis du vil dele dit skrivebord, skal du give ovenstående bekræftelseskode , til hvem som vil hjælpe dig.</translation>
+        <translation>Del dit skrivebord ved at give ovenstående bekræftelseskode , til den som vil hjælpe dig</translation>
     </message>
 </context>
 <context>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>Generering af bekræftelseskoden, vent venligst...</translation>
+        <translation>Genererer bekræftelseskode, vent venligst...</translation>
     </message>
 </context>
 <context>
@@ -119,7 +119,7 @@
         <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>Fjernsupport</translation>
+        <translation>Fjernassistance</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
@@ -134,12 +134,12 @@
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation>Log ud</translation>
+        <translation>Forlad</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Fjernsupport er en fjernbetjening, hvor bbrugere kan oprette forbindelse til computere mellem hinanden med det.</translation>
+        <translation>Fjernassistance er en fjernbetjening, hvor brugere kan oprette forbindelse til computere mellem hinanden med det.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
@@ -149,12 +149,12 @@
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Deepin fjernassistance er udgivet under GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
         <source>Assist others</source>
-        <translation>Hjælpe andre</translation>
+        <translation>Assistér andre</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="222"/>
@@ -173,18 +173,18 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Ugyldig bekræftelseskode, Prøv igen!</translation>
+        <translation>Ugyldig bekræftelseskode. Indtast den venligst igen!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
         <source>Connect</source>
-        <translation>Forbind</translation>
+        <translation>Opret forbindelse</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Idtast verifikationskode og &quot;Forbind&quot; for at starte fjernadgang</translation>
+        <translation>Indtast bekræftigelseskode og &quot;Opret forbindelse&quot; for at starte fjernadgang</translation>
     </message>
 </context>
 <context>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Velkommen til Fjernsupport, brugerne kan løse computerproblemer mellem hinanden med det.</translation>
+        <translation>Velkommen til fjernassistance, brugerne kan rette computerproblemer mellem hinanden med det.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
-        <translation>Hjælpe andre</translation>
+        <translation>Assistér andre</translation>
     </message>
 </context>
 <context>
@@ -210,7 +210,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation>Fjernsupport</translation>
+        <translation>Fjernassistance</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
@@ -220,7 +220,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation>Det lykkedes ikke at få bekræftelseskoden!</translation>
+        <translation>Det lykkedes ikke at få bekræftelseskode!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>

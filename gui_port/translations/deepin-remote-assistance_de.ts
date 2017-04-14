@@ -139,7 +139,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>Der Fernwartungsassistent ist eine Fernsteuerung. Benutzer können damit zu Computern untereinander verbinden.</translation>
+        <translation>Der Fernwartungsassistent ist eine Fernsteuerung. Benutzer können damit Computer untereinander verbinden.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>

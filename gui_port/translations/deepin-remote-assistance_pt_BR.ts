@@ -119,7 +119,7 @@
         <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="207"/>
         <source>Remote Assistance</source>
-        <translation>Assistência Remota</translation>
+        <translation>Assistência remota</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
@@ -149,7 +149,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Assistência remota é licenciado sob licença GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Bem-vindo à assistência remota, os usuários podem corrigir problemas de computador entre si.</translation>
+        <translation>Bem-vindo à assistência remota, os usuários podem corrigir problemas do computador entre si.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>

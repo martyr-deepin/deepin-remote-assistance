@@ -144,12 +144,12 @@
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>Έκδοση: %1</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Ο Απομακρυσμένος Βοηθός του DeepIn έχει δημοσιευθεί κάτω από την άδεια χρήσης GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="215"/>
