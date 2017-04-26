@@ -89,14 +89,19 @@
         <translation>Kopírovať</translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="58"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>Kopírovanie do schránky úspešné</translation>
+        <location filename="../view/generatedview.cpp" line="105"/>
+        <source>To share your desktop</source>
+        <translation>Zdieľať svoju pracovnú plochu</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
-        <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Ak chcete začať zdieľať svoju plochu, uveďte prosím asistentovi vyššie uvedený overovací kód</translation>
+        <source>please provide the above verification code to your help provider</source>
+        <translation>Uveďte uvedený overovací kód vášmu poskytovateľovi pomoci</translation>
+    </message>
+    <message>
+        <location filename="../view/generatedview.cpp" line="58"/>
+        <source>Copied to clipboard successfully</source>
+        <translation>Kopírovanie do schránky úspešné</translation>
     </message>
 </context>
 <context>
@@ -117,7 +122,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="52"/>
         <location filename="../remoteassistance.cpp" line="95"/>
-        <location filename="../remoteassistance.cpp" line="207"/>
+        <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
         <translation>Vzdialená pomoc</translation>
     </message>
@@ -152,12 +157,12 @@
         <translation>Deepin Vzdialená pomoc je vydaná pod GPL v3</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="215"/>
+        <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
         <translation>Asistovať iným</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="222"/>
+        <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
         <translation>Asistovať mi</translation>
     </message>

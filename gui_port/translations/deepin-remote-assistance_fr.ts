@@ -89,14 +89,19 @@
         <translation>Copier </translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="58"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>Copié dans le presse papier avec succès</translation>
+        <location filename="../view/generatedview.cpp" line="105"/>
+        <source>To share your desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
-        <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Pour partager votre bureau, veuillez donner le code de vérification ci-dessus à la personne aidante</translation>
+        <source>please provide the above verification code to your help provider</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../view/generatedview.cpp" line="58"/>
+        <source>Copied to clipboard successfully</source>
+        <translation>Copié dans le presse papier avec succès</translation>
     </message>
 </context>
 <context>
@@ -117,7 +122,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="52"/>
         <location filename="../remoteassistance.cpp" line="95"/>
-        <location filename="../remoteassistance.cpp" line="207"/>
+        <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
         <translation>Aide à distance</translation>
     </message>
@@ -152,12 +157,12 @@
         <translation>Deepin Assistance à distance est sous licence GPL v3</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="215"/>
+        <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
         <translation>Aidez à distance</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="222"/>
+        <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
         <translation>Aidez moi</translation>
     </message>

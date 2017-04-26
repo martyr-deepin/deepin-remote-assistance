@@ -89,14 +89,19 @@
         <translation>Kopiuj</translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="58"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>Pomyślnie skopiowano tekst do schowka</translation>
+        <location filename="../view/generatedview.cpp" line="105"/>
+        <source>To share your desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
-        <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Aby rozpocząć współdzielenie swojego pulpitu proszę podać poniższy kod weryfikacyjny osobie, która ma Tobie pomóc.</translation>
+        <source>please provide the above verification code to your help provider</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../view/generatedview.cpp" line="58"/>
+        <source>Copied to clipboard successfully</source>
+        <translation>Pomyślnie skopiowano tekst do schowka</translation>
     </message>
 </context>
 <context>
@@ -117,7 +122,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="52"/>
         <location filename="../remoteassistance.cpp" line="95"/>
-        <location filename="../remoteassistance.cpp" line="207"/>
+        <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
         <translation>Zdalne wsparcie</translation>
     </message>
@@ -152,12 +157,12 @@
         <translation>Program Zdalna asysta Deepin jest wydany w oparciu o licencję GPL wer. 3.</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="215"/>
+        <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
         <translation>Asystuj innym</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="222"/>
+        <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
         <translation>Asystuj mi</translation>
     </message>

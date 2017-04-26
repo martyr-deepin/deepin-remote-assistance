@@ -89,14 +89,19 @@
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="58"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>Copióse con ésitu al cartafueyu</translation>
+        <location filename="../view/generatedview.cpp" line="105"/>
+        <source>To share your desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
-        <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Pa compartir el to escritoriu, apurre&apos;l códigu de verificación d&apos;enria al to fornifor d&apos;ayuda, por favor</translation>
+        <source>please provide the above verification code to your help provider</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../view/generatedview.cpp" line="58"/>
+        <source>Copied to clipboard successfully</source>
+        <translation>Copióse con ésitu al cartafueyu</translation>
     </message>
 </context>
 <context>
@@ -117,7 +122,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="52"/>
         <location filename="../remoteassistance.cpp" line="95"/>
-        <location filename="../remoteassistance.cpp" line="207"/>
+        <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
         <translation>Asistencia remota</translation>
     </message>
@@ -152,12 +157,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="215"/>
+        <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
         <translation>Asistir a otros</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="222"/>
+        <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
         <translation>Asistime</translation>
     </message>

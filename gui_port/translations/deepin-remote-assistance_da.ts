@@ -89,14 +89,19 @@
         <translation>Kopiér</translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="58"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>Kopieret til udklipsholder</translation>
+        <location filename="../view/generatedview.cpp" line="105"/>
+        <source>To share your desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
-        <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Del dit skrivebord ved at give ovenstående bekræftelseskode , til den som vil hjælpe dig</translation>
+        <source>please provide the above verification code to your help provider</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../view/generatedview.cpp" line="58"/>
+        <source>Copied to clipboard successfully</source>
+        <translation>Kopieret til udklipsholder</translation>
     </message>
 </context>
 <context>
@@ -117,7 +122,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="52"/>
         <location filename="../remoteassistance.cpp" line="95"/>
-        <location filename="../remoteassistance.cpp" line="207"/>
+        <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
         <translation>Fjernassistance</translation>
     </message>
@@ -152,12 +157,12 @@
         <translation>Deepin fjernassistance er udgivet under GPL v3</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="215"/>
+        <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
         <translation>Assistér andre</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="222"/>
+        <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
         <translation>Hjælp mig</translation>
     </message>
@@ -184,7 +189,7 @@
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Indtast bekræftigelseskode og &quot;Opret forbindelse&quot; for at starte fjernadgang</translation>
+        <translation>Indtast bekræftelseskode og &quot;Opret forbindelse&quot; for at starte fjernadgang</translation>
     </message>
 </context>
 <context>

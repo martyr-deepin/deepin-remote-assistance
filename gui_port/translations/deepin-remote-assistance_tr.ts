@@ -89,14 +89,19 @@
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="58"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>Panoya başarılı bir biçimde kopyalandı</translation>
+        <location filename="../view/generatedview.cpp" line="105"/>
+        <source>To share your desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
-        <source>To share your desktop, please provide the above verification code to your help provider</source>
-        <translation>Masaüstünüzü paylaşmak için lütfen yukarıdaki doğrulama kodunu yardım sağlayıcınıza sağlayın.</translation>
+        <source>please provide the above verification code to your help provider</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../view/generatedview.cpp" line="58"/>
+        <source>Copied to clipboard successfully</source>
+        <translation>Panoya başarıyla kopyalandı</translation>
     </message>
 </context>
 <context>
@@ -117,7 +122,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="52"/>
         <location filename="../remoteassistance.cpp" line="95"/>
-        <location filename="../remoteassistance.cpp" line="207"/>
+        <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
         <translation>Uzaktan Yardım</translation>
     </message>
@@ -149,15 +154,15 @@
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Deepin  Uzaktan Yardım GPLv3 altında yayımlandı.</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="215"/>
+        <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
         <translation>Diğerlerine yardımcı ol</translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="222"/>
+        <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
         <translation>Bana yardımcı ol</translation>
     </message>
@@ -192,7 +197,7 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Uzaktan Yardım&apos;a hoşgeldiniz, kullanıcılar bununla bilgisayar sorunlarını aralarında çözebilirler.</translation>
+        <translation>Uzaktan Yardım&apos;a hoş geldiniz, kullanıcılar bilgisayarla ilgili sorunları kendi aralarında düzeltebilir.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
