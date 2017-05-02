@@ -91,13 +91,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../view/generatedview.cpp" line="58"/>
-        <source>Copied to clipboard successfully</source>
+        <location filename="../view/generatedview.cpp" line="105"/>
+        <source>To share your desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
-        <source>To share your desktop, please provide the above verification code to your help provider</source>
+        <source>please provide the above verification code to your help provider</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../view/generatedview.cpp" line="58"/>
+        <source>Copied to clipboard successfully</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -119,7 +124,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="52"/>
         <location filename="../remoteassistance.cpp" line="95"/>
-        <location filename="../remoteassistance.cpp" line="207"/>
+        <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -154,12 +159,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="215"/>
+        <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../remoteassistance.cpp" line="222"/>
+        <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
         <translation type="unfinished"></translation>
     </message>

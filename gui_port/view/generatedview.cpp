@@ -102,8 +102,8 @@ QWidget *GeneratedView::createMainWidget()
     */
 
     m_tipLabel = new TipLabel(this);
-    m_tipLabel->setText(tr("To share your desktop, please provide the above verification code to your help provider"));
-    m_tipLabel->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight);
+    m_tipLabel->setText(tr("To share your desktop") + "\n" + tr("please provide the above verification code to your help provider"));
+    m_tipLabel->setFixedSize(DRA::TipLabelMaxWidth, DRA::TipLabelMaxHeight + 20);
 
     layout->addSpacing(36);
     layout->addWidget(m_tipLabel, 0, Qt::AlignHCenter);
