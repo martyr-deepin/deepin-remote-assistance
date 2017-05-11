@@ -14,7 +14,7 @@
 #include <QMenu>
 #include <QAction>
 
-#include <DWindow>
+#include <DMainWindow>
 #include <dstackwidget.h>
 
 #include "remoteassistance.h"
@@ -26,6 +26,8 @@
 #include "view/sharepanel.h"
 #include "constants.h"
 #include "helper.h"
+
+#include <DTitlebar>
 #include <DAboutDialog>
 
 namespace ManagerState
@@ -42,40 +44,24 @@ DWIDGET_USE_NAMESPACE
 Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manager)
     : m_pub(pub),
       m_manager(manager),
-      m_view(new DWindow),
+      m_view(new DMainWindow),
       m_stackWidget(new DStackWidget)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
-    m_view->setTitle(tr("Remote Assistance"));
+    auto title =  m_view->titleBar();
+    title->setTitle(tr("Remote Assistance"));
+    title->setIcon(QPixmap(":/Resource/remote-assistance.svg"));
 
     QSize frameSize(DRA::WindowWidth, DRA::WindowHeight);
-    QSize contentSize(DRA::WindowWidth,
-                      DRA::WindowHeight - m_view->titlebarHeight());
+    QSize contentSize(DRA::WindowWidth, DRA::WindowHeight - title->height());
 
-    QAction *aboutAction = new QAction(tr("About"), this);
-    connect(aboutAction, SIGNAL(triggered()), this, SLOT(showAbout()));
-
-    QAction *helpAction = new QAction(tr("Help"), this);
-    connect(helpAction, SIGNAL(triggered()), this, SLOT(showHelp()));
-
-    QAction *closeAction = new QAction(tr("Exit"), this);
-    connect(closeAction, SIGNAL(triggered()), m_view, SLOT(close()));
-
-    m_view->titleBarMenu()->addAction(aboutAction);
-    m_view->titleBarMenu()->addAction(helpAction);
-    m_view->titleBarMenu()->addAction(closeAction);
-
-    m_view->setWindowFlags(m_view->windowFlags() & ~ Qt::WindowMaximizeButtonHint);
+    title->setWindowFlags(title->windowFlags() & ~ Qt::WindowMaximizeButtonHint);
     m_view->setFixedSize(frameSize);
-    m_view->setBackgroundColor(Qt::white);
-
     m_stackWidget->setFixedSize(contentSize);
-    mainLayout->addWidget(m_stackWidget/*, 0, Qt::AlignHCenter*/);
-
-    m_view->setContentLayout(mainLayout);
+    m_view->setCentralWidget(m_stackWidget);
 
     connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
 
@@ -101,19 +87,6 @@ void Impl::showAbout()
 
     about->show();
 }
-
-
-void Impl::showHelp()
-{
-    if (NULL == dManual) {
-        dManual =  new QProcess(this);
-        const QString pro = "dman";
-        const QStringList args("deepin-remote-assistance");
-        connect(dManual, SIGNAL(finished(int)), this, SLOT(manualClose(int)));
-        dManual->start(pro, args);
-    }
-}
-
 
 void Impl::initPanel()
 {
@@ -144,26 +117,6 @@ void Impl::initPanel()
 void Impl::debug()
 {
     this->m_view->showMinimized();
-}
-
-bool Impl::eventFilter(QObject *obj, QEvent *event)
-{
-    if (event->type() == QEvent::KeyPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-        if (keyEvent->key() == Qt::Key_F1) {
-            qDebug() << "show manual for help...";
-            showHelp();
-            return true;
-        }
-    }
-    // standard event processing
-    return QObject::eventFilter(obj, event);
-}
-
-void Impl::manualClose(int)
-{
-    dManual->deleteLater();
-    dManual = NULL;
 }
 
 QWidget *Impl::getPanel(ViewPanel v)
@@ -205,23 +158,23 @@ void Impl::changeTitle(ViewPanel v)
     switch (v) {
     case ViewPanel::Main: {
         // MainPanel should be created only once.
-        m_view->setTitle(tr("Remote Assistance"));
+        m_view->titleBar()->setIcon(QPixmap(":/Resource/remote-assistance.svg"));
+        m_view->titleBar()->setTitle(tr("Remote Assistance"));
         qDebug() << "height" << m_view->height();
-        m_view->setTitleIcon(QPixmap());
         break;
 
     }
     case ViewPanel::Access: {
         qDebug() << "create Access Panel";
-        m_view->setTitle(tr("Assist others"));
-        m_view->setTitleIcon(QPixmap(getThemeImage("assistant_heart.png")));
+        m_view->titleBar()->setTitle(tr("Assist others"));
+        m_view->titleBar()->setIcon(QPixmap(getThemeImage("assistant_heart.png")));
         break;
 
     }
     case ViewPanel::Share: {
         qDebug() << "create Share Panel";
-        m_view->setTitle(tr("Assist me"));
-        m_view->setTitleIcon(QPixmap(getThemeImage("assistant_help.png")));
+        m_view->titleBar()->setTitle(tr("Assist me"));
+        m_view->titleBar()->setIcon(QPixmap(getThemeImage("assistant_help.png")));
         break;
     }
     }

@@ -24,7 +24,7 @@ QT_END_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
 class DStackWidget;
-class DWindow;
+class DMainWindow;
 DWIDGET_END_NAMESPACE
 
 class RemoteAssistance;
@@ -51,20 +51,16 @@ public:
     void changePanel(ViewPanel);
     void changeTitle(ViewPanel v);
 
-    bool eventFilter(QObject *obj, QEvent *event);
-
 public slots:
         void debug();
         void showAbout();
-        void showHelp();
-        void manualClose(int);
 
 public:
     QWidget *getPanel(ViewPanel);
 
     RemoteAssistance *m_pub;
     com::deepin::daemon::Remoting::Manager *m_manager;
-    DTK_NAMESPACE::Widget::DWindow *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
+    DTK_NAMESPACE::Widget::DMainWindow  *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
     DTK_NAMESPACE::Widget::DStackWidget *m_stackWidget; // this is child of m_view.
     QWidget *m_panel;
     ViewPanel m_viewType;

@@ -12,6 +12,8 @@ using namespace Dtk::Util;
 
 int main(int argv, char *args[])
 {
+    DApplication::loadDXcbPlugin();
+
     DApplication app(argv, args);
 
     app.setOrganizationName("deepin");
