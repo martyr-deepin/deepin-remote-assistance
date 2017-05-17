@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>Pa compartir el to escritoriu</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>apurri&apos;l códigu de verificación d&apos;embaxo al to fornidor d&apos;ayuda, por favor</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
@@ -154,7 +154,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Asistencia remota Deepin llánzase so la GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="216"/>

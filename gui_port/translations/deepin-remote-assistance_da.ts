@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>For at dele dit skrivebord</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>giv venligst bekræftelseskoden ovenfor til din hjælp-udbyder</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>

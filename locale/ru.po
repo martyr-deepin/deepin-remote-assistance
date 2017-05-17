@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Анатолий Валерианович <ffox909@mail.ru>, 2016
-# Валерий Владимирович, 2016
+# Валерий Владимирович, 2016-2017
 # Валерий Владимирович, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2016-09-02 14:15+0000\n"
+"PO-Revision-Date: 2017-05-06 09:23+0000\n"
 "Last-Translator: Валерий Владимирович\n"
 "Language-Team: Russian (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr "Оптимизация скорости"
 
 #: ../dra_client/views/preferencesmenu.py:63
 msgid "Optimize Quality"
-msgstr "Оптимизация качества"
+msgstr "Оптимизация Качества"
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
