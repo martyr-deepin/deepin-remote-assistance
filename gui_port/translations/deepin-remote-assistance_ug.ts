@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ug" version="2.1">
 <context>
     <name>AbstractPanel</name>
     <message>
         <location filename="../view/abstractpanel.cpp" line="71"/>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>جەزىملەشتۈرۈش</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation>Conexión fallida</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>La conexión de red no está disponible, por favor intente nuevamente</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -22,37 +22,37 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation>Asístame</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation>Asistir remotamente</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Código de verificación inválido. Por favor, intente nuevamente.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation>Conexión fallida</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>Falló al establecer la conexión, por favor intente nuevamente</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>بىكار قىلىش</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="126"/>
         <source>Retry</source>
-        <translation>Reintentar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation>Continuar con el acceso o desconectar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
         <source>Disconnect</source>
-        <translation>Desconectar</translation>
+        <translation>ئۈزۈش</translation>
     </message>
 </context>
 <context>
@@ -73,12 +73,12 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>Estableciendo conexión, por favor espere...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>بىكار قىلىش</translation>
     </message>
 </context>
 <context>
@@ -86,22 +86,22 @@
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
         <source>Copy</source>
-        <translation>Copiar</translation>
+        <translation>كۆچۈرۈش</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation>Para compartir tu escritorio</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation>Proporcione el código de verificación o pida ayuda a su provedor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Copiado al portapapeles exitosamente</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -109,12 +109,12 @@
     <message>
         <location filename="../view/generatingview.cpp" line="53"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>بىكار قىلىش</translation>
     </message>
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>Generando código de verificación, por favor espere...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -124,47 +124,47 @@
         <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
-        <translation>Asistencia remota</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
         <source>About</source>
-        <translation>Acerca de</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
-        <translation>Ayuda</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation>Salir</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>La Asistencia Remota es un control remoto que posibilita a los usuarios conectarse a sus ordenadores entre sí.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Version: %1</source>
-        <translation>Versión: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation>Asistencia remota Deepin opera bajo GPL v3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
-        <translation>Asistir a otros</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
-        <translation>Asísteme</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -173,23 +173,23 @@
         <location filename="../view/inputview.cpp" line="42"/>
         <location filename="../view/inputview.cpp" line="103"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>بىكار قىلىش</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Código de verificación inválido. Por favor, intente nuevamente.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
         <source>Connect</source>
-        <translation>Conectar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Introduce el código de verificación y haz click en &quot;Conectar&quot; para iniciar el acceso remoto</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -197,17 +197,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Bienvenido a la Asistencia Remota. Con esta aplicación, los usuarios pueden solucionarse los problemas de ordenador entre ellos mismos.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
-        <translation>Asísteme</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
-        <translation>Asistir a otros</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -215,22 +215,22 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation>Asistir remotamente</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation>Conexión fallida</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation>No se pudo obtener el código de verificación</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>
         <source>Retry</source>
-        <translation>Reintentar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

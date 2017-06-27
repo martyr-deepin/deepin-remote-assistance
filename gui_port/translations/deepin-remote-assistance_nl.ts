@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>Om uw bureaublad te delen</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>geef de bovenstaande verificatiecode aan de persoon die u zal assisteren a.u.b.</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
