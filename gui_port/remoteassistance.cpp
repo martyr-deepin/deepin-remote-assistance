@@ -73,21 +73,6 @@ Impl::~Impl()
     m_manager->deleteLater();
 }
 
-void Impl::showAbout()
-{
-    QString descriptionText = tr("Remote Assistance is a remote controller, users can connect to computers between each other with it.");
-
-    DAboutDialog *about = new DAboutDialog(m_view);
-    about->setProductName(tr("Remote Assistance"));
-    about->setProductIcon(QPixmap(":/Resource/remote-assistance-96.png"));
-    about->setVersion(tr("Version: %1").arg(qApp->applicationVersion()));
-    about->setDescription(descriptionText);
-    about->setLicense(tr("Deepin Remote Assistance is released under GPL v3"));
-    about->setAcknowledgementLink("https://www.deepin.org/acknowledgments/deepin-remote-assistance");
-
-    about->show();
-}
-
 void Impl::initPanel()
 {
     qDebug() << "initPanel";

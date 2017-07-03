@@ -53,7 +53,6 @@ public:
 
 public slots:
         void debug();
-        void showAbout();
 
 public:
     QWidget *getPanel(ViewPanel);

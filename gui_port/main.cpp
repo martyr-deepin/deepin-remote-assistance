@@ -21,6 +21,10 @@ int main(int argv, char *args[])
     app.setApplicationVersion("1.0");
     app.setTheme("light");
 
+    app.setProductName(QApplication::translate("Impl", "Remote Assistance"));
+    app.setProductIcon(QPixmap(":/Resource/remote-assistance-96.png"));
+    app.setApplicationDescription(QApplication::translate("Impl", "Remote Assistance is a remote controller, users can connect to computers between each other with it."));
+
     DLogManager::registerConsoleAppender();
 
     if (!app.setSingleInstance("deepin-remote-assistance-ui")) {
