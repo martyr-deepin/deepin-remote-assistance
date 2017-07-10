@@ -20,6 +20,7 @@ int main(int argv, char *args[])
     app.setApplicationName("deepin-remote-assistance");
     app.setApplicationVersion("1.0");
     app.setTheme("light");
+    app.loadTranslator();
 
     app.setProductName(QApplication::translate("Impl", "Remote Assistance"));
     app.setProductIcon(QPixmap(":/Resource/remote-assistance-96.png"));
@@ -32,7 +33,6 @@ int main(int argv, char *args[])
         return 0;
     }
 
-    app.loadTranslator();
 
     RemoteAssistance ra;
     QObject::connect(&app, SIGNAL(aboutToQuit()), &ra, SIGNAL(aboutToQuit()));
