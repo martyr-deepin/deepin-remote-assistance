@@ -13,22 +13,17 @@
 #include <QObject>
 #include <QWidget>
 #include <QScopedPointer>
-#include <dwidget_global.h>
 #include "dbus/manager.h"
 
+#include <DMainWindow>
+#include <dstackwidget.h>
 
 QT_BEGIN_NAMESPACE
 class QFrame;
 class QProcess;
 QT_END_NAMESPACE
 
-DWIDGET_BEGIN_NAMESPACE
-class DStackWidget;
-class DMainWindow;
-DWIDGET_END_NAMESPACE
-
 class RemoteAssistance;
-
 
 enum ViewPanel
 {
@@ -36,8 +31,6 @@ enum ViewPanel
     Share,
     Access,
 };
-
-
 
 class Impl : public QObject
 {
@@ -59,8 +52,8 @@ public:
 
     RemoteAssistance *m_pub;
     com::deepin::daemon::Remoting::Manager *m_manager;
-    DTK_NAMESPACE::Widget::DMainWindow  *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
-    DTK_NAMESPACE::Widget::DStackWidget *m_stackWidget; // this is child of m_view.
+    DTK_WIDGET_NAMESPACE::DMainWindow  *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
+    DTK_WIDGET_NAMESPACE::DStackWidget *m_stackWidget; // this is child of m_view.
     QWidget *m_panel;
     ViewPanel m_viewType;
 

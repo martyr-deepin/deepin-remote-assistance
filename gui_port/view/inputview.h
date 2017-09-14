@@ -11,26 +11,38 @@
 #define INPUTVIEW_H
 
 #include <QString>
+#include <QMenu>
+#include <QLineEdit>
+#include <QContextMenuEvent>
 #include "abstractview.h"
 
-class QLineEdit;
 class QLabel;
 class QRegExpValidator;
 class TipLabel;
 
 #include <dbasebutton.h>
 
+class CustomisedLineEdit: public QLineEdit
+{
+    Q_OBJECT
+public:
+    explicit CustomisedLineEdit(const QString &string, QWidget *parent = Q_NULLPTR):
+        QLineEdit(string, parent){}
+
+    void contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
+};
+
 class InputView : public AbstractView
 {
     Q_OBJECT
 public:
-    enum{
+    enum {
         btnconnect,
         btncancel
     };
     InputView(QWidget *p = nullptr);
     void focus();
-    void setTips(const QString& tips);
+    void setTips(const QString &tips);
 
 signals:
     void cancel();
@@ -42,7 +54,7 @@ private slots:
 
 private:
     QWidget *createMainWidget() Q_DECL_OVERRIDE;
-    QLineEdit *m_tokenEdit;
+    CustomisedLineEdit *m_tokenEdit;
     TipLabel *m_tip;
     QRegExpValidator *m_validator;
     Dtk::Widget::DBaseButton *m_connectButton;

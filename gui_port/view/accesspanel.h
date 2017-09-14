@@ -12,8 +12,6 @@
 
 #include <QString>
 
-#include <dwidget_global.h>
-
 #include "abstractpanel.h"
 #include "../controller/access.h"
 

@@ -7,8 +7,8 @@
 
 #include "constants.h"
 
-using namespace Dtk::Widget;
-using namespace Dtk::Util;
+DCORE_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 int main(int argv, char *args[])
 {
@@ -32,7 +32,6 @@ int main(int argv, char *args[])
         qDebug() << "Another deepin-remote-assistance exist.";
         return 0;
     }
-
 
     RemoteAssistance ra;
     QObject::connect(&app, SIGNAL(aboutToQuit()), &ra, SIGNAL(aboutToQuit()));

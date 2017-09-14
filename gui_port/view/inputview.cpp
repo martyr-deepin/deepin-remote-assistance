@@ -17,14 +17,17 @@
 #include <QRegExpValidator>
 #include <QDebug>
 #include <QBitmap>
+#include <QClipboard>
+#include <QApplication>
 
 #include "widgets/tiplabel.h"
 
 #include "constants.h"
 #include "../helper.h"
 
-DWIDGET_USE_NAMESPACE
+#define ACCEL_KEY(k) QString()
 
+DWIDGET_USE_NAMESPACE
 
 static const QString TokenLineEditStyle = "QLineEdit#TokenLineEdit { "
         "background: white; "
@@ -78,7 +81,7 @@ QWidget *InputView::createMainWidget()
     layout->setSpacing(0);
     layout->setMargin(0);
 
-    m_tokenEdit = new QLineEdit;
+    m_tokenEdit = new CustomisedLineEdit("");
     m_tokenEdit->setMaxLength(6);
 
     m_tokenEdit->setAlignment(Qt::AlignCenter);
@@ -143,4 +146,40 @@ void InputView::focus()
 void InputView::setTips(const QString &tips)
 {
     m_tip->setText(tips);
+}
+
+void CustomisedLineEdit::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu *menu = new QMenu(this);
+    menu->setObjectName(QLatin1String("qt_edit_menu"));
+    QAction *action = 0;
+
+    if (!isReadOnly()) {
+        action = menu->addAction(QLineEdit::tr("Cu&t") + ACCEL_KEY(QKeySequence::Cut));
+        action->setEnabled(!this->isReadOnly() && this->hasSelectedText()
+                           && this->echoMode() == QLineEdit::Normal);
+        connect(action, SIGNAL(triggered()), SLOT(cut()));
+
+
+        action = menu->addAction(QLineEdit::tr("&Copy") + ACCEL_KEY(QKeySequence::Copy));
+        action->setEnabled(this->hasSelectedText()
+                           && this->echoMode() == QLineEdit::Normal);
+        connect(action, SIGNAL(triggered()), SLOT(copy()));
+    }
+
+    if (!isReadOnly()) {
+        action = menu->addAction(QLineEdit::tr("&Paste") + ACCEL_KEY(QKeySequence::Paste));
+        action->setEnabled(!this->isReadOnly() && !QApplication::clipboard()->text().isEmpty());
+        connect(action, SIGNAL(triggered()), SLOT(paste()));
+    }
+
+    if (!isReadOnly()) {
+        action = menu->addAction(QLineEdit::tr("Delete"));
+        action->setEnabled(!this->isReadOnly() && !this->text().isEmpty() && this->hasSelectedText());
+        connect(action, SIGNAL(triggered()), this, SLOT(clear()));
+    }
+
+    menu->exec(event->globalPos());
+    menu->deleteLater();
+    event->accept();
 }

@@ -4,8 +4,8 @@ Priority: extra
 Maintainer: Deepin Sysdev <sysdev@deepin.com>
 Standards-Version: 3.9.4
 Build-Depends: debhelper (>= 9), pkg-config,
- dh-python, python3-all, qt5-qmake, qt5-default, qtbase5-dev, libdtkbase-dev, libdtkutil-dev, libdtkwidget-dev,
- libqt5svg5-dev, libqt5x11extras5-dev, libqt5widgets5, libqt5dbus5, libxext-dev, qttools5-dev-tools, libdui-dev,
+ dh-python, python3-all, qt5-qmake, qt5-default, qtbase5-dev, libdtkwidget-dev,
+ libqt5svg5-dev, libqt5x11extras5-dev, libqt5widgets5, libqt5dbus5, libxext-dev, qttools5-dev-tools
 Homepage: http://www.deepin.com/
 
 Package: deepin-remote-assistance
