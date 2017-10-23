@@ -38,7 +38,7 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
     mainLayout->setMargin(0);
 
 
-    QSvgWidget *picon = new QSvgWidget(getThemeImage("logo.svg"));
+    QSvgWidget *picon = new QSvgWidget(":/resource/theme/images/deepin-remote-assistance.svg");
 
     picon->setContentsMargins(0, 0, 0, 0);
     picon->setFixedSize(64, 64);
@@ -55,13 +55,13 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
     mainLayout->addWidget(ptext, 0 , Qt::AlignCenter);
 
     DIconButton *button = nullptr;
-    button = new DIconButton(":/Resource/theme/light/hand_normal.svg",
-                             ":/Resource/theme/light/hand_hover.svg",
-                             ":/Resource/theme/light/hand_pressed.svg");
+    button = new DIconButton(":/resource/theme/images/hand_normal.svg",
+                             ":/resource/theme/images/hand_hover.svg",
+                             ":/resource/theme/images/hand_pressed.svg");
     button->setFixedSize(160, 36);
     button->setFocusPolicy(Qt::NoFocus);
 
-    QFile btTheme(":/Resource/theme/light/WhiteButton.theme");
+    QFile btTheme(":/resource/theme/light/WhiteButton.theme");
     btTheme.open(QIODevice::ReadOnly);
     QString btThemeStr = btTheme.readAll();
     btTheme.close();
@@ -73,9 +73,9 @@ MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p
 
     connect(button, SIGNAL(clicked()), this, SLOT(changeToSharePanel()));
 
-    button = new DIconButton(":/Resource/theme/light/heart_normal.svg",
-                             ":/Resource/theme/light/heart_hover.svg",
-                             ":/Resource/theme/light/heart_pressed.svg");
+    button = new DIconButton(":/resource/theme/images/heart_normal.svg",
+                             ":/resource/theme/images/heart_hover.svg",
+                             ":/resource/theme/images/heart_pressed.svg");
     button->setFixedSize(160, 36);
     button->setFocusPolicy(Qt::NoFocus);
     button->setText("  " + tr("Assist others"));

@@ -15,7 +15,8 @@ int main(int argv, char *args[])
     DApplication::loadDXcbPlugin();
 
     DApplication app(argv, args);
-
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps);
+    app.setAttribute(Qt::AA_EnableHighDpiScaling);
     app.setOrganizationName("deepin");
     app.setApplicationName("deepin-remote-assistance");
     app.setApplicationVersion("1.0");
@@ -23,7 +24,7 @@ int main(int argv, char *args[])
     app.loadTranslator();
 
     app.setProductName(QApplication::translate("Impl", "Remote Assistance"));
-    app.setProductIcon(QPixmap(":/Resource/remote-assistance-96.png"));
+    app.setProductIcon(QIcon(":/resource/theme/images/deepin-remote-assistance.svg"));
     app.setApplicationDescription(QApplication::translate("Impl", "Remote Assistance is a remote controller, users can connect to computers between each other with it."));
 
     DLogManager::registerConsoleAppender();

@@ -31,8 +31,6 @@ ConnectingView::ConnectingView(QWidget*p)
 {
     setObjectName("ConnectingView");
     initialize();
-
-
 }
 
 QWidget* ConnectingView::createMainWidget()
@@ -46,7 +44,9 @@ QWidget* ConnectingView::createMainWidget()
     // TODO: refactory to make this block one linear
     QLabel *movieLabel = new QLabel;
     movieLabel->setFixedSize(32,32);
-    QString path = ":/light/images/Spinner32/";
+
+    // FIXME: hidpi
+    QString path = ":/resource/theme/images/spinner/32/";
     DMovie *movie = new DMovie(movieLabel);
     movie->setMoviePath(path, movieLabel);
     movie->start();

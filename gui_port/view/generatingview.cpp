@@ -45,7 +45,8 @@ QWidget* GeneratingView::createMainWidget()
 
     QLabel *label = new QLabel;
     label->setFixedSize(32,32);
-    QString path = ":/light/images/Spinner32/";
+    // FIXME: hidpi
+    QString path = ":/resource/theme/images/spinner/32/";
     DMovie *movie = new DMovie(label);
     movie->setMoviePath(path, label);
     movie->start();

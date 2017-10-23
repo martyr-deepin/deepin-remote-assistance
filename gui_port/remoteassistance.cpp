@@ -53,7 +53,7 @@ Impl::Impl(RemoteAssistance *pub, com::deepin::daemon::Remoting::Manager *manage
 
     auto title =  m_view->titlebar();
     title->setTitle(tr("Remote Assistance"));
-    title->setIcon(QPixmap(":/Resource/remote-assistance.svg"));
+    title->setIcon(QIcon(":/resource/theme/images/deepin-remote-assistance.svg"));
 
     QSize frameSize(DRA::WindowWidth, DRA::WindowHeight);
     QSize contentSize(DRA::WindowWidth, DRA::WindowHeight - title->height());
@@ -143,7 +143,7 @@ void Impl::changeTitle(ViewPanel v)
     switch (v) {
     case ViewPanel::Main: {
         // MainPanel should be created only once.
-        m_view->titlebar()->setIcon(QPixmap(":/Resource/remote-assistance.svg"));
+        m_view->titlebar()->setIcon(QIcon(":/resource/theme/images/deepin-remote-assistance.svg"));
         m_view->titlebar()->setTitle(tr("Remote Assistance"));
         qDebug() << "height" << m_view->height();
         break;
@@ -152,14 +152,14 @@ void Impl::changeTitle(ViewPanel v)
     case ViewPanel::Access: {
         qDebug() << "create Access Panel";
         m_view->titlebar()->setTitle(tr("Assist others"));
-        m_view->titlebar()->setIcon(QPixmap(getThemeImage("assistant_heart.png")));
+        m_view->titlebar()->setIcon(QIcon(":/resource/theme/images/heart_normal.svg"));
         break;
 
     }
     case ViewPanel::Share: {
         qDebug() << "create Share Panel";
         m_view->titlebar()->setTitle(tr("Assist me"));
-        m_view->titlebar()->setIcon(QPixmap(getThemeImage("assistant_help.png")));
+        m_view->titlebar()->setIcon(QIcon(":/resource/theme/images/hand_normal.svg"));
         break;
     }
     }

@@ -67,7 +67,7 @@ void AccessPanel::onStopped()
 
 void AccessPanel::abort()
 {
-    qDebug()<< "AccessPanel::abort()";
+    qDebug() << "AccessPanel::abort()";
     onDisconnected();
 }
 
@@ -128,16 +128,10 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     button->setEnabled(false);
 
     // waiting the remoting window to be closed.
-    // NB: QTimer::singleShot not support lambda in Qt5.3.
-    auto timer = new QTimer(this); // FIXME: this timer may not needed now.
-    timer->setInterval(200);
-    timer->setSingleShot(true);
-    QObject::connect(timer, &QTimer::timeout, [ = ] {
+    QTimer::singleShot(200, [ = ]() {
         qDebug() << "enable retry button";
         button->setEnabled(true);
-        timer->deleteLater();
     });
-    timer->start();
     connect(button, &Dtk::Widget::DBaseButton::clicked, [this] {
         m_controller->retry();
     });

@@ -6,6 +6,9 @@
 #include <QEvent>
 
 #include <dthememanager.h>
+#include <DHiDPIHelper>
+
+DWIDGET_USE_NAMESPACE;
 
 DIconButton::DIconButton(QWidget *parent)
     : QPushButton(parent)
@@ -19,12 +22,15 @@ DIconButton::DIconButton(const QString &normalPic, const QString &hoverPic, cons
 {
 //    D_THEME_INIT_WIDGET(DIconButton);
 
-    if (!normalPic.isEmpty())
+    if (!normalPic.isEmpty()) {
         m_normalPic = normalPic;
-    if (!hoverPic.isEmpty())
+    }
+    if (!hoverPic.isEmpty()) {
         m_hoverPic = hoverPic;
-    if (!pressPic.isEmpty())
+    }
+    if (!pressPic.isEmpty()) {
         m_pressPic = pressPic;
+    }
 
     setCheckable(false);
 
@@ -32,19 +38,23 @@ DIconButton::DIconButton(const QString &normalPic, const QString &hoverPic, cons
 }
 
 DIconButton::DIconButton(const QString &normalPic, const QString &hoverPic,
-                           const QString &pressPic, const QString &checkedPic, QWidget *parent)
+                         const QString &pressPic, const QString &checkedPic, QWidget *parent)
     : QPushButton(parent)
 {
 //    D_THEME_INIT_WIDGET(DIconButton);
 
-    if (!normalPic.isEmpty())
+    if (!normalPic.isEmpty()) {
         m_normalPic = normalPic;
-    if (!hoverPic.isEmpty())
+    }
+    if (!hoverPic.isEmpty()) {
         m_hoverPic = hoverPic;
-    if (!pressPic.isEmpty())
+    }
+    if (!pressPic.isEmpty()) {
         m_pressPic = pressPic;
-    if (!checkedPic.isEmpty())
+    }
+    if (!checkedPic.isEmpty()) {
         m_checkedPic = checkedPic;
+    }
 
     setCheckable(true);
 
@@ -59,7 +69,7 @@ void DIconButton::enterEvent(QEvent *event)
 {
     setCursor(Qt::PointingHandCursor);
 
-    if (!m_isChecked){
+    if (!m_isChecked) {
         m_state = Hover;
         changeState();
     }
@@ -70,7 +80,7 @@ void DIconButton::enterEvent(QEvent *event)
 
 void DIconButton::leaveEvent(QEvent *event)
 {
-    if (!m_isChecked){
+    if (!m_isChecked) {
         m_state = Normal;
         changeState();
     }
@@ -95,9 +105,9 @@ void DIconButton::mouseReleaseEvent(QMouseEvent *event)
 
     emit clicked();
 
-    if (m_isCheckable){
+    if (m_isCheckable) {
         m_isChecked = !m_isChecked;
-        if (m_isChecked){
+        if (m_isChecked) {
             m_state = Checked;
         } else {
             m_state = Normal;
@@ -112,10 +122,14 @@ void DIconButton::mouseReleaseEvent(QMouseEvent *event)
 void DIconButton::changeState()
 {
     switch (m_state) {
-    case Hover:     if (!m_hoverPic.isEmpty()) setIcon(QPixmap(m_hoverPic));      break;
-    case Press:     if (!m_pressPic.isEmpty()) setIcon(QPixmap(m_pressPic));      break;
-    case Checked:   if (!m_checkedPic.isEmpty()) setIcon(QPixmap(m_checkedPic));  break;
-    default:        if (!m_normalPic.isEmpty()) setIcon(QPixmap(m_normalPic));    break;
+    case Hover:
+        if (!m_hoverPic.isEmpty()) { setIcon(DHiDPIHelper::loadNxPixmap(m_hoverPic)); }      break;
+    case Press:
+        if (!m_pressPic.isEmpty()) { setIcon(DHiDPIHelper::loadNxPixmap(m_pressPic)); }      break;
+    case Checked:
+        if (!m_checkedPic.isEmpty()) { setIcon(DHiDPIHelper::loadNxPixmap(m_checkedPic)); }  break;
+    default:
+        if (!m_normalPic.isEmpty()) { setIcon(DHiDPIHelper::loadNxPixmap(m_normalPic)); }    break;
     }
 
     emit stateChanged();
@@ -125,7 +139,7 @@ void DIconButton::setCheckable(bool flag)
 {
     m_isCheckable = flag;
 
-    if (!m_isCheckable){
+    if (!m_isCheckable) {
         m_state = Normal;
         changeState();
     }
@@ -133,12 +147,12 @@ void DIconButton::setCheckable(bool flag)
 
 void DIconButton::setChecked(bool flag)
 {
-    if (m_isCheckable == false){
+    if (m_isCheckable == false) {
         return;
     }
 
     m_isChecked = flag;
-    if (m_isChecked){
+    if (m_isChecked) {
         m_state = Checked;
     } else {
         m_state = Normal;

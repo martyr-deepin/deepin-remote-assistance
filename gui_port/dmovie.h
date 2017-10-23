@@ -41,7 +41,6 @@ private:
     QLabel *m_label;
     int m_i;
     int m_imageListSize;
-    QPixmap m_pixmap;
     QString m_aniFilePath;
     int m_picCount;
     int m_tmpCount;

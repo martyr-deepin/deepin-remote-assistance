@@ -7,7 +7,8 @@ PKGCONFIG      += dtkwidget
 
 DEFINES += QT_MESSAGELOGCONTEXT
 
-HEADERS         = constants.h \
+HEADERS = \
+    constants.h \
     controller/access.h \
     controller/share.h \
     interface.h \
@@ -33,7 +34,8 @@ HEADERS         = constants.h \
     widgets/infolabel.h \
     widgets/diconbutton.h
 
-SOURCES         = main.cpp \
+SOURCES = \
+    main.cpp \
     controller/share.cpp \
     controller/access.cpp \
     dbus/client.cpp \
@@ -58,18 +60,7 @@ SOURCES         = main.cpp \
     widgets/infolabel.cpp \
     widgets/diconbutton.cpp
 
-TARGET          = deepin-remote-assistance
-DESTDIR         = .
-DISTFILES += light/button.theme \
-    light/generatingview.theme \
-    light/connectedview.theme \
-    light/inputview.theme \
-    light/generatedview.theme \
-    light/errorview.theme \
-    light/connectingview.theme \
-    deepin-remote-assistance.desktop \
-    TODO \
-    light/WhiteButton.theme
+TARGET = deepin-remote-assistance
 
 #Automating generation .qm files from .ts files
 system($$PWD/translate_generation.sh)
@@ -79,7 +70,5 @@ TRANSLATIONS = translations/deepin-remote-assistance.ts
 qm_files.files = translations/*.qm
 qm_files.path = /usr/share/deepin-remote-assistance/translations
 
-
 RESOURCES += \
-    theme.qrc \
-    Resource.qrc
+    resource.qrc
