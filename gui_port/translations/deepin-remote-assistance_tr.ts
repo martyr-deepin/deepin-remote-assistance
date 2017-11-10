@@ -14,7 +14,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>Ağ bağlantısı kullanılamıyor, lütfen tekrar deneyin...</translation>
+        <translation>Ağ bağlantısı kullanılamıyor, lütfen tekrar deneyiniz...</translation>
     </message>
 </context>
 <context>
@@ -27,12 +27,12 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation>Uzaktan yardım ediliyor</translation>
+        <translation>Uzaktan yardım</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Geçersiz doğrulama kodu, lütfen yeniden yazın!</translation>
+        <translation>Geçersiz doğrulama kodu, lütfen yeniden yazınız!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -42,12 +42,12 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>Bağlantı kurulamadı, lütfen tekrar deneyin</translation>
+        <translation>Bağlantı kurulamadı, lütfen tekrar deneyiniz</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation>İptal Et</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="126"/>
@@ -96,7 +96,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation>Lütfen yukarıdaki doğrulama kodunu yardım sağlayıcısına bildirin</translation>
+        <translation>Lütfen yukarıdaki doğrulama kodunu yardım sağlayıcısına bildiriniz</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>Doğrulama kodu oluşturuluyor, lütfen bekleyin...</translation>
+        <translation>Doğrulama kodu oluşturuluyor, lütfen bekleyiniz...</translation>
     </message>
 </context>
 <context>
@@ -154,7 +154,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation>Deepin  Uzaktan Yardım GPLv3 altında yayımlandı.</translation>
+        <translation>Deepin  Uzaktan Yardım GPL v3 altında yayımlandı.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="216"/>
@@ -178,7 +178,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Geçersiz doğrulama kodu, lütfen yeniden yazın!</translation>
+        <translation>Geçersiz doğrulama kodu, lütfen yeniden yazınız!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -189,7 +189,7 @@
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Uzaktan erişimi başlatmak için doğrulama kodunu girin ve &quot;Bağlanın&quot;</translation>
+        <translation>Uzaktan erişimi başlatmak için doğrulama kodunu giriniz ve &quot;Bağlanın&quot;</translation>
     </message>
 </context>
 <context>

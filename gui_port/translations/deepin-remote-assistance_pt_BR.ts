@@ -14,7 +14,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation>Conexão indisponível, por favor, tente novamente...</translation>
+        <translation>Conexão indisponível, tente novamente...</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Verificação  de código inválida, por favor, digite novamente!</translation>
+        <translation>Verificação de código inválida, digite novamente!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation>Falha ao estabelecer conexão, por favor, tente novamente</translation>
+        <translation>Falha ao estabelecer conexão, tente novamente</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../view/connectingview.cpp" line="60"/>
         <source>Establishing connection, please wait...</source>
-        <translation>Estabelecendo a conexão, por favor aguarde...</translation>
+        <translation>Estabelecendo a conexão, aguarde...</translation>
     </message>
     <message>
         <location filename="../view/connectingview.cpp" line="64"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation>Gerando código de verificação, por favor aguarde...</translation>
+        <translation>Gerando código de verificação, aguarde...</translation>
     </message>
 </context>
 <context>
@@ -178,7 +178,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation>Verificação  de código inválida, por favor, digite novamente! </translation>
+        <translation>Verificação  de código inválida, digite novamente! </translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -197,7 +197,7 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Bem-vindo à assistência remota, os usuários podem corrigir problemas do computador entre si.</translation>
+        <translation>Bem-vindo à assistência remota, os usuários podem corrigir problemas dos computadores entre si.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>

@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>Az asztal megosztása</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>kérem adja meg azonosító kódot a távoli segítségnyújtáshoz</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>

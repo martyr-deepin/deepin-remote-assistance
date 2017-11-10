@@ -96,7 +96,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation>por favor forneça o código de verificação acima para ajudar o seu assistente</translation>
+        <translation>por favor forneça o código de verificação acima ao seu fornecedor de suporte</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>

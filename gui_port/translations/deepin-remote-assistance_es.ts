@@ -96,7 +96,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation>Proporcione el código de verificación o pida ayuda a su provedor</translation>
+        <translation>Proporcione el código de verificación a su proveedor de ayuda</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
@@ -189,7 +189,7 @@
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation>Introduce el código de verificación y haz click en &quot;Conectar&quot; para iniciar el acceso remoto</translation>
+        <translation>Introduce el código de verificación y haz clic en «Conectar» para iniciar el acceso remoto</translation>
     </message>
 </context>
 <context>

@@ -6,12 +6,13 @@
 # 凡凡不想平凡 <freddy4212@gmail.com>, 2016
 # 凡凡不想平凡 <freddy4212@gmail.com>, 2017
 # 凡凡不想平凡 <freddy4212@gmail.com>, 2017
+# 凡凡不想平凡 <freddy4212@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2017-05-23 17:01+0000\n"
+"PO-Revision-Date: 2017-10-09 12:28+0000\n"
 "Last-Translator: 凡凡不想平凡 <freddy4212@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +23,7 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "遠端協助中斷！"
+msgstr "遠端協助服務中斷！"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22

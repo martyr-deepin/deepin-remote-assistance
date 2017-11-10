@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Paulo Henrique de Sousa <simbios.devs@gmail.com>, 2016
+# Raphael Miquelis <raphaelmiquelis@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2017-03-23 21:37+0000\n"
+"PO-Revision-Date: 2017-09-23 22:26+0000\n"
 "Last-Translator: Raphael Miquelis <raphaelmiquelis@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +26,7 @@ msgstr "Serviço remoto encerrado!"
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
 msgid "Remote Assistance"
-msgstr "Assistência Remota"
+msgstr "Assistência remota"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30
@@ -54,7 +55,7 @@ msgstr "Falha ao obter o código de acesso!"
 
 #: ../dra_server/views/ConfirmWindow.qml:81
 msgid "Are you sure to close remote desktop connection?"
-msgstr "Tem certeza que deseja fechar a conexão da área de trabalho remota?"
+msgstr "Deseja encerrar a conexão da área de trabalho remota?"
 
 #: ../dra_server/views/ConfirmWindow.qml:94
 msgid "Cancel"
