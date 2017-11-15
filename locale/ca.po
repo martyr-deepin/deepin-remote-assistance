@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2017-09-22 22:41+0000\n"
+"PO-Revision-Date: 2017-11-15 17:41+0000\n"
 "Last-Translator: jordi222 <jjuvilla@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr ""
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
-msgstr ""
+msgstr "Pantalla completa"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"

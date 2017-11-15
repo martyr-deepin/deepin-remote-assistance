@@ -144,7 +144,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation>La Asistencia Remota es un control remoto que posibilita a los usuarios conectarse a sus ordenadores entre sí.</translation>
+        <translation>La Asistencia Remota es un control remoto que posibilita a los usuarios conectarse a sus equipos entre sí.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
@@ -197,7 +197,7 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation>Bienvenido a la Asistencia Remota. Con esta aplicación, los usuarios pueden solucionarse los problemas de ordenador entre ellos mismos.</translation>
+        <translation>Bienvenido a la Asistencia Remota. Con esta aplicación, los usuarios pueden solucionar los problemas del equipo entre ellos.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>

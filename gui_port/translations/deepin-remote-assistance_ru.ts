@@ -9,7 +9,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation>Соединение не удалось</translation>
+        <translation>Соединить не удалось</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation>Соединение не удалось</translation>
+        <translation>Соединить не удалось</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
