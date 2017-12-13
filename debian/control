@@ -1,17 +1,17 @@
 Source: deepin-remote-assistance
 Section: misc
 Priority: extra
-Maintainer: Deepin Sysdev <sysdev@deepin.com>
-Standards-Version: 3.9.4
+Maintainer: Deepin Packages Builder <packages@deepin.com>
+Standards-Version: 3.9.8
 Build-Depends: debhelper (>= 9), pkg-config,
- dh-python, python3-all, qt5-qmake, qt5-default, qtbase5-dev, libdtkwidget-dev,
+ dh-python, python3-all, qt5-qmake, qtbase5-dev, libdtkwidget-dev,
  libqt5svg5-dev, libqt5x11extras5-dev, libqt5widgets5, libqt5dbus5, libxext-dev, qttools5-dev-tools
-Homepage: http://www.deepin.com/
+Homepage: http://www.deepin.org/
 
 Package: deepin-remote-assistance
 Section: misc
 Architecture: any
-Depends: ${misc:Depends},
+Depends: ${misc:Depends}, ${shlibs:Depends},
          ${python3:Depends},
          dra-chromium,
          liboxideqt-qmlplugin,
@@ -23,4 +23,5 @@ Depends: ${misc:Depends},
          python3-xlib,
          qml-module-qtquick-controls,
          qml-module-qtquick-dialogs,
-Description: Deepin Remote Assistance
+Description: Deepin Remote Assistance tool
+ A tool for deepin remote assistance.
