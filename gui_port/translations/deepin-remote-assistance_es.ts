@@ -86,7 +86,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="78"/>
         <source>Copy</source>
-        <translation>Copiar</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>

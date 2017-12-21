@@ -47,7 +47,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>İptal Et</translation>
+        <translation>İptal et</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="126"/>

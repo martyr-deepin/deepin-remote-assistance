@@ -22,17 +22,17 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>Допоможи мені</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation type="unfinished"/>
+        <translation>Віддалена допомога</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Невірний код підтвердження, будь-ласка, введіть знову!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося встановити з&apos;єднання, повторіть спробу</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation type="unfinished"/>
+        <translation>Продовжити доступ або від&apos;єднати</translation>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
@@ -91,17 +91,17 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>Демонстрація стільниці</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>будь-ласка, надішліть вказаний вище код підтвердження до свого постачальника послуг</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
         <source>Copied to clipboard successfully</source>
-        <translation>Успішно скопійовано до буферу обміну даними</translation>
+        <translation>Скопійовано до буферу обміну</translation>
     </message>
 </context>
 <context>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation type="unfinished"/>
+        <translation>Створення коду підтвердження, будь ласка, зачекайте...</translation>
     </message>
 </context>
 <context>
@@ -144,7 +144,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"/>
+        <translation>Віддалена допомога - це пульт дистанційного керування, з яким користувачі можуть підключатись до комп&apos;ютера.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
@@ -154,17 +154,17 @@
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Remote Assistance випущений під GPL v3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
-        <translation type="unfinished"/>
+        <translation>Допоможіть іншим</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>Допоможи мені</translation>
     </message>
 </context>
 <context>
@@ -178,7 +178,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Невірний код підтвердження, будь-ласка, введіть знову!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -189,7 +189,7 @@
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation type="unfinished"/>
+        <translation>Введіть код перевірки та &quot;Підключіть&quot;, щоб запустити віддалений доступ</translation>
     </message>
 </context>
 <context>
@@ -197,17 +197,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation type="unfinished"/>
+        <translation>Ласкаво просимо до віддаленої допомоги, користувачі можуть вирішити проблеми комп&apos;ютера між собою.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>Допоможи мені</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
-        <translation type="unfinished"/>
+        <translation>Допоможіть іншим</translation>
     </message>
 </context>
 <context>
@@ -215,7 +215,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation type="unfinished"/>
+        <translation>Віддалена допомога</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося отримати код підтвердження!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>

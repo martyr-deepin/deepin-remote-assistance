@@ -4,13 +4,14 @@
 # 
 # Translators:
 # jordi222 <jjuvilla@gmail.com>, 2016
+# Davidmp <medipas@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2017-11-15 17:41+0000\n"
-"Last-Translator: jordi222 <jjuvilla@gmail.com>\n"
+"PO-Revision-Date: 2017-12-19 16:55+0000\n"
+"Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,12 +21,12 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "El servei remot a acabat"
+msgstr "El servei remot s'ha acabat!"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
 msgid "Remote Assistance"
-msgstr "Assistencia remota"
+msgstr "Assistència remota"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30
@@ -34,15 +35,15 @@ msgstr "Preferències"
 
 #: ../dra_client/views/preferencesmenu.py:52
 msgid "Balance"
-msgstr ""
+msgstr "Balanç"
 
 #: ../dra_client/views/preferencesmenu.py:58
 msgid "Optimize Speed"
-msgstr ""
+msgstr "Optimitza la velocitat"
 
 #: ../dra_client/views/preferencesmenu.py:63
 msgid "Optimize Quality"
-msgstr ""
+msgstr "Optimitza la qualitat"
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
@@ -50,11 +51,11 @@ msgstr "Pantalla completa"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"
-msgstr ""
+msgstr "Ha fallat obtenir el codi d'accés!"
 
 #: ../dra_server/views/ConfirmWindow.qml:81
 msgid "Are you sure to close remote desktop connection?"
-msgstr ""
+msgstr "Segur que voleu tancar la connexió d'escriptori remot?"
 
 #: ../dra_server/views/ConfirmWindow.qml:94
 msgid "Cancel"
@@ -62,8 +63,8 @@ msgstr "Cancel·la"
 
 #: ../dra_server/views/ConfirmWindow.qml:107
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr "Confirma"
 
 #: ../dra_server/views/DisconnectWindow.qml:141
 msgid "Disconnect"
-msgstr "Desconecta"
+msgstr "Desconnecta"

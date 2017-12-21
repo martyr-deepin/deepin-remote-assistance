@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>የ እርስዎን ዴስክቶፕ ለ ማካፈል</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን ከ ላይ ያለውን ማረጋገጫ ኮድ ያቅርቡ: እርስዎን ለሚረዳዎት ሰው</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>

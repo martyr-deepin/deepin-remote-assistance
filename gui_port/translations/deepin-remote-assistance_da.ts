@@ -139,7 +139,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation>Forlad</translation>
+        <translation>Afslut</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
