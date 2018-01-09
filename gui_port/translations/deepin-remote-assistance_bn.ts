@@ -4,7 +4,7 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="71"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>নিশ্চিত করুন</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
@@ -139,7 +139,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>বের হয়ে যান</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>

@@ -45,7 +45,7 @@ msgstr ""
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
-msgstr ""
+msgstr "সম্পূর্ণ পর্দা"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"
@@ -61,7 +61,7 @@ msgstr "বাতিল"
 
 #: ../dra_server/views/ConfirmWindow.qml:107
 msgid "Confirm"
-msgstr ""
+msgstr "নিশ্চিত করুন"
 
 #: ../dra_server/views/DisconnectWindow.qml:141
 msgid "Disconnect"

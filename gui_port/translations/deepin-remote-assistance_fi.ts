@@ -9,12 +9,12 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>Yhteys epäonnistui</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation type="unfinished"/>
+        <translation>Verkkoyhteyttä ei saatavilla, ole hyvä ja yritä uudelleen...</translation>
     </message>
 </context>
 <context>
@@ -22,27 +22,27 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>Avusta minua</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation type="unfinished"/>
+        <translation>Etäisesti avustaminen</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen vahvistuskoodi, ole hyvä ja kirjoita se uudelleen!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>Yhteys epäonnistui</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>Yhteyden muodostaminen epäonnistui, ole hyvä ja yritä uudelleen</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="126"/>
         <source>Retry</source>
-        <translation>Yritä uudestaan</translation>
+        <translation>Yritä uudelleen</translation>
     </message>
 </context>
 <context>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation type="unfinished"/>
+        <translation>Jatka käyttöä tai katkaise yhteys</translation>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>Jakaaksesi työpöytäsi</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>ole hyvä ja anna yllä mainittu vahvistuskoodi avustajallesi</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation type="unfinished"/>
+        <translation>Varmistuskoodia luodaan parhaillaan, ole hyvä ja odota...</translation>
     </message>
 </context>
 <context>
@@ -124,7 +124,7 @@
         <location filename="../remoteassistance.cpp" line="95"/>
         <location filename="../remoteassistance.cpp" line="208"/>
         <source>Remote Assistance</source>
-        <translation>Kauko-ohjaintuki</translation>
+        <translation>Etätuki</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="58"/>
@@ -144,27 +144,27 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"/>
+        <translation>Remote Assistance on kauko-ohjain, jolla käyttäjät voivat muodostaa yhteyden tietokoneiden välillä keskenään.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>Versio: %1</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Remote Assistance julkaistaan GPL v3:n alla</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
-        <translation type="unfinished"/>
+        <translation>Avusta muita</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>Avusta minua</translation>
     </message>
 </context>
 <context>
@@ -178,7 +178,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen vahvistuskoodi, ole hyvä ja kirjoita se uudelleen!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -189,7 +189,7 @@
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation type="unfinished"/>
+        <translation>Anna vahvistuskoodi ja &quot;Yhdistä&quot; aloittaaksesi etäyhteyden</translation>
     </message>
 </context>
 <context>
@@ -197,17 +197,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation type="unfinished"/>
+        <translation>Tervetuloa etätukeen! Etätuella käyttäjät voivat korjata tietokoneongelmia toistensa välillä.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>Avusta minua</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
-        <translation type="unfinished"/>
+        <translation>Avusta muita</translation>
     </message>
 </context>
 <context>
@@ -215,22 +215,22 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation type="unfinished"/>
+        <translation>Etäisesti avustaminen</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>Yhteys epäonnistui</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation type="unfinished"/>
+        <translation>Vahvistuskoodin saaminen epäonnistui!</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>
         <source>Retry</source>
-        <translation>Yritä uudestaan</translation>
+        <translation>Yritä uudelleen</translation>
     </message>
 </context>
 </TS>
