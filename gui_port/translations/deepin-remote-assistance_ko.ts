@@ -9,12 +9,12 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>연결 실패</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 이용할 수 없습니다.  다시 시도하시기 바랍니다</translation>
     </message>
 </context>
 <context>
@@ -32,17 +32,17 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>유효하지 않은 인증코드입니다. 다시 입력하기 바랍니다.</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>연결 실패</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>연결에 실패하였습니다, 다시 시도해주십시오</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -91,7 +91,7 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>바탕화면을 공유하기 </translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation type="unfinished"/>
+        <translation>인증 코드를 형성하고 있습니다, 기다려 주십시오...</translation>
     </message>
 </context>
 <context>
@@ -178,7 +178,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>유효하지 않은 인증코드입니다. 다시 입력하기 바랍니다.</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -220,7 +220,7 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>연결 실패</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>

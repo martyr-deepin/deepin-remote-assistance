@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Adem Çalışkan <ademcal@yahoo.com>, 2017
+# meda <ademcal@yahoo.com>, 2017
+# Kaya Zeren <kayazeren@gmail.com>, 2018
 # Mesut Yeter <mesut.yeter@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2018-02-09 14:08+0000\n"
-"Last-Translator: Adem Çalışkan <ademcal@yahoo.com>\n"
+"PO-Revision-Date: 2018-04-16 02:18+0000\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgstr "Uzaktan Yardım"
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30
 msgid "Preferences"
-msgstr "Tercihler"
+msgstr "Ayarlar"
 
 #: ../dra_client/views/preferencesmenu.py:52
 msgid "Balance"
@@ -39,15 +40,15 @@ msgstr "Denge"
 
 #: ../dra_client/views/preferencesmenu.py:58
 msgid "Optimize Speed"
-msgstr "Hızı En İyileştir"
+msgstr "En İyi Hız"
 
 #: ../dra_client/views/preferencesmenu.py:63
 msgid "Optimize Quality"
-msgstr "Kaliteyi En İyileştir"
+msgstr "En İyi Kalite"
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
-msgstr "Tam ekran"
+msgstr "Tam Ekran"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"
@@ -55,11 +56,11 @@ msgstr "Erişim kodu alınamadı!"
 
 #: ../dra_server/views/ConfirmWindow.qml:81
 msgid "Are you sure to close remote desktop connection?"
-msgstr "Uzaktan masaüstü bağlantısını kapatmak istediğinizden emin misiniz?"
+msgstr "Uzak masaüstü bağlantısını kapatmak istediğinize emin misiniz?"
 
 #: ../dra_server/views/ConfirmWindow.qml:94
 msgid "Cancel"
-msgstr "İptal et"
+msgstr "İptal"
 
 #: ../dra_server/views/ConfirmWindow.qml:107
 msgid "Confirm"
@@ -67,4 +68,4 @@ msgstr "Onayla"
 
 #: ../dra_server/views/DisconnectWindow.qml:141
 msgid "Disconnect"
-msgstr "Bağlantıyı kes"
+msgstr "Bağlantıyı Kes"

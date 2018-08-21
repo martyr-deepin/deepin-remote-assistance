@@ -9,12 +9,12 @@
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>اتصال ناموفق</translation>
     </message>
     <message>
         <location filename="../view/abstractpanel.cpp" line="77"/>
         <source>Network connection unavailable, please retry...</source>
-        <translation type="unfinished"/>
+        <translation>اتصال شبکه موجود نمیباشد، دوباره سعی کنید</translation>
     </message>
 </context>
 <context>
@@ -22,27 +22,27 @@
     <message>
         <location filename="../view/accesspanel.cpp" line="27"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>به من کمک کن</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="92"/>
         <source>Remotely assisting</source>
-        <translation type="unfinished"/>
+        <translation>در حال همیاری از راه دور</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="112"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>کد شناسایی اعتبار ندارد، دوباره تایپ کنید!</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>اتصال ناموفق</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="117"/>
         <source>Failed to establish connection, please retry</source>
-        <translation type="unfinished"/>
+        <translation>ناتوان در ایجاد اتصال ، دوباره سعی کنید</translation>
     </message>
     <message>
         <location filename="../view/accesspanel.cpp" line="119"/>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../view/connectedview.cpp" line="50"/>
         <source>Continue to access or disconnect</source>
-        <translation type="unfinished"/>
+        <translation>ادامه دسترسی و یا قطع ارتباط</translation>
     </message>
     <message>
         <location filename="../view/connectedview.cpp" line="54"/>
@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>به اشتراک گذاری میز کار</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>لطفاً کد شناسایی بالا را به کمک رسان خود ارائه دهید</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../view/generatingview.cpp" line="60"/>
         <source>Generating verification code, please wait... </source>
-        <translation type="unfinished"/>
+        <translation>در حال ساخت کد شناسایی لطفا منتظر بمانید...</translation>
     </message>
 </context>
 <context>
@@ -144,27 +144,27 @@
     <message>
         <location filename="../remoteassistance.cpp" line="92"/>
         <source>Remote Assistance is a remote controller, users can connect to computers between each other with it.</source>
-        <translation type="unfinished"/>
+        <translation>کمک رسان از راه دور یک کنترلر از راه دور میباشد. با این وسیله کاربران میتوانند به رایانه یکدیگر متصل شوند.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>نسخه: %1</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>کمک از راه دور دپین توسعه یافته بر اساس GPL نسخه 3</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="216"/>
         <source>Assist others</source>
-        <translation type="unfinished"/>
+        <translation>کمک به دیگران</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="223"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>به من کمک کن</translation>
     </message>
 </context>
 <context>
@@ -178,7 +178,7 @@
     <message>
         <location filename="../view/inputview.cpp" line="108"/>
         <source>Invalid verification code, please retype!</source>
-        <translation type="unfinished"/>
+        <translation>کد شناسایی اعتبار ندارد، دوباره تایپ کنید!</translation>
     </message>
     <message>
         <location filename="../view/inputview.cpp" line="114"/>
@@ -189,7 +189,7 @@
         <location filename="../view/inputview.cpp" line="110"/>
         <location filename="../view/inputview.cpp" line="125"/>
         <source>Input verification code and &quot;Connect&quot; to start remote access</source>
-        <translation type="unfinished"/>
+        <translation>کد شناسایی را وارد کرده و سپس &quot;اتصال&quot; را برای برقراری دسترسی از راه دور فشار دهید</translation>
     </message>
 </context>
 <context>
@@ -197,17 +197,17 @@
     <message>
         <location filename="../view/mainpanel.cpp" line="50"/>
         <source>Welcome to Remote Assistance, users can fix computer issues between each other with it.</source>
-        <translation type="unfinished"/>
+        <translation>به کمک رسان از راه دور خوش آمدید. با این وسیله کاربران میتوانند رایانه یکدیگر را تعمیر کنند.</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="69"/>
         <source>Assist me</source>
-        <translation type="unfinished"/>
+        <translation>به من کمک کن</translation>
     </message>
     <message>
         <location filename="../view/mainpanel.cpp" line="81"/>
         <source>Assist others</source>
-        <translation type="unfinished"/>
+        <translation>کمک به دیگران</translation>
     </message>
 </context>
 <context>
@@ -215,17 +215,17 @@
     <message>
         <location filename="../view/sharepanel.cpp" line="83"/>
         <source>Remotely assisting</source>
-        <translation type="unfinished"/>
+        <translation>در حال همیاری از راه دور</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Connect failed</source>
-        <translation type="unfinished"/>
+        <translation>اتصال ناموفق</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="122"/>
         <source>Failed to obtain verification code! </source>
-        <translation type="unfinished"/>
+        <translation>عدم توانایی در بدست آوردن کد شناسایی</translation>
     </message>
     <message>
         <location filename="../view/sharepanel.cpp" line="114"/>

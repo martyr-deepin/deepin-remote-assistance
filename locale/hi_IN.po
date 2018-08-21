@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Aravindh Chukka <aravindh969@gmail.com>, 2017
+# Panwar108 <caspian7pena@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2017-09-22 22:41+0000\n"
-"Last-Translator: Aravindh Chukka <aravindh969@gmail.com>\n"
+"PO-Revision-Date: 2018-10-12 05:13+0000\n"
+"Last-Translator: Panwar108 <caspian7pena@gmail.com>\n"
 "Language-Team: Hindi (India) (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr "दूरस्थ सेवा समाप्त!"
+msgstr "दूरस्थ सेवा समाप्त !"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
@@ -30,7 +31,7 @@ msgstr "दूरस्थ सहायता"
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30
 msgid "Preferences"
-msgstr "पसंद"
+msgstr "प्राथमिकताएँ"
 
 #: ../dra_client/views/preferencesmenu.py:52
 msgid "Balance"
@@ -38,32 +39,32 @@ msgstr "संतुलन"
 
 #: ../dra_client/views/preferencesmenu.py:58
 msgid "Optimize Speed"
-msgstr "गति का अनुकूलन"
+msgstr "गति अनुकूलित करें"
 
 #: ../dra_client/views/preferencesmenu.py:63
 msgid "Optimize Quality"
-msgstr "गुणवत्ता का अनुकूलन"
+msgstr "गुणवत्ता अनुकूलित करें"
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
-msgstr "पूर्ण पटल"
+msgstr "पूर्ण स्क्रीन"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"
-msgstr "उपयोग कोड प्राप्त करने में विफल!"
+msgstr "अभिगम कोड प्राप्त करने में विफल !"
 
 #: ../dra_server/views/ConfirmWindow.qml:81
 msgid "Are you sure to close remote desktop connection?"
-msgstr "आप दूरस्थ डेस्कटॉप कनेक्शन बंद करने के लिए सुनिश्चित कर रहे हैं?"
+msgstr "क्या आप दूरस्थ डेस्कटॉप कनेक्शन बंद करना चाहते हैं?"
 
 #: ../dra_server/views/ConfirmWindow.qml:94
 msgid "Cancel"
-msgstr "रद्द करो"
+msgstr "रद्द करें"
 
 #: ../dra_server/views/ConfirmWindow.qml:107
 msgid "Confirm"
-msgstr "पुष्टि"
+msgstr "पुष्टि करें "
 
 #: ../dra_server/views/DisconnectWindow.qml:141
 msgid "Disconnect"
-msgstr "बंद हुआ"
+msgstr "डिस्कनेक्ट करें"

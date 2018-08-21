@@ -134,7 +134,7 @@
     <message>
         <location filename="../remoteassistance.cpp" line="61"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="64"/>

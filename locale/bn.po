@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Md. Emruz Hossain <hossainemruz@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 15:01+0800\n"
-"PO-Revision-Date: 2016-04-19 01:59+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2018-08-11 06:01+0000\n"
+"Last-Translator: Md. Emruz Hossain <hossainemruz@gmail.com>\n"
 "Language-Team: Bengali (http://www.transifex.com/linuxdeepin/deepin-desktop-environment/language/bn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,29 +20,29 @@ msgstr ""
 
 #: ../dra_client/service/client_dbus.py:129 ../dra_server/server_dbus.py:192
 msgid "Remoting service terminated!"
-msgstr ""
+msgstr "দূর নিয়ন্ত্রণ পরিষেবা বাতিল করা হয়েছে!"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:32
 #: ../dra_client/views/NormalTitleBar.qml:22
 msgid "Remote Assistance"
-msgstr ""
+msgstr "দূরবর্তী সহায়ক"
 
 #: ../dra_client/views/FullscreenTitleBar.qml:40
 #: ../dra_client/views/NormalTitleBar.qml:30
 msgid "Preferences"
-msgstr "পছন্দ"
+msgstr "পছন্দসমূহ"
 
 #: ../dra_client/views/preferencesmenu.py:52
 msgid "Balance"
-msgstr ""
+msgstr "ভারসাম্য"
 
 #: ../dra_client/views/preferencesmenu.py:58
 msgid "Optimize Speed"
-msgstr ""
+msgstr "গতি আরও উন্নত করুন"
 
 #: ../dra_client/views/preferencesmenu.py:63
 msgid "Optimize Quality"
-msgstr ""
+msgstr "গুণমান আরও উন্নত করুন"
 
 #: ../dra_client/views/preferencesmenu.py:68
 msgid "Fullscreen"
@@ -49,15 +50,15 @@ msgstr "সম্পূর্ণ পর্দা"
 
 #: ../dra_server/server_dbus.py:176
 msgid "Failed to get access code!"
-msgstr ""
+msgstr "প্রবেশ কোড পেতে ব্যর্থ!"
 
 #: ../dra_server/views/ConfirmWindow.qml:81
 msgid "Are you sure to close remote desktop connection?"
-msgstr ""
+msgstr "আপনি কি দূরবর্তী ডেস্কটপ সংযোগ বন্ধ করার ব্যাপারে নিশ্চিত?"
 
 #: ../dra_server/views/ConfirmWindow.qml:94
 msgid "Cancel"
-msgstr "বাতিল"
+msgstr "বাতিল করুন"
 
 #: ../dra_server/views/ConfirmWindow.qml:107
 msgid "Confirm"
@@ -65,4 +66,4 @@ msgstr "নিশ্চিত করুন"
 
 #: ../dra_server/views/DisconnectWindow.qml:141
 msgid "Disconnect"
-msgstr ""
+msgstr "সংযোগ বিচ্ছিন্ন করুন"

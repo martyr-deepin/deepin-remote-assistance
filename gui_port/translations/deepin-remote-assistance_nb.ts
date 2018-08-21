@@ -91,12 +91,12 @@
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>To share your desktop</source>
-        <translation type="unfinished"/>
+        <translation>For å dele skrivebordet ditt</translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="105"/>
         <source>please provide the above verification code to your help provider</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst oppgi verifikasjonskoden for å hjelpe partner. </translation>
     </message>
     <message>
         <location filename="../view/generatedview.cpp" line="58"/>
@@ -149,12 +149,12 @@
     <message>
         <location filename="../remoteassistance.cpp" line="97"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>Versjon: %1</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="99"/>
         <source>Deepin Remote Assistance is released under GPL v3</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Store er fri programvare lisensiert under GNU GPL v3.</translation>
     </message>
     <message>
         <location filename="../remoteassistance.cpp" line="216"/>
